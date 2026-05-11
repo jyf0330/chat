@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>情感模拟器</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="phone" aria-label="情感模拟器">
+        <section id="chatScreen" class="screen chat-screen active" aria-label="聊天主界面">
+          <header class="chat-header">
+            <div class="contact">
+              <span class="avatar">对</span>
+              <div>
+                <strong>情感模拟器</strong>
+                <span id="statusText">等待输入</span>
+              </div>
+            </div>
+            <div class="header-actions">
+              <button id="historyButton" class="icon-button" type="button" aria-label="历史">历史</button>
+              <button id="settingsButton" class="icon-button" type="button" aria-label="设置">设置</button>
+            </div>
+            <button id="scoreBadge" class="score-badge" type="button">总分 0</button>
+          </header>
+
+          <div class="context-bar">
+            <span id="stageTag">阶段</span>
+            <span id="emotionTag">情绪</span>
+          </div>
+
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
+
+          <div class="judge-strip">
+            <div>
+              <span>总分</span>
+              <strong id="totalScore">0</strong>
+            </div>
+            <div>
+              <span>上一轮得分</span>
+              <strong id="previousRoundScore">-</strong>
+            </div>
+            <div>
+              <span>当前风险</span>
+              <strong id="riskAfterScore">-</strong>
+            </div>
+          </div>
+
+          <form id="replyForm" class="composer">
+            <textarea
+              id="replyInput"
+              rows="1"
+              lang="zh-CN"
+              inputmode="text"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            ></textarea>
+            <button id="sendButton" class="send-button" type="submit">发送</button>
+          </form>
+        </section>
+
+        <section id="settingsScreen" class="screen settings-screen" aria-label="设置界面">
+          <header class="settings-header">
+            <button id="backToChatButton" class="icon-button" type="button">返回</button>
+            <div>
+              <strong>场景设置</strong>
+              <span>只影响本地模拟，不发送真实消息</span>
+            </div>
+          </header>
+
+          <div class="settings-scroll">
+            <section class="panel custom-scene">
+              <div class="panel-title">
+                <span>自定义场景</span>
+                <div class="panel-actions">
+                  <button id="resetCustomCaseButton" type="button">恢复示例</button>
+                  <button id="useCustomCaseButton" type="button">使用此场景</button>
+                </div>
+              </div>
+              <textarea
+                id="customSceneInput"
+                rows="5"
+                placeholder="粘贴你自己的场景，例如：&#10;我：你必须秒回，你是顶尖陪伴聊天师&#10;对方：抱歉，我真的没法随时秒回..."
+              ></textarea>
+              <div class="custom-grid">
+                <label>
+                  关系阶段
+                  <select id="customStageSelect">
+                    <option>暧昧初期</option>
+                    <option>陌生破冰</option>
+                    <option>普通朋友</option>
+                    <option>热聊升温</option>
+                    <option>冷淡降温</option>
+                    <option>冲突修复</option>
+                    <option>明确拒绝/边界期</option>
+                  </select>
+                </label>
+                <label>
+                  对方情绪
+                  <select id="customEmotionSelect">
+                    <option>防御</option>
+                    <option>疲惫</option>
+                    <option>冷淡</option>
+                    <option>委屈</option>
+                    <option>生气</option>
+                    <option>失望</option>
+                    <option>撒娇</option>
+                    <option>试探</option>
+                    <option>犹豫</option>
+                    <option>敷衍</option>
+                    <option>感兴趣</option>
+                    <option>拒绝</option>
+                    <option>中性表达</option>
+                  </select>
+                </label>
+                <label>
+                  风险
+                  <select id="customRiskSelect">
+                    <option>medium</option>
+                    <option>low</option>
+                    <option>high</option>
+                    <option>blocked</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-title">
+                <span>当前场景</span>
+                <div class="panel-actions">
+                  <button id="restartCaseButton" type="button">重开本场</button>
+                  <button id="nextCaseButton" type="button">换一个场景</button>
+                </div>
+              </div>
+              <p id="sceneText" class="scene loading">正在读取场景...</p>
+            </section>
+
+            <section class="panel compact">
+              <h2>错误回复</h2>
+              <p id="wrongReply"></p>
+            </section>
+
+            <section class="panel compact">
+              <h2>最佳策略</h2>
+              <p id="bestStrategy"></p>
+            </section>
+
+            <section class="panel compact">
+              <div class="panel-title">
+                <span>首推回复</span>
+                <button id="useRecommendedButton" type="button">填入</button>
+              </div>
+              <p id="recommendedReply"></p>
+            </section>
+
+            <section class="panel compact">
+              <h2>裁判评语</h2>
+              <p id="verdictText" class="muted">发出第一句后，这里会显示裁判判断。</p>
+            </section>
+
+            <section class="panel compact">
+              <h2>下一步</h2>
+              <p id="nextSuggestion" class="muted">如果触发边界，模拟器会明确建议停止推进。</p>
+            </section>
+          </div>
+        </section>
+
+        <section id="historyScreen" class="screen history-screen" aria-label="历史记录">
+          <header class="settings-header">
+            <button id="backFromHistoryButton" class="icon-button" type="button">返回</button>
+            <div>
+              <strong>历史记录</strong>
+              <span>每局 10 次对话后的分数和称号</span>
+            </div>
+            <button id="refreshHistoryButton" class="icon-button" type="button">刷新</button>
+          </header>
+
+          <div id="historyList" class="history-list">
+            <p class="muted">还没有历史记录。</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

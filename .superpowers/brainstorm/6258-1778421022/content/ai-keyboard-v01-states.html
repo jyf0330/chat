@@ -1,0 +1,97 @@
+<h2>AI 回话键盘 v0.1 三态草图</h2>
+<p class="subtitle">先验证一个闭环：复制聊天 -> 粘贴对话 -> 生成 5 条 -> 插入或复制备用。</p>
+
+<div class="cards">
+  <div class="card" data-choice="compact" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="width:320px;border:1px solid #d8dee9;border-radius:18px;overflow:hidden;background:#f7f8fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+        <div style="height:56px;background:#fff;border-bottom:1px solid #e6e8ef;display:flex;align-items:center;padding:0 14px;font-weight:700;">AI 回话助手</div>
+        <div style="padding:16px 14px 12px;">
+          <button style="width:100%;height:44px;border:0;border-radius:12px;background:#2563eb;color:white;font-weight:700;font-size:15px;">粘贴对话</button>
+          <div style="margin-top:10px;color:#667085;font-size:13px;text-align:center;">复制聊天后，点这里生成回复</div>
+        </div>
+        <div style="height:50px;background:#fff;border-top:1px solid #e6e8ef;display:grid;grid-template-columns:repeat(5,1fr);font-size:12px;color:#475467;text-align:center;align-items:center;">
+          <div>粘贴</div><div>推荐</div><div>改写</div><div>语气</div><div>收藏</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. 紧凑态</h3>
+      <p>第一次打开键盘，只让用户完成“粘贴对话”这个动作，降低压力。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="ready" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="width:320px;border:1px solid #d8dee9;border-radius:18px;overflow:hidden;background:#f7f8fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+        <div style="height:46px;background:#fff;border-bottom:1px solid #e6e8ef;display:flex;align-items:center;padding:0 14px;font-weight:700;">AI 回话助手</div>
+        <div style="padding:10px 12px;">
+          <div style="background:#fff;border:1px solid #e6e8ef;border-radius:12px;padding:10px;">
+            <div style="font-size:12px;color:#667085;">对话已读取</div>
+            <div style="margin-top:4px;font-size:14px;color:#1d2939;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">对方：最近有点忙，改天吧。</div>
+          </div>
+          <div style="margin-top:10px;font-size:12px;color:#667085;">场景</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:nowrap;overflow:hidden;">
+            <span style="padding:6px 10px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-size:12px;">恋爱</span>
+            <span style="padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e6e8ef;font-size:12px;">客户</span>
+            <span style="padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e6e8ef;font-size:12px;">职场</span>
+            <span style="padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e6e8ef;font-size:12px;">闲鱼</span>
+          </div>
+          <div style="margin-top:8px;font-size:12px;color:#667085;">目标</div>
+          <div style="display:flex;gap:6px;margin-top:6px;">
+            <span style="padding:6px 10px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-size:12px;">继续聊</span>
+            <span style="padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e6e8ef;font-size:12px;">约出来</span>
+            <span style="padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #e6e8ef;font-size:12px;">缓和</span>
+          </div>
+          <button style="margin-top:10px;width:100%;height:40px;border:0;border-radius:12px;background:#2563eb;color:white;font-weight:700;">生成推荐回复</button>
+        </div>
+        <div style="height:46px;background:#fff;border-top:1px solid #e6e8ef;display:grid;grid-template-columns:repeat(5,1fr);font-size:12px;color:#475467;text-align:center;align-items:center;">
+          <div>粘贴</div><div>推荐</div><div>改写</div><div>语气</div><div>收藏</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 标准态</h3>
+      <p>只展示一行摘要，场景和目标用横向标签，生成按钮保持唯一主动作。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="results" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="width:320px;border:1px solid #d8dee9;border-radius:18px;overflow:hidden;background:#f7f8fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+        <div style="height:46px;background:#fff;border-bottom:1px solid #e6e8ef;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-weight:700;">
+          <span>推荐回复</span><span style="font-size:12px;color:#667085;font-weight:500;">换一批</span>
+        </div>
+        <div style="padding:10px 12px;height:228px;overflow:hidden;">
+          <div style="background:#fff;border:1px solid #e6e8ef;border-radius:12px;padding:10px;margin-bottom:8px;">
+            <div style="font-size:12px;color:#1d4ed8;font-weight:700;">稳妥继续聊</div>
+            <div style="margin-top:5px;font-size:14px;color:#1d2939;line-height:1.35;">没事，你先忙，等你空了我们再说。</div>
+            <div style="display:flex;gap:8px;margin-top:8px;font-size:12px;">
+              <span style="padding:6px 12px;background:#2563eb;color:#fff;border-radius:10px;">插入</span>
+              <span style="padding:6px 12px;background:#eef2f7;color:#344054;border-radius:10px;">换一种</span>
+              <span style="padding:6px 8px;background:#eef2f7;border-radius:10px;">☆</span>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #e6e8ef;border-radius:12px;padding:10px;margin-bottom:8px;">
+            <div style="font-size:12px;color:#1d4ed8;font-weight:700;">幽默降压</div>
+            <div style="margin-top:5px;font-size:14px;color:#1d2939;line-height:1.35;">行，那我先把你预约到“改天”。</div>
+            <div style="display:flex;gap:8px;margin-top:8px;font-size:12px;">
+              <span style="padding:6px 12px;background:#2563eb;color:#fff;border-radius:10px;">插入</span>
+              <span style="padding:6px 12px;background:#eef2f7;color:#344054;border-radius:10px;">换一种</span>
+              <span style="padding:6px 8px;background:#eef2f7;border-radius:10px;">☆</span>
+            </div>
+          </div>
+        </div>
+        <div style="height:46px;background:#fff;border-top:1px solid #e6e8ef;display:grid;grid-template-columns:repeat(5,1fr);font-size:12px;color:#475467;text-align:center;align-items:center;">
+          <div>粘贴</div><div>推荐</div><div>改写</div><div>语气</div><div>收藏</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. 结果态</h3>
+      <p>第一屏只保证 2 条高质量回复可见，其余滚动；每条都有插入、换一种、收藏。</p>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle">可以先看三态是否符合你的想象。下一轮我建议重点定：P0 场景包、5 条回复策略、以及 iOS Full Access 引导文案。</p>

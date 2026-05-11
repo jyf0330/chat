@@ -1,0 +1,185 @@
+# AGENTS.md
+
+Project collaboration rules for Codex and human contributors.
+
+Use this file as the default operating contract for coding agents working in this repository.
+
+## 0. Hard Gate: Relationship Chat Must Use Live DeepSeek
+
+- For relationship-chat gameplay, generated chat data, scoring, demo runs, concurrency checks, browser recordings, and user-visible validation, use the real DeepSeek path by default.
+- Do not set `RELATIONSHIP_CHAT_TEST_SCORING_SEQUENCE` for user-facing runs, generated datasets, screenshots, recordings, concurrency demos, or automatic game output unless the user explicitly says to use mock, fixture, deterministic, or offline testing.
+- Do not present fixed scoring, mocked model output, deterministic fixtures, replayed responses, or direct function calls as real generated data.
+- Before claiming generated game/chat data is real, verify that `DEEPSEEK_API_KEY` is loaded and that `/api/simulate` reaches the normal DeepSeek-backed server path.
+- If DeepSeek is unavailable, blocked, rate-limited, or too slow, stop and report that live generation is blocked. Do not silently fall back to mock scoring.
+- Unit tests may use deterministic scoring fixtures, but final wording must label them as tests/fixtures, not real generated data.
+- When the user asks to auto-run multiple games or generate multiple records, choose distinct `case_id` values when possible and report the actual `case_id`, stage, scene, final score, final title, completion reason, and whether the run was live DeepSeek or fixture-backed.
+- If multiple runs produce the same title or score, explicitly explain whether that came from live model outputs, the scoring formula, or a fixture. Do not leave repeated titles unexplained.
+- For multi-service or concurrent SQLite runs, keep `PRAGMA busy_timeout` enabled and report any lock/retry behavior as part of the validation evidence.
+
+## 1. Project Context
+
+- Project name: Relationship chat simulator / relationship strategist data playground
+- Goal: Let users play relationship-chat scenarios, score replies through DeepSeek, and store consented chat/game data as future reply-training raw material.
+- Primary stack: TypeScript, Node.js, static web UI, SQLite storage, DeepSeek chat completions
+- Package manager: npm
+- Main app entrypoints:
+  - `scripts/relationship-chat-server.ts`
+  - `web/relationship-chat/index.html`
+- Important directories:
+  - `scripts/` - server, scoring, storage, generation, and tests
+  - `web/relationship-chat/` - browser UI
+  - `data/` - local relationship cases and title catalog
+  - `docs/` - specs and DeepSeek logs
+  - `output/` - generated validation artifacts
+
+## 2. Commands
+
+Agents should prefer these commands and avoid inventing alternatives unless the project changes.
+
+- Install: `npm install`
+- Dev: `npm run dev:web`
+- Build: no build step for the current static web/server workflow
+- Test: `npm test`
+- Lint: no lint command is currently configured
+- Typecheck: `npm run typecheck`
+
+## 3. Karpathy-Style Working Principles
+
+### Think Before Coding
+
+- Do not silently guess when requirements are ambiguous.
+- State assumptions explicitly before implementation when they affect behavior.
+- If multiple interpretations exist, surface them instead of choosing one invisibly.
+- If a simpler approach exists, propose it.
+
+### Simplicity First
+
+- Prefer the minimum code that solves the requested problem.
+- Do not add speculative abstractions, future-proofing layers, or unused configuration.
+- Avoid rewriting 200 lines if 50 lines can solve the task clearly.
+
+### Surgical Changes
+
+- Touch only the files and lines required by the task.
+- Do not refactor unrelated code unless explicitly asked.
+- Match existing local style before introducing a new pattern.
+- Remove only the dead code created by your own change.
+
+### Goal-Driven Execution
+
+- Translate vague tasks into verifiable goals.
+- Prefer tests, reproducible checks, or visible success criteria over intuition.
+- For multi-step work, state the plan in short steps with verification after each step.
+
+## 4. Git Rules
+
+### Branching
+
+- Do not work directly on `main` for non-trivial changes.
+- Prefer a short-lived feature branch:
+  - `feature/<topic>`
+  - `fix/<topic>`
+  - `refactor/<topic>`
+  - `docs/<topic>`
+
+### Commits
+
+- Keep commits focused and intentionally scoped.
+- Prefer small, reviewable commits over one giant commit.
+- Suggested commit style:
+  - `feat: add [capability]`
+  - `fix: correct [bug]`
+  - `refactor: simplify [area]`
+  - `docs: update [topic]`
+  - `test: cover [behavior]`
+
+### Before Commit
+
+- Run the narrowest verification that proves the change is correct.
+- If tests are relevant, run them before claiming completion.
+- If verification cannot be run, state that clearly in the final handoff.
+
+## 5. Coding Rules
+
+- Prefer readability over cleverness.
+- Follow existing file and naming conventions.
+- Reuse established patterns before introducing a new abstraction.
+- Keep functions and components focused on one responsibility.
+- Do not change comments, formatting, or neighboring code without a task-driven reason.
+
+## 6. Testing Rules
+
+- For bug fixes, prefer writing a test that reproduces the bug before fixing it.
+- For new features, prefer behavior-first tests where practical.
+- If no automated test is possible, define a manual verification path.
+- Every meaningful change should end with explicit verification notes.
+
+## 7. Documentation Rules
+
+- Update docs when behavior, setup, commands, or developer workflow changes.
+- Keep documentation aligned with real commands and paths in the repo.
+- Prefer concise examples over long explanations.
+
+## 7.1 Video Verification Rules
+
+- When recording a validation video, explicitly label the verification mode in the handoff: deterministic regression, mocked API, fixed-model fixture, or live external-service validation.
+- Do not present a mocked, routed, fixture-backed, or deterministic browser recording as a live DeepSeek validation video.
+- For live DeepSeek validation, the recording must exercise the real browser UI, real HTTP `/api/simulate`, real DeepSeek request/response, server-side scoring, and final HUD rendering. Do not route/intercept `/api/simulate` and do not set `RELATIONSHIP_CHAT_TEST_SCORING_SEQUENCE`.
+- Live validation summaries must include elapsed time, final HUD values, per-turn HTTP status or wait evidence, screenshot path, and video path.
+- If a user expects live DeepSeek validation, treat a video shorter than 60 seconds as suspicious unless the summary clearly explains why the real model returned unusually fast. Prefer re-running a longer multi-turn or full-game recording.
+- Save validation artifacts under `output/playwright/` with names that distinguish live recordings from deterministic regression recordings.
+
+## 8. Boundaries and Safety
+
+- Never commit secrets, tokens, `.env` contents, or production credentials.
+- Do not add dependencies unless they are clearly justified.
+- Ask before making destructive data migrations or large directory reshuffles.
+- Ask before changing authentication, billing, or production deployment logic unless explicitly requested.
+
+## 9. Agent Workflow
+
+When starting a non-trivial task, agents should usually follow this order:
+
+1. Understand the task and restate assumptions
+2. Read the relevant files before editing
+3. Identify the smallest safe implementation path
+4. Implement in focused changes
+5. Verify with tests, builds, or manual checks
+6. Report what changed, what was verified, and any remaining risk
+
+## 10. Task Templates
+
+### New Feature
+
+1. Clarify expected behavior
+2. Locate similar existing pattern
+3. Add or update tests
+4. Implement minimal behavior
+5. Verify end-to-end path
+
+### Bug Fix
+
+1. Reproduce the issue
+2. Identify root cause
+3. Add a regression check if practical
+4. Fix the smallest correct surface
+5. Re-run verification
+
+### Refactor
+
+1. Define the intended improvement
+2. Protect behavior with tests or before/after verification
+3. Make one focused structural change at a time
+4. Confirm behavior is unchanged
+
+## 11. Replace-Me Checklist
+
+Before using this template in a real project, replace:
+
+- project name
+- stack
+- package manager
+- commands
+- entrypoints
+- directory-specific notes
+- any team-specific constraints
