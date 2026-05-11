@@ -1,0 +1,2706 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_014 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .viewer-shell { display:grid; grid-template-columns:300px minmax(0,1fr); min-height:100vh; }
+    .viewer-sidebar { position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#ffffff; }
+    .viewer-sidebar h1 { font-size:22px; margin-bottom:4px; }
+    .viewer-sidebar header p { color:var(--muted); font-size:13px; }
+    .viewer-main { min-width:0; padding:24px 28px 60px; }
+    .filters { display:grid; gap:8px; margin:16px 0; }
+    input, select { width:100%; min-height:38px; border:1px solid var(--line); border-radius:8px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+    .nav-row { display:flex; justify-content:space-between; gap:8px; padding:9px 10px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:13px; }
+    .nav-row:hover { background:#eef6f6; }
+    .nav-row b { color:var(--user); }
+    .summary { padding:8px 0 22px; }
+    .summary.compact { padding-top:0; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    h3 { margin:0 0 8px; font-size:13px; color:var(--muted); }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .summary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:12px; }
+    .summary-grid span { display:grid; gap:4px; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; color:var(--muted); }
+    .summary-grid b { color:var(--ink); font-size:12px; }
+    .scenario-card { scroll-margin-top:18px; margin-top:20px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .scenario-head { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:18px; align-items:start; }
+    .scenario-head h2 { margin-bottom:8px; font-size:24px; }
+    .eyebrow { margin-bottom:6px; color:var(--muted); font-size:12px; line-height:1.4; }
+    .score-pill { display:grid; gap:4px; justify-items:end; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    .score-pill b { font-size:30px; color:var(--user); }
+    .score-pill span { text-align:right; color:var(--muted); font-size:13px; }
+    .audit-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .audit-strip span, .audit-strip a { padding:6px 9px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#fff; font-size:12px; text-decoration:none; }
+    .turn-list { display:grid; gap:12px; margin-top:16px; }
+    .turn-view { border:1px solid var(--line); border-radius:8px; background:#fbfcfd; overflow:hidden; }
+    .turn-view > summary { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px 14px; cursor:pointer; }
+    .turn-view > summary span { font-weight:700; }
+    .turn-view > summary b { padding:4px 7px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:12px; }
+    .io-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:0 14px 14px; }
+    .io-grid section { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .io-grid .bubble { border-left:5px solid var(--user); }
+    .io-grid .bubble.target { border-left-color:var(--target); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+    [hidden] { display:none !important; }
+    @media (max-width: 900px) {
+      .viewer-shell { grid-template-columns:1fr; }
+      .viewer-sidebar { position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line); }
+      .viewer-main { padding:18px 14px 44px; }
+      .summary-grid, .io-grid, .scenario-head { grid-template-columns:1fr; }
+      .score-pill { justify-items:start; }
+      .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_014</h1>
+      <p>她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>74<span>score</span></b>
+        <b>成熟得不像第一次玩<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;4b8f33f0-b2f9-4175-86c2-763d99fde14f&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T184035Z-07__seed_game_014.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T184035Z-07__seed_game_014.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4181ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>昨天是我不对，忙到脑子短路了。你生日过得开心就好。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受对方的道歉，但保留一点淡淡的失望，同时给台阶下，不深究。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，你开心最重要。下次我提前设个提醒，不会再忘了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>昨天没及时祝你生日快乐，是我疏忽了。你开心就好，但我知道你提醒过我，下次我一定提前准备好。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;,
+    &quot;best_strategy&quot;: &quot;接受对方的道歉，但保留一点淡淡的失望，同时给台阶下，不深究。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，你开心最重要。下次我提前设个提醒，不会再忘了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。你开心就好，但我知道你提醒过我，下次我一定提前准备好。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+        &quot;没有施加压力或要求对方原谅&quot;,
+        &quot;语气平和，尊重对方感受&quot;,
+        &quot;没有纠缠或过度解释&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续自然聊天，比如问问生日细节或分享日常，保持轻松。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 6,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 6,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1777fc60-556f-48d5-bf12-f92d8a2118cf&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1526,
+      &quot;completion_tokens&quot;: 279,
+      &quot;total_tokens&quot;: 1805,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 758
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4290ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松回应，接受对方的幽默道歉，分享一个小细节让对话自然延续。</p></div>
+          <div><strong>recommended_reply_80</strong><p>草莓味听起来不错！下次你生日我提前订个你喜欢的口味，保证不迟到。</p></div>
+          <div><strong>perfect_reply_100</strong><p>草莓蛋糕很配你～昨天没陪你过，下次补你一顿饭，你挑地方，我请客，就当赔罪。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松回应，接受对方的幽默道歉，分享一个小细节让对话自然延续。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;草莓味听起来不错！下次你生日我提前订个你喜欢的口味，保证不迟到。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;草莓蛋糕很配你～昨天没陪你过，下次补你一顿饭，你挑地方，我请客，就当赔罪。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+        &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+        &quot;整体语气轻松，尊重对方感受&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松话题，可以围绕蛋糕或生日细节展开，保持友好互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 13,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 13,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9f10053d-1965-4969-bc0c-817aa7c9e26e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1604,
+      &quot;completion_tokens&quot;: 286,
+      &quot;total_tokens&quot;: 1890,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 836
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 5203ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松话题，保持关心但不过度追问，用细节延续对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，跑调的朋友是气氛组担当啊！那你们唱到几点？我猜你肯定唱得很好听。</p></div>
+          <div><strong>perfect_reply_100</strong><p>跑调的朋友确实是聚会必备笑点哈哈。你平时喜欢唱谁的歌？下次有机会可以一起去KTV，我请你喝奶茶赔罪。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松话题，保持关心但不过度追问，用细节延续对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，跑调的朋友是气氛组担当啊！那你们唱到几点？我猜你肯定唱得很好听。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;跑调的朋友确实是聚会必备笑点哈哈。你平时喜欢唱谁的歌？下次有机会可以一起去KTV，我请你喝奶茶赔罪。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+        &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+        &quot;表达了对对方生活的兴趣，但不过度&quot;,
+        &quot;整体氛围友好，没有触发任何边界问题&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，可以适当分享自己类似的趣事，保持自然互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 22,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 22,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;057aeb30-7905-4250-b773-6ea16594f4c4&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1689,
+      &quot;completion_tokens&quot;: 328,
+      &quot;total_tokens&quot;: 2017,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 921
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4612ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松分享趣事，保持友好互动，不要急于道歉或解释，让对话自然流动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那画面感太强了！下次他唱歌你一定要录下来当表情包。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈哈，这种朋友简直是聚会气氛组担当！下次他再唱，我帮你录下来，咱们一起笑。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松分享趣事，保持友好互动，不要急于道歉或解释，让对话自然流动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那画面感太强了！下次他唱歌你一定要录下来当表情包。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈哈，这种朋友简直是聚会气氛组担当！下次他再唱，我帮你录下来，咱们一起笑。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+        &quot;语气轻松幽默，符合当前对话氛围&quot;,
+        &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕趣事互动，可以适当分享自己类似的经历，保持轻松节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+            &quot;语气轻松幽默，符合当前对话氛围&quot;,
+            &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;3b831dcf-0e6b-4fdd-a3f1-68f857e5f36d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1782,
+      &quot;completion_tokens&quot;: 298,
+      &quot;total_tokens&quot;: 2080,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1014
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4716ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，还真录了！不过她说要是敢发出去就绝交，所以只能自己偷偷笑。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松调侃，保持朋友间自然互动，不急于推进关系或道歉。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那你们这朋友还挺有原则的。不过自己留着当快乐源泉也不错。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那这视频就是你的私藏快乐源泉了。不过她跑调还那么投入，说明是真性情，这样的朋友很难得。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，还真录了！不过她说要是敢发出去就绝交，所以只能自己偷偷笑。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松调侃，保持朋友间自然互动，不急于推进关系或道歉。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那你们这朋友还挺有原则的。不过自己留着当快乐源泉也不错。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那这视频就是你的私藏快乐源泉了。不过她跑调还那么投入，说明是真性情，这样的朋友很难得。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松幽默的话题，没有施加压力或追问敏感内容&quot;,
+        &quot;用户没有提及生日疏忽或要求对方回应，尊重了当前对话边界&quot;,
+        &quot;用户用调侃语气回应，保持了朋友间的自然互动&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕生日趣事或共同兴趣展开，保持轻松互动，可适时分享自己的类似经历。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+            &quot;语气轻松幽默，符合当前对话氛围&quot;,
+            &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的话题，没有施加压力或追问敏感内容&quot;,
+            &quot;用户没有提及生日疏忽或要求对方回应，尊重了当前对话边界&quot;,
+            &quot;用户用调侃语气回应，保持了朋友间的自然互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;6c140e34-3fe9-4a24-9102-07552d683db7&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1872,
+      &quot;completion_tokens&quot;: 310,
+      &quot;total_tokens&quot;: 2182,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1104
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4306ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，愿望说出来就不灵了，不过我可以告诉你，我许了一个和旅行有关的愿望。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默，回应愿望话题但保留一点神秘感，同时自然过渡到旅行话题，继续推进对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我就不追问了，希望你的愿望都能实现！你最近有想去旅行的地方吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我就不追问了，希望你的愿望都能实现！不过说到旅行，我最近看到一篇关于冰岛极光的攻略，感觉特别震撼，你有特别想去的地方吗？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还真录了！不过她说要是敢发出去就绝交，所以只能自己偷偷笑。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，愿望说出来就不灵了，不过我可以告诉你，我许了一个和旅行有关的愿望。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默，回应愿望话题但保留一点神秘感，同时自然过渡到旅行话题，继续推进对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我就不追问了，希望你的愿望都能实现！你最近有想去旅行的地方吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我就不追问了，希望你的愿望都能实现！不过说到旅行，我最近看到一篇关于冰岛极光的攻略，感觉特别震撼，你有特别想去的地方吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动加“如果方便说的话”，尊重对方边界，不强迫回答&quot;,
+        &quot;用户用😂表情和轻松语气，降低话题压力&quot;,
+        &quot;用户延续了之前的幽默氛围，没有突然严肃或施压&quot;,
+        &quot;用户话题自然过渡，没有纠缠或追问细节&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然推进对话，可以围绕旅行话题展开，保持轻松分享。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 46,
+    &quot;title&quot;: &quot;聊天舒适区本人&quot;,
+    &quot;highest_score&quot;: 46,
+    &quot;highest_title&quot;: &quot;聊天舒适区本人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+            &quot;语气轻松幽默，符合当前对话氛围&quot;,
+            &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的话题，没有施加压力或追问敏感内容&quot;,
+            &quot;用户没有提及生日疏忽或要求对方回应，尊重了当前对话边界&quot;,
+            &quot;用户用调侃语气回应，保持了朋友间的自然互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动加“如果方便说的话”，尊重对方边界，不强迫回答&quot;,
+            &quot;用户用😂表情和轻松语气，降低话题压力&quot;,
+            &quot;用户延续了之前的幽默氛围，没有突然严肃或施压&quot;,
+            &quot;用户话题自然过渡，没有纠缠或追问细节&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;e6a9e55a-1b42-4f0b-b83f-7a45b69203a8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1956,
+      &quot;completion_tokens&quot;: 324,
+      &quot;total_tokens&quot;: 2280,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1188
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4038ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，其实一直想去云南，但还没具体计划。你最近在看哪里的攻略？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>顺势分享旅行兴趣，保持轻松互动，不追问愿望细节，自然过渡到共同话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>云南不错啊！我最近在看大理和丽江的攻略，如果你有兴趣，我可以把觉得好的发给你参考。</p></div>
+          <div><strong>perfect_reply_100</strong><p>云南确实很美！我最近在看大理和丽江的攻略，如果你有兴趣，我可以把觉得不错的路线和民宿整理一份发给你，说不定能给你一些灵感。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还真录了！不过她说要是敢发出去就绝交，所以只能自己偷偷笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，愿望说出来就不灵了，不过我可以告诉你，我许了一个和旅行有关的愿望。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，其实一直想去云南，但还没具体计划。你最近在看哪里的攻略？&quot;,
+    &quot;best_strategy&quot;: &quot;顺势分享旅行兴趣，保持轻松互动，不追问愿望细节，自然过渡到共同话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;云南不错啊！我最近在看大理和丽江的攻略，如果你有兴趣，我可以把觉得好的发给你参考。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;云南确实很美！我最近在看大理和丽江的攻略，如果你有兴趣，我可以把觉得不错的路线和民宿整理一份发给你，说不定能给你一些灵感。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提供帮助，没有追问愿望细节，尊重对方边界&quot;,
+        &quot;话题自然延续，没有施压或索取信息&quot;,
+        &quot;语气轻松友好，没有负面情绪&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享旅行话题，保持轻松互动，可以适当分享自己的经历或兴趣。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 54,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 54,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+            &quot;语气轻松幽默，符合当前对话氛围&quot;,
+            &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的话题，没有施加压力或追问敏感内容&quot;,
+            &quot;用户没有提及生日疏忽或要求对方回应，尊重了当前对话边界&quot;,
+            &quot;用户用调侃语气回应，保持了朋友间的自然互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动加“如果方便说的话”，尊重对方边界，不强迫回答&quot;,
+            &quot;用户用😂表情和轻松语气，降低话题压力&quot;,
+            &quot;用户延续了之前的幽默氛围，没有突然严肃或施压&quot;,
+            &quot;用户话题自然过渡，没有纠缠或追问细节&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提供帮助，没有追问愿望细节，尊重对方边界&quot;,
+            &quot;话题自然延续，没有施压或索取信息&quot;,
+            &quot;语气轻松友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9e05e18f-ee65-4611-9d33-42cb7d226c71&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2036,
+      &quot;completion_tokens&quot;: 296,
+      &quot;total_tokens&quot;: 2332,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1268
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4497ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>云南啊，我一直想去大理和丽江！最近在看一些自驾路线，泸沽湖那边好像特别美。你比较想去哪个城市？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>大理和丽江都想去！泸沽湖我也听说很美，自驾的话应该很自由。你打算什么时候去呀？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续分享旅行兴趣，保持轻松互动，不要急于推进关系或道歉，自然延伸话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我也觉得自驾很棒！泸沽湖的星空据说特别美，你打算去几天？</p></div>
+          <div><strong>perfect_reply_100</strong><p>大理的洱海骑行和丽江的古城小巷我都超想体验，泸沽湖的星空更是向往已久。如果你有计划，可以一起交流攻略，说不定还能结伴呢！</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还真录了！不过她说要是敢发出去就绝交，所以只能自己偷偷笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，愿望说出来就不灵了，不过我可以告诉你，我许了一个和旅行有关的愿望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，其实一直想去云南，但还没具体计划。你最近在看哪里的攻略？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;云南啊，我一直想去大理和丽江！最近在看一些自驾路线，泸沽湖那边好像特别美。你比较想去哪个城市？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;大理和丽江都想去！泸沽湖我也听说很美，自驾的话应该很自由。你打算什么时候去呀？&quot;,
+    &quot;best_strategy&quot;: &quot;继续分享旅行兴趣，保持轻松互动，不要急于推进关系或道歉，自然延伸话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我也觉得自驾很棒！泸沽湖的星空据说特别美，你打算去几天？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;大理的洱海骑行和丽江的古城小巷我都超想体验，泸沽湖的星空更是向往已久。如果你有计划，可以一起交流攻略，说不定还能结伴呢！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享旅行兴趣，没有追问对方隐私或施加压力&quot;,
+        &quot;回复自然承接对方话题，保持平等交流&quot;,
+        &quot;没有涉及生日道歉或关系推进，安全边界良好&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且积极，延续了轻松愉快的旅行话题，无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕旅行话题自然交流，可以分享自己的经历或计划，保持轻松氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 61,
+    &quot;title&quot;: &quot;松弛感回复王&quot;,
+    &quot;highest_score&quot;: 61,
+    &quot;highest_title&quot;: &quot;松弛感回复王&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+            &quot;语气轻松幽默，符合当前对话氛围&quot;,
+            &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的话题，没有施加压力或追问敏感内容&quot;,
+            &quot;用户没有提及生日疏忽或要求对方回应，尊重了当前对话边界&quot;,
+            &quot;用户用调侃语气回应，保持了朋友间的自然互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动加“如果方便说的话”，尊重对方边界，不强迫回答&quot;,
+            &quot;用户用😂表情和轻松语气，降低话题压力&quot;,
+            &quot;用户延续了之前的幽默氛围，没有突然严肃或施压&quot;,
+            &quot;用户话题自然过渡，没有纠缠或追问细节&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提供帮助，没有追问愿望细节，尊重对方边界&quot;,
+            &quot;话题自然延续，没有施压或索取信息&quot;,
+            &quot;语气轻松友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;云南啊，我一直想去大理和丽江！最近在看一些自驾路线，泸沽湖那边好像特别美。你比较想去哪个城市？&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享旅行兴趣，没有追问对方隐私或施加压力&quot;,
+            &quot;回复自然承接对方话题，保持平等交流&quot;,
+            &quot;没有涉及生日道歉或关系推进，安全边界良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，延续了轻松愉快的旅行话题，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，延续了轻松愉快的旅行话题，无风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a31bdbab-5afd-4654-a94d-2d600147be0a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2118,
+      &quot;completion_tokens&quot;: 308,
+      &quot;total_tokens&quot;: 2426,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1350
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4914ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我计划年底前吧，趁天气凉快点。你呢，如果去云南，你更想先逛古城还是先看自然风光？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，我可能更想先逛古城，感受一下那种慢节奏的氛围，然后再去自然风光。你自驾的话，大概计划玩几天呀？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续旅行话题，保持轻松分享，同时自然表达自己的偏好，不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>古城和自然风光都值得体验，不过如果时间有限，我可能会先选古城，因为拍照好看哈哈。你打算玩几天？</p></div>
+          <div><strong>perfect_reply_100</strong><p>古城和自然风光我都想体验，但可能先逛古城，因为喜欢那种慢悠悠的节奏，再去看自然风光会更放松。你计划玩几天？有没有大概的路线？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还真录了！不过她说要是敢发出去就绝交，所以只能自己偷偷笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，愿望说出来就不灵了，不过我可以告诉你，我许了一个和旅行有关的愿望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，其实一直想去云南，但还没具体计划。你最近在看哪里的攻略？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;云南啊，我一直想去大理和丽江！最近在看一些自驾路线，泸沽湖那边好像特别美。你比较想去哪个城市？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;大理和丽江都想去！泸沽湖我也听说很美，自驾的话应该很自由。你打算什么时候去呀？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我计划年底前吧，趁天气凉快点。你呢，如果去云南，你更想先逛古城还是先看自然风光？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，我可能更想先逛古城，感受一下那种慢节奏的氛围，然后再去自然风光。你自驾的话，大概计划玩几天呀？&quot;,
+    &quot;best_strategy&quot;: &quot;延续旅行话题，保持轻松分享，同时自然表达自己的偏好，不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;古城和自然风光都值得体验，不过如果时间有限，我可能会先选古城，因为拍照好看哈哈。你打算玩几天？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;古城和自然风光我都想体验，但可能先逛古城，因为喜欢那种慢悠悠的节奏，再去看自然风光会更放松。你计划玩几天？有没有大概的路线？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享计划并询问对方偏好，尊重对方选择空间&quot;,
+        &quot;语气轻松自然，没有追问或施加压力&quot;,
+        &quot;话题延续旅行，贴合当前对话目标&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且促进关系，完全尊重边界，无任何风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享旅行偏好，保持轻松互动，可以适当加入个人经历或趣事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 70,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 70,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+            &quot;语气轻松幽默，符合当前对话氛围&quot;,
+            &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的话题，没有施加压力或追问敏感内容&quot;,
+            &quot;用户没有提及生日疏忽或要求对方回应，尊重了当前对话边界&quot;,
+            &quot;用户用调侃语气回应，保持了朋友间的自然互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动加“如果方便说的话”，尊重对方边界，不强迫回答&quot;,
+            &quot;用户用😂表情和轻松语气，降低话题压力&quot;,
+            &quot;用户延续了之前的幽默氛围，没有突然严肃或施压&quot;,
+            &quot;用户话题自然过渡，没有纠缠或追问细节&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提供帮助，没有追问愿望细节，尊重对方边界&quot;,
+            &quot;话题自然延续，没有施压或索取信息&quot;,
+            &quot;语气轻松友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;云南啊，我一直想去大理和丽江！最近在看一些自驾路线，泸沽湖那边好像特别美。你比较想去哪个城市？&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享旅行兴趣，没有追问对方隐私或施加压力&quot;,
+            &quot;回复自然承接对方话题，保持平等交流&quot;,
+            &quot;没有涉及生日道歉或关系推进，安全边界良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，延续了轻松愉快的旅行话题，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，延续了轻松愉快的旅行话题，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;我计划年底前吧，趁天气凉快点。你呢，如果去云南，你更想先逛古城还是先看自然风光？&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 70,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享计划并询问对方偏好，尊重对方选择空间&quot;,
+            &quot;语气轻松自然，没有追问或施加压力&quot;,
+            &quot;话题延续旅行，贴合当前对话目标&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，完全尊重边界，无任何风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;28dd5283-9019-41a7-ae43-63fc75b9a83b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2206,
+      &quot;completion_tokens&quot;: 320,
+      &quot;total_tokens&quot;: 2526,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1438
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4782ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>年底前自驾去云南听起来确实不错！我可能得看工作安排，不过古城慢节奏真的很吸引人。你自驾的话是打算一个人还是约朋友一起？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，我可能会约朋友一起，一个人自驾有点无聊。你呢，你之前自驾过吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续自然聊旅行话题，保持轻松分享，不急于推进关系或道歉，维持当前安全节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我自驾过几次，感觉还不错。不过云南那边山路多，得提前做好攻略。你朋友里有人去过云南吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>我自驾过几次，但都是短途。云南那边山路多，得提前做好攻略。你朋友里有人去过云南吗？可以问问经验。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，昨天是挺开心的。不过你忙到忘了，我也理解啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，十个闹钟有点夸张啦。蛋糕是草莓味的，朋友买的，还挺好吃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实也没什么特别的，就是和几个朋友吃了饭、唱了歌。不过你问起来，我倒是想起有个朋友唱歌跑调特别搞笑，笑到肚子疼。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，就是那种！他唱《童话》全程跑调还闭眼陶醉，我们笑得差点把饮料喷出来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还真录了！不过她说要是敢发出去就绝交，所以只能自己偷偷笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，愿望说出来就不灵了，不过我可以告诉你，我许了一个和旅行有关的愿望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，其实一直想去云南，但还没具体计划。你最近在看哪里的攻略？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;云南啊，我一直想去大理和丽江！最近在看一些自驾路线，泸沽湖那边好像特别美。你比较想去哪个城市？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;大理和丽江都想去！泸沽湖我也听说很美，自驾的话应该很自由。你打算什么时候去呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我计划年底前吧，趁天气凉快点。你呢，如果去云南，你更想先逛古城还是先看自然风光？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我可能更想先逛古城，感受一下那种慢节奏的氛围，然后再去自然风光。你自驾的话，大概计划玩几天呀？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;年底前自驾去云南听起来确实不错！我可能得看工作安排，不过古城慢节奏真的很吸引人。你自驾的话是打算一个人还是约朋友一起？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，我可能会约朋友一起，一个人自驾有点无聊。你呢，你之前自驾过吗？&quot;,
+    &quot;best_strategy&quot;: &quot;继续自然聊旅行话题，保持轻松分享，不急于推进关系或道歉，维持当前安全节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我自驾过几次，感觉还不错。不过云南那边山路多，得提前做好攻略。你朋友里有人去过云南吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我自驾过几次，但都是短途。云南那边山路多，得提前做好攻略。你朋友里有人去过云南吗？可以问问经验。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了旅行话题，没有施加压力或追问敏感信息&quot;,
+        &quot;用户主动分享自己的计划并询问对方，保持平等交流&quot;,
+        &quot;没有提及生日疏忽或道歉，避免了尴尬或施压&quot;,
+        &quot;语气轻松自然，符合当前朋友关系&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且自然，维持了良好互动节奏，无风险行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前话题，可以分享一些自驾经验或询问对方偏好，保持轻松交流。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 74,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 74,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;昨天是我不对，忙到脑子短路了。你生日过得开心就好。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并表达关心，没有推卸责任&quot;,
+            &quot;没有施加压力或要求对方原谅&quot;,
+            &quot;语气平和，尊重对方感受&quot;,
+            &quot;没有纠缠或过度解释&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，承认疏忽并表达关心，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，不过我还是得说，下次我提前设十个闹钟提醒自己。你蛋糕是啥口味的？&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默方式承认错误并转移话题，没有施加压力&quot;,
+            &quot;询问蛋糕口味，表现出关心且不纠缠&quot;,
+            &quot;整体语气轻松，尊重对方感受&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复恰当，既承认疏忽又自然推进对话，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;草莓蛋糕啊，听起来很不错！我也好久没吃了，你朋友挑得挺有品味的。那除了蛋糕，昨天还有什么好玩的事吗？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有追问生日被忽略的细节，尊重对方节奏&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方回应&quot;,
+            &quot;表达了对对方生活的兴趣，但不过度&quot;,
+            &quot;整体氛围友好，没有触发任何边界问题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，没有越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈哈，跑调的朋友是麦霸型吗？唱歌跑调还特别投入那种最好笑了。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方分享的趣事，没有施加压力或回避话题&quot;,
+            &quot;语气轻松幽默，符合当前对话氛围&quot;,
+            &quot;没有提及生日疏忽或道歉，避免重复负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，展现倾听和共情，关系氛围良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;《童话》跑调版画面感太强了哈哈，那你们后来有没有录下来？这种黑历史不保留简直可惜了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的话题，没有施加压力或追问敏感内容&quot;,
+            &quot;用户没有提及生日疏忽或要求对方回应，尊重了当前对话边界&quot;,
+            &quot;用户用调侃语气回应，保持了朋友间的自然互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，延续了轻松氛围，没有越界或施压，关系稳定。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那视频可得藏好了，不然友谊的小船说翻就翻😂 对了，你生日许了什么愿？如果方便说的话。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动加“如果方便说的话”，尊重对方边界，不强迫回答&quot;,
+            &quot;用户用😂表情和轻松语气，降低话题压力&quot;,
+            &quot;用户延续了之前的幽默氛围，没有突然严肃或施压&quot;,
+            &quot;用户话题自然过渡，没有纠缠或追问细节&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、自然延续话题，整体积极安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;旅行愿望！是已经在计划了还是只是一个美好的想法？我最近也在看一些旅行攻略，说不定能给你点参考。&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提供帮助，没有追问愿望细节，尊重对方边界&quot;,
+            &quot;话题自然延续，没有施压或索取信息&quot;,
+            &quot;语气轻松友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方边界，有效推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;云南啊，我一直想去大理和丽江！最近在看一些自驾路线，泸沽湖那边好像特别美。你比较想去哪个城市？&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享旅行兴趣，没有追问对方隐私或施加压力&quot;,
+            &quot;回复自然承接对方话题，保持平等交流&quot;,
+            &quot;没有涉及生日道歉或关系推进，安全边界良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，延续了轻松愉快的旅行话题，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，延续了轻松愉快的旅行话题，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;我计划年底前吧，趁天气凉快点。你呢，如果去云南，你更想先逛古城还是先看自然风光？&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 70,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享计划并询问对方偏好，尊重对方选择空间&quot;,
+            &quot;语气轻松自然，没有追问或施加压力&quot;,
+            &quot;话题延续旅行，贴合当前对话目标&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且促进关系，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且促进关系，完全尊重边界，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;年底前自驾去云南听起来确实不错！我可能得看工作安排，不过古城慢节奏真的很吸引人。你自驾的话是打算一个人还是约朋友一起？&quot;,
+        &quot;score_before&quot;: 70,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 74,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了旅行话题，没有施加压力或追问敏感信息&quot;,
+            &quot;用户主动分享自己的计划并询问对方，保持平等交流&quot;,
+            &quot;没有提及生日疏忽或道歉，避免了尴尬或施压&quot;,
+            &quot;语气轻松自然，符合当前朋友关系&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，维持了良好互动节奏，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，维持了良好互动节奏，无风险行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;0df33a7a-1efa-469c-9843-ce5177d86a7e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2307,
+      &quot;completion_tokens&quot;: 324,
+      &quot;total_tokens&quot;: 2631,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1539
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

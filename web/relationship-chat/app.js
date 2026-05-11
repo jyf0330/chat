@@ -1,4 +1,5 @@
 import { readJsonResponse } from "./api.js";
+import { chooseRandomCaseIndex, shuffleCases } from "./case-selection.js";
 
 const DEFAULT_CUSTOM_SCENE = [
   "你是蕾姆，蓝色短发温柔女仆。对我极度忠诚、温柔宠溺、细心偏心。说话软糯可爱，多用嗯嗯、呢、呀～。纯对话，不写动作。累了就哄我，永远站我这边。现在开始用最软的声音陪我聊天吧～",
@@ -6,6 +7,7 @@ const DEFAULT_CUSTOM_SCENE = [
 ].join("\n");
 
 const GAME_MAX_TURNS = 10;
+const PLAYED_CASE_IDS_KEY = "relationship-chat.played-case-ids";
 
 function createInitialGameState() {
   return {
@@ -29,6 +31,7 @@ const state = {
   visitorId: "",
   sessionId: "",
   gameLogId: "",
+  playedCaseIds: new Set(),
   game: createInitialGameState(),
   perfectReplies: [],
   liveBestStrategy: "",
@@ -47,11 +50,15 @@ const elements = {
   chatLog: document.querySelector("#chatLog"),
   replyForm: document.querySelector("#replyForm"),
   replyInput: document.querySelector("#replyInput"),
+  completionActions: document.querySelector("#completionActions"),
+  newGameButton: document.querySelector("#newGameButton"),
+  completionHistoryButton: document.querySelector("#completionHistoryButton"),
+  adjustSceneButton: document.querySelector("#adjustSceneButton"),
   statusText: document.querySelector("#statusText"),
   sendButton: document.querySelector("#sendButton"),
-  totalScore: document.querySelector("#totalScore"),
   scoreBadge: document.querySelector("#scoreBadge"),
   previousRoundScore: document.querySelector("#previousRoundScore"),
+  turnProgress: document.querySelector("#turnProgress"),
   settingsButton: document.querySelector("#settingsButton"),
   historyButton: document.querySelector("#historyButton"),
   backFromHistoryButton: document.querySelector("#backFromHistoryButton"),
@@ -141,7 +148,7 @@ function buildTurnHtml(turn) {
   };
   const safeText = escapeHtml(turn.text);
   const action =
-    turn.role === "copywriter"
+    turn.role === "copywriter" && !state.game.is_complete
       ? `<button class="bubble-fill-button" type="button" data-fill-reply="${encodeURIComponent(turn.text)}">填入</button>`
       : "";
 
@@ -157,16 +164,18 @@ function buildSettlementBubble() {
   bubble.innerHTML = [
     "<span>本局结算</span>",
     '<div class="settlement-card">',
+    '<div class="settlement-hero">',
+    "<span>最终成绩</span>",
     `<strong>${formatScore(state.game.score)}｜${escapeHtml(state.game.title)}</strong>`,
     `<p>最高称号：${escapeHtml(state.game.highest_title)}（${formatScore(state.game.highest_score)}）</p>`,
     `<p>结束原因：${completionReasonText(state.game.completion_reason)}</p>`,
-    bestRound ? `<p>最好回合：第 ${bestRound.turn} 轮 ${formatScore(bestRound.score_delta)}，${escapeHtml(bestRound.verdict)}</p>` : "",
-    worstRound ? `<p>扣分最重：第 ${worstRound.turn} 轮 ${formatScore(worstRound.score_delta)}，${escapeHtml(worstRound.verdict)}</p>` : "",
-    perfectReference,
-    '<div class="settlement-actions">',
-    '<button type="button" data-action="new-game">再来一局</button>',
-    '<button type="button" data-action="open-history">查看历史</button>',
     "</div>",
+    '<div class="settlement-section">',
+    "<h3>为什么得分</h3>",
+    bestRound ? `<p><b>最好回合</b> 第 ${bestRound.turn} 轮 ${formatScore(bestRound.score_delta)}，${escapeHtml(bestRound.verdict)}</p>` : "",
+    worstRound ? `<p><b>最需要调整</b> 第 ${worstRound.turn} 轮 ${formatScore(worstRound.score_delta)}，${escapeHtml(worstRound.verdict)}</p>` : "",
+    "</div>",
+    perfectReference,
     "</div>",
   ].join("");
   return bubble;
@@ -174,13 +183,15 @@ function buildSettlementBubble() {
 
 function buildPerfectReferenceHtml(items) {
   if (!items.length) return "";
+  const visibleItems = items.slice(0, 3);
+  const remainingCount = items.length - visibleItems.length;
   return [
-    '<div class="perfect-reference">',
-    "<strong>满分参考</strong>",
+    '<details class="perfect-reference" open>',
+    `<summary>满分参考${remainingCount > 0 ? `（先看 ${visibleItems.length} 条，另有 ${remainingCount} 条）` : ""}</summary>`,
     "<ol>",
-    ...items.map((item) => `<li><span>第 ${item.turn} 轮</span>${escapeHtml(item.text)}</li>`),
+    ...visibleItems.map((item) => `<li><span>第 ${item.turn} 轮</span>${escapeHtml(item.text)}</li>`),
     "</ol>",
-    "</div>",
+    "</details>",
   ].join("");
 }
 
@@ -239,9 +250,14 @@ function escapeHtml(value) {
 
 function fillDefaultCustomScene() {
   elements.customSceneInput.value = DEFAULT_CUSTOM_SCENE;
-  elements.customStageSelect.value = "热聊升温";
-  elements.customEmotionSelect.value = "撒娇";
-  elements.customRiskSelect.value = "low";
+  randomizeSelect(elements.customStageSelect);
+  randomizeSelect(elements.customEmotionSelect);
+  randomizeSelect(elements.customRiskSelect);
+}
+
+function randomizeSelect(select) {
+  if (!select.options.length) return;
+  select.selectedIndex = Math.floor(Math.random() * select.options.length);
 }
 
 function getVisitorId() {
@@ -255,17 +271,66 @@ function getVisitorId() {
   return next;
 }
 
+function loadPlayedCaseIds() {
+  try {
+    const value = JSON.parse(localStorage.getItem(PLAYED_CASE_IDS_KEY) ?? "[]");
+    return new Set(Array.isArray(value) ? value.filter((item) => typeof item === "string") : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function savePlayedCaseIds() {
+  localStorage.setItem(PLAYED_CASE_IDS_KEY, JSON.stringify([...state.playedCaseIds]));
+}
+
+async function syncPlayedCaseIdsFromHistory() {
+  if (!state.visitorId) return;
+  try {
+    const response = await fetch(`api/completed-cases?visitorId=${encodeURIComponent(state.visitorId)}`);
+    const data = await readJsonResponse(response, "已完成场景读取失败");
+    for (const caseId of data.case_ids ?? []) {
+      state.playedCaseIds.add(caseId);
+    }
+    savePlayedCaseIds();
+  } catch {
+    // 历史同步失败不阻断开局，仍用本地已完成记录避重。
+  }
+}
+
+function rememberCompletedCase() {
+  const item = currentCase();
+  if (state.customCase || !item?.id || !state.game.is_complete) return;
+  state.playedCaseIds.add(item.id);
+  savePlayedCaseIds();
+}
+
+function chooseRandomSeededCase({ avoidCurrent = false } = {}) {
+  const currentCaseId = avoidCurrent && !state.customCase ? currentCase()?.id : "";
+  const nextIndex = chooseRandomCaseIndex(state.cases, {
+    playedCaseIds: state.playedCaseIds,
+    currentCaseId,
+  });
+  if (nextIndex >= 0) {
+    state.caseIndex = nextIndex;
+    state.customCase = null;
+  }
+}
+
 function createGameLogId() {
   return `game_${crypto.randomUUID?.() ?? `${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`}`;
 }
 
 function renderGameHud(lastRound = null) {
   const game = state.game;
-  elements.totalScore.textContent = formatScore(game.score);
   elements.scoreBadge.textContent = `总分 ${formatScore(game.score)}`;
   elements.previousRoundScore.textContent = lastRound ? formatScore(roundDisplayScore(lastRound)) : "-";
   elements.riskAfterScore.textContent = lastRound?.judge?.risk_level_after ?? "-";
+  elements.turnProgress.textContent = `${game.turn_count}/${game.max_turns}`;
   elements.sendButton.disabled = Boolean(game.is_complete);
+  elements.replyForm.hidden = Boolean(game.is_complete);
+  elements.completionActions.hidden = !game.is_complete;
+  elements.useRecommendedButton.disabled = Boolean(game.is_complete);
 }
 
 function roundDisplayScore(round) {
@@ -335,6 +400,7 @@ function applySimulationResult(result) {
   }
   if (result.game) {
     state.game = result.game;
+    rememberCompletedCase();
   }
   renderGameHud(result.game?.rounds?.at(-1) ?? null);
 }
@@ -345,11 +411,13 @@ async function loadCases() {
     throw new Error("无法读取场景数据");
   }
   const data = await readJsonResponse(response, "无法读取场景数据");
-  state.cases = data.cases ?? [];
+  state.cases = shuffleCases(data.cases ?? []);
   if (!state.cases.length) {
     throw new Error("没有可用场景，请先生成 relationship-cases-deepseek.extracted.jsonl");
   }
-  state.customCase = buildCustomCase();
+  state.playedCaseIds = loadPlayedCaseIds();
+  await syncPlayedCaseIdsFromHistory();
+  chooseRandomSeededCase();
   renderCase();
 }
 
@@ -437,6 +505,7 @@ elements.replyForm.addEventListener("submit", async (event) => {
 elements.chatLog.addEventListener("click", (event) => {
   const button = event.target.closest(".bubble-fill-button");
   if (button) {
+    if (state.game.is_complete) return;
     elements.replyInput.value = decodeURIComponent(button.dataset.fillReply ?? "");
     elements.replyInput.focus();
     return;
@@ -485,12 +554,13 @@ elements.refreshHistoryButton.addEventListener("click", () => {
 
 elements.backToChatButton.addEventListener("click", () => {
   showScreen("chat");
-  elements.replyInput.focus();
+  if (!state.game.is_complete) {
+    elements.replyInput.focus();
+  }
 });
 
 elements.nextCaseButton.addEventListener("click", () => {
-  state.customCase = null;
-  state.caseIndex = (state.caseIndex + 1) % state.cases.length;
+  chooseRandomSeededCase({ avoidCurrent: true });
   renderCase();
 });
 
@@ -507,28 +577,51 @@ elements.useCustomCaseButton.addEventListener("click", async () => {
 
 elements.resetCustomCaseButton.addEventListener("click", () => {
   fillDefaultCustomScene();
-  setStatus("已恢复自定义示例");
+  setStatus("已随机恢复自定义示例");
 });
 
 elements.restartCaseButton.addEventListener("click", () => {
-  startNewGame();
+  restartCurrentCase();
 });
 
 elements.useRecommendedButton.addEventListener("click", () => {
+  if (state.game.is_complete) return;
   elements.replyInput.value = currentRecommendedReply();
   showScreen("chat");
   elements.replyInput.focus();
 });
 
+elements.newGameButton.addEventListener("click", () => {
+  startNewGame();
+});
+
+elements.completionHistoryButton.addEventListener("click", () => {
+  showHistory();
+});
+
+elements.adjustSceneButton.addEventListener("click", () => {
+  showScreen("settings");
+});
+
 async function startNewGame() {
   try {
     await createSession();
-    state.game = createInitialGameState();
-    state.perfectReplies = [];
-    state.turns = [];
+    chooseRandomSeededCase({ avoidCurrent: true });
     renderCase();
     showScreen("chat");
-    await primeCustomCase();
+  } catch (error) {
+    setStatus(error instanceof Error ? error.message : String(error));
+  }
+}
+
+async function restartCurrentCase() {
+  try {
+    await createSession();
+    renderCase();
+    showScreen("chat");
+    if (state.customCase) {
+      await primeCustomCase();
+    }
   } catch (error) {
     setStatus(error instanceof Error ? error.message : String(error));
   }

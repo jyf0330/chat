@@ -1,0 +1,2656 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_031 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_031</h1>
+      <p>你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>87<span>score</span></b>
+        <b>体面拉扯大师<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;fbb3d6c9-dfae-42f3-a060-b9d088416e4e&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T180625Z-31__seed_game_031.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T180625Z-31__seed_game_031.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4566ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那就文字聊几句吧。你今天忙什么了？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续用轻松话题承接，保持文字聊天的舒适感，不追问不方便的原因。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我也刚忙完，现在躺着刷手机呢。你加班辛苦了，早点休息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>我也刚忙完，现在窝在沙发上发呆。你加班辛苦了，要不要先休息？如果还想聊，我随时在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;,
+    &quot;best_strategy&quot;: &quot;继续用轻松话题承接，保持文字聊天的舒适感，不追问不方便的原因。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我也刚忙完，现在躺着刷手机呢。你加班辛苦了，早点休息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我也刚忙完，现在窝在沙发上发呆。你加班辛苦了，要不要先休息？如果还想聊，我随时在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+        &quot;用户没有追问原因，没有施加任何压力。&quot;,
+        &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+        &quot;对话氛围安全，无任何越界或风险信号。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松文字聊天，可以分享日常小事，保持自然节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 11,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 11,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4ac04e10-c979-4803-87b5-c70ead0c3820&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1337,
+      &quot;completion_tokens&quot;: 300,
+      &quot;total_tokens&quot;: 1637,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 697
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4179ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松陪伴，不追问细节，保持自然闲聊节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>累是累，不过跟你聊几句就不累了。你晚饭吃了吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>还行，看到你消息就放松了。你加班回来肯定饿了吧？要不要先吃点东西，我等你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松陪伴，不追问细节，保持自然闲聊节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;累是累，不过跟你聊几句就不累了。你晚饭吃了吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;还行，看到你消息就放松了。你加班回来肯定饿了吧？要不要先吃点东西，我等你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+        &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+        &quot;用户表达陪伴意愿，语气温和自然&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然闲聊，可以聊轻松话题如休息、饮食等，保持陪伴感。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;e64c5082-b0fb-4cdb-9bb6-a3465a3ec2bb&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1418,
+      &quot;completion_tokens&quot;: 276,
+      &quot;total_tokens&quot;: 1694,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 778
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3964ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>还没吃呢，打算等会儿叫个外卖。你吃了吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续关心但不越界，保持轻松闲聊，不追问不方便电话的原因。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那赶紧点个外卖吧，别饿着。我也刚吃完。</p></div>
+          <div><strong>perfect_reply_100</strong><p>那快点点个好吃的犒劳自己，别饿着胃。我这边刚吃完，正好陪你等外卖。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;,
+    &quot;best_strategy&quot;: &quot;继续关心但不越界，保持轻松闲聊，不追问不方便电话的原因。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那赶紧点个外卖吧，别饿着。我也刚吃完。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;那快点点个好吃的犒劳自己，别饿着胃。我这边刚吃完，正好陪你等外卖。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+        &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+        &quot;用户回复自然承接话题，没有施加压力&quot;,
+        &quot;整体氛围轻松安全，信任感增强&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，可以聊聊外卖吃什么或分享日常小事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 31,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 31,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;fb313129-dd68-40b5-b34f-406d9725d39d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1489,
+      &quot;completion_tokens&quot;: 275,
+      &quot;total_tokens&quot;: 1764,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 849
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4721ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受共同点外卖的提议，保持轻松互动，不追问之前不方便电话的原因。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，我看看附近有什么麻辣烫店，找到发你链接。</p></div>
+          <div><strong>perfect_reply_100</strong><p>麻辣烫好呀！我搜一下附近评分高的，找到链接发你，你挑喜欢的加。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？&quot;,
+    &quot;best_strategy&quot;: &quot;接受共同点外卖的提议，保持轻松互动，不追问之前不方便电话的原因。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，我看看附近有什么麻辣烫店，找到发你链接。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;麻辣烫好呀！我搜一下附近评分高的，找到链接发你，你挑喜欢的加。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+        &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+        &quot;话题自然延续，没有施加压力或越界。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，可以聊聊外卖口味或日常趣事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 40,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 40,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+            &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+            &quot;话题自然延续，没有施加压力或越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;3c0ba25f-dcd4-4ee7-ab15-ef7fab28f309&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1559,
+      &quot;completion_tokens&quot;: 297,
+      &quot;total_tokens&quot;: 1856,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 919
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5020ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>微辣就行，不太能吃辣。你帮我挑一家评分高的吧～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松点餐话题，保持陪伴感，不追问之前不方便电话的原因。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，我看看评分最高的那家，微辣应该没问题。你还要加点什么配菜吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>微辣收到，我找一家评分高的。你加班累了，要不要加份肥牛或者午餐肉？我请客，就当犒劳你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;微辣就行，不太能吃辣。你帮我挑一家评分高的吧～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松点餐话题，保持陪伴感，不追问之前不方便电话的原因。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，我看看评分最高的那家，微辣应该没问题。你还要加点什么配菜吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;微辣收到，我找一家评分高的。你加班累了，要不要加份肥牛或者午餐肉？我请客，就当犒劳你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然承接点餐话题，没有追问对方之前不方便电话的原因，尊重边界&quot;,
+        &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+        &quot;话题贴合当前对话，没有跑偏或攻击性&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续点餐话题，可以聊食物偏好或分享趣事，保持轻松氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 47,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 47,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+            &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+            &quot;话题自然延续，没有施加压力或越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接点餐话题，没有追问对方之前不方便电话的原因，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题贴合当前对话，没有跑偏或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;762d7ff2-9db3-4ec7-831c-18a994455efd&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1641,
+      &quot;completion_tokens&quot;: 299,
+      &quot;total_tokens&quot;: 1940,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1001
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4613ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好呀，你慢慢挑，我不急～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松陪伴，保持关心但不过度介入，等待对方分享更多。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，我看看这家评分4.8，评论说微辣刚好，要不要试试？</p></div>
+          <div><strong>perfect_reply_100</strong><p>这家评分4.8，评论说微辣刚好，而且有优惠券，我发你链接，你看看合不合口味？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;微辣就行，不太能吃辣。你帮我挑一家评分高的吧～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好呀，你慢慢挑，我不急～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松陪伴，保持关心但不过度介入，等待对方分享更多。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，我看看这家评分4.8，评论说微辣刚好，要不要试试？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;这家评分4.8，评论说微辣刚好，而且有优惠券，我发你链接，你看看合不合口味？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方休息的意愿，没有追问或施压&quot;,
+        &quot;回复自然承接，保持轻松陪伴氛围&quot;,
+        &quot;没有越界或增加对方负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，可以分享外卖选择或聊聊其他轻松话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 56,
+    &quot;title&quot;: &quot;松弛感回复王&quot;,
+    &quot;highest_score&quot;: 56,
+    &quot;highest_title&quot;: &quot;松弛感回复王&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+            &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+            &quot;话题自然延续，没有施加压力或越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接点餐话题，没有追问对方之前不方便电话的原因，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题贴合当前对话，没有跑偏或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 56,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方休息的意愿，没有追问或施压&quot;,
+            &quot;回复自然承接，保持轻松陪伴氛围&quot;,
+            &quot;没有越界或增加对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;c0dfb09a-d759-458b-9967-b63c2065e16c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1719,
+      &quot;completion_tokens&quot;: 267,
+      &quot;total_tokens&quot;: 1986,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1079
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4675ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哇，看起来不错！我看看……嗯，这家评分确实高，就它吧！你帮我下单，我转你钱～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松互动，接受对方转账提议，保持自然陪伴感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那我下单了，你转我20就行，不够的我补。</p></div>
+          <div><strong>perfect_reply_100</strong><p>行，那我先下单了，你转我20就好，不够的算我请你。你躺着等吃就行，到了我喊你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;微辣就行，不太能吃辣。你帮我挑一家评分高的吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，你慢慢挑，我不急～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哇，看起来不错！我看看……嗯，这家评分确实高，就它吧！你帮我下单，我转你钱～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松互动，接受对方转账提议，保持自然陪伴感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那我下单了，你转我20就行，不够的我补。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;行，那我先下单了，你转我20就好，不够的算我请你。你躺着等吃就行，到了我喊你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享链接，尊重对方选择，没有追问或施压&quot;,
+        &quot;语气轻松自然，延续了之前点外卖的默契&quot;,
+        &quot;没有越界或试探，完全在安全边界内&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然互动，等待对方回复后可以聊聊外卖口味或日常话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 65,
+    &quot;title&quot;: &quot;聊天舒适区本人&quot;,
+    &quot;highest_score&quot;: 65,
+    &quot;highest_title&quot;: &quot;聊天舒适区本人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+            &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+            &quot;话题自然延续，没有施加压力或越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接点餐话题，没有追问对方之前不方便电话的原因，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题贴合当前对话，没有跑偏或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 56,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方休息的意愿，没有追问或施压&quot;,
+            &quot;回复自然承接，保持轻松陪伴氛围&quot;,
+            &quot;没有越界或增加对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;,
+        &quot;score_before&quot;: 56,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享链接，尊重对方选择，没有追问或施压&quot;,
+            &quot;语气轻松自然，延续了之前点外卖的默契&quot;,
+            &quot;没有越界或试探，完全在安全边界内&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1900042a-c031-49bb-9de7-724906b73735&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1781,
+      &quot;completion_tokens&quot;: 294,
+      &quot;total_tokens&quot;: 2075,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1141
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4968ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>行，那我先帮你下单，你转我就行。对了，你晚上还吃别的吗？我顺便看看有没有饮料凑个单。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，不用啦，麻辣烫就够了，饮料家里有。你帮我下单吧，我转你～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续自然陪伴，接受对方不额外点单，保持轻松氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那就只点麻辣烫，我下单了。你躺着等吧，到了我叫你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，那就不加饮料了。我下单了，你安心躺着等，到了我提醒你。对了，你明天还加班吗？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;微辣就行，不太能吃辣。你帮我挑一家评分高的吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，你慢慢挑，我不急～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，看起来不错！我看看……嗯，这家评分确实高，就它吧！你帮我下单，我转你钱～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;行，那我先帮你下单，你转我就行。对了，你晚上还吃别的吗？我顺便看看有没有饮料凑个单。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，不用啦，麻辣烫就够了，饮料家里有。你帮我下单吧，我转你～&quot;,
+    &quot;best_strategy&quot;: &quot;继续自然陪伴，接受对方不额外点单，保持轻松氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那就只点麻辣烫，我下单了。你躺着等吧，到了我叫你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，那就不加饮料了。我下单了，你安心躺着等，到了我提醒你。对了，你明天还加班吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出帮忙下单并询问是否需要其他，体现关心但未越界&quot;,
+        &quot;对方已明确拒绝额外点单，用户未追问原因，尊重边界&quot;,
+        &quot;对话氛围轻松自然，无施压或纠缠&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，关系安全升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然陪伴，等待对方回复后可以聊聊日常或明天计划。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 73,
+    &quot;title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;highest_score&quot;: 73,
+    &quot;highest_title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+            &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+            &quot;话题自然延续，没有施加压力或越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接点餐话题，没有追问对方之前不方便电话的原因，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题贴合当前对话，没有跑偏或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 56,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方休息的意愿，没有追问或施压&quot;,
+            &quot;回复自然承接，保持轻松陪伴氛围&quot;,
+            &quot;没有越界或增加对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;,
+        &quot;score_before&quot;: 56,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享链接，尊重对方选择，没有追问或施压&quot;,
+            &quot;语气轻松自然，延续了之前点外卖的默契&quot;,
+            &quot;没有越界或试探，完全在安全边界内&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;行，那我先帮你下单，你转我就行。对了，你晚上还吃别的吗？我顺便看看有没有饮料凑个单。&quot;,
+        &quot;score_before&quot;: 65,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 73,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出帮忙下单并询问是否需要其他，体现关心但未越界&quot;,
+            &quot;对方已明确拒绝额外点单，用户未追问原因，尊重边界&quot;,
+            &quot;对话氛围轻松自然，无施压或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，关系安全升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5a13d019-c16e-4e0c-b7f2-16917f15cba1&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1873,
+      &quot;completion_tokens&quot;: 294,
+      &quot;total_tokens&quot;: 2167,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1233
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4597ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那我下单了，微辣麻辣烫一份。你躺着等吧，到了叫你～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好嘞，那我等着啦～你下单了告诉我一声，我转你钱。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松陪伴，完成下单后自然过渡到其他话题，保持温暖但不越界。</p></div>
+          <div><strong>recommended_reply_80</strong><p>已经下好了，预计半小时到。你先歇着，到了我喊你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>下好了，微辣麻辣烫，预计半小时到。你安心躺着，到了我提醒你。对了，你明天还加班吗？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;微辣就行，不太能吃辣。你帮我挑一家评分高的吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，你慢慢挑，我不急～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，看起来不错！我看看……嗯，这家评分确实高，就它吧！你帮我下单，我转你钱～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;行，那我先帮你下单，你转我就行。对了，你晚上还吃别的吗？我顺便看看有没有饮料凑个单。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不用啦，麻辣烫就够了，饮料家里有。你帮我下单吧，我转你～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那我下单了，微辣麻辣烫一份。你躺着等吧，到了叫你～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好嘞，那我等着啦～你下单了告诉我一声，我转你钱。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松陪伴，完成下单后自然过渡到其他话题，保持温暖但不越界。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;已经下好了，预计半小时到。你先歇着，到了我喊你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;下好了，微辣麻辣烫，预计半小时到。你安心躺着，到了我提醒你。对了，你明天还加班吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方之前不方便电话的边界，转为文字陪伴。&quot;,
+        &quot;用户主动提供帮助（下单），没有追问或施压。&quot;,
+        &quot;语气轻松自然，没有施加任何压力。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴，完全尊重边界，关系升温良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方回复后，可以自然聊到外卖味道、明天计划等轻松话题，保持当前节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 80,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 80,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+            &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+            &quot;话题自然延续，没有施加压力或越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接点餐话题，没有追问对方之前不方便电话的原因，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题贴合当前对话，没有跑偏或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 56,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方休息的意愿，没有追问或施压&quot;,
+            &quot;回复自然承接，保持轻松陪伴氛围&quot;,
+            &quot;没有越界或增加对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;,
+        &quot;score_before&quot;: 56,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享链接，尊重对方选择，没有追问或施压&quot;,
+            &quot;语气轻松自然，延续了之前点外卖的默契&quot;,
+            &quot;没有越界或试探，完全在安全边界内&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;行，那我先帮你下单，你转我就行。对了，你晚上还吃别的吗？我顺便看看有没有饮料凑个单。&quot;,
+        &quot;score_before&quot;: 65,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 73,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出帮忙下单并询问是否需要其他，体现关心但未越界&quot;,
+            &quot;对方已明确拒绝额外点单，用户未追问原因，尊重边界&quot;,
+            &quot;对话氛围轻松自然，无施压或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;好，那我下单了，微辣麻辣烫一份。你躺着等吧，到了叫你～&quot;,
+        &quot;score_before&quot;: 73,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 80,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前不方便电话的边界，转为文字陪伴。&quot;,
+            &quot;用户主动提供帮助（下单），没有追问或施压。&quot;,
+            &quot;语气轻松自然，没有施加任何压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，完全尊重边界，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，完全尊重边界，关系升温良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a7721062-911c-47e3-ac9c-9064d0ca5097&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1949,
+      &quot;completion_tokens&quot;: 295,
+      &quot;total_tokens&quot;: 2244,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1309
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4290ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>已经下单啦，微辣麻辣烫一份，估计半小时左右到。你记得看手机通知哈～钱不着急，吃完了再说。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，那我等着啦～钱先转你吧，不然我待会儿忘了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松陪伴，接受转账但不过度推让，保持自然互动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没事，不着急，你躺着休息吧，到了我叫你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，别急，你躺着好好休息，到了我喊你，钱的事吃完再说也不迟。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;今天工作有点忙，刚加完班回来，现在就想躺着歇会儿。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你陪我聊会儿，我躺平了。你今天工作累不累？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;还没吃呢，打算等会儿叫个外卖。你吃了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你也要点外卖啊？那一起点吧，我想吃麻辣烫，你帮我看看哪家好吃？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;微辣就行，不太能吃辣。你帮我挑一家评分高的吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，你慢慢挑，我不急～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，看起来不错！我看看……嗯，这家评分确实高，就它吧！你帮我下单，我转你钱～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;行，那我先帮你下单，你转我就行。对了，你晚上还吃别的吗？我顺便看看有没有饮料凑个单。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不用啦，麻辣烫就够了，饮料家里有。你帮我下单吧，我转你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我下单了，微辣麻辣烫一份。你躺着等吧，到了叫你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，那我等着啦～你下单了告诉我一声，我转你钱。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;已经下单啦，微辣麻辣烫一份，估计半小时左右到。你记得看手机通知哈～钱不着急，吃完了再说。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，那我等着啦～钱先转你吧，不然我待会儿忘了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松陪伴，接受转账但不过度推让，保持自然互动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没事，不着急，你躺着休息吧，到了我叫你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，别急，你躺着好好休息，到了我喊你，钱的事吃完再说也不迟。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方边界，不催钱、不追问隐私&quot;,
+        &quot;用户主动提供陪伴感，降低对方压力&quot;,
+        &quot;用户回复贴合当前轻松点外卖的语境&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴、自然，有效增进关系&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，可以聊聊外卖味道或日常话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 87,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 87,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，那就文字聊几句吧。你今天忙什么了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，主动转为文字聊天。&quot;,
+            &quot;用户没有追问原因，没有施加任何压力。&quot;,
+            &quot;用户用开放式问题关心对方，语气自然友好。&quot;,
+            &quot;对话氛围安全，无任何越界或风险信号。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、共情，是理想的推进方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，今天也差不多，一堆事总算搞完了。那你赶紧躺着休息吧，我就在这儿陪你文字闲聊。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，转为文字陪伴&quot;,
+            &quot;用户主动提议让对方休息，不施加任何压力&quot;,
+            &quot;用户表达陪伴意愿，语气温和自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了轻松氛围，值得鼓励。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;还行，习惯了。倒是你，加班到这么晚，晚饭吃了吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问不方便电话的原因，尊重了边界&quot;,
+            &quot;用户主动关心对方是否吃饭，体现了共情&quot;,
+            &quot;用户回复自然承接话题，没有施加压力&quot;,
+            &quot;整体氛围轻松安全，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，有效维持了关系升温节奏&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也还没吃，正准备煮点面。要不我们一起点外卖？你想吃什么，我帮你看看。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起点外卖，尊重对方之前说没吃饭的状态，没有追问不方便电话的原因。&quot;,
+            &quot;用'我们一起'拉近距离，但给选择空间，不强迫。&quot;,
+            &quot;话题自然延续，没有施加压力或越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然体贴，既关心对方又保持轻松，有效推进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;麻辣烫啊，行，我看看附近有什么店。你爱吃辣吗？微辣还是特辣？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接点餐话题，没有追问对方之前不方便电话的原因，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题贴合当前对话，没有跑偏或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持轻松陪伴感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，微辣麻辣烫，我找找评分高的店。你先躺着歇会儿，选好了我发你链接。&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 56,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方休息的意愿，没有追问或施压&quot;,
+            &quot;回复自然承接，保持轻松陪伴氛围&quot;,
+            &quot;没有越界或增加对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维持了轻松愉快的聊天氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;我看了几家，这家评价不错，而且有微辣选项，你看看 【链接】&quot;,
+        &quot;score_before&quot;: 56,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;聊天舒适区本人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享链接，尊重对方选择，没有追问或施压&quot;,
+            &quot;语气轻松自然，延续了之前点外卖的默契&quot;,
+            &quot;没有越界或试探，完全在安全边界内&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，维持了轻松陪伴的氛围，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;行，那我先帮你下单，你转我就行。对了，你晚上还吃别的吗？我顺便看看有没有饮料凑个单。&quot;,
+        &quot;score_before&quot;: 65,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 73,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出帮忙下单并询问是否需要其他，体现关心但未越界&quot;,
+            &quot;对方已明确拒绝额外点单，用户未追问原因，尊重边界&quot;,
+            &quot;对话氛围轻松自然，无施压或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;好，那我下单了，微辣麻辣烫一份。你躺着等吧，到了叫你～&quot;,
+        &quot;score_before&quot;: 73,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 80,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前不方便电话的边界，转为文字陪伴。&quot;,
+            &quot;用户主动提供帮助（下单），没有追问或施压。&quot;,
+            &quot;语气轻松自然，没有施加任何压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，完全尊重边界，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，完全尊重边界，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;已经下单啦，微辣麻辣烫一份，估计半小时左右到。你记得看手机通知哈～钱不着急，吃完了再说。&quot;,
+        &quot;score_before&quot;: 80,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 87,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不催钱、不追问隐私&quot;,
+            &quot;用户主动提供陪伴感，降低对方压力&quot;,
+            &quot;用户回复贴合当前轻松点外卖的语境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴、自然，有效增进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴、自然，有效增进关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;68286fb9-c706-41a0-bfd7-c3e484e30f6d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2032,
+      &quot;completion_tokens&quot;: 265,
+      &quot;total_tokens&quot;: 2297,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1392
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

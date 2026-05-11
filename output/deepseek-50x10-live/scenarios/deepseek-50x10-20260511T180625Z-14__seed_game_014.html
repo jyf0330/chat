@@ -1,0 +1,2257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_014 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_014</h1>
+      <p>她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>37<span>score</span></b>
+        <b>安抚力拉满<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;c35c50b5-aedb-48f4-a6d1-3711ace48f1b&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T180625Z-14__seed_game_014.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T180625Z-14__seed_game_014.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 5145ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，还行吧，朋友一起吃了饭。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>承认疏忽，表达歉意，用具体的小补偿（如奶茶）来修复，不要过度解释或辩解。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好。昨天没及时祝你生日快乐，是我疏忽了，补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>那就好。昨天没赶上你的生日，是我不好。我知道你之前提醒过我，我却还是忘了，真的很抱歉。补一句迟到的生日快乐，再请你喝杯你最喜欢的奶茶，算是赔罪，可以吗？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;,
+    &quot;best_strategy&quot;: &quot;承认疏忽，表达歉意，用具体的小补偿（如奶茶）来修复，不要过度解释或辩解。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好。昨天没及时祝你生日快乐，是我疏忽了，补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;那就好。昨天没赶上你的生日，是我不好。我知道你之前提醒过我，我却还是忘了，真的很抱歉。补一句迟到的生日快乐，再请你喝杯你最喜欢的奶茶，算是赔罪，可以吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+        &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+        &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然对话，可以围绕生日细节展开，但避免过度追问或道歉。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 7,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 7,
+    &quot;highest_title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f4847555-7123-49d4-ad08-69aa80727654&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1374,
+      &quot;completion_tokens&quot;: 325,
+      &quot;total_tokens&quot;: 1699,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 734
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4198ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，不用这么麻烦啦，心意我收到了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>她语气客气但保持距离，不要强行送礼物，先接受她的边界，再自然缓和气氛。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好吧，那下次有机会再补上。你开心就好。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，听你的。不过我还是想让你知道，那天没及时祝福是我不好，以后重要日子我会提前记好。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;,
+    &quot;best_strategy&quot;: &quot;她语气客气但保持距离，不要强行送礼物，先接受她的边界，再自然缓和气氛。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好吧，那下次有机会再补上。你开心就好。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，听你的。不过我还是想让你知道，那天没及时祝福是我不好，以后重要日子我会提前记好。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+        &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+        &quot;对话整体温和，没有越界或情绪勒索&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，可以聊点轻松日常，不要急于弥补或解释。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 13,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 13,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;6113b830-ffae-4a6f-91c1-fbce45553968&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1440,
+      &quot;completion_tokens&quot;: 278,
+      &quot;total_tokens&quot;: 1718,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 800
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 5305ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受对方的礼物，但用轻松语气淡化愧疚感，保持友好边界，不进一步追问感受。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，我还怕你生气呢。明天给你带过去，你挑个方便的时间？</p></div>
+          <div><strong>perfect_reply_100</strong><p>不破费，你开心最重要。明天中午我送到你公司楼下，或者你下班前告诉我一声，我顺路带给你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;,
+    &quot;best_strategy&quot;: &quot;接受对方的礼物，但用轻松语气淡化愧疚感，保持友好边界，不进一步追问感受。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，我还怕你生气呢。明天给你带过去，你挑个方便的时间？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;不破费，你开心最重要。明天中午我送到你公司楼下，或者你下班前告诉我一声，我顺路带给你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+        &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+        &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+        &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然推进，明天交付礼物后可以聊聊日常话题，避免再提生日疏忽。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 22,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 22,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5f0e7afe-8a4f-48ce-9dcf-2408c7d84b07&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1510,
+      &quot;completion_tokens&quot;: 318,
+      &quot;total_tokens&quot;: 1828,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 870
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4082ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受邀约，保持轻松，不进一步道歉或解释，让见面自然修复关系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没问题，就一杯普通的。那明天中午老地方见？</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，听你的，就一杯普通的。明天中午老地方见，我等你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。&quot;,
+    &quot;best_strategy&quot;: &quot;接受邀约，保持轻松，不进一步道歉或解释，让见面自然修复关系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没问题，就一杯普通的。那明天中午老地方见？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，听你的，就一杯普通的。明天中午老地方见，我等你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+        &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+        &quot;对方已同意见面，关系缓和，无风险信号&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面时自然聊天，避免再提忘记生日的事，关注对方近况。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+            &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+            &quot;对方已同意见面，关系缓和，无风险信号&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;e580be2d-75bf-4543-8f58-f9d5e8566185&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1590,
+      &quot;completion_tokens&quot;: 290,
+      &quot;total_tokens&quot;: 1880,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 950
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5003ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，明天见！那我等着你的奶茶啦。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的氛围，见面时自然带过道歉话题，重点放在当下的互动上。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，明天见！我选你最爱的那家店，保证不超标。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。其实昨天没及时祝你生日，我心里挺过意不去的，明天当面好好补个祝福。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，明天见！那我等着你的奶茶啦。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的氛围，见面时自然带过道歉话题，重点放在当下的互动上。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，明天见！我选你最爱的那家店，保证不超标。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。其实昨天没及时祝你生日，我心里挺过意不去的，明天当面好好补个祝福。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复轻松愉快，没有继续纠缠道歉或施压。&quot;,
+        &quot;用户主动提出选对方喜欢的店并控制花费，体现尊重。&quot;,
+        &quot;对话氛围和谐，对方已接受邀请，风险低。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面时，可以自然带一句‘昨天真的抱歉，今天补上’，然后转移话题到奶茶口味或近况，保持轻松。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+            &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+            &quot;对方已同意见面，关系缓和，无风险信号&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松愉快，没有继续纠缠道歉或施压。&quot;,
+            &quot;用户主动提出选对方喜欢的店并控制花费，体现尊重。&quot;,
+            &quot;对话氛围和谐，对方已接受邀请，风险低。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;7c04d0fa-f9ea-43bf-aa19-19a5d98cbe0d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1667,
+      &quot;completion_tokens&quot;: 315,
+      &quot;total_tokens&quot;: 1982,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1027
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4314ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嘿嘿，记着呢，你喜欢的口味我可不敢忘。明天中午老地方见！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，那明天中午老地方见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的氛围，明天见面时自然弥补，无需再提道歉话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，那明天见！你早点休息，晚安。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嘿嘿，那明天见！你喜欢的口味我当然记得，明天中午老地方，不见不散。晚安，好梦。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天见！那我等着你的奶茶啦。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嘿嘿，记着呢，你喜欢的口味我可不敢忘。明天中午老地方见！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，那明天中午老地方见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的氛围，明天见面时自然弥补，无需再提道歉话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，那明天见！你早点休息，晚安。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嘿嘿，那明天见！你喜欢的口味我当然记得，明天中午老地方，不见不散。晚安，好梦。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复轻松愉快，没有施加压力或纠缠。&quot;,
+        &quot;用户确认了明天的约定，尊重了对方之前的接受。&quot;,
+        &quot;用户没有过度道歉或解释，保持了自然氛围。&quot;,
+        &quot;整体对话已从失望转向友好，风险降低。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然友好，有效巩固了关系修复成果，无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面时自然关心对方近况，保持轻松话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+            &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+            &quot;对方已同意见面，关系缓和，无风险信号&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松愉快，没有继续纠缠道歉或施压。&quot;,
+            &quot;用户主动提出选对方喜欢的店并控制花费，体现尊重。&quot;,
+            &quot;对话氛围和谐，对方已接受邀请，风险低。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;23351054-e72d-49b3-92d9-634d7a8d0ff0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1732,
+      &quot;completion_tokens&quot;: 282,
+      &quot;total_tokens&quot;: 2014,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1092
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4161ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好，明天中午不见不散！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，明天中午不见不散！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的氛围，明天见面时自然弥补之前的疏忽，不要过度道歉或解释。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，明天见！期待和你一起喝奶茶。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，明天中午见！我已经想好要请你喝什么了，保证是你喜欢的口味。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天见！那我等着你的奶茶啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，记着呢，你喜欢的口味我可不敢忘。明天中午老地方见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那明天中午老地方见！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好，明天中午不见不散！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，明天中午不见不散！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的氛围，明天见面时自然弥补之前的疏忽，不要过度道歉或解释。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，明天见！期待和你一起喝奶茶。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，明天中午见！我已经想好要请你喝什么了，保证是你喜欢的口味。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方边界，没有施加任何压力。&quot;,
+        &quot;用户回复轻松愉快，与对方语气一致，有助于修复关系。&quot;,
+        &quot;用户回复没有纠缠或过度解释，保持了自然的互动节奏。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复非常得体，既确认了约定，又保持了轻松氛围，对关系有积极影响。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面时，自然地把礼物和奶茶交给对方，简单说一句生日快乐，然后聊些轻松话题，不要再提忘记的事情。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+            &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+            &quot;对方已同意见面，关系缓和，无风险信号&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松愉快，没有继续纠缠道歉或施压。&quot;,
+            &quot;用户主动提出选对方喜欢的店并控制花费，体现尊重。&quot;,
+            &quot;对话氛围和谐，对方已接受邀请，风险低。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;506cd2ac-65c2-4d43-bafe-ed9b28c3e7fe&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1787,
+      &quot;completion_tokens&quot;: 288,
+      &quot;total_tokens&quot;: 2075,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1147
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 3742ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，明天中午见，我提前到等你！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，明天中午见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松约定，见面时自然弥补心意，避免再提道歉。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，明天见！我也期待呢。</p></div>
+          <div><strong>perfect_reply_100</strong><p>明天见！其实我还有点小惊喜要带给你，不过先保密，嘿嘿。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天见！那我等着你的奶茶啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，记着呢，你喜欢的口味我可不敢忘。明天中午老地方见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那明天中午老地方见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午不见不散！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午不见不散！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，明天中午见，我提前到等你！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，明天中午见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松约定，见面时自然弥补心意，避免再提道歉。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，明天见！我也期待呢。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;明天见！其实我还有点小惊喜要带给你，不过先保密，嘿嘿。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复确认约定，未施加压力或追问道歉&quot;,
+        &quot;语气轻松，符合当前友好氛围&quot;,
+        &quot;未触及敏感话题，尊重对方边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，维持了良好互动节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松话题，见面时自然弥补心意。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+            &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+            &quot;对方已同意见面，关系缓和，无风险信号&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松愉快，没有继续纠缠道歉或施压。&quot;,
+            &quot;用户主动提出选对方喜欢的店并控制花费，体现尊重。&quot;,
+            &quot;对话氛围和谐，对方已接受邀请，风险低。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;ec78d10b-8633-4672-b039-2421bec2c091&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1844,
+      &quot;completion_tokens&quot;: 238,
+      &quot;total_tokens&quot;: 2082,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1204
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3901ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那说好啦，我明天中午带着奶茶和礼物在老地方等你，不见不散！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，明天中午老地方见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的约定，明天准时赴约即可，无需再提道歉或补偿。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，明天中午见！</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，明天中午见！我已经开始期待了，希望你喜欢我挑的礼物。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天见！那我等着你的奶茶啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，记着呢，你喜欢的口味我可不敢忘。明天中午老地方见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那明天中午老地方见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午不见不散！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午不见不散！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，明天中午见，我提前到等你！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午见！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那说好啦，我明天中午带着奶茶和礼物在老地方等你，不见不散！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，明天中午老地方见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的约定，明天准时赴约即可，无需再提道歉或补偿。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，明天中午见！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，明天中午见！我已经开始期待了，希望你喜欢我挑的礼物。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户确认了约定，没有施加额外压力&quot;,
+        &quot;语气轻松愉快，符合当前关系阶段&quot;,
+        &quot;没有纠缠道歉或过度补偿&quot;,
+        &quot;对方已接受，对话自然收尾&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且符合场景，维持了良好互动节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天赴约时自然相处，不必再提忘记生日的事，专注当下愉快交流。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+            &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+            &quot;对方已同意见面，关系缓和，无风险信号&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松愉快，没有继续纠缠道歉或施压。&quot;,
+            &quot;用户主动提出选对方喜欢的店并控制花费，体现尊重。&quot;,
+            &quot;对话氛围和谐，对方已接受邀请，风险低。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;182383fb-b40a-45c8-b543-589d67467724&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1905,
+      &quot;completion_tokens&quot;: 259,
+      &quot;total_tokens&quot;: 2164,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1265
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4025ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯嗯，明天中午不见不散，我等你哦！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，明天中午老地方见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松约定，明天见面时自然弥补，不必再提忘记的事。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，明天中午老地方见，我等你！</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，明天中午老地方见！我提前到，等你来。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她生日那天你忙到很晚才想起来，第二天才补发祝福。她回：“谢谢，昨天挺热闹的。”语气很平，但你知道她之前提醒过你。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;失望&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我昨天真的忙死了，你应该能理解吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着解释，先承认错过的重要性，再补一个不夸张的心意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;昨天没及时祝你生日快乐，是我疏忽了。补一句迟到的生日快乐，也补一杯你喜欢的奶茶，可以吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，还行吧，朋友一起吃了饭。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，不用这么麻烦啦，心意我收到了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，赎罪都出来了，没那么严重啦。礼物我收下，但下次别破费了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那明天中午见。不过说好了，就一杯奶茶，别买太贵的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天见！那我等着你的奶茶啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，记着呢，你喜欢的口味我可不敢忘。明天中午老地方见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那明天中午老地方见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午不见不散！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午不见不散！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，明天中午见，我提前到等你！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那说好啦，我明天中午带着奶茶和礼物在老地方等你，不见不散！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，明天中午老地方见！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯嗯，明天中午不见不散，我等你哦！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，明天中午老地方见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松约定，明天见面时自然弥补，不必再提忘记的事。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，明天中午老地方见，我等你！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，明天中午老地方见！我提前到，等你来。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户回复确认约定，语气轻松，没有施加压力&quot;,
+        &quot;没有纠缠道歉或过度补偿，尊重对方之前的接受&quot;,
+        &quot;回复贴合当前对话进程，自然推进&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，维持了友好约定，关系稳定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面时自然弥补，不必再提忘记的事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哎呀，昨天忙到晕头转向，想起来的时候已经晚了…你生日过得开心吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有辩解或推卸责任，而是承认忙并询问对方感受，表现出关心。&quot;,
+            &quot;语气轻松自然，没有施加压力或要求对方原谅。&quot;,
+            &quot;没有重复已知的坏回复模式，而是主动开启对话修复。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和且关心，有助于缓和气氛，但共情深度一般。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，朋友陪着热闹。我这边给你准备了点小东西，明天带给你吧？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 13,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或强迫对方接受礼物，尊重了对方客气的推辞&quot;,
+            &quot;用户表达了心意但未施压，保持了安全距离&quot;,
+            &quot;对话整体温和，没有越界或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且不纠缠，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;别这么说，你提醒过我我却忘了，是我的问题。礼物我都买好了，你就当给我个赎罪的机会？&quot;,
+        &quot;score_before&quot;: 13,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己忘记并主动承担责任，没有推卸或辩解&quot;,
+            &quot;用户用轻松语气（赎罪的机会）降低对方压力&quot;,
+            &quot;用户坚持兑现礼物承诺，但未强迫对方接受时间地点&quot;,
+            &quot;整体语气尊重对方之前的冷淡，没有纠缠或施压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，不破费，你喜欢就好。那明天中午我拿给你，顺便请你喝奶茶赔罪？&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受对方推辞后仍坚持补送礼物，但语气轻松，未强迫&quot;,
+            &quot;用户主动提出请奶茶赔罪，体现诚意但不过度&quot;,
+            &quot;对方已同意见面，关系缓和，无风险信号&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了歉意又不过度纠缠，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那就好，明天见！我选你最爱的那家店，保证不超标。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松愉快，没有继续纠缠道歉或施压。&quot;,
+            &quot;用户主动提出选对方喜欢的店并控制花费，体现尊重。&quot;,
+            &quot;对话氛围和谐，对方已接受邀请，风险低。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，有效维持了良好互动，关系修复进展顺利。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1a81574d-5c6c-44f8-ab08-5287311676e4&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1962,
+      &quot;completion_tokens&quot;: 247,
+      &quot;total_tokens&quot;: 2209,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1322
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

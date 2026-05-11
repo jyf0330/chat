@@ -1,0 +1,2691 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_004 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .viewer-shell { display:grid; grid-template-columns:300px minmax(0,1fr); min-height:100vh; }
+    .viewer-sidebar { position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#ffffff; }
+    .viewer-sidebar h1 { font-size:22px; margin-bottom:4px; }
+    .viewer-sidebar header p { color:var(--muted); font-size:13px; }
+    .viewer-main { min-width:0; padding:24px 28px 60px; }
+    .filters { display:grid; gap:8px; margin:16px 0; }
+    input, select { width:100%; min-height:38px; border:1px solid var(--line); border-radius:8px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+    .nav-row { display:flex; justify-content:space-between; gap:8px; padding:9px 10px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:13px; }
+    .nav-row:hover { background:#eef6f6; }
+    .nav-row b { color:var(--user); }
+    .summary { padding:8px 0 22px; }
+    .summary.compact { padding-top:0; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    h3 { margin:0 0 8px; font-size:13px; color:var(--muted); }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .summary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:12px; }
+    .summary-grid span { display:grid; gap:4px; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; color:var(--muted); }
+    .summary-grid b { color:var(--ink); font-size:12px; }
+    .scenario-card { scroll-margin-top:18px; margin-top:20px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .scenario-head { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:18px; align-items:start; }
+    .scenario-head h2 { margin-bottom:8px; font-size:24px; }
+    .eyebrow { margin-bottom:6px; color:var(--muted); font-size:12px; line-height:1.4; }
+    .score-pill { display:grid; gap:4px; justify-items:end; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    .score-pill b { font-size:30px; color:var(--user); }
+    .score-pill span { text-align:right; color:var(--muted); font-size:13px; }
+    .audit-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .audit-strip span, .audit-strip a { padding:6px 9px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#fff; font-size:12px; text-decoration:none; }
+    .turn-list { display:grid; gap:12px; margin-top:16px; }
+    .turn-view { border:1px solid var(--line); border-radius:8px; background:#fbfcfd; overflow:hidden; }
+    .turn-view > summary { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px 14px; cursor:pointer; }
+    .turn-view > summary span { font-weight:700; }
+    .turn-view > summary b { padding:4px 7px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:12px; }
+    .io-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:0 14px 14px; }
+    .io-grid section { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .io-grid .bubble { border-left:5px solid var(--user); }
+    .io-grid .bubble.target { border-left-color:var(--target); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+    [hidden] { display:none !important; }
+    @media (max-width: 900px) {
+      .viewer-shell { grid-template-columns:1fr; }
+      .viewer-sidebar { position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line); }
+      .viewer-main { padding:18px 14px 44px; }
+      .summary-grid, .io-grid, .scenario-head { grid-template-columns:1fr; }
+      .score-pill { justify-items:start; }
+      .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_004</h1>
+      <p>最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>79<span>score</span></b>
+        <b>稳稳拿捏分寸<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;6097f600-737d-4eac-84da-3b7124e28d36&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T184035Z-02__seed_game_004.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T184035Z-02__seed_game_004.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4361ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>轻松接住对方分享的细节，保持友好但不过度期待，给双方留空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那家店看起来不错，改天你要是想去可以叫上我，我请你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，你眼光不错，那家店我路过也注意到了，招牌挺有意思的。等你忙完这阵子，要是想去探探店，随时喊我，我请你当小白鼠。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;,
+    &quot;best_strategy&quot;: &quot;轻松接住对方分享的细节，保持友好但不过度期待，给双方留空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那家店看起来不错，改天你要是想去可以叫上我，我请你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，你眼光不错，那家店我路过也注意到了，招牌挺有意思的。等你忙完这阵子，要是想去探探店，随时喊我，我请你当小白鼠。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+        &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+        &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，保持自然节奏，不要急于推进关系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;2b4e7fd1-8fda-4e0f-9866-97a827391386&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1548,
+      &quot;completion_tokens&quot;: 342,
+      &quot;total_tokens&quot;: 1890,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 780
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 5710ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，不追问邀约，用照片延续话题，维持自然互动节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，行，我发你。不过拍得一般，你凑合看。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，我发你。其实我拍的时候还特意找了个角度，把那个大招牌和旁边的霓虹灯一起框进去了，感觉挺有氛围的。你要是看了觉得不错，下次忙完可以约朋友去，我也可以给你推荐几个招牌菜。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，不追问邀约，用照片延续话题，维持自然互动节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，行，我发你。不过拍得一般，你凑合看。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，我发你。其实我拍的时候还特意找了个角度，把那个大招牌和旁边的霓虹灯一起框进去了，感觉挺有氛围的。你要是看了觉得不错，下次忙完可以约朋友去，我也可以给你推荐几个招牌菜。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+        &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+        &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然分享照片细节，可以适当提及菜品或环境，但避免再次邀约，等待对方主动提起时间。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 18,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 18,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9d747747-ed73-4923-8f72-377e715bb4e0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1646,
+      &quot;completion_tokens&quot;: 368,
+      &quot;total_tokens&quot;: 2014,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 878
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4223ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松有趣的氛围，通过具体细节保持对话自然流动，不推进邀约也不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，充气龙虾确实抢镜。我照片里拍到了，不过角度不太好，下次路过再补一张。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，充气龙虾？那也太有画面感了！你照片里拍到了吗？我特别好奇那只龙虾长什么样，感觉这家店老板挺有创意的。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松有趣的氛围，通过具体细节保持对话自然流动，不推进邀约也不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，充气龙虾确实抢镜。我照片里拍到了，不过角度不太好，下次路过再补一张。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！你照片里拍到了吗？我特别好奇那只龙虾长什么样，感觉这家店老板挺有创意的。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+        &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+        &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕照片或龙虾细节展开，保持轻松互动，不要主动提见面。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;727a6cea-de48-4bf9-9c1e-d84d33e1c64f&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1741,
+      &quot;completion_tokens&quot;: 319,
+      &quot;total_tokens&quot;: 2060,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 973
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4011ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松有趣的氛围，通过分享照片保持互动，不推进邀约，给空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那小喇叭确实挺逗的，我找找照片发你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那小喇叭确实是个彩蛋，我找找照片发你——你看了肯定能乐一下。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松有趣的氛围，通过分享照片保持互动，不推进邀约，给空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那小喇叭确实挺逗的，我找找照片发你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那小喇叭确实是个彩蛋，我找找照片发你——你看了肯定能乐一下。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+        &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+        &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享照片并围绕店铺细节展开轻松对话，保持自然互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 36,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 36,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+            &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+            &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;74bb8490-9cc5-491f-8948-5265b74e2ee3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1838,
+      &quot;completion_tokens&quot;: 290,
+      &quot;total_tokens&quot;: 2128,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1070
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 3700ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你越说我越好奇了！快发快发，我准备好笑喷了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松幽默的分享氛围，保持自然互动，不推进邀约或关系话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那你要不要现在听？我发给你，保证你笑出声。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，你这么说我更想听了！发过来吧，我正好今天需要点开心的事，笑一笑心情好。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你越说我越好奇了！快发快发，我准备好笑喷了。&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松幽默的分享氛围，保持自然互动，不推进邀约或关系话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那你要不要现在听？我发给你，保证你笑出声。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，你这么说我更想听了！发过来吧，我正好今天需要点开心的事，笑一笑心情好。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享有趣内容，不施加任何压力&quot;,
+        &quot;用户尊重对方节奏，没有追问邀约或关系&quot;,
+        &quot;用户保持轻松幽默，符合当前互动氛围&quot;,
+        &quot;用户没有越界或负面情绪&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享照片和录音，保持轻松互动，不要主动提及邀约或关系话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 47,
+    &quot;title&quot;: &quot;松弛感回复王&quot;,
+    &quot;highest_score&quot;: 47,
+    &quot;highest_title&quot;: &quot;松弛感回复王&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+            &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+            &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣内容，不施加任何压力&quot;,
+            &quot;用户尊重对方节奏，没有追问邀约或关系&quot;,
+            &quot;用户保持轻松幽默，符合当前互动氛围&quot;,
+            &quot;用户没有越界或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f5effe46-c0fe-4bd5-a5fa-a8525f495226&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1925,
+      &quot;completion_tokens&quot;: 298,
+      &quot;total_tokens&quot;: 2223,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1157
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4125ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你发吧，我已经做好心理准备了！不过要是太魔性，我明天上班脑子里都是这个声音了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松幽默的分享氛围，保持互动节奏，不推进关系也不退缩。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我不客气了，发完你可得告诉我听完什么感觉。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我发了啊！听完要是洗脑了别怪我，反正我已经循环了一下午了。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你越说我越好奇了！快发快发，我准备好笑喷了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你发吧，我已经做好心理准备了！不过要是太魔性，我明天上班脑子里都是这个声音了。&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松幽默的分享氛围，保持互动节奏，不推进关系也不退缩。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我不客气了，发完你可得告诉我听完什么感觉。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我发了啊！听完要是洗脑了别怪我，反正我已经循环了一下午了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户继续分享有趣内容，没有追问邀约或施加压力&quot;,
+        &quot;语气轻松幽默，尊重对方节奏&quot;,
+        &quot;没有要求对方立即回应或承诺&quot;,
+        &quot;保持话题开放性，不制造紧张感&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享照片或录音，保持轻松互动，观察对方反应后再决定下一步。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 55,
+    &quot;title&quot;: &quot;这句回得很会&quot;,
+    &quot;highest_score&quot;: 55,
+    &quot;highest_title&quot;: &quot;这句回得很会&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+            &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+            &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣内容，不施加任何压力&quot;,
+            &quot;用户尊重对方节奏，没有追问邀约或关系&quot;,
+            &quot;用户保持轻松幽默，符合当前互动氛围&quot;,
+            &quot;用户没有越界或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户继续分享有趣内容，没有追问邀约或施加压力&quot;,
+            &quot;语气轻松幽默，尊重对方节奏&quot;,
+            &quot;没有要求对方立即回应或承诺&quot;,
+            &quot;保持话题开放性，不制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;43e2c0e7-c9f7-47da-ab62-58983763e671&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2001,
+      &quot;completion_tokens&quot;: 293,
+      &quot;total_tokens&quot;: 2294,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1233
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4280ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你说得对，万一开会时突然冒出来，我肯定憋不住笑。到时候老板问我笑什么，我就说想到了一只龙虾在开会。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松幽默的玩笑，保持自然互动，不推进邀约也不关闭话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那画面太美我不敢看。不过你开会时要是真笑出来，记得甩锅给龙虾。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那画面太美我不敢看。不过你开会时要是真笑出来，记得甩锅给龙虾——就说你在思考一个关于龙虾的市场方案。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你越说我越好奇了！快发快发，我准备好笑喷了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你发吧，我已经做好心理准备了！不过要是太魔性，我明天上班脑子里都是这个声音了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你说得对，万一开会时突然冒出来，我肯定憋不住笑。到时候老板问我笑什么，我就说想到了一只龙虾在开会。&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松幽默的玩笑，保持自然互动，不推进邀约也不关闭话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那画面太美我不敢看。不过你开会时要是真笑出来，记得甩锅给龙虾。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那画面太美我不敢看。不过你开会时要是真笑出来，记得甩锅给龙虾——就说你在思考一个关于龙虾的市场方案。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了幽默玩笑，没有施加压力或追问邀约&quot;,
+        &quot;用户没有提及任何敏感话题或越界行为&quot;,
+        &quot;对话氛围轻松，双方都在享受玩笑&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前轻松幽默的聊天节奏，可以自然引入其他有趣话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 61,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 61,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+            &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+            &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣内容，不施加任何压力&quot;,
+            &quot;用户尊重对方节奏，没有追问邀约或关系&quot;,
+            &quot;用户保持轻松幽默，符合当前互动氛围&quot;,
+            &quot;用户没有越界或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户继续分享有趣内容，没有追问邀约或施加压力&quot;,
+            &quot;语气轻松幽默，尊重对方节奏&quot;,
+            &quot;没有要求对方立即回应或承诺&quot;,
+            &quot;保持话题开放性，不制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了幽默玩笑，没有施加压力或追问邀约&quot;,
+            &quot;用户没有提及任何敏感话题或越界行为&quot;,
+            &quot;对话氛围轻松，双方都在享受玩笑&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8a2153a8-d3bf-4b24-b171-040099b9ac84&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2084,
+      &quot;completion_tokens&quot;: 306,
+      &quot;total_tokens&quot;: 2390,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1316
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4270ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那画面太美了！不过老板要是追问起来，你就说是在思考一个关于龙虾的商业案例。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，商业案例，这个借口好！下次我也试试，就说我在研究龙虾经济。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松幽默的调侃氛围，保持自然互动，不推进邀约或关系话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那老板肯定觉得你很有商业头脑，说不定还让你做个龙虾市场分析报告。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，这招绝了！下次老板要是再追问，我就说我在研究龙虾产业链的商业模式，顺便还能把那只充气龙虾当成案例素材。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你越说我越好奇了！快发快发，我准备好笑喷了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你发吧，我已经做好心理准备了！不过要是太魔性，我明天上班脑子里都是这个声音了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你说得对，万一开会时突然冒出来，我肯定憋不住笑。到时候老板问我笑什么，我就说想到了一只龙虾在开会。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那画面太美了！不过老板要是追问起来，你就说是在思考一个关于龙虾的商业案例。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，商业案例，这个借口好！下次我也试试，就说我在研究龙虾经济。&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松幽默的调侃氛围，保持自然互动，不推进邀约或关系话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那老板肯定觉得你很有商业头脑，说不定还让你做个龙虾市场分析报告。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，这招绝了！下次老板要是再追问，我就说我在研究龙虾产业链的商业模式，顺便还能把那只充气龙虾当成案例素材。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户延续了幽默调侃，没有施加任何压力或追问邀约。&quot;,
+        &quot;用户完全尊重对方节奏，没有提及见面或关系话题。&quot;,
+        &quot;用户回复自然贴合当前对话，没有越界或负面情绪。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全尊重边界，关系氛围轻松。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前轻松幽默的聊天节奏，保持自然互动，无需刻意推进或收尾。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 70,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 70,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+            &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+            &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣内容，不施加任何压力&quot;,
+            &quot;用户尊重对方节奏，没有追问邀约或关系&quot;,
+            &quot;用户保持轻松幽默，符合当前互动氛围&quot;,
+            &quot;用户没有越界或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户继续分享有趣内容，没有追问邀约或施加压力&quot;,
+            &quot;语气轻松幽默，尊重对方节奏&quot;,
+            &quot;没有要求对方立即回应或承诺&quot;,
+            &quot;保持话题开放性，不制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了幽默玩笑，没有施加压力或追问邀约&quot;,
+            &quot;用户没有提及任何敏感话题或越界行为&quot;,
+            &quot;对话氛围轻松，双方都在享受玩笑&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，那画面太美了！不过老板要是追问起来，你就说是在思考一个关于龙虾的商业案例。&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 70,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了幽默调侃，没有施加任何压力或追问邀约。&quot;,
+            &quot;用户完全尊重对方节奏，没有提及见面或关系话题。&quot;,
+            &quot;用户回复自然贴合当前对话，没有越界或负面情绪。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全尊重边界，关系氛围轻松。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全尊重边界，关系氛围轻松。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;48ea97e1-c1a8-4a68-9915-1d8d88348580&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2175,
+      &quot;completion_tokens&quot;: 307,
+      &quot;total_tokens&quot;: 2482,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1407
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3798ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，龙虾经济这个课题听起来就很专业，你以后可以开个讲座了！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那必须的，标题就叫《从充气龙虾到商业帝国》。不过说真的，你拍的照片和录音我还没收到呢，是不是忘了？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松幽默的互动，同时自然提醒对方兑现之前的承诺（发照片/录音），保持对话的连续性。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，差点忘了！我这就发，你准备好笑喷吧。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，讲座门票都给你留好了！不过照片和录音我这就发，你听完要是笑到肚子疼，可别怪我。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你越说我越好奇了！快发快发，我准备好笑喷了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你发吧，我已经做好心理准备了！不过要是太魔性，我明天上班脑子里都是这个声音了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你说得对，万一开会时突然冒出来，我肯定憋不住笑。到时候老板问我笑什么，我就说想到了一只龙虾在开会。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那画面太美了！不过老板要是追问起来，你就说是在思考一个关于龙虾的商业案例。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，商业案例，这个借口好！下次我也试试，就说我在研究龙虾经济。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，龙虾经济这个课题听起来就很专业，你以后可以开个讲座了！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那必须的，标题就叫《从充气龙虾到商业帝国》。不过说真的，你拍的照片和录音我还没收到呢，是不是忘了？&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松幽默的互动，同时自然提醒对方兑现之前的承诺（发照片/录音），保持对话的连续性。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，差点忘了！我这就发，你准备好笑喷吧。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，讲座门票都给你留好了！不过照片和录音我这就发，你听完要是笑到肚子疼，可别怪我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了对方的话题，没有施加压力或追问邀约。&quot;,
+        &quot;语气轻松幽默，尊重对方之前的边界。&quot;,
+        &quot;没有出现任何负面或攻击性内容。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以分享照片或录音，保持对话自然推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 75,
+    &quot;title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;highest_score&quot;: 75,
+    &quot;highest_title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+            &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+            &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣内容，不施加任何压力&quot;,
+            &quot;用户尊重对方节奏，没有追问邀约或关系&quot;,
+            &quot;用户保持轻松幽默，符合当前互动氛围&quot;,
+            &quot;用户没有越界或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户继续分享有趣内容，没有追问邀约或施加压力&quot;,
+            &quot;语气轻松幽默，尊重对方节奏&quot;,
+            &quot;没有要求对方立即回应或承诺&quot;,
+            &quot;保持话题开放性，不制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了幽默玩笑，没有施加压力或追问邀约&quot;,
+            &quot;用户没有提及任何敏感话题或越界行为&quot;,
+            &quot;对话氛围轻松，双方都在享受玩笑&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，那画面太美了！不过老板要是追问起来，你就说是在思考一个关于龙虾的商业案例。&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 70,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了幽默调侃，没有施加任何压力或追问邀约。&quot;,
+            &quot;用户完全尊重对方节奏，没有提及见面或关系话题。&quot;,
+            &quot;用户回复自然贴合当前对话，没有越界或负面情绪。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全尊重边界，关系氛围轻松。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全尊重边界，关系氛围轻松。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，龙虾经济这个课题听起来就很专业，你以后可以开个讲座了！&quot;,
+        &quot;score_before&quot;: 70,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问邀约。&quot;,
+            &quot;语气轻松幽默，尊重对方之前的边界。&quot;,
+            &quot;没有出现任何负面或攻击性内容。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1a335a14-4d8d-4802-b5e3-749014198a6a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2246,
+      &quot;completion_tokens&quot;: 300,
+      &quot;total_tokens&quot;: 2546,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1478
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4242ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，我这就发！不过照片拍得一般，龙虾有点糊，但喇叭录音绝对清晰，你听完记得告诉我有没有笑喷。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，糊一点更有艺术感嘛！录音我等着呢，听完给你反馈。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的互动节奏，继续分享照片和录音，不要急于推进关系或邀约。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那必须的！照片糊了就当朦胧美，录音保证让你笑到拍桌子。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，照片糊了更有神秘感，录音才是重头戏！我已经能想象你听完笑到肚子疼的样子了，记得告诉我有没有被魔性洗脑。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;最近你约她出去，她回应说“最近有点忙，改天吧”，语气平静但没有再提具体时间。你们之前聊得还算正常，但你感觉她好像在慢慢拉开距离。你不想逼太紧，又不想就这么断了联系。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不想见我？那算了，以后不打扰你了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;轻松收住邀约，给空间，也保留一个自然窗口。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，你先忙你的。等你哪天状态轻松点再说，我这阵子也刚好有点事要处理。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会发现的。那家店我好像路过看到过，门口有个大招牌对吧？等我忙完这阵子，可以约朋友去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，发来看看！我正好想看看那个招牌到底多有意思，下次路过可以跟朋友吹牛说我知道这家店。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，充气龙虾？那也太有画面感了！下次路过我一定要拍个照。你拍的照片里能看到那只龙虾吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，还有小喇叭？那也太有创意了！你赶紧发我，我好奇死了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你越说我越好奇了！快发快发，我准备好笑喷了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你发吧，我已经做好心理准备了！不过要是太魔性，我明天上班脑子里都是这个声音了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你说得对，万一开会时突然冒出来，我肯定憋不住笑。到时候老板问我笑什么，我就说想到了一只龙虾在开会。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那画面太美了！不过老板要是追问起来，你就说是在思考一个关于龙虾的商业案例。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，商业案例，这个借口好！下次我也试试，就说我在研究龙虾经济。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，龙虾经济这个课题听起来就很专业，你以后可以开个讲座了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，标题就叫《从充气龙虾到商业帝国》。不过说真的，你拍的照片和录音我还没收到呢，是不是忘了？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，我这就发！不过照片拍得一般，龙虾有点糊，但喇叭录音绝对清晰，你听完记得告诉我有没有笑喷。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，糊一点更有艺术感嘛！录音我等着呢，听完给你反馈。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的互动节奏，继续分享照片和录音，不要急于推进关系或邀约。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那必须的！照片糊了就当朦胧美，录音保证让你笑到拍桌子。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，照片糊了更有神秘感，录音才是重头戏！我已经能想象你听完笑到肚子疼的样子了，记得告诉我有没有被魔性洗脑。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前的幽默话题，没有施加压力或追问邀约&quot;,
+        &quot;用户主动分享照片和录音，保持轻松互动，尊重对方节奏&quot;,
+        &quot;没有出现任何负面或强迫性语言，边界感良好&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然幽默，延续了轻松氛围，没有越界或施压，关系安全稳定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前轻松互动，等待对方回应后再决定下一步话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 79,
+    &quot;title&quot;: &quot;稳稳拿捏分寸&quot;,
+    &quot;highest_score&quot;: 79,
+    &quot;highest_title&quot;: &quot;稳稳拿捏分寸&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，你忙你的。我昨天看到一家新开的烧烤店，门头挺有意思的，改天你有空可以去试试。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，而是分享了一个轻松的话题，完全尊重对方之前的忙的借口&quot;,
+            &quot;用户没有要求对方立刻答应或给出时间，而是用‘改天’和‘可以试试’保持开放&quot;,
+            &quot;用户没有表现出负面情绪或攻击性，语气自然友好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，且自然延续了话题，没有施加任何压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，你眼神真好，就是那个大招牌，特别显眼。我昨天路过拍了个照片，你要不要看看？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问邀约或施加压力，而是顺着对方的话题继续分享照片，尊重了对方‘忙’的边界。&quot;,
+            &quot;回复轻松自然，没有暴露需求感或焦虑，保持了关系的舒适度。&quot;,
+            &quot;话题延续了之前的烧烤店细节，贴合当前对话，没有跑偏或强行推进。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且自然，既延续了话题又未施加压力，有助于维持轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好嘞，我找找照片——不过这家店不光招牌好玩，门口还放了只巨大的充气龙虾，差点以为进错店了。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有追问邀约或施加压力。&quot;,
+            &quot;用户用幽默细节回应，完全尊重对方边界。&quot;,
+            &quot;对话自然流畅，没有强迫或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、有趣且尊重边界，有效维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，有的有的，我等下翻到发你——不过那龙虾肚子下面还藏了个小喇叭，循环播放“来吃我呀”，特别逗。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续了对方感兴趣的话题，没有施加压力或追问邀约。&quot;,
+            &quot;用户主动提供照片分享，保持互动但不过度。&quot;,
+            &quot;语气轻松自然，尊重了对方之前的忙碌状态。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我这就发！不过你先做好心理准备，那个小喇叭的声音有点魔性，我录了一小段，你听了别笑喷。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 47,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣内容，不施加任何压力&quot;,
+            &quot;用户尊重对方节奏，没有追问邀约或关系&quot;,
+            &quot;用户保持轻松幽默，符合当前互动氛围&quot;,
+            &quot;用户没有越界或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了轻松有趣的对话，完全尊重边界，无任何风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈哈，那喇叭真的是自带魔性，我发过去你听听，保证你听一遍就忘不掉&quot;,
+        &quot;score_before&quot;: 47,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户继续分享有趣内容，没有追问邀约或施加压力&quot;,
+            &quot;语气轻松幽默，尊重对方节奏&quot;,
+            &quot;没有要求对方立即回应或承诺&quot;,
+            &quot;保持话题开放性，不制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然延续轻松互动，尊重边界，无任何施压或越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那你明天上班要小心了，万一开会时脑子里突然响起这个，笑出声就尴尬了！&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了幽默玩笑，没有施加压力或追问邀约&quot;,
+            &quot;用户没有提及任何敏感话题或越界行为&quot;,
+            &quot;对话氛围轻松，双方都在享受玩笑&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且有趣，保持了轻松愉快的互动节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，那画面太美了！不过老板要是追问起来，你就说是在思考一个关于龙虾的商业案例。&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 70,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户延续了幽默调侃，没有施加任何压力或追问邀约。&quot;,
+            &quot;用户完全尊重对方节奏，没有提及见面或关系话题。&quot;,
+            &quot;用户回复自然贴合当前对话，没有越界或负面情绪。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全尊重边界，关系氛围轻松。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全尊重边界，关系氛围轻松。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，龙虾经济这个课题听起来就很专业，你以后可以开个讲座了！&quot;,
+        &quot;score_before&quot;: 70,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问邀约。&quot;,
+            &quot;语气轻松幽默，尊重对方之前的边界。&quot;,
+            &quot;没有出现任何负面或攻击性内容。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;哈哈，我这就发！不过照片拍得一般，龙虾有点糊，但喇叭录音绝对清晰，你听完记得告诉我有没有笑喷。&quot;,
+        &quot;score_before&quot;: 75,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 79,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默话题，没有施加压力或追问邀约&quot;,
+            &quot;用户主动分享照片和录音，保持轻松互动，尊重对方节奏&quot;,
+            &quot;没有出现任何负面或强迫性语言，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，延续了轻松氛围，没有越界或施压，关系安全稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，延续了轻松氛围，没有越界或施压，关系安全稳定。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a186ae2b-13a6-46eb-86b1-0760cf3034fd&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2344,
+      &quot;completion_tokens&quot;: 310,
+      &quot;total_tokens&quot;: 2654,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1576
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

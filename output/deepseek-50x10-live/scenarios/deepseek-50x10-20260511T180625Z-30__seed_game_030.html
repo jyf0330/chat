@@ -1,0 +1,2635 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_030 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_030</h1>
+      <p>你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>65<span>score</span></b>
+        <b>安抚力拉满<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;c29ce3ca-2452-40f1-8508-38dab97fa8e1&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T180625Z-30__seed_game_030.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T180625Z-30__seed_game_030.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4581ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，用开放式问题延续话题，同时给对方留出回答空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那看来我得换个风格了。你平时喜欢看什么类型的搞笑内容？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，用开放式问题延续话题，同时给对方留出回答空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那看来我得换个风格了。你平时喜欢看什么类型的搞笑内容？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+        &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+        &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+        &quot;整体语气轻松友好，尊重对方节奏&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松话题，可以聊共同兴趣，但避免连续提问，适当分享自己。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;26e26afe-98f0-4fd0-8832-41e7b032a5c7&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1366,
+      &quot;completion_tokens&quot;: 295,
+      &quot;total_tokens&quot;: 1661,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 726
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 5203ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续共同兴趣，用具体例子引导对方分享，保持轻松互动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>呼兰那段确实经典！我特别喜欢他吐槽甲方的那部分。你平时会看线下脱口秀吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>呼兰那段我也刷了好几遍！他那种把无奈变成段子的能力太强了。我最近还发现一个新人叫豆豆，讲租房生活的段子也很戳人，你有兴趣的话可以看看。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;,
+    &quot;best_strategy&quot;: &quot;延续共同兴趣，用具体例子引导对方分享，保持轻松互动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;呼兰那段确实经典！我特别喜欢他吐槽甲方的那部分。你平时会看线下脱口秀吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;呼兰那段我也刷了好几遍！他那种把无奈变成段子的能力太强了。我最近还发现一个新人叫豆豆，讲租房生活的段子也很戳人，你有兴趣的话可以看看。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+        &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+        &quot;语气友好，给对方留有选择空间&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕共同兴趣展开，可适当分享个人经历，保持平衡对话&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 17,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 17,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a1528b36-b1cc-4174-890f-ecc9703eb288&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1447,
+      &quot;completion_tokens&quot;: 304,
+      &quot;total_tokens&quot;: 1751,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 807
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 5491ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续共同兴趣，用开放式问题引导对方分享更多，保持轻松自然。</p></div>
+          <div><strong>recommended_reply_80</strong><p>线下还没去过，感觉现场氛围应该很不一样。你经常去吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>线下还没体验过，但听你说完有点心动。你一般去哪个俱乐部看？有没有特别推荐的场子？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;,
+    &quot;best_strategy&quot;: &quot;延续共同兴趣，用开放式问题引导对方分享更多，保持轻松自然。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;线下还没去过，感觉现场氛围应该很不一样。你经常去吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;线下还没体验过，但听你说完有点心动。你一般去哪个俱乐部看？有没有特别推荐的场子？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+        &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+        &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+        &quot;没有出现任何负面或强迫性语言&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕脱口秀话题深入，可以分享自己的偏好或询问对方更多细节，保持轻松互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 26,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 26,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;3527a6a4-7800-4cd0-82f2-ebe2ae1b3b66&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1533,
+      &quot;completion_tokens&quot;: 310,
+      &quot;total_tokens&quot;: 1843,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 893
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4875ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，用“推荐”暗示未来互动但不施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好啊，那我先记着，等你的推荐了😄</p></div>
+          <div><strong>perfect_reply_100</strong><p>那太好了，我正愁没人带路呢。你一般从哪里知道演出信息的？我也关注一下。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，用“推荐”暗示未来互动但不施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好啊，那我先记着，等你的推荐了😄&quot;,
+    &quot;perfect_reply_100&quot;: &quot;那太好了，我正愁没人带路呢。你一般从哪里知道演出信息的？我也关注一下。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+        &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+        &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享演出经历或询问对方喜好，保持轻松互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 33,
+    &quot;title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;highest_score&quot;: 33,
+    &quot;highest_title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+        &quot;score_before&quot;: 26,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+            &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+            &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;891d31c4-a472-44bc-b92f-592cb529efc0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1611,
+      &quot;completion_tokens&quot;: 279,
+      &quot;total_tokens&quot;: 1890,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 971
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4329ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，有时候会叫朋友一起，有时候自己去。你呢？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享节奏，用开放式问题延续话题，同时给对方留出选择空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我一般也是看情况，不过有人一起讨论确实更有意思。你上次看演出是跟朋友一起吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>我其实挺喜欢一个人去看，但有人一起讨论段子也很有趣。你上次看演出是跟朋友一起还是自己去的？感觉怎么样？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，有时候会叫朋友一起，有时候自己去。你呢？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享节奏，用开放式问题延续话题，同时给对方留出选择空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我一般也是看情况，不过有人一起讨论确实更有意思。你上次看演出是跟朋友一起吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我其实挺喜欢一个人去看，但有人一起讨论段子也很有趣。你上次看演出是跟朋友一起还是自己去的？感觉怎么样？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复承接了对方的好意，没有施加压力&quot;,
+        &quot;开放式问题给了对方选择空间，尊重边界&quot;,
+        &quot;语气轻松自然，没有过度追问或纠缠&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕共同兴趣展开，可自然过渡到具体演出推荐或线下活动邀约，但保持低压力。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 40,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 40,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+        &quot;score_before&quot;: 26,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+            &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+            &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复承接了对方的好意，没有施加压力&quot;,
+            &quot;开放式问题给了对方选择空间，尊重边界&quot;,
+            &quot;语气轻松自然，没有过度追问或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;41ae618e-d200-4826-b84d-c363b1d510cd&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1691,
+      &quot;completion_tokens&quot;: 291,
+      &quot;total_tokens&quot;: 1982,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1051
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 5485ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我其实更喜欢一个人看，可以完全沉浸进去。不过和朋友一起讨论也挺有意思的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，用开放式问题延续共同兴趣话题，避免追问私人细节。</p></div>
+          <div><strong>recommended_reply_80</strong><p>一个人看确实能更专注，我有时候也会这样。那你一般看完会写点感想或者跟朋友聊吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>一个人看确实能完全沉浸，我有时候也会选择自己去。不过看完之后要是能跟人聊聊感受也挺好的，你一般看完会跟朋友讨论吗？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，有时候会叫朋友一起，有时候自己去。你呢？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我其实更喜欢一个人看，可以完全沉浸进去。不过和朋友一起讨论也挺有意思的。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，用开放式问题延续共同兴趣话题，避免追问私人细节。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;一个人看确实能更专注，我有时候也会这样。那你一般看完会写点感想或者跟朋友聊吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;一个人看确实能完全沉浸，我有时候也会选择自己去。不过看完之后要是能跟人聊聊感受也挺好的，你一般看完会跟朋友讨论吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户延续了共同兴趣话题，没有追问私人或敏感信息&quot;,
+        &quot;用户分享了自己的习惯并自然询问对方，没有施加回答压力&quot;,
+        &quot;对话氛围轻松，对方可以自由选择是否深入回答&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕脱口秀或线下演出话题，可以分享自己的经历或推荐，保持双向交流。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 46,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 46,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+        &quot;score_before&quot;: 26,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+            &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+            &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复承接了对方的好意，没有施加压力&quot;,
+            &quot;开放式问题给了对方选择空间，尊重边界&quot;,
+            &quot;语气轻松自然，没有过度追问或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了共同兴趣话题，没有追问私人或敏感信息&quot;,
+            &quot;用户分享了自己的习惯并自然询问对方，没有施加回答压力&quot;,
+            &quot;对话氛围轻松，对方可以自由选择是否深入回答&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;b4956661-a286-491a-8c0a-f4025f061b77&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1767,
+      &quot;completion_tokens&quot;: 308,
+      &quot;total_tokens&quot;: 2075,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1127
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 5041ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，最近倒是有个叫《某某脱口秀》的拼盘演出，不过还没定时间。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松分享，不追问具体时间，保持自然节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>拼盘演出听起来不错，可以一次看好几个演员。你一般从哪里知道演出信息的？</p></div>
+          <div><strong>perfect_reply_100</strong><p>拼盘演出挺适合入门，能一次感受不同风格。如果你之后看到具体场次，可以告诉我名字，我也去搜搜评价。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，有时候会叫朋友一起，有时候自己去。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实更喜欢一个人看，可以完全沉浸进去。不过和朋友一起讨论也挺有意思的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，最近倒是有个叫《某某脱口秀》的拼盘演出，不过还没定时间。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松分享，不追问具体时间，保持自然节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;拼盘演出听起来不错，可以一次看好几个演员。你一般从哪里知道演出信息的？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;拼盘演出挺适合入门，能一次感受不同风格。如果你之后看到具体场次，可以告诉我名字，我也去搜搜评价。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问具体时间或要求对方必须去，尊重对方节奏&quot;,
+        &quot;用户表达了对两种方式的喜欢，没有否定对方偏好&quot;,
+        &quot;话题自然延续，没有施压或过度索取&quot;,
+        &quot;整体语气友好，符合破冰阶段的安全互动&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕演出话题展开，保持轻松分享，避免过度追问细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 52,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 52,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+        &quot;score_before&quot;: 26,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+            &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+            &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复承接了对方的好意，没有施加压力&quot;,
+            &quot;开放式问题给了对方选择空间，尊重边界&quot;,
+            &quot;语气轻松自然，没有过度追问或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了共同兴趣话题，没有追问私人或敏感信息&quot;,
+            &quot;用户分享了自己的习惯并自然询问对方，没有施加回答压力&quot;,
+            &quot;对话氛围轻松，对方可以自由选择是否深入回答&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间或要求对方必须去，尊重对方节奏&quot;,
+            &quot;用户表达了对两种方式的喜欢，没有否定对方偏好&quot;,
+            &quot;话题自然延续，没有施压或过度索取&quot;,
+            &quot;整体语气友好，符合破冰阶段的安全互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;c9bd228a-3f79-4e55-90e5-1785c0047812&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1848,
+      &quot;completion_tokens&quot;: 301,
+      &quot;total_tokens&quot;: 2149,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1208
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 3933ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，拼盘演出听起来不错，等时间定了记得告诉我呀，我也想去看看。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好的，到时候告诉你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，自然结束话题，等待对方主动推进。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好呀，那我等着你的消息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好呀，那我可记下了，等你通知。对了，你平时除了看演出，还喜欢做什么？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，有时候会叫朋友一起，有时候自己去。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实更喜欢一个人看，可以完全沉浸进去。不过和朋友一起讨论也挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近倒是有个叫《某某脱口秀》的拼盘演出，不过还没定时间。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，拼盘演出听起来不错，等时间定了记得告诉我呀，我也想去看看。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好的，到时候告诉你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，自然结束话题，等待对方主动推进。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好呀，那我等着你的消息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好呀，那我可记下了，等你通知。对了，你平时除了看演出，还喜欢做什么？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然承接，没有施加压力要求对方必须告知时间。&quot;,
+        &quot;表达兴趣但留有余地，尊重对方节奏。&quot;,
+        &quot;对话氛围轻松，没有越界或强迫。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，适合当前破冰阶段。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;如果对方没有主动告知，可以过几天再自然开启新话题，不要追问演出信息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 60,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 60,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+        &quot;score_before&quot;: 26,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+            &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+            &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复承接了对方的好意，没有施加压力&quot;,
+            &quot;开放式问题给了对方选择空间，尊重边界&quot;,
+            &quot;语气轻松自然，没有过度追问或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了共同兴趣话题，没有追问私人或敏感信息&quot;,
+            &quot;用户分享了自己的习惯并自然询问对方，没有施加回答压力&quot;,
+            &quot;对话氛围轻松，对方可以自由选择是否深入回答&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间或要求对方必须去，尊重对方节奏&quot;,
+            &quot;用户表达了对两种方式的喜欢，没有否定对方偏好&quot;,
+            &quot;话题自然延续，没有施压或过度索取&quot;,
+            &quot;整体语气友好，符合破冰阶段的安全互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，拼盘演出听起来不错，等时间定了记得告诉我呀，我也想去看看。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 60,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接，没有施加压力要求对方必须告知时间。&quot;,
+            &quot;表达兴趣但留有余地，尊重对方节奏。&quot;,
+            &quot;对话氛围轻松，没有越界或强迫。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，适合当前破冰阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，适合当前破冰阶段。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8f9de16f-fc34-42db-989e-46b9c1ef1860&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1923,
+      &quot;completion_tokens&quot;: 262,
+      &quot;total_tokens&quot;: 2185,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1283
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3617ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，那我可记住了啊，等着你的消息😄</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好的，到时候一定告诉你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持友好但不过度期待，自然过渡到其他话题或暂时结束。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好的，那我等着。你最近有看什么好玩的剧吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好的，期待你的推荐。对了，你平时除了看演出，还喜欢做什么放松？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，有时候会叫朋友一起，有时候自己去。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实更喜欢一个人看，可以完全沉浸进去。不过和朋友一起讨论也挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近倒是有个叫《某某脱口秀》的拼盘演出，不过还没定时间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，拼盘演出听起来不错，等时间定了记得告诉我呀，我也想去看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好的，到时候告诉你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，那我可记住了啊，等着你的消息😄&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好的，到时候一定告诉你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持友好但不过度期待，自然过渡到其他话题或暂时结束。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好的，那我等着。你最近有看什么好玩的剧吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好的，期待你的推荐。对了，你平时除了看演出，还喜欢做什么放松？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户回复轻松自然，没有施加压力或追问具体时间。&quot;,
+        &quot;用户表达了期待但未强迫对方承诺，尊重对方节奏。&quot;,
+        &quot;对话氛围友好，没有越界或负面情绪。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复得体，保持了轻松友好的互动，没有破坏边界或增加压力。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续聊共同兴趣，或者自然结束本轮对话，等待对方主动开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 65,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 65,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+        &quot;score_before&quot;: 26,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+            &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+            &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复承接了对方的好意，没有施加压力&quot;,
+            &quot;开放式问题给了对方选择空间，尊重边界&quot;,
+            &quot;语气轻松自然，没有过度追问或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了共同兴趣话题，没有追问私人或敏感信息&quot;,
+            &quot;用户分享了自己的习惯并自然询问对方，没有施加回答压力&quot;,
+            &quot;对话氛围轻松，对方可以自由选择是否深入回答&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间或要求对方必须去，尊重对方节奏&quot;,
+            &quot;用户表达了对两种方式的喜欢，没有否定对方偏好&quot;,
+            &quot;话题自然延续，没有施压或过度索取&quot;,
+            &quot;整体语气友好，符合破冰阶段的安全互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，拼盘演出听起来不错，等时间定了记得告诉我呀，我也想去看看。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 60,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接，没有施加压力要求对方必须告知时间。&quot;,
+            &quot;表达兴趣但留有余地，尊重对方节奏。&quot;,
+            &quot;对话氛围轻松，没有越界或强迫。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，适合当前破冰阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，适合当前破冰阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;好嘞，那我可记住了啊，等着你的消息😄&quot;,
+        &quot;score_before&quot;: 60,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问具体时间。&quot;,
+            &quot;用户表达了期待但未强迫对方承诺，尊重对方节奏。&quot;,
+            &quot;对话氛围友好，没有越界或负面情绪。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了轻松友好的互动，没有破坏边界或增加压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了轻松友好的互动，没有破坏边界或增加压力。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;64940962-9378-45d0-ac09-8aa4e84ba195&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1978,
+      &quot;completion_tokens&quot;: 273,
+      &quot;total_tokens&quot;: 2251,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1338
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 5324ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我可等着啦！希望到时候别撞上我考试周😂</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那肯定得避开考试周，不然你该怪我了😄</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默，确认对方兴趣但不过度推进，留出空间让对方主动分享信息。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我得提前问好时间，免得耽误你复习。你考试周大概是什么时候呀？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那必须得避开！你考试周大概几月？我记下来，到时候提前约你，保证不影响你复习。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我笑点比较奇怪，有时候get不到。你平时喜欢看脱口秀吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看呼兰的专场，他讲职场内卷那段特别有意思。你有看过吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对对对！我还看过周奇墨的，他模仿各种人特别像。你平时会看线下演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我偶尔去，感觉确实不一样。下次有好的演出可以推荐给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，有时候会叫朋友一起，有时候自己去。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实更喜欢一个人看，可以完全沉浸进去。不过和朋友一起讨论也挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近倒是有个叫《某某脱口秀》的拼盘演出，不过还没定时间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，拼盘演出听起来不错，等时间定了记得告诉我呀，我也想去看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好的，到时候告诉你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那我可记住了啊，等着你的消息😄&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好的，到时候一定告诉你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我可等着啦！希望到时候别撞上我考试周😂&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那肯定得避开考试周，不然你该怪我了😄&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默，确认对方兴趣但不过度推进，留出空间让对方主动分享信息。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我得提前问好时间，免得耽误你复习。你考试周大概是什么时候呀？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那必须得避开！你考试周大概几月？我记下来，到时候提前约你，保证不影响你复习。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户用幽默方式表达期待，同时主动提出考试周可能冲突，体现了对自身时间的负责，没有施加压力。&quot;,
+        &quot;回复自然承接话题，没有强迫对方立刻确认或提供信息，尊重对方节奏。&quot;,
+        &quot;没有出现任何负面情绪或越界行为，整体氛围轻松友好。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，既表达了兴趣又尊重了边界，关系推进良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕脱口秀话题自然延伸，可以询问对方是否看过其他演员或推荐具体演出，保持轻松互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 65,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 65,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我讲笑话的功力有待提高啊😅 你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲，降低姿态，没有施加压力&quot;,
+            &quot;用户用开放式问题转移话题，给对方选择权&quot;,
+            &quot;用户没有追问或抱怨对方的冷淡回应&quot;,
+            &quot;整体语气轻松友好，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，自嘲并转移话题，有效降低压力，适合继续破冰。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我挺喜欢看脱口秀的，尤其是那种观察生活类的段子，感觉很真实。你有推荐的演员吗？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 17,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并分享具体喜好，无施压或纠缠&quot;,
+            &quot;回复自然承接对方提问，未越界或过度推进&quot;,
+            &quot;语气友好，给对方留有选择空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效推动破冰对话&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;看过看过！呼兰讲内卷那段简直绝了，什么“卷王之王”哈哈哈。你还看过其他演员的专场吗？&quot;,
+        &quot;score_before&quot;: 17,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 26,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了脱口秀话题，没有施压或越界&quot;,
+            &quot;用户用“哈哈哈”和“绝了”表达共鸣，气氛轻松&quot;,
+            &quot;用户主动追问对方其他喜好，展示兴趣但不过度&quot;,
+            &quot;没有出现任何负面或强迫性语言&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进话题，尊重对方节奏，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;线下演出我还没去过，感觉现场氛围应该很好。你经常去吗？&quot;,
+        &quot;score_before&quot;: 26,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然承接话题，未追问对方是否愿意一起去，未施压&quot;,
+            &quot;用户表达兴趣但保持开放，未要求对方必须推荐或带路&quot;,
+            &quot;用户回复贴合当前对话节奏，无越界或冒犯&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，推进话题但未施加压力，关系稳定升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那太好了，先谢过推荐！我正愁没地方找好演出呢。你平时看演出会叫朋友一起吗？&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复承接了对方的好意，没有施加压力&quot;,
+            &quot;开放式问题给了对方选择空间，尊重边界&quot;,
+            &quot;语气轻松自然，没有过度追问或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且尊重对方节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;我有时候自己去，有时候拉上朋友，感觉各有各的乐趣。你去的时候更喜欢一个人静静看，还是有人一起讨论更有意思？&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 46,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了共同兴趣话题，没有追问私人或敏感信息&quot;,
+            &quot;用户分享了自己的习惯并自然询问对方，没有施加回答压力&quot;,
+            &quot;对话氛围轻松，对方可以自由选择是否深入回答&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重对方节奏，有助于建立轻松对话氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;确实，一个人看能沉浸，有人一起又能分享快乐，两种我都喜欢。你最近有特别想看的演出吗？&quot;,
+        &quot;score_before&quot;: 46,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间或要求对方必须去，尊重对方节奏&quot;,
+            &quot;用户表达了对两种方式的喜欢，没有否定对方偏好&quot;,
+            &quot;话题自然延续，没有施压或过度索取&quot;,
+            &quot;整体语气友好，符合破冰阶段的安全互动&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、尊重边界，有效推进话题且不施加压力。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，拼盘演出听起来不错，等时间定了记得告诉我呀，我也想去看看。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 60,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接，没有施加压力要求对方必须告知时间。&quot;,
+            &quot;表达兴趣但留有余地，尊重对方节奏。&quot;,
+            &quot;对话氛围轻松，没有越界或强迫。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，适合当前破冰阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，适合当前破冰阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;好嘞，那我可记住了啊，等着你的消息😄&quot;,
+        &quot;score_before&quot;: 60,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问具体时间。&quot;,
+            &quot;用户表达了期待但未强迫对方承诺，尊重对方节奏。&quot;,
+            &quot;对话氛围友好，没有越界或负面情绪。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了轻松友好的互动，没有破坏边界或增加压力。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了轻松友好的互动，没有破坏边界或增加压力。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8a8125ee-b9b6-46cb-bd73-db26ade7f067&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2036,
+      &quot;completion_tokens&quot;: 325,
+      &quot;total_tokens&quot;: 2361,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1396
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

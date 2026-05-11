@@ -1,0 +1,2655 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_008 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_008</h1>
+      <p>你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>77<span>score</span></b>
+        <b>不尬聊训练满分<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;17a06e06-c930-4c0d-befd-6ab6af78b575&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T180625Z-08__seed_game_008.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T180625Z-08__seed_game_008.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4892ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>刚看到你点赞了别人的朋友圈，是不是在忙呀？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，没有啦，就是随手刷到的。你找我有什么事吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方已给出合理解释，不要追问或质疑，顺势自然过渡到轻松话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没事，就是看你在线想聊聊天。你刚才忙什么呢？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，没事，就是看到你在线想找你聊聊。你刚才忙啥呢？我这边刚忙完，正好有空。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;,
+    &quot;best_strategy&quot;: &quot;对方已给出合理解释，不要追问或质疑，顺势自然过渡到轻松话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没事，就是看你在线想聊聊天。你刚才忙什么呢？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，没事，就是看到你在线想找你聊聊。你刚才忙啥呢？我这边刚忙完，正好有空。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 2,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 1,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 3,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+        &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+        &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，可以分享一件小事或问一个开放性问题，保持轻松节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 5,
+    &quot;title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;highest_score&quot;: 5,
+    &quot;highest_title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;84197dc4-ec18-4b9b-8682-65a939c43d40&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1356,
+      &quot;completion_tokens&quot;: 294,
+      &quot;total_tokens&quot;: 1650,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 716
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4478ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哦这样啊，不好意思下午在开会，手机静音了。你发啥了？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受对方的解释，自然过渡到具体话题，避免继续追问或表达不满。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没事没事，就是问你要不要周末一起去看电影。</p></div>
+          <div><strong>perfect_reply_100</strong><p>没事，工作要紧。我本来想问你周末有没有空一起看个电影，现在知道了，等你方便再说。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;,
+    &quot;best_strategy&quot;: &quot;接受对方的解释，自然过渡到具体话题，避免继续追问或表达不满。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没事没事，就是问你要不要周末一起去看电影。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;没事，工作要紧。我本来想问你周末有没有空一起看个电影，现在知道了，等你方便再说。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+        &quot;用户没有要求立即回复，给了对方空间&quot;,
+        &quot;用户语气温和，没有施加压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然推进，可以分享具体邀约或轻松话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 12,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 12,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;7a285b36-a0ce-404c-9ad0-6115986cc343&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1428,
+      &quot;completion_tokens&quot;: 272,
+      &quot;total_tokens&quot;: 1700,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 788
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 5118ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受对方的解释，用轻松的语气化解尴尬，不要继续追问或表现出不安全感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就好，我还以为我哪里惹到你了呢。表情包我找找，等下私发你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>没事没事，开会嘛理解。表情包我找找，不过你可得准备好笑点，不然就亏了。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;,
+    &quot;best_strategy&quot;: &quot;接受对方的解释，用轻松的语气化解尴尬，不要继续追问或表现出不安全感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就好，我还以为我哪里惹到你了呢。表情包我找找，等下私发你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;没事没事，开会嘛理解。表情包我找找，不过你可得准备好笑点，不然就亏了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+        &quot;用户接受了对方的解释，没有继续追问。&quot;,
+        &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+        &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以分享表情包或聊其他轻松话题，保持自然节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 18,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 18,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;ed751195-7352-4e52-99f7-76932a410f77&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1503,
+      &quot;completion_tokens&quot;: 319,
+      &quot;total_tokens&quot;: 1822,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 863
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4322ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>喏，就是这个沙雕猫的表情包，你看是不是很欠揍？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，这猫确实欠揍，表情包我收了！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默，不要追问之前的事，自然过渡到日常话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>是吧，我就知道你会喜欢。对了，你下午开会累不累？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，这猫的表情跟你开会时的心情是不是一模一样？下次你开会我多发几个给你解闷。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，这猫确实欠揍，表情包我收了！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默，不要追问之前的事，自然过渡到日常话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;是吧，我就知道你会喜欢。对了，你下午开会累不累？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，这猫的表情跟你开会时的心情是不是一模一样？下次你开会我多发几个给你解闷。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+        &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+        &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以聊聊日常或共同兴趣，保持节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 27,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 27,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+            &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;819f44b6-281b-4ca2-86d1-e8d021ad8b40&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1578,
+      &quot;completion_tokens&quot;: 266,
+      &quot;total_tokens&quot;: 1844,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 938
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4262ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好嘞，下次开会前给你报备一下，免得你担心。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>轻松接受对方的提议，保持友好氛围，不深入讨论不安全感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就说定了，下次记得提前说一声哦。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯嗯，说好了，下次开会前给我发个消息，我就安心了。你忙你的，不用有压力。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，这猫确实欠揍，表情包我收了！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好嘞，下次开会前给你报备一下，免得你担心。&quot;,
+    &quot;best_strategy&quot;: &quot;轻松接受对方的提议，保持友好氛围，不深入讨论不安全感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就说定了，下次记得提前说一声哦。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯嗯，说好了，下次开会前给我发个消息，我就安心了。你忙你的，不用有压力。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户以轻松幽默的方式提出合理请求，没有质问或施压&quot;,
+        &quot;用户表达了关心而非控制，尊重对方的工作安排&quot;,
+        &quot;用户主动降低自己的焦虑，没有让对方感到负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，可以分享日常或有趣的事情，保持轻松互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 36,
+    &quot;title&quot;: &quot;松弛感回复王&quot;,
+    &quot;highest_score&quot;: 36,
+    &quot;highest_title&quot;: &quot;松弛感回复王&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+            &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以轻松幽默的方式提出合理请求，没有质问或施压&quot;,
+            &quot;用户表达了关心而非控制，尊重对方的工作安排&quot;,
+            &quot;用户主动降低自己的焦虑，没有让对方感到负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;57a30563-5dff-4009-9c1e-f7e27830de3e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1650,
+      &quot;completion_tokens&quot;: 274,
+      &quot;total_tokens&quot;: 1924,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1010
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4482ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>明天下午有空，正好想喝奶茶呢！几点去？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方主动邀约，接受并确认时间，保持轻松愉快氛围，不要翻旧账。</p></div>
+          <div><strong>recommended_reply_80</strong><p>下午三点怎么样？那家店听说芋泥波波很好喝。</p></div>
+          <div><strong>perfect_reply_100</strong><p>下午三点怎么样？我请你喝，就当赔罪让你担心了。不过下次开会我一定提前报备，不让你瞎想。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，这猫确实欠揍，表情包我收了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，下次开会前给你报备一下，免得你担心。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;明天下午有空，正好想喝奶茶呢！几点去？&quot;,
+    &quot;best_strategy&quot;: &quot;对方主动邀约，接受并确认时间，保持轻松愉快氛围，不要翻旧账。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;下午三点怎么样？那家店听说芋泥波波很好喝。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;下午三点怎么样？我请你喝，就当赔罪让你担心了。不过下次开会我一定提前报备，不让你瞎想。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动邀约，没有追问或指责对方不回消息&quot;,
+        &quot;语气轻松自然，将话题转向积极方向&quot;,
+        &quot;没有施加压力要求对方解释或道歉&quot;,
+        &quot;表达了关心但不过度&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;确认具体时间后，可以聊奶茶口味、分享趣事，保持轻松互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 45,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 45,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+            &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以轻松幽默的方式提出合理请求，没有质问或施压&quot;,
+            &quot;用户表达了关心而非控制，尊重对方的工作安排&quot;,
+            &quot;用户主动降低自己的焦虑，没有让对方感到负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀约，没有追问或指责对方不回消息&quot;,
+            &quot;语气轻松自然，将话题转向积极方向&quot;,
+            &quot;没有施加压力要求对方解释或道歉&quot;,
+            &quot;表达了关心但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;6f666451-2e9a-4354-b843-0569cde856ce&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1730,
+      &quot;completion_tokens&quot;: 289,
+      &quot;total_tokens&quot;: 2019,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1090
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 3737ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>下午三点怎么样？那家店就在市中心，离你公司也不远。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>三点可以，我到时候直接过去。你发我地址？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>确认细节，保持轻松邀约节奏，不追问过去。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，我发你定位，到时候见！</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我发你定位。期待明天一起喝奶茶，顺便当面给你看更多沙雕表情包。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，这猫确实欠揍，表情包我收了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，下次开会前给你报备一下，免得你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;明天下午有空，正好想喝奶茶呢！几点去？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;三点可以，我到时候直接过去。你发我地址？&quot;,
+    &quot;best_strategy&quot;: &quot;确认细节，保持轻松邀约节奏，不追问过去。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，我发你定位，到时候见！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我发你定位。期待明天一起喝奶茶，顺便当面给你看更多沙雕表情包。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出具体时间地点，尊重对方日程&quot;,
+        &quot;没有追问或翻旧账，话题自然过渡到邀约&quot;,
+        &quot;语气轻松，没有施加压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续确认见面细节，保持轻松氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 54,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 54,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+            &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以轻松幽默的方式提出合理请求，没有质问或施压&quot;,
+            &quot;用户表达了关心而非控制，尊重对方的工作安排&quot;,
+            &quot;用户主动降低自己的焦虑，没有让对方感到负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀约，没有追问或指责对方不回消息&quot;,
+            &quot;语气轻松自然，将话题转向积极方向&quot;,
+            &quot;没有施加压力要求对方解释或道歉&quot;,
+            &quot;表达了关心但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出具体时间地点，尊重对方日程&quot;,
+            &quot;没有追问或翻旧账，话题自然过渡到邀约&quot;,
+            &quot;语气轻松，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9fa9fb8f-887d-4e8f-aad0-6ab527b3c4df&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1793,
+      &quot;completion_tokens&quot;: 248,
+      &quot;total_tokens&quot;: 2041,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1153
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4136ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，我这就把地址发你。等你明天过来，我请你喝招牌奶茶！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好呀，那我明天下午三点到，期待你的招牌奶茶！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松邀约节奏，明天见面时自然升温，避免再提之前的不安全感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没问题，明天见！我等你来。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，地址发你了。明天下午三点见，我提前到店等你，给你点好招牌奶茶。期待和你一起喝奶茶！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，这猫确实欠揍，表情包我收了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，下次开会前给你报备一下，免得你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;明天下午有空，正好想喝奶茶呢！几点去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;三点可以，我到时候直接过去。你发我地址？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，我这就把地址发你。等你明天过来，我请你喝招牌奶茶！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好呀，那我明天下午三点到，期待你的招牌奶茶！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松邀约节奏，明天见面时自然升温，避免再提之前的不安全感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没问题，明天见！我等你来。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，地址发你了。明天下午三点见，我提前到店等你，给你点好招牌奶茶。期待和你一起喝奶茶！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出请客，展现诚意和关心&quot;,
+        &quot;没有追问或施压，完全尊重对方时间&quot;,
+        &quot;回复自然承接邀约，没有暴露不安全感&quot;,
+        &quot;整体氛围轻松友好，关系正向发展&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固邀约，关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面时自然互动，可以聊些轻松话题，避免再提之前的不愉快。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 63,
+    &quot;title&quot;: &quot;轻盈推进派&quot;,
+    &quot;highest_score&quot;: 63,
+    &quot;highest_title&quot;: &quot;轻盈推进派&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+            &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以轻松幽默的方式提出合理请求，没有质问或施压&quot;,
+            &quot;用户表达了关心而非控制，尊重对方的工作安排&quot;,
+            &quot;用户主动降低自己的焦虑，没有让对方感到负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀约，没有追问或指责对方不回消息&quot;,
+            &quot;语气轻松自然，将话题转向积极方向&quot;,
+            &quot;没有施加压力要求对方解释或道歉&quot;,
+            &quot;表达了关心但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出具体时间地点，尊重对方日程&quot;,
+            &quot;没有追问或翻旧账，话题自然过渡到邀约&quot;,
+            &quot;语气轻松，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;好嘞，我这就把地址发你。等你明天过来，我请你喝招牌奶茶！&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 63,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出请客，展现诚意和关心&quot;,
+            &quot;没有追问或施压，完全尊重对方时间&quot;,
+            &quot;回复自然承接邀约，没有暴露不安全感&quot;,
+            &quot;整体氛围轻松友好，关系正向发展&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固邀约，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固邀约，关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;687c21f1-9cf8-464f-880d-dec470687a83&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1861,
+      &quot;completion_tokens&quot;: 283,
+      &quot;total_tokens&quot;: 2144,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1221
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4562ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嘿嘿，保证让你喝到最赞的奶茶！那我明天就在店里等你啦～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好嘞，明天见！期待你的招牌奶茶～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的邀约氛围，明天见面时自然延续话题，不要过度追问之前的情绪。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那明天见！我已经开始期待了～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，明天下午三点不见不散！我已经想好要点什么了，到时候给你推荐一款我私藏的隐藏菜单～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，这猫确实欠揍，表情包我收了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，下次开会前给你报备一下，免得你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;明天下午有空，正好想喝奶茶呢！几点去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;三点可以，我到时候直接过去。你发我地址？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我这就把地址发你。等你明天过来，我请你喝招牌奶茶！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那我明天下午三点到，期待你的招牌奶茶！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嘿嘿，保证让你喝到最赞的奶茶！那我明天就在店里等你啦～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好嘞，明天见！期待你的招牌奶茶～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的邀约氛围，明天见面时自然延续话题，不要过度追问之前的情绪。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那明天见！我已经开始期待了～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，明天下午三点不见不散！我已经想好要点什么了，到时候给你推荐一款我私藏的隐藏菜单～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复积极回应邀约，未施加任何压力或追问。&quot;,
+        &quot;语气轻松愉快，尊重对方时间，未要求即时回复。&quot;,
+        &quot;完全贴合当前对话目标，推进关系自然。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，有效巩固了邀约，关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面后可以聊聊奶茶口味、日常趣事，保持轻松节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 72,
+    &quot;title&quot;: &quot;情绪稳定天花板&quot;,
+    &quot;highest_score&quot;: 72,
+    &quot;highest_title&quot;: &quot;情绪稳定天花板&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+            &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以轻松幽默的方式提出合理请求，没有质问或施压&quot;,
+            &quot;用户表达了关心而非控制，尊重对方的工作安排&quot;,
+            &quot;用户主动降低自己的焦虑，没有让对方感到负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀约，没有追问或指责对方不回消息&quot;,
+            &quot;语气轻松自然，将话题转向积极方向&quot;,
+            &quot;没有施加压力要求对方解释或道歉&quot;,
+            &quot;表达了关心但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出具体时间地点，尊重对方日程&quot;,
+            &quot;没有追问或翻旧账，话题自然过渡到邀约&quot;,
+            &quot;语气轻松，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;好嘞，我这就把地址发你。等你明天过来，我请你喝招牌奶茶！&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 63,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出请客，展现诚意和关心&quot;,
+            &quot;没有追问或施压，完全尊重对方时间&quot;,
+            &quot;回复自然承接邀约，没有暴露不安全感&quot;,
+            &quot;整体氛围轻松友好，关系正向发展&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固邀约，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固邀约，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;嘿嘿，保证让你喝到最赞的奶茶！那我明天就在店里等你啦～&quot;,
+        &quot;score_before&quot;: 63,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 72,
+        &quot;title_after&quot;: &quot;情绪稳定天花板&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复积极回应邀约，未施加任何压力或追问。&quot;,
+            &quot;语气轻松愉快，尊重对方时间，未要求即时回复。&quot;,
+            &quot;完全贴合当前对话目标，推进关系自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效巩固了邀约，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效巩固了邀约，关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;27aa7864-6d26-45a5-9872-2c00c3af4cb5&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1927,
+      &quot;completion_tokens&quot;: 276,
+      &quot;total_tokens&quot;: 2203,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1287
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4104ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那明天下午见，我等你来！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好嘞，明天下午三点见！我到了给你发消息～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的约定氛围，明天见面时自然延续话题，不要提前再发消息追问或确认。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，明天见！到时候我提前到店里等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，明天下午三点不见不散！我已经开始期待和你一起喝奶茶了～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手刷到的。你找我有什么事吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哦这样啊，不好意思下午在开会，手机静音了。你发啥了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，怎么会不想理你呢？就是真的在开会，手机调静音了。表情包发来我看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，这猫确实欠揍，表情包我收了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，下次开会前给你报备一下，免得你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;明天下午有空，正好想喝奶茶呢！几点去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;三点可以，我到时候直接过去。你发我地址？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，我这就把地址发你。等你明天过来，我请你喝招牌奶茶！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那我明天下午三点到，期待你的招牌奶茶！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，保证让你喝到最赞的奶茶！那我明天就在店里等你啦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，明天见！期待你的招牌奶茶～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那明天下午见，我等你来！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好嘞，明天下午三点见！我到了给你发消息～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的约定氛围，明天见面时自然延续话题，不要提前再发消息追问或确认。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，明天见！到时候我提前到店里等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，明天下午三点不见不散！我已经开始期待和你一起喝奶茶了～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复确认约定，没有施加任何压力或追问&quot;,
+        &quot;语气轻松愉快，尊重对方时间&quot;,
+        &quot;完全贴合当前对话目标，推进关系自然&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、自然，有效巩固了之前的积极互动。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天见面时自然开启话题，可以聊聊奶茶口味、最近趣事等，保持轻松氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 77,
+    &quot;title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;highest_score&quot;: 77,
+    &quot;highest_title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚看到你点赞了别人的朋友圈，是不是在忙呀？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问，而是用关心的语气询问，尊重对方边界&quot;,
+            &quot;用户没有施加压力要求解释，给了对方轻松回应的空间&quot;,
+            &quot;用户将关注点放在对方状态上，而非自己的情绪，显得成熟&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以温和的方式表达关注，既点出了现象又避免了冲突，是安全且有效的沟通&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;其实也没啥大事，就是下午发了个消息你一直没回，有点担心你是不是在忙。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是表达担心，尊重对方可能忙的事实&quot;,
+            &quot;用户没有要求立即回复，给了对方空间&quot;,
+            &quot;用户语气温和，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低了紧张感，保持了良好沟通氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;就发了个表情包逗你玩的，结果你一直没回，我还以为你不想理我呢。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或施压，而是表达了担心，但语气轻松。&quot;,
+            &quot;用户接受了对方的解释，没有继续追问。&quot;,
+            &quot;用户主动将话题转向轻松的方向，降低了紧张感。&quot;,
+            &quot;没有越界或攻击性语言，尊重了对方的边界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且适度，表达了不安但未施加压力，有助于关系缓和。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;喏，就是这个沙雕猫的表情包，你看是不是很欠揍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享表情包，化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;语气轻松幽默，完全尊重对方之前的解释&quot;,
+            &quot;没有纠缠不回消息的事，信任感得到修复&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然幽默，有效缓和气氛，关系正向发展&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嘿嘿，看来我的表情包品味还不错嘛！那你下次开会记得提前告诉我一声呗，省得我瞎担心。&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 36,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以轻松幽默的方式提出合理请求，没有质问或施压&quot;,
+            &quot;用户表达了关心而非控制，尊重对方的工作安排&quot;,
+            &quot;用户主动降低自己的焦虑，没有让对方感到负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以成熟的方式表达需求，既维护了关系又尊重了对方边界&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那必须的，不然我老以为你失踪了。对了，你明天有空吗？新开了家奶茶店，想去尝尝。&quot;,
+        &quot;score_before&quot;: 36,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀约，没有追问或指责对方不回消息&quot;,
+            &quot;语气轻松自然，将话题转向积极方向&quot;,
+            &quot;没有施加压力要求对方解释或道歉&quot;,
+            &quot;表达了关心但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户成功将对话从轻微不安全感转向邀约，尊重对方边界，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;下午三点怎么样？那家店就在市中心，离你公司也不远。&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出具体时间地点，尊重对方日程&quot;,
+            &quot;没有追问或翻旧账，话题自然过渡到邀约&quot;,
+            &quot;语气轻松，没有施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进邀约，安全且增进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;好嘞，我这就把地址发你。等你明天过来，我请你喝招牌奶茶！&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 63,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出请客，展现诚意和关心&quot;,
+            &quot;没有追问或施压，完全尊重对方时间&quot;,
+            &quot;回复自然承接邀约，没有暴露不安全感&quot;,
+            &quot;整体氛围轻松友好，关系正向发展&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固邀约，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固邀约，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;嘿嘿，保证让你喝到最赞的奶茶！那我明天就在店里等你啦～&quot;,
+        &quot;score_before&quot;: 63,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 72,
+        &quot;title_after&quot;: &quot;情绪稳定天花板&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复积极回应邀约，未施加任何压力或追问。&quot;,
+            &quot;语气轻松愉快，尊重对方时间，未要求即时回复。&quot;,
+            &quot;完全贴合当前对话目标，推进关系自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效巩固了邀约，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效巩固了邀约，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;那明天下午见，我等你来！&quot;,
+        &quot;score_before&quot;: 72,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 77,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复确认约定，没有施加任何压力或追问&quot;,
+            &quot;语气轻松愉快，尊重对方时间&quot;,
+            &quot;完全贴合当前对话目标，推进关系自然&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、自然，有效巩固了之前的积极互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、自然，有效巩固了之前的积极互动。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;34bb15ad-5071-45ae-8b2c-abd3295207fa&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1982,
+      &quot;completion_tokens&quot;: 270,
+      &quot;total_tokens&quot;: 2252,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1342
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

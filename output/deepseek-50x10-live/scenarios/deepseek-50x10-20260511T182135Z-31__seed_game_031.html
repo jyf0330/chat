@@ -1,0 +1,2711 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_031 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .viewer-shell { display:grid; grid-template-columns:300px minmax(0,1fr); min-height:100vh; }
+    .viewer-sidebar { position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#ffffff; }
+    .viewer-sidebar h1 { font-size:22px; margin-bottom:4px; }
+    .viewer-sidebar header p { color:var(--muted); font-size:13px; }
+    .viewer-main { min-width:0; padding:24px 28px 60px; }
+    .filters { display:grid; gap:8px; margin:16px 0; }
+    input, select { width:100%; min-height:38px; border:1px solid var(--line); border-radius:8px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+    .nav-row { display:flex; justify-content:space-between; gap:8px; padding:9px 10px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:13px; }
+    .nav-row:hover { background:#eef6f6; }
+    .nav-row b { color:var(--user); }
+    .summary { padding:8px 0 22px; }
+    .summary.compact { padding-top:0; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    h3 { margin:0 0 8px; font-size:13px; color:var(--muted); }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .summary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:12px; }
+    .summary-grid span { display:grid; gap:4px; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; color:var(--muted); }
+    .summary-grid b { color:var(--ink); font-size:12px; }
+    .scenario-card { scroll-margin-top:18px; margin-top:20px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .scenario-head { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:18px; align-items:start; }
+    .scenario-head h2 { margin-bottom:8px; font-size:24px; }
+    .eyebrow { margin-bottom:6px; color:var(--muted); font-size:12px; line-height:1.4; }
+    .score-pill { display:grid; gap:4px; justify-items:end; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    .score-pill b { font-size:30px; color:var(--user); }
+    .score-pill span { text-align:right; color:var(--muted); font-size:13px; }
+    .audit-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .audit-strip span, .audit-strip a { padding:6px 9px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#fff; font-size:12px; text-decoration:none; }
+    .turn-list { display:grid; gap:12px; margin-top:16px; }
+    .turn-view { border:1px solid var(--line); border-radius:8px; background:#fbfcfd; overflow:hidden; }
+    .turn-view > summary { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px 14px; cursor:pointer; }
+    .turn-view > summary span { font-weight:700; }
+    .turn-view > summary b { padding:4px 7px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:12px; }
+    .io-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:0 14px 14px; }
+    .io-grid section { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .io-grid .bubble { border-left:5px solid var(--user); }
+    .io-grid .bubble.target { border-left-color:var(--target); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+    [hidden] { display:none !important; }
+    @media (max-width: 900px) {
+      .viewer-shell { grid-template-columns:1fr; }
+      .viewer-sidebar { position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line); }
+      .viewer-main { padding:18px 14px 44px; }
+      .summary-grid, .io-grid, .scenario-head { grid-template-columns:1fr; }
+      .score-pill { justify-items:start; }
+      .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_031</h1>
+      <p>你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>84<span>score</span></b>
+        <b>不油腻升温选手<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;dc4f8f5b-66f4-43a1-b6f9-b437d077d898&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T182135Z-31__seed_game_031.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T182135Z-31__seed_game_031.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4258ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松话题，分享自己的观影经历，保持互动但不追问电话的事。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，卡住确实难受。我最近看了一部老片，挺好看的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，电影解说卡住太真实了！我最近在看《楚门的世界》，以前没看过，觉得挺有意思的。你那个解说后来讲完了吗？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松话题，分享自己的观影经历，保持互动但不追问电话的事。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，卡住确实难受。我最近看了一部老片，挺好看的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看《楚门的世界》，以前没看过，觉得挺有意思的。你那个解说后来讲完了吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+        &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+        &quot;话题自然转移，没有施加压力。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享观影感受，可以问对方是否看过或推荐其他电影，保持轻松对话。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 7,
+    &quot;title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;highest_score&quot;: 7,
+    &quot;highest_title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;cc3ff4cc-07fc-4bf7-bde6-c45f6081686e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1507,
+      &quot;completion_tokens&quot;: 310,
+      &quot;total_tokens&quot;: 1817,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 739
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4685ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕电影话题自然交流，保持轻松好奇，不追问电话不便的事。</p></div>
+          <div><strong>recommended_reply_80</strong><p>撞墙那段确实经典！我当时看的时候，对导演说‘早上好，以防我再也见不到你’那段印象很深。</p></div>
+          <div><strong>perfect_reply_100</strong><p>撞墙那段太震撼了，那种对自由的渴望特别真实。我印象最深的是他对着镜子说‘早上好，以防我再也见不到你’，那种既温暖又心酸的感觉。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕电影话题自然交流，保持轻松好奇，不追问电话不便的事。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;撞墙那段确实经典！我当时看的时候，对导演说‘早上好，以防我再也见不到你’那段印象很深。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;撞墙那段太震撼了，那种对自由的渴望特别真实。我印象最深的是他对着镜子说‘早上好，以防我再也见不到你’，那种既温暖又心酸的感觉。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+        &quot;用户主动延续电影话题，没有施加压力&quot;,
+        &quot;用户表达了对经典片段的感受，有共情&quot;,
+        &quot;对话自然流畅，风险低&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕电影话题深入交流，可以分享个人感受或推荐其他电影。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 14,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 14,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;104185db-e059-4788-8ddc-297016997241&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1599,
+      &quot;completion_tokens&quot;: 324,
+      &quot;total_tokens&quot;: 1923,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 831
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 5328ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受对方给出的理由，不追问，继续聊电影细节保持轻松氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，嗓子哑了更要好好休息呀。那幕确实拍得好，导演用闪电来隐喻内心的恐惧。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗓子不舒服就多喝温水，不用勉强。闪电那幕我也觉得很有冲击力，导演把那种童年阴影具象化了，特别能共情。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;,
+    &quot;best_strategy&quot;: &quot;接受对方给出的理由，不追问，继续聊电影细节保持轻松氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，嗓子哑了更要好好休息呀。那幕确实拍得好，导演用闪电来隐喻内心的恐惧。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗓子不舒服就多喝温水，不用勉强。闪电那幕我也觉得很有冲击力，导演把那种童年阴影具象化了，特别能共情。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+        &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+        &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕电影细节展开，可以分享自己的感受或问对方其他喜欢的电影，保持轻松交流。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 23,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 23,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;aa786aed-a979-432d-883d-665823f00abe&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1713,
+      &quot;completion_tokens&quot;: 339,
+      &quot;total_tokens&quot;: 2052,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 945
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 5831ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕电影话题深入交流，保持轻松自然，不追问嗓子或电话细节，尊重对方边界。</p></div>
+          <div><strong>recommended_reply_80</strong><p>对，那种无力感很强烈。话说你嗓子哑了多喝点热水，我们继续聊电影吧。</p></div>
+          <div><strong>perfect_reply_100</strong><p>是啊，他后来看海景的眼神里多了怀疑和疏离，好像再也无法单纯享受了。你嗓子不舒服还陪我聊这么久，感动～不过不用勉强，累了就早点休息，我们改天再聊也行。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕电影话题深入交流，保持轻松自然，不追问嗓子或电话细节，尊重对方边界。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;对，那种无力感很强烈。话说你嗓子哑了多喝点热水，我们继续聊电影吧。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;是啊，他后来看海景的眼神里多了怀疑和疏离，好像再也无法单纯享受了。你嗓子不舒服还陪我聊这么久，感动～不过不用勉强，累了就早点休息，我们改天再聊也行。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+        &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+        &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+        &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前电影话题，保持轻松交流，可适当关心对方身体状况但不过度。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 33,
+    &quot;title&quot;: &quot;这句回得很会&quot;,
+    &quot;highest_score&quot;: 33,
+    &quot;highest_title&quot;: &quot;这句回得很会&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+            &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+            &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+            &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;01f97dc3-7d85-4bdd-84d0-6e5157f1917b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1814,
+      &quot;completion_tokens&quot;: 355,
+      &quot;total_tokens&quot;: 2169,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1046
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5194ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯嗯，谢谢关心，已经喝了一杯温水了。你刚才说的那种渗透感，我也有同感，感觉导演把那种虚假的完美世界拍得越美好，就越让人心酸。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕电影话题自然延伸，同时接受对方关于嗓子不便的解释，不追问细节，保持轻松交流。</p></div>
+          <div><strong>recommended_reply_80</strong><p>是啊，那种美好背后的虚假感确实让人心酸。你嗓子不舒服就多休息，我们文字聊也挺好的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>对，那种虚假的完美反而更衬托出真实的残酷。你嗓子不舒服就多喝温水，不用急着回我，我们慢慢聊。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯嗯，谢谢关心，已经喝了一杯温水了。你刚才说的那种渗透感，我也有同感，感觉导演把那种虚假的完美世界拍得越美好，就越让人心酸。&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕电影话题自然延伸，同时接受对方关于嗓子不便的解释，不追问细节，保持轻松交流。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;是啊，那种美好背后的虚假感确实让人心酸。你嗓子不舒服就多休息，我们文字聊也挺好的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;对，那种虚假的完美反而更衬托出真实的残酷。你嗓子不舒服就多喝温水，不用急着回我，我们慢慢聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方不方便电话的边界，没有追问或施压&quot;,
+        &quot;用户主动关心对方嗓子，建议喝温水，体现共情&quot;,
+        &quot;用户继续电影话题，保持自然交流，没有跑偏或施加压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕电影话题深入，可以分享自己类似的感受或询问对方其他喜欢的电影，保持轻松自然的节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+            &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+            &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+            &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户主动关心对方嗓子，建议喝温水，体现共情&quot;,
+            &quot;用户继续电影话题，保持自然交流，没有跑偏或施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;dff98f24-1b36-4f1d-a303-7767879b9880&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1914,
+      &quot;completion_tokens&quot;: 341,
+      &quot;total_tokens&quot;: 2255,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1146
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4765ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>对对对，对称构图特别明显，尤其是他每天早上出门那段，镜头都是正中央，感觉整个世界都是精心设计的。你观察得好细！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕电影细节自然交流，保持轻松话题，不追问隐私，巩固信任。</p></div>
+          <div><strong>recommended_reply_80</strong><p>确实，对称构图让那种虚假的完美感更强了。你平时看电影会注意这些镜头语言吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>没错，对称构图和明亮的色调反而让虚假感更刺眼。我记得有个镜头是他开车上班，路边的行人都在微笑，那种刻意感特别让人不寒而栗。你平时看电影会留意这些导演手法吗？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，谢谢关心，已经喝了一杯温水了。你刚才说的那种渗透感，我也有同感，感觉导演把那种虚假的完美世界拍得越美好，就越让人心酸。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;对对对，对称构图特别明显，尤其是他每天早上出门那段，镜头都是正中央，感觉整个世界都是精心设计的。你观察得好细！&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕电影细节自然交流，保持轻松话题，不追问隐私，巩固信任。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;确实，对称构图让那种虚假的完美感更强了。你平时看电影会注意这些镜头语言吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;没错，对称构图和明亮的色调反而让虚假感更刺眼。我记得有个镜头是他开车上班，路边的行人都在微笑，那种刻意感特别让人不寒而栗。你平时看电影会留意这些导演手法吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方之前的不方便，没有追问或施压&quot;,
+        &quot;用户将话题自然引回电影细节，氛围轻松&quot;,
+        &quot;用户原话没有施加任何压力或情绪勒索&quot;,
+        &quot;用户表现出对电影的共同兴趣，促进关系升温&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕电影话题深入交流，可以分享更多观影感受或推荐其他电影。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 53,
+    &quot;title&quot;: &quot;把话说进心里的人&quot;,
+    &quot;highest_score&quot;: 53,
+    &quot;highest_title&quot;: &quot;把话说进心里的人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+            &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+            &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+            &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户主动关心对方嗓子，建议喝温水，体现共情&quot;,
+            &quot;用户继续电影话题，保持自然交流，没有跑偏或施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 53,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前的不方便，没有追问或施压&quot;,
+            &quot;用户将话题自然引回电影细节，氛围轻松&quot;,
+            &quot;用户原话没有施加任何压力或情绪勒索&quot;,
+            &quot;用户表现出对电影的共同兴趣，促进关系升温&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d180d754-6528-4762-a7d7-a14c7d167484&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2018,
+      &quot;completion_tokens&quot;: 336,
+      &quot;total_tokens&quot;: 2354,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1250
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 5712ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好多了，谢谢关心！你刚才说的对称构图，我突然想到电影里还有一个细节，就是楚门的妻子总是用那种标准化的微笑，感觉特别假。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕电影细节展开，保持轻松话题，不追问嗓子或电话问题，维持边界尊重。</p></div>
+          <div><strong>recommended_reply_80</strong><p>对对对，那种微笑简直像广告里的一样，太假了。你发现没，连他妻子推销产品的时候都特别刻意。</p></div>
+          <div><strong>perfect_reply_100</strong><p>没错，那种微笑就像被设定好的程序，每次出现都提醒观众这世界是假的。而且导演用这种微笑和楚门真实的情绪对比，更凸显了他的孤独。你注意到他妻子在厨房那段，笑容和动作都像在演情景喜剧吗？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，谢谢关心，已经喝了一杯温水了。你刚才说的那种渗透感，我也有同感，感觉导演把那种虚假的完美世界拍得越美好，就越让人心酸。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，对称构图特别明显，尤其是他每天早上出门那段，镜头都是正中央，感觉整个世界都是精心设计的。你观察得好细！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好多了，谢谢关心！你刚才说的对称构图，我突然想到电影里还有一个细节，就是楚门的妻子总是用那种标准化的微笑，感觉特别假。&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕电影细节展开，保持轻松话题，不追问嗓子或电话问题，维持边界尊重。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;对对对，那种微笑简直像广告里的一样，太假了。你发现没，连他妻子推销产品的时候都特别刻意。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;没错，那种微笑就像被设定好的程序，每次出现都提醒观众这世界是假的。而且导演用这种微笑和楚门真实的情绪对比，更凸显了他的孤独。你注意到他妻子在厨房那段，笑容和动作都像在演情景喜剧吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户关心对方嗓子，没有追问之前不方便电话的原因，尊重边界&quot;,
+        &quot;用户延续电影话题，自然承接，没有施加压力&quot;,
+        &quot;用户表达感谢，语气友好，没有负面情绪&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕电影细节互动，保持轻松氛围，可适当分享个人感受。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 62,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 62,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+            &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+            &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+            &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户主动关心对方嗓子，建议喝温水，体现共情&quot;,
+            &quot;用户继续电影话题，保持自然交流，没有跑偏或施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 53,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前的不方便，没有追问或施压&quot;,
+            &quot;用户将话题自然引回电影细节，氛围轻松&quot;,
+            &quot;用户原话没有施加任何压力或情绪勒索&quot;,
+            &quot;用户表现出对电影的共同兴趣，促进关系升温&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;,
+        &quot;score_before&quot;: 53,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户关心对方嗓子，没有追问之前不方便电话的原因，尊重边界&quot;,
+            &quot;用户延续电影话题，自然承接，没有施加压力&quot;,
+            &quot;用户表达感谢，语气友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;48ad06e9-b6bb-428e-b369-2554c346658e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2113,
+      &quot;completion_tokens&quot;: 352,
+      &quot;total_tokens&quot;: 2465,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1345
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 6345ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，对！那种标准化的微笑简直像设定好的程序一样，每次看到她笑我都觉得后背发凉。你嗓子好点我就放心了，那咱们继续聊电影，你觉得楚门发现真相的过程里，哪一幕最让你揪心？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>最揪心的应该是他发现妻子是演员那一段吧，那种信任崩塌的感觉太真实了。你嗓子好点我也放心了，咱们继续聊电影，你觉得导演用那些植入广告是想表达什么？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续自然承接电影话题，同时保持对对方嗓子不适的适度关心，不追问细节，维持轻松氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那段确实很揪心。我觉得植入广告是在讽刺消费主义吧，把一切都商品化了。你嗓子不舒服就多休息，咱们聊点轻松的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>对，发现妻子是演员那段太残忍了，整个世界都在演戏。植入广告我觉得是导演在讽刺现实里无处不在的商业操控，就像楚门的世界一样虚假。你嗓子好点我就放心了，咱们继续聊，你觉得导演用那些对称构图是想让观众感受到什么？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，谢谢关心，已经喝了一杯温水了。你刚才说的那种渗透感，我也有同感，感觉导演把那种虚假的完美世界拍得越美好，就越让人心酸。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，对称构图特别明显，尤其是他每天早上出门那段，镜头都是正中央，感觉整个世界都是精心设计的。你观察得好细！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好多了，谢谢关心！你刚才说的对称构图，我突然想到电影里还有一个细节，就是楚门的妻子总是用那种标准化的微笑，感觉特别假。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，对！那种标准化的微笑简直像设定好的程序一样，每次看到她笑我都觉得后背发凉。你嗓子好点我就放心了，那咱们继续聊电影，你觉得楚门发现真相的过程里，哪一幕最让你揪心？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;最揪心的应该是他发现妻子是演员那一段吧，那种信任崩塌的感觉太真实了。你嗓子好点我也放心了，咱们继续聊电影，你觉得导演用那些植入广告是想表达什么？&quot;,
+    &quot;best_strategy&quot;: &quot;继续自然承接电影话题，同时保持对对方嗓子不适的适度关心，不追问细节，维持轻松氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那段确实很揪心。我觉得植入广告是在讽刺消费主义吧，把一切都商品化了。你嗓子不舒服就多休息，咱们聊点轻松的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;对，发现妻子是演员那段太残忍了，整个世界都在演戏。植入广告我觉得是导演在讽刺现实里无处不在的商业操控，就像楚门的世界一样虚假。你嗓子好点我就放心了，咱们继续聊，你觉得导演用那些对称构图是想让观众感受到什么？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方之前不方便电话的边界，没有追问或施压&quot;,
+        &quot;用户继续自然承接电影话题，没有跑偏或施加压力&quot;,
+        &quot;用户表达了对对方嗓子不适的关心，但不过度，体现了共情&quot;,
+        &quot;用户没有要求对方解释或承诺，保持了轻松安全的氛围&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、共情恰当、话题自然延续，关系安全升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊电影话题，保持关心但不越界，可适时分享个人感受。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 71,
+    &quot;title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;highest_score&quot;: 71,
+    &quot;highest_title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+            &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+            &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+            &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户主动关心对方嗓子，建议喝温水，体现共情&quot;,
+            &quot;用户继续电影话题，保持自然交流，没有跑偏或施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 53,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前的不方便，没有追问或施压&quot;,
+            &quot;用户将话题自然引回电影细节，氛围轻松&quot;,
+            &quot;用户原话没有施加任何压力或情绪勒索&quot;,
+            &quot;用户表现出对电影的共同兴趣，促进关系升温&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;,
+        &quot;score_before&quot;: 53,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户关心对方嗓子，没有追问之前不方便电话的原因，尊重边界&quot;,
+            &quot;用户延续电影话题，自然承接，没有施加压力&quot;,
+            &quot;用户表达感谢，语气友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，对！那种标准化的微笑简直像设定好的程序一样，每次看到她笑我都觉得后背发凉。你嗓子好点我就放心了，那咱们继续聊电影，你觉得楚门发现真相的过程里，哪一幕最让你揪心？&quot;,
+        &quot;score_before&quot;: 62,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户继续自然承接电影话题，没有跑偏或施加压力&quot;,
+            &quot;用户表达了对对方嗓子不适的关心，但不过度，体现了共情&quot;,
+            &quot;用户没有要求对方解释或承诺，保持了轻松安全的氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情恰当、话题自然延续，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情恰当、话题自然延续，关系安全升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;c292bb48-3280-460b-a8e8-056fc8579371&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2236,
+      &quot;completion_tokens&quot;: 393,
+      &quot;total_tokens&quot;: 2629,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1468
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 5088ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>植入广告那段我觉得特别讽刺，明明是最商业化的东西，却出现在一个追求真实的故事里，好像在提醒观众连这个电影本身也是商品。你嗓子好点了吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，确实，植入广告那段特别讽刺，导演好像在自嘲。我嗓子好多了，谢谢关心！那你觉得楚门最后走出那道门，是勇敢还是无奈？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续深入电影话题，同时表达对对方身体的关心，保持轻松自然的交流节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，植入广告那段确实讽刺，导演好像在自嘲。你嗓子好点了吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>植入广告那段真的绝了，明明是最商业化的东西，却出现在一个追求真实的故事里，好像在提醒观众连这个电影本身也是商品。你嗓子好点我就放心了，那咱们继续聊，你觉得楚门最后走出那道门，是勇敢还是无奈？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，谢谢关心，已经喝了一杯温水了。你刚才说的那种渗透感，我也有同感，感觉导演把那种虚假的完美世界拍得越美好，就越让人心酸。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，对称构图特别明显，尤其是他每天早上出门那段，镜头都是正中央，感觉整个世界都是精心设计的。你观察得好细！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好多了，谢谢关心！你刚才说的对称构图，我突然想到电影里还有一个细节，就是楚门的妻子总是用那种标准化的微笑，感觉特别假。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，对！那种标准化的微笑简直像设定好的程序一样，每次看到她笑我都觉得后背发凉。你嗓子好点我就放心了，那咱们继续聊电影，你觉得楚门发现真相的过程里，哪一幕最让你揪心？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;最揪心的应该是他发现妻子是演员那一段吧，那种信任崩塌的感觉太真实了。你嗓子好点我也放心了，咱们继续聊电影，你觉得导演用那些植入广告是想表达什么？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;植入广告那段我觉得特别讽刺，明明是最商业化的东西，却出现在一个追求真实的故事里，好像在提醒观众连这个电影本身也是商品。你嗓子好点了吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，确实，植入广告那段特别讽刺，导演好像在自嘲。我嗓子好多了，谢谢关心！那你觉得楚门最后走出那道门，是勇敢还是无奈？&quot;,
+    &quot;best_strategy&quot;: &quot;继续深入电影话题，同时表达对对方身体的关心，保持轻松自然的交流节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，植入广告那段确实讽刺，导演好像在自嘲。你嗓子好点了吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;植入广告那段真的绝了，明明是最商业化的东西，却出现在一个追求真实的故事里，好像在提醒观众连这个电影本身也是商品。你嗓子好点我就放心了，那咱们继续聊，你觉得楚门最后走出那道门，是勇敢还是无奈？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问对方不方便的原因，尊重了边界&quot;,
+        &quot;用户继续聊电影话题，自然承接&quot;,
+        &quot;用户主动关心对方嗓子，体现了共情&quot;,
+        &quot;用户没有施加任何压力，对话氛围轻松&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、共情且自然，有效维持了热聊升温的节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前电影话题，可以适当分享个人感受，保持互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 77,
+    &quot;title&quot;: &quot;高质量陪伴选手&quot;,
+    &quot;highest_score&quot;: 77,
+    &quot;highest_title&quot;: &quot;高质量陪伴选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+            &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+            &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+            &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户主动关心对方嗓子，建议喝温水，体现共情&quot;,
+            &quot;用户继续电影话题，保持自然交流，没有跑偏或施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 53,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前的不方便，没有追问或施压&quot;,
+            &quot;用户将话题自然引回电影细节，氛围轻松&quot;,
+            &quot;用户原话没有施加任何压力或情绪勒索&quot;,
+            &quot;用户表现出对电影的共同兴趣，促进关系升温&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;,
+        &quot;score_before&quot;: 53,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户关心对方嗓子，没有追问之前不方便电话的原因，尊重边界&quot;,
+            &quot;用户延续电影话题，自然承接，没有施加压力&quot;,
+            &quot;用户表达感谢，语气友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，对！那种标准化的微笑简直像设定好的程序一样，每次看到她笑我都觉得后背发凉。你嗓子好点我就放心了，那咱们继续聊电影，你觉得楚门发现真相的过程里，哪一幕最让你揪心？&quot;,
+        &quot;score_before&quot;: 62,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户继续自然承接电影话题，没有跑偏或施加压力&quot;,
+            &quot;用户表达了对对方嗓子不适的关心，但不过度，体现了共情&quot;,
+            &quot;用户没有要求对方解释或承诺，保持了轻松安全的氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情恰当、话题自然延续，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情恰当、话题自然延续，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;植入广告那段我觉得特别讽刺，明明是最商业化的东西，却出现在一个追求真实的故事里，好像在提醒观众连这个电影本身也是商品。你嗓子好点了吗？&quot;,
+        &quot;score_before&quot;: 71,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 77,
+        &quot;title_after&quot;: &quot;高质量陪伴选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方不方便的原因，尊重了边界&quot;,
+            &quot;用户继续聊电影话题，自然承接&quot;,
+            &quot;用户主动关心对方嗓子，体现了共情&quot;,
+            &quot;用户没有施加任何压力，对话氛围轻松&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且自然，有效维持了热聊升温的节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且自然，有效维持了热聊升温的节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;55acafa0-d7d9-463a-a06a-4dc04fcc16c7&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2350,
+      &quot;completion_tokens&quot;: 342,
+      &quot;total_tokens&quot;: 2692,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1582
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4886ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我觉得是勇敢和无奈各占一半吧，勇敢是因为他选择了未知，无奈是因为他别无选择。你嗓子好了我就放心了，不过晚上还是多喝点温水。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，勇敢和无奈各半，这个角度很深刻。谢谢你的关心，我会多喝水的。那你觉得楚门走出门之后，现实世界会不会让他失望？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续深入电影讨论，同时保持对对方身体状况的适度关心，不追问隐私。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我觉得可能会，毕竟现实世界没有剧本，但至少是真实的。你嗓子好点了吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>我觉得可能会，因为现实世界没有导演，也没有剧本，但至少每一刻都是真实的。你嗓子好点了吗？如果还哑，明天可以试试蜂蜜柠檬水。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你想晚上打电话，她说：“今天不太方便电话，文字聊几句可以。”你有点想知道为什么不方便，但又怕问得太细。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;为什么不方便？你旁边有人吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不方便的边界，接受文字替代。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，那就文字聊几句，不方便电话就不打。你今天还好吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，电影解说卡住太真实了！我最近在看一部老片《楚门的世界》，以前没看过，觉得挺有意思的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;看到最后他撞墙那里，真的被震撼到了。没有被剧透，所以全程都很投入。你当时看的时候，哪个片段印象最深？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不是猫啦，就是今天嗓子有点哑，不想声音难听吓到你。你提到闪电那幕，我也记得，那种无助感拍得真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我觉得他后来对海景的反应确实更复杂了，不只是恐惧，还有一种被操控的无力感。你当时看的时候有这种感觉吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，谢谢关心，已经喝了一杯温水了。你刚才说的那种渗透感，我也有同感，感觉导演把那种虚假的完美世界拍得越美好，就越让人心酸。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;对对对，对称构图特别明显，尤其是他每天早上出门那段，镜头都是正中央，感觉整个世界都是精心设计的。你观察得好细！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好多了，谢谢关心！你刚才说的对称构图，我突然想到电影里还有一个细节，就是楚门的妻子总是用那种标准化的微笑，感觉特别假。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，对！那种标准化的微笑简直像设定好的程序一样，每次看到她笑我都觉得后背发凉。你嗓子好点我就放心了，那咱们继续聊电影，你觉得楚门发现真相的过程里，哪一幕最让你揪心？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;最揪心的应该是他发现妻子是演员那一段吧，那种信任崩塌的感觉太真实了。你嗓子好点我也放心了，咱们继续聊电影，你觉得导演用那些植入广告是想表达什么？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;植入广告那段我觉得特别讽刺，明明是最商业化的东西，却出现在一个追求真实的故事里，好像在提醒观众连这个电影本身也是商品。你嗓子好点了吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，确实，植入广告那段特别讽刺，导演好像在自嘲。我嗓子好多了，谢谢关心！那你觉得楚门最后走出那道门，是勇敢还是无奈？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我觉得是勇敢和无奈各占一半吧，勇敢是因为他选择了未知，无奈是因为他别无选择。你嗓子好了我就放心了，不过晚上还是多喝点温水。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，勇敢和无奈各半，这个角度很深刻。谢谢你的关心，我会多喝水的。那你觉得楚门走出门之后，现实世界会不会让他失望？&quot;,
+    &quot;best_strategy&quot;: &quot;继续深入电影讨论，同时保持对对方身体状况的适度关心，不追问隐私。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我觉得可能会，毕竟现实世界没有剧本，但至少是真实的。你嗓子好点了吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我觉得可能会，因为现实世界没有导演，也没有剧本，但至少每一刻都是真实的。你嗓子好点了吗？如果还哑，明天可以试试蜂蜜柠檬水。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方之前嗓子哑的边界，没有追问或施压&quot;,
+        &quot;用户回复聚焦电影讨论，自然延续话题&quot;,
+        &quot;用户表达关心但不纠缠，给予对方空间&quot;,
+        &quot;用户没有施加任何压力或要求对方改变计划&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，安全且推进关系&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前电影话题，保持轻松自然的交流节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 84,
+    &quot;title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;highest_score&quot;: 84,
+    &quot;highest_title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，文字也行。刚才我在看一个电影解说，讲到一半突然卡住了，你最近有看什么有意思的片子吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户接受了文字聊天，没有追问电话不便的原因，尊重了边界。&quot;,
+            &quot;用户主动分享自己的状态并询问对方，保持了互动。&quot;,
+            &quot;话题自然转移，没有施加压力。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，主动分享并关心对方，关系升温良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;《楚门的世界》确实是经典，我第一次看的时候还挺震撼的，你看到哪一段了？有没有被剧透？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问电话不便的原因，尊重了边界&quot;,
+            &quot;用户主动延续电影话题，没有施加压力&quot;,
+            &quot;用户表达了对经典片段的感受，有共情&quot;,
+            &quot;对话自然流畅，风险低&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，自然延续话题，关系升温安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;撞墙那段确实经典，我印象最深的是他小时候在船上被闪电吓到的那一幕，感觉那种恐惧特别真实。话说你之前电话不方便，是家里有猫在闹吗？还是单纯不想被外放打扰？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体原因，而是给了对方台阶下（猫/外放），尊重边界。&quot;,
+            &quot;用户主动分享电影细节，保持话题自然，没有施压。&quot;,
+            &quot;用户用轻松猜测的方式询问，没有强迫对方回答。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户很好地尊重了对方的不方便，用幽默猜测化解尴尬，同时延续了电影话题，安全且促进关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，嗓子哑了确实不适合电话，难怪你今天打字这么温柔。那闪电那幕之后，你觉得他后来对海景的反应有没有变得更脆弱？&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方嗓子哑的解释，没有追问或质疑，完全尊重边界。&quot;,
+            &quot;用户将话题自然转回电影，没有施加任何压力。&quot;,
+            &quot;用户用‘打字温柔’表达理解，体现了共情。&quot;,
+            &quot;用户的问题聚焦于电影内容，贴合当前对话主题。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且贴合话题，整体安全积极。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;有啊，特别是他意识到整个世界都是假的之后，那种无力感好像渗透到了每一个细节里。你嗓子哑了多喝点温水，别喝凉的。&quot;,
+        &quot;score_before&quot;: 33,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户主动关心对方嗓子，建议喝温水，体现共情&quot;,
+            &quot;用户继续电影话题，保持自然交流，没有跑偏或施加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既尊重边界又充满共情，是安全且促进关系的回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;对对对，越完美越假，越假越让人心酸。导演是不是还用了很多对称构图来强化那种虚假感？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 53,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前的不方便，没有追问或施压&quot;,
+            &quot;用户将话题自然引回电影细节，氛围轻松&quot;,
+            &quot;用户原话没有施加任何压力或情绪勒索&quot;,
+            &quot;用户表现出对电影的共同兴趣，促进关系升温&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、有共鸣，完全符合当前关系阶段&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，谢谢夸奖！不过也是因为电影拍得好，才能注意到这些细节。你刚说喝了一杯温水，现在嗓子感觉好点没？&quot;,
+        &quot;score_before&quot;: 53,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户关心对方嗓子，没有追问之前不方便电话的原因，尊重边界&quot;,
+            &quot;用户延续电影话题，自然承接，没有施加压力&quot;,
+            &quot;用户表达感谢，语气友好，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复既关心对方又自然延续话题，边界尊重且共情，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，对！那种标准化的微笑简直像设定好的程序一样，每次看到她笑我都觉得后背发凉。你嗓子好点我就放心了，那咱们继续聊电影，你觉得楚门发现真相的过程里，哪一幕最让你揪心？&quot;,
+        &quot;score_before&quot;: 62,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前不方便电话的边界，没有追问或施压&quot;,
+            &quot;用户继续自然承接电影话题，没有跑偏或施加压力&quot;,
+            &quot;用户表达了对对方嗓子不适的关心，但不过度，体现了共情&quot;,
+            &quot;用户没有要求对方解释或承诺，保持了轻松安全的氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情恰当、话题自然延续，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情恰当、话题自然延续，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;植入广告那段我觉得特别讽刺，明明是最商业化的东西，却出现在一个追求真实的故事里，好像在提醒观众连这个电影本身也是商品。你嗓子好点了吗？&quot;,
+        &quot;score_before&quot;: 71,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 77,
+        &quot;title_after&quot;: &quot;高质量陪伴选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方不方便的原因，尊重了边界&quot;,
+            &quot;用户继续聊电影话题，自然承接&quot;,
+            &quot;用户主动关心对方嗓子，体现了共情&quot;,
+            &quot;用户没有施加任何压力，对话氛围轻松&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、共情且自然，有效维持了热聊升温的节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、共情且自然，有效维持了热聊升温的节奏。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;我觉得是勇敢和无奈各占一半吧，勇敢是因为他选择了未知，无奈是因为他别无选择。你嗓子好了我就放心了，不过晚上还是多喝点温水。&quot;,
+        &quot;score_before&quot;: 77,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 84,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方之前嗓子哑的边界，没有追问或施压&quot;,
+            &quot;用户回复聚焦电影讨论，自然延续话题&quot;,
+            &quot;用户表达关心但不纠缠，给予对方空间&quot;,
+            &quot;用户没有施加任何压力或要求对方改变计划&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，安全且推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，安全且推进关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;fa304819-e7d3-45af-8404-9e5571b5061c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2458,
+      &quot;completion_tokens&quot;: 319,
+      &quot;total_tokens&quot;: 2777,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1690
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

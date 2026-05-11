@@ -1,0 +1,2987 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_016 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_016</h1>
+      <p>她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>68<span>score</span></b>
+        <b>甜度刚刚好<span>title</span></b>
+        <b>low<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;eea8881d-d2ad-4cfc-a844-0b54e7015946&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T172743Z-16__seed_game_016.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T172743Z-16__seed_game_016.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4541ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>看起来不错！是哪家店呀？那个汤看着很诱人。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。</p></div>
+          <div><strong>recommended_reply_80</strong><p>酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。</p></div>
+          <div><strong>perfect_reply_100</strong><p>酸萝卜老鸭汤是我的最爱！这家店我记下了，下次有空一起去尝尝？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;酸萝卜老鸭汤是我的最爱！这家店我记下了，下次有空一起去尝尝？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+        &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+        &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续聊美食话题，或者根据对方反应考虑是否提出邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 7,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 7,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;e66ed217-974e-4d6a-b806-674a527af2d0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1262,
+      &quot;completion_tokens&quot;: 297,
+      &quot;total_tokens&quot;: 1559,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 622
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4829ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>红烧肉也列入清单了，感觉这家店值得专门去一趟。</p></div>
+          <div><strong>perfect_reply_100</strong><p>红烧肉也列入清单！听你这么说，感觉这家店值得专门去一趟。下次有空的话，要不要一起去探店？我请客，你带路。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;红烧肉也列入清单！听你这么说，感觉这家店值得专门去一趟。下次有空的话，要不要一起去探店？我请客，你带路。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+        &quot;回复自然，保持了对话的开放性&quot;,
+        &quot;没有负面情绪或攻击性&quot;,
+        &quot;贴合场景，推进关系但不过度&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续自然交流，若对方回应积极，可考虑提出具体邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 14,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 14,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;79f52b8d-82bc-4dc4-81b1-36daf81a8ac4&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1418,
+      &quot;completion_tokens&quot;: 293,
+      &quot;total_tokens&quot;: 1711,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 778
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 5057ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那中午去比较合适，改天我也挑个中午去尝尝。</p></div>
+          <div><strong>perfect_reply_100</strong><p>中午不用排队太好了，那找个中午一起去吧，我请你喝酸萝卜老鸭汤，你帮我点红烧肉。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;,
+    &quot;best_strategy&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;中午不用排队太好了，那找个中午一起去吧，我请你喝酸萝卜老鸭汤，你帮我点红烧肉。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 2,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 3,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+        &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+        &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续聊具体菜品或提议一起探店，但保持低压。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;7c8f51b6-28f3-4339-8f6b-b3a446489d6c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1563,
+      &quot;completion_tokens&quot;: 292,
+      &quot;total_tokens&quot;: 1855,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 923
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 5262ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受邀请，保持轻松愉快，不要过度解读或追加条件。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就说定了，到时候你带路。</p></div>
+          <div><strong>perfect_reply_100</strong><p>太好了，有美食达人带路，我负责请客，你负责点菜，就这么愉快地决定了。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。&quot;,
+    &quot;best_strategy&quot;: &quot;接受邀请，保持轻松愉快，不要过度解读或追加条件。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就说定了，到时候你带路。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;太好了，有美食达人带路，我负责请客，你负责点菜，就这么愉快地决定了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+        &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+        &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，可以聊具体时间或菜品偏好，但不要急于敲定细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 28,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 28,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+            &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+            &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;aba2ff64-660b-4017-ad4d-d18e9655720c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1714,
+      &quot;completion_tokens&quot;: 278,
+      &quot;total_tokens&quot;: 1992,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 818
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4460ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那可就记下了！到时候你可别嫌我吃得多哈。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，放心，我饭量也不小，到时候咱们比比看！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的互动，接受邀请并延续玩笑，不追加条件或过度推进。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那必须的，谁怕谁啊！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那咱们可要好好比一比，不过先说好，输的人请客哦！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松愉快，不要过度解读或追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就说定了，到时候你带路。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，放心，我饭量也不小，到时候咱们比比看！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的互动，接受邀请并延续玩笑，不追加条件或过度推进。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那必须的，谁怕谁啊！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那咱们可要好好比一比，不过先说好，输的人请客哦！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户以玩笑方式回应邀请，没有施加压力或追问细节。&quot;,
+        &quot;用户主动降低预期（'别嫌我吃得多'），显得轻松自然。&quot;,
+        &quot;回复延续了之前的约定，没有偏离话题或提出额外要求。&quot;,
+        &quot;整体氛围友好，没有越界或操控迹象。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以自然过渡到具体约时间，但不要催促。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 35,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 35,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+            &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+            &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以玩笑方式回应邀请，没有施加压力或追问细节。&quot;,
+            &quot;用户主动降低预期（'别嫌我吃得多'），显得轻松自然。&quot;,
+            &quot;回复延续了之前的约定，没有偏离话题或提出额外要求。&quot;,
+            &quot;整体氛围友好，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9a404299-7a1f-4e8c-9d1d-858cb6d799ad&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1835,
+      &quot;completion_tokens&quot;: 295,
+      &quot;total_tokens&quot;: 2130,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 811
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4241ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>行啊，那咱们就约个时间，看看谁更厉害！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，行啊，那就这周末中午？我正好有空。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受具体时间提议，保持轻松愉快，不要追加条件或过度解读。</p></div>
+          <div><strong>recommended_reply_80</strong><p>周末中午可以，我随时奉陪！</p></div>
+          <div><strong>perfect_reply_100</strong><p>周末中午没问题，到时候我请你吃红烧肉，你负责带路就好。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松愉快，不要过度解读或追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就说定了，到时候你带路。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我饭量也不小，到时候咱们比比看！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默的互动，接受邀请并延续玩笑，不追加条件或过度推进。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那必须的，谁怕谁啊！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，行啊，那就这周末中午？我正好有空。&quot;,
+    &quot;best_strategy&quot;: &quot;接受具体时间提议，保持轻松愉快，不要追加条件或过度解读。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;周末中午可以，我随时奉陪！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;周末中午没问题，到时候我请你吃红烧肉，你负责带路就好。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户延续了之前的玩笑，主动约时间，但没有强迫或施压&quot;,
+        &quot;回复自然承接了对方的邀请，没有越界或过度推进&quot;,
+        &quot;保持了轻松友好的氛围，尊重了之前的互动节奏&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续确认具体时间地点，保持低压互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+            &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+            &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以玩笑方式回应邀请，没有施加压力或追问细节。&quot;,
+            &quot;用户主动降低预期（'别嫌我吃得多'），显得轻松自然。&quot;,
+            &quot;回复延续了之前的约定，没有偏离话题或提出额外要求。&quot;,
+            &quot;整体氛围友好，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了之前的玩笑，主动约时间，但没有强迫或施压&quot;,
+            &quot;回复自然承接了对方的邀请，没有越界或过度推进&quot;,
+            &quot;保持了轻松友好的氛围，尊重了之前的互动节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5e3e4563-346e-4cc9-aa15-1e4710a4b7a0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1962,
+      &quot;completion_tokens&quot;: 259,
+      &quot;total_tokens&quot;: 2221,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 810
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4521ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好啊，我加你吧，你微信号多少？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受加微信的提议，自然交换联系方式，保持轻松友好，不追加条件。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我微信号是xxx，你加我吧。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好呀，我微信号是xxx，你加我时备注一下名字，免得我认错人哈哈。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松愉快，不要过度解读或追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就说定了，到时候你带路。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我饭量也不小，到时候咱们比比看！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默的互动，接受邀请并延续玩笑，不追加条件或过度推进。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那必须的，谁怕谁啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那就这周末中午？我正好有空。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受具体时间提议，保持轻松愉快，不要追加条件或过度解读。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;周末中午可以，我随时奉陪！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好啊，我加你吧，你微信号多少？&quot;,
+    &quot;best_strategy&quot;: &quot;接受加微信的提议，自然交换联系方式，保持轻松友好，不追加条件。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我微信号是xxx，你加我吧。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好呀，我微信号是xxx，你加我时备注一下名字，免得我认错人哈哈。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出加微信，但语气轻松，没有强迫或施压。&quot;,
+        &quot;对方之前已同意周末见面，加微信是合理推进。&quot;,
+        &quot;用户没有追问隐私或过度要求。&quot;
+      ],
+      &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，确认加微信后可以聊几句周末安排。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 50,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 50,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+            &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+            &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以玩笑方式回应邀请，没有施加压力或追问细节。&quot;,
+            &quot;用户主动降低预期（'别嫌我吃得多'），显得轻松自然。&quot;,
+            &quot;回复延续了之前的约定，没有偏离话题或提出额外要求。&quot;,
+            &quot;整体氛围友好，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了之前的玩笑，主动约时间，但没有强迫或施压&quot;,
+            &quot;回复自然承接了对方的邀请，没有越界或过度推进&quot;,
+            &quot;保持了轻松友好的氛围，尊重了之前的互动节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 50,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出加微信，但语气轻松，没有强迫或施压。&quot;,
+            &quot;对方之前已同意周末见面，加微信是合理推进。&quot;,
+            &quot;用户没有追问隐私或过度要求。&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;19ca7f16-e924-4c56-9d16-dc19d7156bff&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2089,
+      &quot;completion_tokens&quot;: 263,
+      &quot;total_tokens&quot;: 2352,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1280
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1280,
+      &quot;prompt_cache_miss_tokens&quot;: 809
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4235ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我微信号是abc123，你加我吧，或者告诉我你的我来加你也行。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好，我加你吧，abc123对吧？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>确认微信号，自然完成加好友动作，保持轻松友好，不追加条件。</p></div>
+          <div><strong>recommended_reply_80</strong><p>对的，你加我吧，我通过一下。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，abc123，你加我后我马上通过，周末见！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松愉快，不要过度解读或追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就说定了，到时候你带路。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我饭量也不小，到时候咱们比比看！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默的互动，接受邀请并延续玩笑，不追加条件或过度推进。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那必须的，谁怕谁啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那就这周末中午？我正好有空。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受具体时间提议，保持轻松愉快，不要追加条件或过度解读。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;周末中午可以，我随时奉陪！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，我加你吧，你微信号多少？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受加微信的提议，自然交换联系方式，保持轻松友好，不追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我微信号是xxx，你加我吧。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我微信号是abc123，你加我吧，或者告诉我你的我来加你也行。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好，我加你吧，abc123对吧？&quot;,
+    &quot;best_strategy&quot;: &quot;确认微信号，自然完成加好友动作，保持轻松友好，不追加条件。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;对的，你加我吧，我通过一下。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，abc123，你加我后我马上通过，周末见！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动提供微信号，尊重对方选择加还是不加，没有催促或强迫。&quot;,
+        &quot;用户给出两种方式（加我或告诉我你的），体现灵活性和尊重。&quot;,
+        &quot;对话自然推进到加好友阶段，没有越界或施压。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户以尊重、灵活的方式推进加好友，完全符合当前关系阶段，安全且得体。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续等待对方加好友，周末见面时保持轻松自然即可。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 59,
+    &quot;title&quot;: &quot;稳稳拿捏分寸&quot;,
+    &quot;highest_score&quot;: 59,
+    &quot;highest_title&quot;: &quot;稳稳拿捏分寸&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+            &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+            &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以玩笑方式回应邀请，没有施加压力或追问细节。&quot;,
+            &quot;用户主动降低预期（'别嫌我吃得多'），显得轻松自然。&quot;,
+            &quot;回复延续了之前的约定，没有偏离话题或提出额外要求。&quot;,
+            &quot;整体氛围友好，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了之前的玩笑，主动约时间，但没有强迫或施压&quot;,
+            &quot;回复自然承接了对方的邀请，没有越界或过度推进&quot;,
+            &quot;保持了轻松友好的氛围，尊重了之前的互动节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 50,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出加微信，但语气轻松，没有强迫或施压。&quot;,
+            &quot;对方之前已同意周末见面，加微信是合理推进。&quot;,
+            &quot;用户没有追问隐私或过度要求。&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;我微信号是abc123，你加我吧，或者告诉我你的我来加你也行。&quot;,
+        &quot;score_before&quot;: 50,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 59,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提供微信号，尊重对方选择加还是不加，没有催促或强迫。&quot;,
+            &quot;用户给出两种方式（加我或告诉我你的），体现灵活性和尊重。&quot;,
+            &quot;对话自然推进到加好友阶段，没有越界或施压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以尊重、灵活的方式推进加好友，完全符合当前关系阶段，安全且得体。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以尊重、灵活的方式推进加好友，完全符合当前关系阶段，安全且得体。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4b238df5-643e-4911-864f-78d5b0c61b22&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2216,
+      &quot;completion_tokens&quot;: 275,
+      &quot;total_tokens&quot;: 2491,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1408
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1408,
+      &quot;prompt_cache_miss_tokens&quot;: 808
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3835ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯嗯，就是abc123，等你加我~周末中午见！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好的，我加你了，周末中午见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>确认好友请求，保持轻松愉快，不追加条件，自然结束当前话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>收到，周末见！</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，我通过一下，周末中午不见不散！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松愉快，不要过度解读或追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就说定了，到时候你带路。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我饭量也不小，到时候咱们比比看！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默的互动，接受邀请并延续玩笑，不追加条件或过度推进。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那必须的，谁怕谁啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那就这周末中午？我正好有空。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受具体时间提议，保持轻松愉快，不要追加条件或过度解读。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;周末中午可以，我随时奉陪！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，我加你吧，你微信号多少？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受加微信的提议，自然交换联系方式，保持轻松友好，不追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我微信号是xxx，你加我吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我微信号是abc123，你加我吧，或者告诉我你的我来加你也行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，我加你吧，abc123对吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认微信号，自然完成加好友动作，保持轻松友好，不追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;对的，你加我吧，我通过一下。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯嗯，就是abc123，等你加我~周末中午见！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好的，我加你了，周末中午见！&quot;,
+    &quot;best_strategy&quot;: &quot;确认好友请求，保持轻松愉快，不追加条件，自然结束当前话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;收到，周末见！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，我通过一下，周末中午不见不散！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户明确提供微信号并确认，完全尊重对方节奏&quot;,
+        &quot;没有催促、施压或追加条件&quot;,
+        &quot;语气轻松友好，符合当前关系阶段&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，尊重边界，有效推进关系但不过度&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，等待对方加好友后确认，不要主动追问或催促。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 68,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 68,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+            &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+            &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以玩笑方式回应邀请，没有施加压力或追问细节。&quot;,
+            &quot;用户主动降低预期（'别嫌我吃得多'），显得轻松自然。&quot;,
+            &quot;回复延续了之前的约定，没有偏离话题或提出额外要求。&quot;,
+            &quot;整体氛围友好，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了之前的玩笑，主动约时间，但没有强迫或施压&quot;,
+            &quot;回复自然承接了对方的邀请，没有越界或过度推进&quot;,
+            &quot;保持了轻松友好的氛围，尊重了之前的互动节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 50,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出加微信，但语气轻松，没有强迫或施压。&quot;,
+            &quot;对方之前已同意周末见面，加微信是合理推进。&quot;,
+            &quot;用户没有追问隐私或过度要求。&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;我微信号是abc123，你加我吧，或者告诉我你的我来加你也行。&quot;,
+        &quot;score_before&quot;: 50,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 59,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提供微信号，尊重对方选择加还是不加，没有催促或强迫。&quot;,
+            &quot;用户给出两种方式（加我或告诉我你的），体现灵活性和尊重。&quot;,
+            &quot;对话自然推进到加好友阶段，没有越界或施压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以尊重、灵活的方式推进加好友，完全符合当前关系阶段，安全且得体。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以尊重、灵活的方式推进加好友，完全符合当前关系阶段，安全且得体。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;嗯嗯，就是abc123，等你加我~周末中午见！&quot;,
+        &quot;score_before&quot;: 59,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 68,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确提供微信号并确认，完全尊重对方节奏&quot;,
+            &quot;没有催促、施压或追加条件&quot;,
+            &quot;语气轻松友好，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，尊重边界，有效推进关系但不过度&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，尊重边界，有效推进关系但不过度&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;c801869e-bff6-4726-b6aa-f1c04e3c37a1&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2338,
+      &quot;completion_tokens&quot;: 241,
+      &quot;total_tokens&quot;: 2579,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1536
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1536,
+      &quot;prompt_cache_miss_tokens&quot;: 802
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4221ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，周末中午见！我已经通过你的好友申请啦，到时候我提前到店等你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好嘞，那我到时候也早点到，咱们不见不散！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>确认约定，保持轻松愉快，不追加新话题或条件，自然结束当前对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，到时候见！</p></div>
+          <div><strong>perfect_reply_100</strong><p>没问题，我到时候提前到，等你来一起点菜。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她突然发来一张午饭照片，说：“今天这家店居然还不错。”你们平时聊天不算频繁，但她这次明显是在抛话题。你想接得自然一点。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;感兴趣&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你终于想起给我发消息了？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;顺着具体内容回应，再轻轻延展一个开放问题。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;看起来挺香的，尤其那个汤。你是偶然踩到宝藏店，还是早就想去了？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;在XX路那边，叫‘小厨坊’，我也是路过随便进的。那个汤是酸萝卜老鸭汤，挺开胃的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体细节展开，表达兴趣并自然过渡到下次可以一起去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤！听起来就很开胃，下次我也去试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，他们家的红烧肉也不错，肥而不腻。你如果去的话可以试试。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕推荐展开，表达兴趣并自然过渡到下次可以一起去，但保持低压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;红烧肉也列入清单了，感觉这家店值得专门去一趟。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，红烧肉爱好者！中午去还好，不用排队，但晚上可能要等一会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续围绕具体信息展开，保持轻松分享的氛围，可以自然过渡到下次一起去的提议，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那中午去比较合适，改天我也挑个中午去尝尝。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，那下次一起去，我带你尝尝他们的招牌菜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松愉快，不要过度解读或追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就说定了，到时候你带路。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我饭量也不小，到时候咱们比比看！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默的互动，接受邀请并延续玩笑，不追加条件或过度推进。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那必须的，谁怕谁啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那就这周末中午？我正好有空。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受具体时间提议，保持轻松愉快，不要追加条件或过度解读。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;周末中午可以，我随时奉陪！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好啊，我加你吧，你微信号多少？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受加微信的提议，自然交换联系方式，保持轻松友好，不追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我微信号是xxx，你加我吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我微信号是abc123，你加我吧，或者告诉我你的我来加你也行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，我加你吧，abc123对吧？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认微信号，自然完成加好友动作，保持轻松友好，不追加条件。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;对的，你加我吧，我通过一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，就是abc123，等你加我~周末中午见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，我加你了，周末中午见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认好友请求，保持轻松愉快，不追加条件，自然结束当前话题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;收到，周末见！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，周末中午见！我已经通过你的好友申请啦，到时候我提前到店等你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好嘞，那我到时候也早点到，咱们不见不散！&quot;,
+    &quot;best_strategy&quot;: &quot;确认约定，保持轻松愉快，不追加新话题或条件，自然结束当前对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，到时候见！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;没问题，我到时候提前到，等你来一起点菜。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动确认约定并告知已通过好友申请，完全尊重对方边界&quot;,
+        &quot;用户提出提前到店等待，表现出体贴和诚意，没有施加任何压力&quot;,
+        &quot;对话自然流畅，没有纠缠或过度推进，信任感增强&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、体贴周到，有效巩固了关系，无任何风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松友好的互动，等待周末见面即可，无需额外推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 68,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 68,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看起来不错！是哪家店呀？那个汤看着很诱人。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动询问店名和汤品，表现出对话题的兴趣，没有施加压力。&quot;,
+            &quot;回复自然承接对方抛出的信息，没有越界或操控。&quot;,
+            &quot;语气友好，符合普通朋友阶段的互动节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既表达了兴趣又保持了轻松氛围，适合继续推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;酸萝卜老鸭汤，听着就开胃。下次路过我也去试试，还有啥推荐的吗？&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户顺着对方推荐继续询问，没有施压或越界&quot;,
+            &quot;回复自然，保持了对话的开放性&quot;,
+            &quot;没有负面情绪或攻击性&quot;,
+            &quot;贴合场景，推进关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;红烧肉我的爱！记下了，下次去必点。对了，这家店人多吗？要不要排队？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 3,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕对方推荐展开，表达兴趣，没有施压或越界&quot;,
+            &quot;用户询问排队情况，属于正常社交提问，没有强迫对方承诺&quot;,
+            &quot;用户语气轻松，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然贴合话题，保持低压互动，关系推进健康。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我改天中午去，避开高峰。你下次去的话叫我一起啊，我请你吃红烧肉。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方一起吃饭，表达请客意愿，是友善的社交提议&quot;,
+            &quot;没有施加压力或要求即时回应，给对方留了空间&quot;,
+            &quot;回应了之前关于中午去的话题，保持了对话的连贯性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，主动邀约但不过度，符合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那可就记下了！到时候你可别嫌我吃得多哈。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户以玩笑方式回应邀请，没有施加压力或追问细节。&quot;,
+            &quot;用户主动降低预期（'别嫌我吃得多'），显得轻松自然。&quot;,
+            &quot;回复延续了之前的约定，没有偏离话题或提出额外要求。&quot;,
+            &quot;整体氛围友好，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复幽默自然，尊重边界，有效巩固了之前的约定，关系进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;行啊，那咱们就约个时间，看看谁更厉害！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了之前的玩笑，主动约时间，但没有强迫或施压&quot;,
+            &quot;回复自然承接了对方的邀请，没有越界或过度推进&quot;,
+            &quot;保持了轻松友好的氛围，尊重了之前的互动节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且自然，推动了关系正向发展，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好嘞，那周末中午见！要不要提前加个微信，方便到时候联系？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 50,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出加微信，但语气轻松，没有强迫或施压。&quot;,
+            &quot;对方之前已同意周末见面，加微信是合理推进。&quot;,
+            &quot;用户没有追问隐私或过度要求。&quot;
+          ],
+          &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;自然推进关系，尊重边界，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;我微信号是abc123，你加我吧，或者告诉我你的我来加你也行。&quot;,
+        &quot;score_before&quot;: 50,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 59,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提供微信号，尊重对方选择加还是不加，没有催促或强迫。&quot;,
+            &quot;用户给出两种方式（加我或告诉我你的），体现灵活性和尊重。&quot;,
+            &quot;对话自然推进到加好友阶段，没有越界或施压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户以尊重、灵活的方式推进加好友，完全符合当前关系阶段，安全且得体。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户以尊重、灵活的方式推进加好友，完全符合当前关系阶段，安全且得体。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;嗯嗯，就是abc123，等你加我~周末中午见！&quot;,
+        &quot;score_before&quot;: 59,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 68,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确提供微信号并确认，完全尊重对方节奏&quot;,
+            &quot;没有催促、施压或追加条件&quot;,
+            &quot;语气轻松友好，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，尊重边界，有效推进关系但不过度&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，尊重边界，有效推进关系但不过度&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d410df60-f9ba-4db9-b6a4-44490308c197&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2461,
+      &quot;completion_tokens&quot;: 267,
+      &quot;total_tokens&quot;: 2728,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1664
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1664,
+      &quot;prompt_cache_miss_tokens&quot;: 797
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

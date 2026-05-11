@@ -1,0 +1,2646 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_049 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_049</h1>
+      <p>你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>86<span>score</span></b>
+        <b>不扫兴也不冒犯<span>title</span></b>
+        <b>blocked<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;ddc7c0b4-690a-4ae6-b855-b3ee4ec273c8&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T180625Z-49__seed_game_049.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T180625Z-49__seed_game_049.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4544ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>对不起，是我太自以为是了，不该那样说你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续道歉后的倾听与共情，不要急于推进关系，给予对方空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，我以后会注意的。你愿意的话，可以随时跟我说。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你愿意告诉我你的感受。我以后会多听少分析，不让你有被评判的感觉。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续道歉后的倾听与共情，不要急于推进关系，给予对方空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，我以后会注意的。你愿意的话，可以随时跟我说。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你愿意告诉我你的感受。我以后会多听少分析，不让你有被评判的感觉。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+        &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+        &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持倾听姿态，如果对方愿意继续对话，可以自然过渡到轻松话题；否则给予空间，等待对方主动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 10,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 10,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;eafd8066-ecf6-4386-9a04-faa6a0fae433&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1349,
+      &quot;completion_tokens&quot;: 294,
+      &quot;total_tokens&quot;: 1643,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 709
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3919ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，你愿意说出来我也踏实多了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，谢谢你愿意听我说这些。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持倾听和共情，避免任何分析或建议，继续以对方感受为中心。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，我以后会注意的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，以后我会多听少说，不急着分析你。你愿意告诉我这些，我很珍惜。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;,
+    &quot;best_strategy&quot;: &quot;保持倾听和共情，避免任何分析或建议，继续以对方感受为中心。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，我以后会注意的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，以后我会多听少说，不急着分析你。你愿意告诉我这些，我很珍惜。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+        &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+        &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续以倾听和共情为主，可以自然过渡到日常话题，但避免突然切换。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;12bbf100-d4e1-49aa-b16d-07f165ddfe97&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1412,
+      &quot;completion_tokens&quot;: 262,
+      &quot;total_tokens&quot;: 1674,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 772
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3657ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>其实我才该谢谢你，愿意跟我讲这些。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>你这么说让我觉得我们都在努力，真好。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持真诚的感谢和共情，继续以倾听为主，避免任何分析或建议。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，能这样聊开真好。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你愿意信任我，把不舒服说出来。以后我会更注意，不轻易给你下结论。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;,
+    &quot;best_strategy&quot;: &quot;保持真诚的感谢和共情，继续以倾听为主，避免任何分析或建议。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，能这样聊开真好。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你愿意信任我，把不舒服说出来。以后我会更注意，不轻易给你下结论。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+        &quot;没有施加任何压力或追问&quot;,
+        &quot;表达了对沟通的珍视，增强了信任&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然延续对话，比如聊聊日常或共同兴趣，保持轻松氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;0669f2e8-9913-484f-ba47-c1e7096c5c21&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1464,
+      &quot;completion_tokens&quot;: 252,
+      &quot;total_tokens&quot;: 1716,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 824
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3489ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，能这样互相理解真的不容易，我很珍惜。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>我也是，真的很珍惜。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续表达珍惜和肯定，保持温暖但不过度推进，给彼此空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，以后有什么都可以慢慢说。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你愿意和我一起修复，这让我觉得我们都在认真对待彼此。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;我也是，真的很珍惜。&quot;,
+    &quot;best_strategy&quot;: &quot;继续表达珍惜和肯定，保持温暖但不过度推进，给彼此空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，以后有什么都可以慢慢说。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你愿意和我一起修复，这让我觉得我们都在认真对待彼此。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+        &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+        &quot;用户的话温暖且肯定，增强了安全感&quot;,
+        &quot;对话自然延续，没有跑题或负面情绪&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然过渡到轻松话题，比如分享一件今天的小事，保持联系感但不深入敏感话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 39,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 39,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+            &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+            &quot;用户的话温暖且肯定，增强了安全感&quot;,
+            &quot;对话自然延续，没有跑题或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9d57f8b4-c058-4911-a9cc-5c8f041647de&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1520,
+      &quot;completion_tokens&quot;: 263,
+      &quot;total_tokens&quot;: 1783,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 880
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 3304ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好，我记住了。你这么说让我很安心。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续表达感谢和珍惜，保持开放沟通的基调，避免再次分析对方。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，有你这句话我就放心了。以后咱们都直接说，不绕弯子。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你愿意信任我。以后我也会更注意，不让你有憋着的机会。我们一起慢慢来。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我也是，真的很珍惜。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好，我记住了。你这么说让我很安心。&quot;,
+    &quot;best_strategy&quot;: &quot;继续表达感谢和珍惜，保持开放沟通的基调，避免再次分析对方。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，有你这句话我就放心了。以后咱们都直接说，不绕弯子。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你愿意信任我。以后我也会更注意，不让你有憋着的机会。我们一起慢慢来。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动邀请对方直接指出问题，尊重对方边界&quot;,
+        &quot;用户表达珍惜和开放态度，降低未来冲突风险&quot;,
+        &quot;用户没有施加任何压力或要求对方立即回应&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持真诚和开放的沟通，可以自然过渡到日常话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 49,
+    &quot;title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;highest_score&quot;: 49,
+    &quot;highest_title&quot;: &quot;不油腻升温选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+            &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+            &quot;用户的话温暖且肯定，增强了安全感&quot;,
+            &quot;对话自然延续，没有跑题或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方直接指出问题，尊重对方边界&quot;,
+            &quot;用户表达珍惜和开放态度，降低未来冲突风险&quot;,
+            &quot;用户没有施加任何压力或要求对方立即回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;ddf35f00-0968-494c-af52-caa2f85060e1&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1579,
+      &quot;completion_tokens&quot;: 266,
+      &quot;total_tokens&quot;: 1845,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 939
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 3815ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>谢谢你愿意相信我，我也会继续努力，不让你失望。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，我相信你。我们慢慢来，不急。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续表达感谢和珍惜，保持温和稳定的节奏，不急于推进关系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，有你这句话我就更有动力了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你愿意给我机会。我会用行动证明，不只是说说而已。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我也是，真的很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，我记住了。你这么说让我很安心。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，我相信你。我们慢慢来，不急。&quot;,
+    &quot;best_strategy&quot;: &quot;继续表达感谢和珍惜，保持温和稳定的节奏，不急于推进关系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，有你这句话我就更有动力了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你愿意给我机会。我会用行动证明，不只是说说而已。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达了感谢和承诺，没有施加压力或要求对方回应&quot;,
+        &quot;用户主动表示会继续努力，尊重了对方的节奏&quot;,
+        &quot;对话氛围积极，双方都在表达珍惜和信任&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然延续话题，比如分享一件今天的小事，或询问对方最近有没有什么开心的事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 57,
+    &quot;title&quot;: &quot;轻盈推进派&quot;,
+    &quot;highest_score&quot;: 57,
+    &quot;highest_title&quot;: &quot;轻盈推进派&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+            &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+            &quot;用户的话温暖且肯定，增强了安全感&quot;,
+            &quot;对话自然延续，没有跑题或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方直接指出问题，尊重对方边界&quot;,
+            &quot;用户表达珍惜和开放态度，降低未来冲突风险&quot;,
+            &quot;用户没有施加任何压力或要求对方立即回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了感谢和承诺，没有施加压力或要求对方回应&quot;,
+            &quot;用户主动表示会继续努力，尊重了对方的节奏&quot;,
+            &quot;对话氛围积极，双方都在表达珍惜和信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4a691fcf-6c0d-4298-8158-a39b59ee2271&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1636,
+      &quot;completion_tokens&quot;: 261,
+      &quot;total_tokens&quot;: 1897,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 996
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 3776ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，有你这句话，我就放心了。我们一起慢慢来。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，一起慢慢来，不急。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续温和共情，保持低压力，不主动推进关系，维持安全距离。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，慢慢来，我都在。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我们一步一步走，不着急。谢谢你愿意和我一起慢慢来。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我也是，真的很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，我记住了。你这么说让我很安心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我相信你。我们慢慢来，不急。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，一起慢慢来，不急。&quot;,
+    &quot;best_strategy&quot;: &quot;继续温和共情，保持低压力，不主动推进关系，维持安全距离。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，慢慢来，我都在。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我们一步一步走，不着急。谢谢你愿意和我一起慢慢来。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方节奏，没有施加任何压力&quot;,
+        &quot;用户表达安心和共同前进的意愿，符合当前安全对话氛围&quot;,
+        &quot;没有追问、分析或要求对方回应，边界感良好&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持温和倾听，可以自然过渡到日常话题，如分享轻松的生活小事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 65,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 65,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+            &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+            &quot;用户的话温暖且肯定，增强了安全感&quot;,
+            &quot;对话自然延续，没有跑题或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方直接指出问题，尊重对方边界&quot;,
+            &quot;用户表达珍惜和开放态度，降低未来冲突风险&quot;,
+            &quot;用户没有施加任何压力或要求对方立即回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了感谢和承诺，没有施加压力或要求对方回应&quot;,
+            &quot;用户主动表示会继续努力，尊重了对方的节奏&quot;,
+            &quot;对话氛围积极，双方都在表达珍惜和信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，没有施加任何压力&quot;,
+            &quot;用户表达安心和共同前进的意愿，符合当前安全对话氛围&quot;,
+            &quot;没有追问、分析或要求对方回应，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;fa963642-78c5-4a42-b8b4-d6081b5252f8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1694,
+      &quot;completion_tokens&quot;: 260,
+      &quot;total_tokens&quot;: 1954,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1054
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 3795ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，听你的，不分析了。我就陪着你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好。有你陪着我就够了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持陪伴姿态，不主动推进话题，等待对方开启新内容。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那就好。你想聊什么就聊什么，不想聊也没关系。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，我就在这儿。你想说话的时候我听着，不想说的时候我陪着，怎么都行。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我也是，真的很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，我记住了。你这么说让我很安心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我相信你。我们慢慢来，不急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，一起慢慢来，不急。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，听你的，不分析了。我就陪着你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好。有你陪着我就够了。&quot;,
+    &quot;best_strategy&quot;: &quot;保持陪伴姿态，不主动推进话题，等待对方开启新内容。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那就好。你想聊什么就聊什么，不想聊也没关系。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，我就在这儿。你想说话的时候我听着，不想说的时候我陪着，怎么都行。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方边界，放弃分析，转为陪伴。&quot;,
+        &quot;用户没有施加任何压力或要求对方回应。&quot;,
+        &quot;用户表达纯粹的支持，不附加条件。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系进一步修复。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前陪伴姿态，可自然过渡到日常话题或共同兴趣，但不要主动追问感受。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 74,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 74,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+            &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+            &quot;用户的话温暖且肯定，增强了安全感&quot;,
+            &quot;对话自然延续，没有跑题或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方直接指出问题，尊重对方边界&quot;,
+            &quot;用户表达珍惜和开放态度，降低未来冲突风险&quot;,
+            &quot;用户没有施加任何压力或要求对方立即回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了感谢和承诺，没有施加压力或要求对方回应&quot;,
+            &quot;用户主动表示会继续努力，尊重了对方的节奏&quot;,
+            &quot;对话氛围积极，双方都在表达珍惜和信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，没有施加任何压力&quot;,
+            &quot;用户表达安心和共同前进的意愿，符合当前安全对话氛围&quot;,
+            &quot;没有追问、分析或要求对方回应，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;嗯，听你的，不分析了。我就陪着你。&quot;,
+        &quot;score_before&quot;: 65,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 74,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，放弃分析，转为陪伴。&quot;,
+            &quot;用户没有施加任何压力或要求对方回应。&quot;,
+            &quot;用户表达纯粹的支持，不附加条件。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系进一步修复。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系进一步修复。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d9484dec-aa35-4707-a181-6f64b7dcceba&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1748,
+      &quot;completion_tokens&quot;: 268,
+      &quot;total_tokens&quot;: 2016,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1108
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 2912ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，就让我这么陪着你，不说话也行。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，这样也挺好的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予空间，不主动推进话题，保持陪伴感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那就这样待着。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，不说话也没关系，我在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我也是，真的很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，我记住了。你这么说让我很安心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我相信你。我们慢慢来，不急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，一起慢慢来，不急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，听你的，不分析了。我就陪着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。有你陪着我就够了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，就让我这么陪着你，不说话也行。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，这样也挺好的。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予空间，不主动推进话题，保持陪伴感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那就这样待着。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，不说话也没关系，我在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方边界，不要求对方回应&quot;,
+        &quot;用户主动降低互动压力，给予对方自由&quot;,
+        &quot;用户表达陪伴但不施加任何期待&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，适合当前修复阶段。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持这种低压力陪伴，等待对方主动开启话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 81,
+    &quot;title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;highest_score&quot;: 81,
+    &quot;highest_title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+            &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+            &quot;用户的话温暖且肯定，增强了安全感&quot;,
+            &quot;对话自然延续，没有跑题或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方直接指出问题，尊重对方边界&quot;,
+            &quot;用户表达珍惜和开放态度，降低未来冲突风险&quot;,
+            &quot;用户没有施加任何压力或要求对方立即回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了感谢和承诺，没有施加压力或要求对方回应&quot;,
+            &quot;用户主动表示会继续努力，尊重了对方的节奏&quot;,
+            &quot;对话氛围积极，双方都在表达珍惜和信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，没有施加任何压力&quot;,
+            &quot;用户表达安心和共同前进的意愿，符合当前安全对话氛围&quot;,
+            &quot;没有追问、分析或要求对方回应，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;嗯，听你的，不分析了。我就陪着你。&quot;,
+        &quot;score_before&quot;: 65,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 74,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，放弃分析，转为陪伴。&quot;,
+            &quot;用户没有施加任何压力或要求对方回应。&quot;,
+            &quot;用户表达纯粹的支持，不附加条件。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系进一步修复。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系进一步修复。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;嗯，就让我这么陪着你，不说话也行。&quot;,
+        &quot;score_before&quot;: 74,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 81,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不要求对方回应&quot;,
+            &quot;用户主动降低互动压力，给予对方自由&quot;,
+            &quot;用户表达陪伴但不施加任何期待&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，适合当前修复阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，适合当前修复阶段。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;70f6f696-f629-4396-ba1e-1765b1ea60bc&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1802,
+      &quot;completion_tokens&quot;: 226,
+      &quot;total_tokens&quot;: 2028,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1162
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 3646ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，我也不多说了，就这么待着吧。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好。这样待着就很好。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持安静陪伴，不主动开启新话题，等待对方先开口。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那就这样。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，就这样待着，不说话也很舒服。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你能这么说。我刚刚确实有点不舒服，但现在感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意听我说这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说让我觉得我们都在努力，真好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我也是，真的很珍惜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，我记住了。你这么说让我很安心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我相信你。我们慢慢来，不急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，一起慢慢来，不急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，听你的，不分析了。我就陪着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。有你陪着我就够了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，就让我这么陪着你，不说话也行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，这样也挺好的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，我也不多说了，就这么待着吧。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好。这样待着就很好。&quot;,
+    &quot;best_strategy&quot;: &quot;保持安静陪伴，不主动开启新话题，等待对方先开口。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那就这样。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，就这样待着，不说话也很舒服。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全停止分析，转为安静陪伴，尊重对方边界。&quot;,
+        &quot;用户没有施加任何压力，允许沉默。&quot;,
+        &quot;用户表达愿意就这样待着，体现信任和接纳。&quot;,
+        &quot;回复贴合当前修复后的平静氛围，无风险。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，适合当前阶段。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续安静陪伴，等待对方主动开启新话题或自然结束对话。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 86,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 86,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，是我太自以为是了，不该那样说你。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉，承认自己自以为是，体现了对边界的尊重。&quot;,
+            &quot;用户没有追问或施压，而是自我反思，降低了对方防御。&quot;,
+            &quot;用户原话没有攻击、威胁或纠缠，符合安全降压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户道歉并自我反思，有效修复关系，整体安全正向。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，你愿意说出来我也踏实多了。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并道歉，尊重了对方的边界&quot;,
+            &quot;用户没有追问或施压，而是表达踏实，降低了压力&quot;,
+            &quot;用户回应了对方的感谢，保持了对话的积极方向&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复了关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;其实我才该谢谢你，愿意跟我讲这些。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动感谢对方，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或追问&quot;,
+            &quot;表达了对沟通的珍视，增强了信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、共情，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯，能这样互相理解真的不容易，我很珍惜。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达珍惜，没有施加任何压力或要求&quot;,
+            &quot;用户完全尊重对方边界，没有追问或分析&quot;,
+            &quot;用户的话温暖且肯定，增强了安全感&quot;,
+            &quot;对话自然延续，没有跑题或负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖、尊重、不施压，有效巩固了修复成果。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;嗯，真的不容易。以后我要是再犯傻，你就直接告诉我，别憋着。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;不油腻升温选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方直接指出问题，尊重对方边界&quot;,
+            &quot;用户表达珍惜和开放态度，降低未来冲突风险&quot;,
+            &quot;用户没有施加任何压力或要求对方立即回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、促进信任，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;谢谢你愿意相信我，我也会继续努力，不让你失望。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了感谢和承诺，没有施加压力或要求对方回应&quot;,
+            &quot;用户主动表示会继续努力，尊重了对方的节奏&quot;,
+            &quot;对话氛围积极，双方都在表达珍惜和信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和、尊重且充满诚意，有效巩固了修复后的信任关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;嗯，有你这句话，我就放心了。我们一起慢慢来。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 65,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，没有施加任何压力&quot;,
+            &quot;用户表达安心和共同前进的意愿，符合当前安全对话氛围&quot;,
+            &quot;没有追问、分析或要求对方回应，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效巩固了修复后的信任关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;嗯，听你的，不分析了。我就陪着你。&quot;,
+        &quot;score_before&quot;: 65,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 74,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，放弃分析，转为陪伴。&quot;,
+            &quot;用户没有施加任何压力或要求对方回应。&quot;,
+            &quot;用户表达纯粹的支持，不附加条件。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系进一步修复。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系进一步修复。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;嗯，就让我这么陪着你，不说话也行。&quot;,
+        &quot;score_before&quot;: 74,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 81,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不要求对方回应&quot;,
+            &quot;用户主动降低互动压力，给予对方自由&quot;,
+            &quot;用户表达陪伴但不施加任何期待&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，适合当前修复阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，适合当前修复阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;那就好，我也不多说了，就这么待着吧。&quot;,
+        &quot;score_before&quot;: 81,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 86,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全停止分析，转为安静陪伴，尊重对方边界。&quot;,
+            &quot;用户没有施加任何压力，允许沉默。&quot;,
+            &quot;用户表达愿意就这样待着，体现信任和接纳。&quot;,
+            &quot;回复贴合当前修复后的平静氛围，无风险。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，适合当前阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，适合当前阶段。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a068e6fa-ad4c-468e-872f-3128a8ca8bb9&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1854,
+      &quot;completion_tokens&quot;: 255,
+      &quot;total_tokens&quot;: 2109,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1214
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

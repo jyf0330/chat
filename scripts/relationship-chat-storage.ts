@@ -264,6 +264,34 @@ export class RelationshipChatStore {
       });
   }
 
+  getCompletedCaseIds(visitorId: string) {
+    const rows = this.db
+      .prepare(
+        [
+          "SELECT simulations.case_id, simulations.custom_case_json, simulations.result_json",
+          "FROM simulations",
+          "INNER JOIN sessions ON sessions.id = simulations.session_id",
+          "WHERE sessions.visitor_id = ?",
+          "ORDER BY simulations.created_at ASC",
+        ].join(" "),
+      )
+      .all(visitorId) as Array<{
+      case_id: string;
+      custom_case_json: string | null;
+      result_json: string;
+    }>;
+
+    const completed = new Set<string>();
+    for (const row of rows) {
+      if (row.custom_case_json) continue;
+      const result = safeJson(row.result_json) as SimulationResult;
+      if (result.game?.is_complete) {
+        completed.add(row.case_id);
+      }
+    }
+    return [...completed];
+  }
+
   exportDatasetJsonl() {
     const rows = this.db
       .prepare(

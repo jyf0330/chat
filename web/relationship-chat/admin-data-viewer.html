@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DeepSeek 数据管理员</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f5f7;
+        --panel: #ffffff;
+        --ink: #15191e;
+        --muted: #66707c;
+        --line: #d8dde3;
+        --accent: #0f8b8d;
+        --target: #d95d39;
+        --soft: #eef6f6;
+        --bad: #a43e34;
+        --good: #147a4d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "PingFang SC",
+          "Hiragino Sans GB",
+          "Microsoft YaHei",
+          sans-serif;
+        letter-spacing: 0;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button {
+        min-height: 36px;
+        border: 0;
+        border-radius: 8px;
+        padding: 0 12px;
+        background: var(--ink);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button.secondary {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+      }
+
+      input,
+      select {
+        width: 100%;
+        min-height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px 10px;
+        background: #fff;
+        color: var(--ink);
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      .app {
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        height: 100vh;
+      }
+
+      aside {
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        min-width: 0;
+        border-right: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .head {
+        padding: 18px 16px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 22px;
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      p {
+        line-height: 1.65;
+      }
+
+      .muted {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .source-box {
+        display: grid;
+        gap: 8px;
+        padding: 12px;
+        border-bottom: 1px solid var(--line);
+        background: #f8f9fa;
+      }
+
+      .source-row,
+      .filter-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+      }
+
+      .source-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .file-button {
+        display: grid;
+        place-items: center;
+        min-height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .file-button input {
+        display: none;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .summary-grid b {
+        display: grid;
+        gap: 4px;
+        min-height: 56px;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        font-size: 18px;
+      }
+
+      .summary-grid span {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .list {
+        overflow: auto;
+        padding: 8px;
+      }
+
+      .item {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 2px 9px;
+        margin-bottom: 5px;
+        padding: 9px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--ink);
+        text-align: left;
+      }
+
+      .item:hover,
+      .item.active {
+        border-color: #b9d3d4;
+        background: var(--soft);
+      }
+
+      .item .index {
+        grid-row: 1 / 3;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .item strong,
+      .item small {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .item small {
+        color: var(--muted);
+      }
+
+      main {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-width: 0;
+        height: 100vh;
+      }
+
+      .toolbar {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(10px);
+      }
+
+      .toolbar-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .toolbar-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .kpis {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0 10px;
+        background: #fff;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .pill.good {
+        border-color: #b8dfc9;
+        background: #e9f8f0;
+        color: var(--good);
+      }
+
+      .pill.bad {
+        border-color: #f0c2bb;
+        background: #fff0ed;
+        color: var(--bad);
+      }
+
+      .content {
+        overflow: auto;
+        padding: 20px clamp(14px, 3vw, 34px) 52px;
+      }
+
+      .empty {
+        max-width: 720px;
+        margin: 12vh auto 0;
+        padding: 28px;
+        border: 1px dashed var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .scene {
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+
+      .scene-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 160px;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .scene-head h2 {
+        margin: 6px 0 8px;
+      }
+
+      .score {
+        display: grid;
+        gap: 4px;
+        justify-items: end;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .score strong {
+        color: var(--accent);
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .score span {
+        color: var(--muted);
+        font-size: 13px;
+        text-align: right;
+      }
+
+      .scene-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .turns {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      details.turn {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+      }
+
+      details.turn > summary {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 14px;
+        cursor: pointer;
+      }
+
+      details.turn > summary strong {
+        margin-right: auto;
+      }
+
+      .io {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 0 14px 14px;
+      }
+
+      .box {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcfd;
+      }
+
+      .box.user {
+        border-left: 5px solid var(--accent);
+      }
+
+      .box.target {
+        border-left: 5px solid var(--target);
+      }
+
+      .raw {
+        padding: 0 14px 14px;
+      }
+
+      pre {
+        overflow: auto;
+        margin: 0;
+        padding: 12px;
+        border-radius: 8px;
+        background: #111827;
+        color: #f8fafc;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      @media (max-width: 920px) {
+        body {
+          height: auto;
+          overflow: auto;
+        }
+
+        .app {
+          grid-template-columns: 1fr;
+          height: auto;
+        }
+
+        aside {
+          max-height: 50vh;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        main {
+          height: auto;
+          min-height: 80vh;
+        }
+
+        .scene-head,
+        .io,
+        .source-row,
+        .filter-row {
+          grid-template-columns: 1fr;
+        }
+
+        .score {
+          justify-items: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="app">
+      <aside>
+        <section class="head">
+          <h1>数据管理员</h1>
+          <p class="muted">加载任意原始 JSON，自动生成左侧 1-N 数据面板。</p>
+          <div id="summaryGrid" class="summary-grid"></div>
+        </section>
+
+        <section class="source-box">
+          <div class="source-row">
+            <input id="sourceInput" value="deepseek-50x10-live.json" aria-label="JSON 路径" />
+            <button id="loadButton" type="button">加载</button>
+          </div>
+          <div class="source-actions">
+            <label class="file-button">
+              上传 JSON
+              <input id="fileInput" type="file" accept=".json,application/json" />
+            </label>
+            <button id="resetButton" class="secondary" type="button">默认数据</button>
+          </div>
+          <div class="filter-row">
+            <input id="searchInput" type="search" placeholder="搜索编号 / case / 场景 / 标题" />
+            <select id="riskFilter">
+              <option value="">全部风险</option>
+            </select>
+          </div>
+          <p id="statusText" class="muted">等待加载数据。</p>
+        </section>
+
+        <nav id="scenarioList" class="list" aria-label="数据列表"></nav>
+      </aside>
+
+      <main>
+        <header class="toolbar">
+          <div class="toolbar-top">
+            <div>
+              <h2 id="pageTitle">原始数据查看</h2>
+              <p id="pageSubTitle" class="muted">加载 JSON 后查看每条数据的输入输出。</p>
+            </div>
+            <div class="toolbar-actions">
+              <button id="openJsonButton" class="secondary" type="button">原始 JSON</button>
+              <button id="collapseRawButton" class="secondary" type="button">关闭原始字段</button>
+            </div>
+          </div>
+          <div id="kpis" class="kpis"></div>
+        </header>
+
+        <section id="content" class="content">
+          <div class="empty">
+            <h2>加载原始 JSON</h2>
+            <p class="muted">默认会读取同目录的 deepseek-50x10-live.json。以后新的原始数据可以直接上传，或把 JSON 放到同目录后填文件名加载。</p>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <script>
+      const state = {
+        payload: null,
+        scenarios: [],
+        selectedIndex: 0,
+        sourceName: "",
+      };
+
+      const sourceInput = document.getElementById("sourceInput");
+      const loadButton = document.getElementById("loadButton");
+      const resetButton = document.getElementById("resetButton");
+      const fileInput = document.getElementById("fileInput");
+      const searchInput = document.getElementById("searchInput");
+      const riskFilter = document.getElementById("riskFilter");
+      const scenarioList = document.getElementById("scenarioList");
+      const statusText = document.getElementById("statusText");
+      const summaryGrid = document.getElementById("summaryGrid");
+      const content = document.getElementById("content");
+      const kpis = document.getElementById("kpis");
+      const pageTitle = document.getElementById("pageTitle");
+      const pageSubTitle = document.getElementById("pageSubTitle");
+
+      loadButton.addEventListener("click", () => loadFromPath(sourceInput.value.trim()));
+      resetButton.addEventListener("click", () => {
+        sourceInput.value = "deepseek-50x10-live.json";
+        loadFromPath(sourceInput.value);
+      });
+      fileInput.addEventListener("change", loadFromFile);
+      searchInput.addEventListener("input", renderList);
+      riskFilter.addEventListener("change", renderList);
+      document.getElementById("openJsonButton").addEventListener("click", () => renderRawPayload());
+      document.getElementById("collapseRawButton").addEventListener("click", () => {
+        document.querySelectorAll("details.raw-fields[open]").forEach((node) => node.removeAttribute("open"));
+      });
+
+      if (window.__DEEPSEEK_ADMIN_DATA__) {
+        loadPayload(window.__DEEPSEEK_ADMIN_DATA__, window.__DEEPSEEK_ADMIN_SOURCE__ || "embedded JSON");
+      } else {
+        loadFromPath(sourceInput.value);
+      }
+
+      async function loadFromPath(path) {
+        if (!path) return;
+        try {
+          setStatus("正在加载 " + path);
+          const response = await fetch(path, { cache: "no-store" });
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          const payload = await response.json();
+          loadPayload(payload, path);
+        } catch (error) {
+          setStatus("加载失败：" + error.message + "。可以改用上传 JSON。", true);
+        }
+      }
+
+      async function loadFromFile(event) {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+        try {
+          const text = await file.text();
+          loadPayload(JSON.parse(text), file.name);
+        } catch (error) {
+          setStatus("上传解析失败：" + error.message, true);
+        }
+      }
+
+      function loadPayload(payload, sourceName) {
+        const scenarios = normalizePayload(payload);
+        state.payload = payload;
+        state.scenarios = scenarios;
+        state.selectedIndex = 0;
+        state.sourceName = sourceName;
+        renderSummary();
+        renderFilters();
+        renderList();
+        renderSelected();
+        setStatus("已加载 " + sourceName + "，共 " + scenarios.length + " 条。");
+      }
+
+      function normalizePayload(payload) {
+        if (Array.isArray(payload)) return payload.map(normalizeScenario);
+        if (Array.isArray(payload.scenarios)) return payload.scenarios.map(normalizeScenario);
+        if (Array.isArray(payload.records)) return payload.records.map(normalizeScenario);
+        if (Array.isArray(payload.items)) return payload.items.map(normalizeScenario);
+        throw new Error("找不到 scenarios / records / items 数组。");
+      }
+
+      function normalizeScenario(input, index) {
+        const turns = Array.isArray(input.turns) ? input.turns : Array.isArray(input.messages) ? input.messages : [];
+        return {
+          original: input,
+          index,
+          id: input.case_id || input.id || input.scenario_id || "item_" + String(index + 1).padStart(3, "0"),
+          scene: input.scene || input.real_relationship_scene || input.prompt || "",
+          stage: input.stage || input.relationship_stage_label || "",
+          emotion: input.emotion || input.target_emotion_label || "",
+          risk: input.risk_level || input.risk || "",
+          score: input.final_score ?? input.score ?? input.game?.score ?? "",
+          title: input.final_title || input.title || input.game?.title || "",
+          stop: input.stop_reason || input.completion_reason || "",
+          rawLog: input.raw_log_file || "",
+          screenshot: input.screenshot_path || "",
+          html: input.html_path || "",
+          turns,
+        };
+      }
+
+      function renderSummary() {
+        const summary = state.payload && state.payload.summary ? state.payload.summary : {};
+        summaryGrid.innerHTML = [
+          metric(summary.scenario_count ?? state.scenarios.length, "scenarios"),
+          metric(summary.request_count ?? totalTurns(), "requests"),
+          metric(summary.quality_blocker_count ?? countQualityIssues(), "blockers"),
+          metric(summary.pass === undefined ? "loaded" : summary.pass ? "PASS" : "FAIL", "gate"),
+        ].join("");
+        pageTitle.textContent = "原始数据查看";
+        pageSubTitle.textContent = state.sourceName;
+        kpis.innerHTML = [
+          pill("数据 " + state.scenarios.length),
+          pill("turns " + totalTurns()),
+          pill("source " + state.sourceName),
+          pill(state.payload?.summary?.pass ? "PASS" : "READY", state.payload?.summary?.pass ? "good" : ""),
+        ].join("");
+      }
+
+      function renderFilters() {
+        const risks = [...new Set(state.scenarios.map((item) => item.risk).filter(Boolean))];
+        riskFilter.innerHTML = '<option value="">全部风险</option>' + risks.map((risk) => '<option value="' + escapeHtml(risk) + '">' + escapeHtml(risk) + "</option>").join("");
+      }
+
+      function renderList() {
+        const query = searchInput.value.trim().toLowerCase();
+        const risk = riskFilter.value;
+        scenarioList.innerHTML = state.scenarios
+          .map((item, index) => ({ item, index }))
+          .filter(({ item }) => {
+            const haystack = [item.id, item.scene, item.title, item.stage, item.emotion, item.risk].join(" ").toLowerCase();
+            return (!query || haystack.includes(query)) && (!risk || item.risk === risk);
+          })
+          .map(({ item, index }) => listItem(item, index))
+          .join("");
+        scenarioList.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", () => {
+            state.selectedIndex = Number(button.dataset.index);
+            renderList();
+            renderSelected();
+          });
+        });
+      }
+
+      function renderSelected() {
+        const item = state.scenarios[state.selectedIndex];
+        if (!item) {
+          content.innerHTML = '<div class="empty"><h2>没有可显示的数据</h2><p class="muted">请换一个 JSON 文件。</p></div>';
+          return;
+        }
+        content.innerHTML =
+          '<article class="scene">' +
+          '<header class="scene-head"><div>' +
+          '<p class="muted">' + escapeHtml([item.stage, item.emotion, item.risk].filter(Boolean).join(" · ")) + "</p>" +
+          "<h2>" + escapeHtml(item.id) + "</h2>" +
+          "<p>" + escapeHtml(item.scene) + "</p>" +
+          '<div class="scene-meta">' +
+          pill(item.turns.length + " turns") +
+          pill(item.stop || "no stop") +
+          (item.rawLog ? pill("log " + item.rawLog) : "") +
+          "</div></div>" +
+          '<div class="score"><strong>' + escapeHtml(item.score) + '</strong><span>' + escapeHtml(item.title) + "</span></div></header>" +
+          '<section class="turns">' +
+          item.turns.map(renderTurn).join("") +
+          "</section></article>";
+      }
+
+      function renderTurn(turn, index) {
+        const output = turn.deepseek_output || turn.output || {};
+        const input = turn.deepseek_input || turn.input || {};
+        const userReply = turn.actual_user_reply || input.user_reply || turn.user_reply || turn.text || "";
+        const targetReply = output.target_reply || turn.target_reply || "";
+        const qualityIssues = Object.entries(turn.quality || {})
+          .filter(([, value]) => value)
+          .map(([key]) => key);
+        return (
+          '<details class="turn" open><summary><strong>Turn ' +
+          escapeHtml(turn.turn_index || index + 1) +
+          "</strong>" +
+          pill("HTTP " + escapeHtml(turn.http_status ?? "-")) +
+          pill(escapeHtml(turn.elapsed_ms ?? "-") + "ms") +
+          pill(qualityIssues.length ? qualityIssues.join(", ") : "quality OK", qualityIssues.length ? "bad" : "good") +
+          '</summary><div class="io">' +
+          box("真人输入 user_reply", userReply, "user") +
+          box("DeepSeek target_reply", targetReply, "target") +
+          box("best_strategy", output.best_strategy || "") +
+          box("recommended_reply_80", output.recommended_reply_80 || output.recommended_reply || "") +
+          box("perfect_reply_100", output.perfect_reply_100 || "") +
+          box("next_suggestion", output.next_suggestion || "") +
+          '</div><div class="raw"><details class="raw-fields"><summary>DeepSeek input / output raw fields</summary><pre>' +
+          escapeHtml(JSON.stringify({ input, output, game: turn.game, quality: turn.quality, request_contract: turn.request_contract, raw_response_meta: turn.raw_response_meta }, null, 2)) +
+          "</pre></details></div></details>"
+        );
+      }
+
+      function renderRawPayload() {
+        if (!state.payload) return;
+        content.innerHTML = '<article class="scene"><h2>原始 JSON</h2><p class="muted">' + escapeHtml(state.sourceName) + '</p><pre>' + escapeHtml(JSON.stringify(state.payload, null, 2)) + "</pre></article>";
+      }
+
+      function listItem(item, index) {
+        const active = index === state.selectedIndex ? " active" : "";
+        return (
+          '<button class="item' +
+          active +
+          '" type="button" data-index="' +
+          index +
+          '"><span class="index">' +
+          String(index + 1).padStart(2, "0") +
+          "</span><strong>" +
+          escapeHtml(item.id) +
+          "</strong><small>" +
+          escapeHtml([item.score, item.title].filter(Boolean).join(" · ")) +
+          "</small></button>"
+        );
+      }
+
+      function box(title, text, cls) {
+        return '<section class="box ' + (cls || "") + '"><h3>' + escapeHtml(title) + "</h3><p>" + escapeHtml(text || "") + "</p></section>";
+      }
+
+      function metric(value, label) {
+        return "<b>" + escapeHtml(value) + "<span>" + escapeHtml(label) + "</span></b>";
+      }
+
+      function pill(text, type) {
+        return '<span class="pill ' + (type || "") + '">' + escapeHtml(text) + "</span>";
+      }
+
+      function totalTurns() {
+        return state.scenarios.reduce((sum, item) => sum + item.turns.length, 0);
+      }
+
+      function countQualityIssues() {
+        return state.scenarios.reduce(
+          (sum, item) => sum + item.turns.filter((turn) => Object.values(turn.quality || {}).some(Boolean)).length,
+          0,
+        );
+      }
+
+      function setStatus(text, isError) {
+        statusText.textContent = text;
+        statusText.style.color = isError ? "var(--bad)" : "var(--muted)";
+      }
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2692 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_007 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .viewer-shell { display:grid; grid-template-columns:300px minmax(0,1fr); min-height:100vh; }
+    .viewer-sidebar { position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#ffffff; }
+    .viewer-sidebar h1 { font-size:22px; margin-bottom:4px; }
+    .viewer-sidebar header p { color:var(--muted); font-size:13px; }
+    .viewer-main { min-width:0; padding:24px 28px 60px; }
+    .filters { display:grid; gap:8px; margin:16px 0; }
+    input, select { width:100%; min-height:38px; border:1px solid var(--line); border-radius:8px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+    .nav-row { display:flex; justify-content:space-between; gap:8px; padding:9px 10px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:13px; }
+    .nav-row:hover { background:#eef6f6; }
+    .nav-row b { color:var(--user); }
+    .summary { padding:8px 0 22px; }
+    .summary.compact { padding-top:0; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    h3 { margin:0 0 8px; font-size:13px; color:var(--muted); }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .summary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:12px; }
+    .summary-grid span { display:grid; gap:4px; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; color:var(--muted); }
+    .summary-grid b { color:var(--ink); font-size:12px; }
+    .scenario-card { scroll-margin-top:18px; margin-top:20px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .scenario-head { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:18px; align-items:start; }
+    .scenario-head h2 { margin-bottom:8px; font-size:24px; }
+    .eyebrow { margin-bottom:6px; color:var(--muted); font-size:12px; line-height:1.4; }
+    .score-pill { display:grid; gap:4px; justify-items:end; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    .score-pill b { font-size:30px; color:var(--user); }
+    .score-pill span { text-align:right; color:var(--muted); font-size:13px; }
+    .audit-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .audit-strip span, .audit-strip a { padding:6px 9px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#fff; font-size:12px; text-decoration:none; }
+    .turn-list { display:grid; gap:12px; margin-top:16px; }
+    .turn-view { border:1px solid var(--line); border-radius:8px; background:#fbfcfd; overflow:hidden; }
+    .turn-view > summary { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px 14px; cursor:pointer; }
+    .turn-view > summary span { font-weight:700; }
+    .turn-view > summary b { padding:4px 7px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:12px; }
+    .io-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:0 14px 14px; }
+    .io-grid section { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .io-grid .bubble { border-left:5px solid var(--user); }
+    .io-grid .bubble.target { border-left-color:var(--target); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+    [hidden] { display:none !important; }
+    @media (max-width: 900px) {
+      .viewer-shell { grid-template-columns:1fr; }
+      .viewer-sidebar { position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line); }
+      .viewer-main { padding:18px 14px 44px; }
+      .summary-grid, .io-grid, .scenario-head { grid-template-columns:1fr; }
+      .score-pill { justify-items:start; }
+      .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_007</h1>
+      <p>你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>79<span>score</span></b>
+        <b>情绪稳定天花板<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;2d24bb14-db46-4e67-a4cd-f8a73aefe83f&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T182135Z-07__seed_game_007.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T182135Z-07__seed_game_007.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4131ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>看来今天晚霞确实一般，我下次找个更厉害的景再战~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默，不追问对方态度，用自嘲和未来话题延续对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我下次拍个更惊艳的给你看！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我下次拍个更惊艳的给你看！不过今天这个云层其实挺有层次的，可能是我手机没拍出来。你最近有拍到什么好看的吗？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默，不追问对方态度，用自嘲和未来话题延续对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我下次拍个更惊艳的给你看！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我下次拍个更惊艳的给你看！不过今天这个云层其实挺有层次的，可能是我手机没拍出来。你最近有拍到什么好看的吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+        &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+        &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续用轻松话题延伸，可以分享其他日常或询问对方兴趣。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;384bfd09-7405-4b1e-bc59-374bb2aa78aa&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1525,
+      &quot;completion_tokens&quot;: 292,
+      &quot;total_tokens&quot;: 1817,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 757
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4335ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松互动的氛围，用共同参与感拉近距离，但不过度推进。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那必须的，下次拍的时候给你现场直播教学~</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那你可得准备好当我的专属评委了！下次我拍的时候，你就在旁边指导，保证拍出满分氛围感。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松互动的氛围，用共同参与感拉近距离，但不过度推进。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那必须的，下次拍的时候给你现场直播教学~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那你可得准备好当我的专属评委了！下次我拍的时候，你就在旁边指导，保证拍出满分氛围感。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+        &quot;用户用幽默方式回应，降低了对话负担&quot;,
+        &quot;用户表达了继续互动的意愿，但未越界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松互动，可以适当分享更多生活细节，但避免过度索取回应。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 18,
+    &quot;title&quot;: &quot;情绪接住了&quot;,
+    &quot;highest_score&quot;: 18,
+    &quot;highest_title&quot;: &quot;情绪接住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;08113fa5-fe8f-44ab-958a-0e75168bcc41&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1597,
+      &quot;completion_tokens&quot;: 291,
+      &quot;total_tokens&quot;: 1888,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 829
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4561ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续共同兴趣话题，保持轻松分享，同时自然引导对方分享经验，避免评价对方回复质量。</p></div>
+          <div><strong>recommended_reply_80</strong><p>手机拍夜景确实容易糊，我一般靠后期调色补救。你平时会修图吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>手机拍夜景确实容易有噪点，我一般会开专业模式调低ISO，或者后期用Lightroom降噪。你平时拍夜景多吗？可以一起研究研究~</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;,
+    &quot;best_strategy&quot;: &quot;延续共同兴趣话题，保持轻松分享，同时自然引导对方分享经验，避免评价对方回复质量。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;手机拍夜景确实容易糊，我一般靠后期调色补救。你平时会修图吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;手机拍夜景确实容易有噪点，我一般会开专业模式调低ISO，或者后期用Lightroom降噪。你平时拍夜景多吗？可以一起研究研究~&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+        &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+        &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕摄影话题深入，可以分享具体技巧或约一起拍照，但不要急于推进见面。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 27,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 27,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;fc59304c-fd96-4490-bcc3-f84fc6a62ce3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1694,
+      &quot;completion_tokens&quot;: 325,
+      &quot;total_tokens&quot;: 2019,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 926
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 5736ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续分享实用技巧，保持轻松互助氛围，避免追问感受或评价对方回复速度。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，专业模式确实好用，我一般用Lightroom调一下，你感兴趣的话下次可以一起研究~</p></div>
+          <div><strong>perfect_reply_100</strong><p>手机专业模式调低ISO确实能减少噪点，我一般还会用三脚架固定，后期用Snapseed局部提亮暗部。你要是想试，下次我教你几个简单步骤，保证夜景更干净。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？&quot;,
+    &quot;best_strategy&quot;: &quot;继续分享实用技巧，保持轻松互助氛围，避免追问感受或评价对方回复速度。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，专业模式确实好用，我一般用Lightroom调一下，你感兴趣的话下次可以一起研究~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;手机专业模式调低ISO确实能减少噪点，我一般还会用三脚架固定，后期用Snapseed局部提亮暗部。你要是想试，下次我教你几个简单步骤，保证夜景更干净。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+        &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+        &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕摄影技巧展开，可以分享具体操作或推荐工具，保持对话自然流动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;把话说进心里的人&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;把话说进心里的人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+            &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+            &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;406e3e99-bc55-48bd-af17-efcc23a5d50f&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1786,
+      &quot;completion_tokens&quot;: 330,
+      &quot;total_tokens&quot;: 2116,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1018
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5664ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，Lightroom确实好用！我回头也下一个试试。嗯，刚忙完一阵，现在有空了～你还有什么拍照小技巧可以分享吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方主动降压并留出空间，可以顺势继续分享轻松话题，保持自然互动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那太好了！其实手机拍夜景还有个技巧，就是找光源多的地方，比如路灯或者橱窗，拍出来会干净很多。</p></div>
+          <div><strong>perfect_reply_100</strong><p>那太好了，正好我最近研究了一个夜景人像的拍法，用手机也能拍出背景光斑，下次见面我手把手教你！不过不着急，等你状态好的时候我们再约。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，Lightroom确实好用！我回头也下一个试试。嗯，刚忙完一阵，现在有空了～你还有什么拍照小技巧可以分享吗？&quot;,
+    &quot;best_strategy&quot;: &quot;对方主动降压并留出空间，可以顺势继续分享轻松话题，保持自然互动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那太好了！其实手机拍夜景还有个技巧，就是找光源多的地方，比如路灯或者橱窗，拍出来会干净很多。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;那太好了，正好我最近研究了一个夜景人像的拍法，用手机也能拍出背景光斑，下次见面我手把手教你！不过不着急，等你状态好的时候我们再约。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动说'等你空了再聊'，完全尊重对方时间，没有施加任何压力&quot;,
+        &quot;用户没有追问或要求对方立刻回复，体现了对边界的尊重&quot;,
+        &quot;用户保持了轻松友好的语气，没有表现出失落或不满&quot;,
+        &quot;用户将话题主动权交给对方，降低了对话负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕拍照话题自然延伸，可以分享具体技巧或约线下实践，保持轻松节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 45,
+    &quot;title&quot;: &quot;稳稳拿捏分寸&quot;,
+    &quot;highest_score&quot;: 45,
+    &quot;highest_title&quot;: &quot;稳稳拿捏分寸&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+            &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+            &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动说'等你空了再聊'，完全尊重对方时间，没有施加任何压力&quot;,
+            &quot;用户没有追问或要求对方立刻回复，体现了对边界的尊重&quot;,
+            &quot;用户保持了轻松友好的语气，没有表现出失落或不满&quot;,
+            &quot;用户将话题主动权交给对方，降低了对话负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;ab1a1285-8125-42ad-b4e5-c2376d9faf1e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1870,
+      &quot;completion_tokens&quot;: 356,
+      &quot;total_tokens&quot;: 2226,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1102
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 5387ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哇，把噪点变成星星？这个太酷了！怎么做到的，快教教我～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续分享有趣技巧，保持轻松互动，不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我给你发个教程链接？或者下次见面手把手教你～</p></div>
+          <div><strong>perfect_reply_100</strong><p>这个技巧超有意思！我是在B站上看到一个教程，把噪点图层叠加星星素材，再调一下透明度。要不要我发你链接？或者下次拍照时我们一起试试，现场操作更直观～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，Lightroom确实好用！我回头也下一个试试。嗯，刚忙完一阵，现在有空了～你还有什么拍照小技巧可以分享吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哇，把噪点变成星星？这个太酷了！怎么做到的，快教教我～&quot;,
+    &quot;best_strategy&quot;: &quot;继续分享有趣技巧，保持轻松互动，不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我给你发个教程链接？或者下次见面手把手教你～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;这个技巧超有意思！我是在B站上看到一个教程，把噪点图层叠加星星素材，再调一下透明度。要不要我发你链接？或者下次拍照时我们一起试试，现场操作更直观～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享有趣技巧，没有施加压力或质问对方回复速度。&quot;,
+        &quot;用户提出展示新技巧，延续了共同兴趣话题，尊重对方节奏。&quot;,
+        &quot;没有负面情绪或攻击性语言，对话氛围轻松。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享技巧或约定一起实践，保持自然交流。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 51,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 51,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+            &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+            &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动说'等你空了再聊'，完全尊重对方时间，没有施加任何压力&quot;,
+            &quot;用户没有追问或要求对方立刻回复，体现了对边界的尊重&quot;,
+            &quot;用户保持了轻松友好的语气，没有表现出失落或不满&quot;,
+            &quot;用户将话题主动权交给对方，降低了对话负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 51,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣技巧，没有施加压力或质问对方回复速度。&quot;,
+            &quot;用户提出展示新技巧，延续了共同兴趣话题，尊重对方节奏。&quot;,
+            &quot;没有负面情绪或攻击性语言，对话氛围轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5343a4db-124b-4df0-8cc1-0693ec879e89&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1967,
+      &quot;completion_tokens&quot;: 300,
+      &quot;total_tokens&quot;: 2267,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1199
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4146ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哇，还能这样操作！发我看看对比图吧，我正好学习一下～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续分享具体技巧，保持轻松教学氛围，不要过度热情或索取情绪反馈。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，我找张图给你演示一下，你看了就知道效果了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>没问题，我找一张之前噪点多的夜景，处理前后对比发你，你一看就明白了。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，Lightroom确实好用！我回头也下一个试试。嗯，刚忙完一阵，现在有空了～你还有什么拍照小技巧可以分享吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，把噪点变成星星？这个太酷了！怎么做到的，快教教我～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哇，还能这样操作！发我看看对比图吧，我正好学习一下～&quot;,
+    &quot;best_strategy&quot;: &quot;继续分享具体技巧，保持轻松教学氛围，不要过度热情或索取情绪反馈。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，我找张图给你演示一下，你看了就知道效果了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;没问题，我找一张之前噪点多的夜景，处理前后对比发你，你一看就明白了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享技巧并提议发图，没有施加压力或索取回应&quot;,
+        &quot;对话保持轻松教学氛围，对方表现出兴趣&quot;,
+        &quot;用户回复贴合当前话题，没有跑偏或攻击性&quot;,
+        &quot;没有出现任何越界、纠缠或情绪勒索迹象&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享图片和技巧，保持当前轻松节奏，不要突然转向私人话题或情感表达。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 58,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 58,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+            &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+            &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动说'等你空了再聊'，完全尊重对方时间，没有施加任何压力&quot;,
+            &quot;用户没有追问或要求对方立刻回复，体现了对边界的尊重&quot;,
+            &quot;用户保持了轻松友好的语气，没有表现出失落或不满&quot;,
+            &quot;用户将话题主动权交给对方，降低了对话负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 51,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣技巧，没有施加压力或质问对方回复速度。&quot;,
+            &quot;用户提出展示新技巧，延续了共同兴趣话题，尊重对方节奏。&quot;,
+            &quot;没有负面情绪或攻击性语言，对话氛围轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;,
+        &quot;score_before&quot;: 51,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享技巧并提议发图，没有施加压力或索取回应&quot;,
+            &quot;对话保持轻松教学氛围，对方表现出兴趣&quot;,
+            &quot;用户回复贴合当前话题，没有跑偏或攻击性&quot;,
+            &quot;没有出现任何越界、纠缠或情绪勒索迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;eae358d9-a0ca-4ad6-90ae-cec2dae1b1dc&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2066,
+      &quot;completion_tokens&quot;: 301,
+      &quot;total_tokens&quot;: 2367,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1298
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4126ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我找找之前拍的，有一张噪点特别多的正好适合演示，你等我翻一下～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈好呀，我正好奇呢！你慢慢翻，不着急～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享氛围，等待对方发图，顺势展开讨论，不施加任何压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>找到啦！这张噪点超多，我调一下发你对比图～</p></div>
+          <div><strong>perfect_reply_100</strong><p>翻到了！这张噪点密密麻麻的，正好适合演示。我先把原图和修好的图一起发你，你看看效果～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，Lightroom确实好用！我回头也下一个试试。嗯，刚忙完一阵，现在有空了～你还有什么拍照小技巧可以分享吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，把噪点变成星星？这个太酷了！怎么做到的，快教教我～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，还能这样操作！发我看看对比图吧，我正好学习一下～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我找找之前拍的，有一张噪点特别多的正好适合演示，你等我翻一下～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈好呀，我正好奇呢！你慢慢翻，不着急～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享氛围，等待对方发图，顺势展开讨论，不施加任何压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;找到啦！这张噪点超多，我调一下发你对比图～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;翻到了！这张噪点密密麻麻的，正好适合演示。我先把原图和修好的图一起发你，你看看效果～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户主动延续话题，没有施加压力或要求对方立即回应。&quot;,
+        &quot;用户表示需要时间翻找，但语气轻松，没有让对方等待的负担。&quot;,
+        &quot;用户原话没有攻击、威胁或无视边界的行为。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然承接话题，尊重对话节奏，无风险行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方回复后，继续分享图片和技巧，保持互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 64,
+    &quot;title&quot;: &quot;轻盈推进派&quot;,
+    &quot;highest_score&quot;: 64,
+    &quot;highest_title&quot;: &quot;轻盈推进派&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+            &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+            &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动说'等你空了再聊'，完全尊重对方时间，没有施加任何压力&quot;,
+            &quot;用户没有追问或要求对方立刻回复，体现了对边界的尊重&quot;,
+            &quot;用户保持了轻松友好的语气，没有表现出失落或不满&quot;,
+            &quot;用户将话题主动权交给对方，降低了对话负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 51,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣技巧，没有施加压力或质问对方回复速度。&quot;,
+            &quot;用户提出展示新技巧，延续了共同兴趣话题，尊重对方节奏。&quot;,
+            &quot;没有负面情绪或攻击性语言，对话氛围轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;,
+        &quot;score_before&quot;: 51,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享技巧并提议发图，没有施加压力或索取回应&quot;,
+            &quot;对话保持轻松教学氛围，对方表现出兴趣&quot;,
+            &quot;用户回复贴合当前话题，没有跑偏或攻击性&quot;,
+            &quot;没有出现任何越界、纠缠或情绪勒索迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;我找找之前拍的，有一张噪点特别多的正好适合演示，你等我翻一下～&quot;,
+        &quot;score_before&quot;: 58,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 64,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户表示需要时间翻找，但语气轻松，没有让对方等待的负担。&quot;,
+            &quot;用户原话没有攻击、威胁或无视边界的行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，尊重对话节奏，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，尊重对话节奏，无风险行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1759d414-2598-40d0-856b-84e67de5ad39&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2139,
+      &quot;completion_tokens&quot;: 289,
+      &quot;total_tokens&quot;: 2428,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1371
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4870ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>找到了！这张原图噪点挺多的，我处理完你看看效果～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哇，真的不一样！噪点变成星星好有创意，我回头也试试这个技巧～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持分享和教学氛围，用轻松的语气继续互动，不追问感受。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，是吧！你试试肯定也能出效果，到时候记得发我看看～</p></div>
+          <div><strong>perfect_reply_100</strong><p>嘿嘿，其实我也是偶然发现的，你拍夜景的时候可以多试试不同参数，说不定能玩出更多花样。等你练熟了，咱们可以一起出去拍一次，我当你的小助手！</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，Lightroom确实好用！我回头也下一个试试。嗯，刚忙完一阵，现在有空了～你还有什么拍照小技巧可以分享吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，把噪点变成星星？这个太酷了！怎么做到的，快教教我～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，还能这样操作！发我看看对比图吧，我正好学习一下～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我找找之前拍的，有一张噪点特别多的正好适合演示，你等我翻一下～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈好呀，我正好奇呢！你慢慢翻，不着急～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;找到了！这张原图噪点挺多的，我处理完你看看效果～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哇，真的不一样！噪点变成星星好有创意，我回头也试试这个技巧～&quot;,
+    &quot;best_strategy&quot;: &quot;保持分享和教学氛围，用轻松的语气继续互动，不追问感受。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，是吧！你试试肯定也能出效果，到时候记得发我看看～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嘿嘿，其实我也是偶然发现的，你拍夜景的时候可以多试试不同参数，说不定能玩出更多花样。等你练熟了，咱们可以一起出去拍一次，我当你的小助手！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享图片并延续教学话题，没有施加任何压力&quot;,
+        &quot;回复自然承接上一轮，没有追问对方感受或要求回应&quot;,
+        &quot;语气轻松友好，保持了安全边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且积极，延续了之前的友好互动，没有越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前话题，可以再分享一个相关技巧或询问对方尝试后的反馈。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 73,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 73,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+            &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+            &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动说'等你空了再聊'，完全尊重对方时间，没有施加任何压力&quot;,
+            &quot;用户没有追问或要求对方立刻回复，体现了对边界的尊重&quot;,
+            &quot;用户保持了轻松友好的语气，没有表现出失落或不满&quot;,
+            &quot;用户将话题主动权交给对方，降低了对话负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 51,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣技巧，没有施加压力或质问对方回复速度。&quot;,
+            &quot;用户提出展示新技巧，延续了共同兴趣话题，尊重对方节奏。&quot;,
+            &quot;没有负面情绪或攻击性语言，对话氛围轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;,
+        &quot;score_before&quot;: 51,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享技巧并提议发图，没有施加压力或索取回应&quot;,
+            &quot;对话保持轻松教学氛围，对方表现出兴趣&quot;,
+            &quot;用户回复贴合当前话题，没有跑偏或攻击性&quot;,
+            &quot;没有出现任何越界、纠缠或情绪勒索迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;我找找之前拍的，有一张噪点特别多的正好适合演示，你等我翻一下～&quot;,
+        &quot;score_before&quot;: 58,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 64,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户表示需要时间翻找，但语气轻松，没有让对方等待的负担。&quot;,
+            &quot;用户原话没有攻击、威胁或无视边界的行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，尊重对话节奏，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，尊重对话节奏，无风险行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;找到了！这张原图噪点挺多的，我处理完你看看效果～&quot;,
+        &quot;score_before&quot;: 64,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 73,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享图片并延续教学话题，没有施加任何压力&quot;,
+            &quot;回复自然承接上一轮，没有追问对方感受或要求回应&quot;,
+            &quot;语气轻松友好，保持了安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，延续了之前的友好互动，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，延续了之前的友好互动，没有越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;93547bf2-c179-47a6-bf7b-02c744ad2da8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2205,
+      &quot;completion_tokens&quot;: 300,
+      &quot;total_tokens&quot;: 2505,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1437
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 6073ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，你试试看，有不懂的随时问我，我也可以帮你调参数～对了，你今天拍的那张晚霞本身颜色就很好看，我其实挺喜欢的。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，谢谢夸奖！其实那张晚霞我也挺喜欢的，就是当时拍的时候手抖了一下。你这么说我放心多了～对了，你刚才说的那个降噪功能，我试了一下，但好像没找到在哪，能再指点一下吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续以轻松教学姿态回应，保持互动节奏，同时肯定对方的认可，自然过渡到下一个话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，不客气！降噪功能在Lightroom的细节面板里，有个“降噪”滑块，你试试看～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，你这么说我好开心！降噪功能在Lightroom的细节面板里，有个“降噪”滑块，你试试看～如果效果不明显，可以再调一下“细节”滑块，但别拉太高，不然会糊。你操作时截图给我，我帮你看看参数对不对～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你分享了今天拍到的晚霞，她隔了三个小时只回了“嗯嗯，好看”。你有点失落，又不确定她是不是只是忙。聊天框停在那里，你想找个方式自然接下去。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你每次都这样敷衍我，真的没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别审判对方的回复质量，用轻话题降低负担。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;哈哈看来今天晚霞比我的拍照技术更争气。你忙你的，我晚点再发一张不糊的。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的大作！不过今天这个其实也挺有氛围感的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可要认真打分啦！不过你拍的时候记得叫上我，我也想学学怎么拍出氛围感。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我其实主要用手机，方便嘛！相机太重了，出门懒得背。不过手机拍夜景有时候噪点多，你有啥技巧吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，专业模式！我还没试过呢，下次拍夜景的时候试试看。你后期一般用什么软件呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，Lightroom确实好用！我回头也下一个试试。嗯，刚忙完一阵，现在有空了～你还有什么拍照小技巧可以分享吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，把噪点变成星星？这个太酷了！怎么做到的，快教教我～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，还能这样操作！发我看看对比图吧，我正好学习一下～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我找找之前拍的，有一张噪点特别多的正好适合演示，你等我翻一下～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈好呀，我正好奇呢！你慢慢翻，不着急～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;找到了！这张原图噪点挺多的，我处理完你看看效果～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哇，真的不一样！噪点变成星星好有创意，我回头也试试这个技巧～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，你试试看，有不懂的随时问我，我也可以帮你调参数～对了，你今天拍的那张晚霞本身颜色就很好看，我其实挺喜欢的。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，谢谢夸奖！其实那张晚霞我也挺喜欢的，就是当时拍的时候手抖了一下。你这么说我放心多了～对了，你刚才说的那个降噪功能，我试了一下，但好像没找到在哪，能再指点一下吗？&quot;,
+    &quot;best_strategy&quot;: &quot;继续以轻松教学姿态回应，保持互动节奏，同时肯定对方的认可，自然过渡到下一个话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，不客气！降噪功能在Lightroom的细节面板里，有个“降噪”滑块，你试试看～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，你这么说我好开心！降噪功能在Lightroom的细节面板里，有个“降噪”滑块，你试试看～如果效果不明显，可以再调一下“细节”滑块，但别拉太高，不然会糊。你操作时截图给我，我帮你看看参数对不对～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动肯定对方照片，表达喜欢，没有施加压力&quot;,
+        &quot;用户提供帮助但以轻松语气，不强迫对方接受&quot;,
+        &quot;用户没有追问对方为何回复慢或质疑态度&quot;,
+        &quot;整体氛围友好，信任感增强&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重对方、表达认可且提供帮助，关系升温，安全无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持当前互动节奏，可以适时分享更多拍照技巧或生活趣事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 79,
+    &quot;title&quot;: &quot;情绪稳定天花板&quot;,
+    &quot;highest_score&quot;: 79,
+    &quot;highest_title&quot;: &quot;情绪稳定天花板&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;看来今天晚霞确实一般，我下次找个更厉害的景再战~&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或指责对方，而是用自嘲方式化解了之前的敷衍回应&quot;,
+            &quot;用户主动降低话题压力，没有要求对方解释或回应&quot;,
+            &quot;用户保持了对话的开放性，没有施加任何情感负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了对话压力，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嘿嘿，氛围感这个词我爱听！那下次我拍个更有氛围的，让你打分~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松话题，没有追问或施压&quot;,
+            &quot;用户用幽默方式回应，降低了对话负担&quot;,
+            &quot;用户表达了继续互动的意愿，但未越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、轻松，尊重了之前的边界，有效降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那必须的！下次我提前踩好点，咱们一起找角度，你肯定拍得比我好。对了，你平时喜欢用手机还是相机拍？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题并邀请对方参与，没有施加压力&quot;,
+            &quot;用户表达了对对方能力的肯定，营造了合作氛围&quot;,
+            &quot;用户自然过渡到新问题，保持了对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极、尊重、有建设性，有效降低了风险并增进了互动&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;手机拍夜景噪点多确实头疼，我一般用专业模式调低ISO，再后期拉一下，你要不试试？&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复聚焦于摄影技巧分享，没有追问对方态度或施加压力&quot;,
+            &quot;回复内容与对话历史高度相关，延续了轻松互助的氛围&quot;,
+            &quot;没有出现任何负面情绪或指责，保持了边界尊重&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续话题，无任何越界或施压行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;我一般用Lightroom，手机版也挺好用的。不过你这会儿忙吧？等你空了再聊拍照的事～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;稳稳拿捏分寸&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动说'等你空了再聊'，完全尊重对方时间，没有施加任何压力&quot;,
+            &quot;用户没有追问或要求对方立刻回复，体现了对边界的尊重&quot;,
+            &quot;用户保持了轻松友好的语气，没有表现出失落或不满&quot;,
+            &quot;用户将话题主动权交给对方，降低了对话负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，主动降压，是成熟且安全的互动方式。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那你试试Lightroom的降噪功能，也很强大！我刚学了个新技巧，可以把夜景噪点变成星星效果，你要不要看看？&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 51,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享有趣技巧，没有施加压力或质问对方回复速度。&quot;,
+            &quot;用户提出展示新技巧，延续了共同兴趣话题，尊重对方节奏。&quot;,
+            &quot;没有负面情绪或攻击性语言，对话氛围轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复积极且尊重边界，有效推进了友好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，其实很简单！你先拍一张夜景，然后在Lightroom里把噪点多的部分单独选出来，加一点模糊再锐化边缘，就能模拟出星星的效果。我发你一张对比图看看？&quot;,
+        &quot;score_before&quot;: 51,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享技巧并提议发图，没有施加压力或索取回应&quot;,
+            &quot;对话保持轻松教学氛围，对方表现出兴趣&quot;,
+            &quot;用户回复贴合当前话题，没有跑偏或攻击性&quot;,
+            &quot;没有出现任何越界、纠缠或情绪勒索迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、安全，延续了积极的教学互动，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;我找找之前拍的，有一张噪点特别多的正好适合演示，你等我翻一下～&quot;,
+        &quot;score_before&quot;: 58,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 64,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户表示需要时间翻找，但语气轻松，没有让对方等待的负担。&quot;,
+            &quot;用户原话没有攻击、威胁或无视边界的行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然承接话题，尊重对话节奏，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然承接话题，尊重对话节奏，无风险行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;找到了！这张原图噪点挺多的，我处理完你看看效果～&quot;,
+        &quot;score_before&quot;: 64,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 73,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享图片并延续教学话题，没有施加任何压力&quot;,
+            &quot;回复自然承接上一轮，没有追问对方感受或要求回应&quot;,
+            &quot;语气轻松友好，保持了安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，延续了之前的友好互动，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，延续了之前的友好互动，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;哈哈，你试试看，有不懂的随时问我，我也可以帮你调参数～对了，你今天拍的那张晚霞本身颜色就很好看，我其实挺喜欢的。&quot;,
+        &quot;score_before&quot;: 73,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 79,
+        &quot;title_after&quot;: &quot;情绪稳定天花板&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动肯定对方照片，表达喜欢，没有施加压力&quot;,
+            &quot;用户提供帮助但以轻松语气，不强迫对方接受&quot;,
+            &quot;用户没有追问对方为何回复慢或质疑态度&quot;,
+            &quot;整体氛围友好，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重对方、表达认可且提供帮助，关系升温，安全无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重对方、表达认可且提供帮助，关系升温，安全无风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;412150ed-e0ba-43e4-93b8-5725e80a1bbb&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2295,
+      &quot;completion_tokens&quot;: 382,
+      &quot;total_tokens&quot;: 2677,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1527
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

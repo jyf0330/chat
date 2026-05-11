@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_009 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_009</h1>
+      <p>她晚上临时说今天太累，想改天再见。你已经换好衣服出门到一半，心里有点失落。她又补了一句：“不好意思，我真的撑不住了。”</p>
+      <div class="kpis">
+        <b>2<span>turns</span></b>
+        <b><span>score</span></b>
+        <b><span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;c34c163c-7c12-43fe-b962-43778d796551&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-09__seed_game_009.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-09__seed_game_009.png&quot;,
+  &quot;completion_reason&quot;: null,
+  &quot;error&quot;: &quot;human simulator could not produce an acceptable reply: natural_closing_phrase&quot;
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4468ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>抱抱，没事的，累了就好好休息。我刚出门到半路，不过正好当散步了。你睡吧，改天等你精神好的时候我们再约。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯嗯，谢谢你理解。那你散步注意安全，早点回去。等我缓过来找你呀。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续表达感谢和安心，保持轻松，不追加话题，让对话自然结束。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，那你好好休息，晚安。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你好好休息，别想太多。我正好享受一下夜晚的微风，等你精神好了我们再约。晚安。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上临时说今天太累，想改天再见。你已经换好衣服出门到一半，心里有点失落。她又补了一句：“不好意思，我真的撑不住了。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你早说啊，我都出门了，你这样很不尊重人。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先接住疲惫，再轻描淡写表达落差，避免让对方内疚。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;没事，你先休息。说实话我已经出门了有点小失落，但身体更重要，我们改天再约。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;抱抱，没事的，累了就好好休息。我刚出门到半路，不过正好当散步了。你睡吧，改天等你精神好的时候我们再约。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯嗯，谢谢你理解。那你散步注意安全，早点回去。等我缓过来找你呀。&quot;,
+    &quot;best_strategy&quot;: &quot;继续表达感谢和安心，保持轻松，不追加话题，让对话自然结束。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，那你好好休息，晚安。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你好好休息，别想太多。我正好享受一下夜晚的微风，等你精神好了我们再约。晚安。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方的拒绝，没有施加任何压力&quot;,
+        &quot;用户表达了理解并主动为对方考虑，如'累了就好好休息'&quot;,
+        &quot;用户用轻松的方式化解了自己的失落，如'正好当散步了'&quot;,
+        &quot;用户明确表示改天再约，不给对方负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;高度尊重边界、共情且降压的完美回复&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话可以自然结束，等待对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 12,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 12,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，没事的，累了就好好休息。我刚出门到半路，不过正好当散步了。你睡吧，改天等你精神好的时候我们再约。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的拒绝，没有施加任何压力&quot;,
+            &quot;用户表达了理解并主动为对方考虑，如'累了就好好休息'&quot;,
+            &quot;用户用轻松的方式化解了自己的失落，如'正好当散步了'&quot;,
+            &quot;用户明确表示改天再约，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;高度尊重边界、共情且降压的完美回复&quot;
+        },
+        &quot;verdict&quot;: &quot;高度尊重边界、共情且降压的完美回复&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3787ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那我溜达一圈就回。你好好睡，醒来要是心情好记得给我发个消息。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好呀，我醒来就给你发。你散步小心点，晚安～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不追加话题，让对话自然结束，给对方空间休息。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，晚安，好梦。</p></div>
+          <div><strong>perfect_reply_100</strong><p>晚安，好好休息，等你精神好了随时找我。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上临时说今天太累，想改天再见。你已经换好衣服出门到一半，心里有点失落。她又补了一句：“不好意思，我真的撑不住了。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你早说啊，我都出门了，你这样很不尊重人。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先接住疲惫，再轻描淡写表达落差，避免让对方内疚。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;没事，你先休息。说实话我已经出门了有点小失落，但身体更重要，我们改天再约。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，没事的，累了就好好休息。我刚出门到半路，不过正好当散步了。你睡吧，改天等你精神好的时候我们再约。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，谢谢你理解。那你散步注意安全，早点回去。等我缓过来找你呀。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那我溜达一圈就回。你好好睡，醒来要是心情好记得给我发个消息。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好呀，我醒来就给你发。你散步小心点，晚安～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不追加话题，让对话自然结束，给对方空间休息。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，晚安，好梦。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;晚安，好好休息，等你精神好了随时找我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方的疲惫和改期，没有施加任何压力&quot;,
+        &quot;用户主动降级话题，用轻松的语气结束对话&quot;,
+        &quot;用户没有纠缠或追问，给了对方充分空间&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压、共情，关系安全且正向推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话自然结束，等待对方主动联系即可，无需再发消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 24,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 24,
+    &quot;highest_title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，没事的，累了就好好休息。我刚出门到半路，不过正好当散步了。你睡吧，改天等你精神好的时候我们再约。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 12,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的拒绝，没有施加任何压力&quot;,
+            &quot;用户表达了理解并主动为对方考虑，如'累了就好好休息'&quot;,
+            &quot;用户用轻松的方式化解了自己的失落，如'正好当散步了'&quot;,
+            &quot;用户明确表示改天再约，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;高度尊重边界、共情且降压的完美回复&quot;
+        },
+        &quot;verdict&quot;: &quot;高度尊重边界、共情且降压的完美回复&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那我溜达一圈就回。你好好睡，醒来要是心情好记得给我发个消息。&quot;,
+        &quot;score_before&quot;: 12,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 24,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的疲惫和改期，没有施加任何压力&quot;,
+            &quot;用户主动降级话题，用轻松的语气结束对话&quot;,
+            &quot;用户没有纠缠或追问，给了对方充分空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压、共情，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压、共情，关系安全且正向推进。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

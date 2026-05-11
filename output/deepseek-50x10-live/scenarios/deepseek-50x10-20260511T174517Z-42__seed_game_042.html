@@ -1,0 +1,1921 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_042 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_042</h1>
+      <p>你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>21<span>score</span></b>
+        <b>懂得停的人<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;27dffb4f-8d1c-4460-9e1e-a758dd1e6a9e&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-42__seed_game_042.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-42__seed_game_042.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4109ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>怎么只回个表情呀，是不是今天太累了？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，有点累，今天加班了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受她的状态，不追问，轻松收尾，保持安全感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那早点休息，明天再聊。</p></div>
+          <div><strong>perfect_reply_100</strong><p>辛苦了，那赶紧休息吧，我也准备睡了，明天有空再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，有点累，今天加班了。&quot;,
+    &quot;best_strategy&quot;: &quot;接受她的状态，不追问，轻松收尾，保持安全感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那早点休息，明天再聊。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;辛苦了，那赶紧休息吧，我也准备睡了，明天有空再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+        &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+        &quot;保持了轻松自然的氛围，没有增加压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松收尾，不要追问细节，明天自然开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 7,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 7,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d2884ee7-c161-4447-b056-05ec798aba5a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1253,
+      &quot;completion_tokens&quot;: 248,
+      &quot;total_tokens&quot;: 1501,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 613
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4587ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>没有不想聊啦，就是今天太累了，脑子转不动。你别多想。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受她的解释，表达理解，不要继续追问或确认，自然过渡到休息。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，是我多心了。你好好休息，明天再聊。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯嗯，是我太敏感了。你累了一天，赶紧睡吧，明天精神好了再聊。晚安。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;,
+    &quot;best_strategy&quot;: &quot;接受她的解释，表达理解，不要继续追问或确认，自然过渡到休息。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，是我多心了。你好好休息，明天再聊。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯嗯，是我太敏感了。你累了一天，赶紧睡吧，明天精神好了再聊。晚安。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: -2,
+      &quot;trust_score&quot;: 1,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 2,
+      &quot;evidence&quot;: [
+        &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+        &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+        &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+        &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+      ],
+      &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;接受对方解释，自然收尾，不要继续这个话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 11,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 11,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f569aaa4-fd14-4c12-94c3-30ec7d869996&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1322,
+      &quot;completion_tokens&quot;: 293,
+      &quot;total_tokens&quot;: 1615,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 554
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3561ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，吓我一跳。累了就早点睡吧，我不吵你了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯嗯，那我睡啦，你也早点休息，晚安~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>确认对方状态后，轻松收尾，保持温暖但不过度追问。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，晚安，好梦。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，好好休息，明天有空再聊。晚安，愿你睡个好觉。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;,
+    &quot;best_strategy&quot;: &quot;确认对方状态后，轻松收尾，保持温暖但不过度追问。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，晚安，好梦。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，好好休息，明天有空再聊。晚安，愿你睡个好觉。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+        &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+        &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然结束对话，明天再开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1371bc2f-3979-4152-affc-39fb6ee5992b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1390,
+      &quot;completion_tokens&quot;: 245,
+      &quot;total_tokens&quot;: 1635,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 622
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3868ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那你好好休息，明天要是精神好我们再聊~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯嗯，好的，明天见~晚安！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不追加话题，确认对方已安心即可。</p></div>
+          <div><strong>recommended_reply_80</strong><p>晚安，好梦~</p></div>
+          <div><strong>perfect_reply_100</strong><p>晚安，好好休息，明天精神好了我们再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那你好好休息，明天要是精神好我们再聊~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯嗯，好的，明天见~晚安！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不追加话题，确认对方已安心即可。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;晚安，好梦~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;晚安，好好休息，明天精神好了我们再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复尊重对方需要休息，没有继续追问或施压。&quot;,
+        &quot;用户主动降低期待，说“明天要是精神好我们再聊”，不给对方负担。&quot;,
+        &quot;用户没有重复之前的焦虑，而是转向积极收尾。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，巩固信任。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以结束对话，明天自然开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;6ec66731-ee09-4a80-b038-2815a6249b49&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1450,
+      &quot;completion_tokens&quot;: 246,
+      &quot;total_tokens&quot;: 1696,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 682
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4152ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我心安了。不过你这么说我更想多跟你聊两句了，但怕你累，还是放你去睡吧～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你太贴心了。那我真的睡啦，明天精神好再好好聊～晚安！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不追加话题，让对方安心休息。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，快睡吧，明天见～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，那我不耽误你休息了。明天精神好的话我们再好好聊，晚安，好梦～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你好好休息，明天要是精神好我们再聊~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，明天见~晚安！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我心安了。不过你这么说我更想多跟你聊两句了，但怕你累，还是放你去睡吧～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你太贴心了。那我真的睡啦，明天精神好再好好聊～晚安！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不追加话题，让对方安心休息。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，快睡吧，明天见～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，那我不耽误你休息了。明天精神好的话我们再好好聊，晚安，好梦～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动表示放对方去睡，完全尊重对方边界&quot;,
+        &quot;没有追问或施加任何压力，降压明显&quot;,
+        &quot;表达想聊但克制，体现共情和信任&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固关系安全感&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然结束对话，明天再开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4d04f63b-604c-4e50-8f8c-090b6963bfc1&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1522,
+      &quot;completion_tokens&quot;: 259,
+      &quot;total_tokens&quot;: 1781,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 754
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 5067ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯嗯，那你睡吧。不过……明天你醒了会主动找我吗？还是我到时候再找你？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，当然会主动找你呀，你不用担心～快睡吧，明天见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受她的安抚，轻松收尾，不要继续追问或确认，给她空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，那我等着你～晚安，好梦！</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯嗯，我相信你会的。其实你不用有压力，想找我的时候找我就好，我都在。晚安，好好休息～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你好好休息，明天要是精神好我们再聊~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，明天见~晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我心安了。不过你这么说我更想多跟你聊两句了，但怕你累，还是放你去睡吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你太贴心了。那我真的睡啦，明天精神好再好好聊～晚安！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯嗯，那你睡吧。不过……明天你醒了会主动找我吗？还是我到时候再找你？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，当然会主动找你呀，你不用担心～快睡吧，明天见！&quot;,
+    &quot;best_strategy&quot;: &quot;接受她的安抚，轻松收尾，不要继续追问或确认，给她空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，那我等着你～晚安，好梦！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯嗯，我相信你会的。其实你不用有压力，想找我的时候找我就好，我都在。晚安，好好休息～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 2,
+      &quot;pressure_score&quot;: -1,
+      &quot;trust_score&quot;: 1,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 2,
+      &quot;evidence&quot;: [
+        &quot;用户表达了不安，但用询问的方式而非强迫，有一定边界意识&quot;,
+        &quot;用户的问题隐含了期待，可能给对方带来轻微压力&quot;,
+        &quot;对方已多次安抚，用户仍追问，可能显得不够信任&quot;,
+        &quot;整体语气温和，没有攻击或施压&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户表达了合理的不安，但略有追问倾向，整体安全，建议收尾。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;接受对方的承诺，轻松结束对话，不要再延伸话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d6643248-4be5-4934-92c8-8e70171a8fad&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1600,
+      &quot;completion_tokens&quot;: 295,
+      &quot;total_tokens&quot;: 1895,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 704
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4179ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，有你这句话我就彻底放心了。那你也快睡吧，明天精神好了我们再好好聊～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯嗯，好的，那明天见～晚安！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>见好就收，不要继续追问或延长对话，给对方空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，晚安，明天见～</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，有你这句话我就安心了。好好休息，明天精神好了我们再好好聊～晚安！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你好好休息，明天要是精神好我们再聊~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，明天见~晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我心安了。不过你这么说我更想多跟你聊两句了，但怕你累，还是放你去睡吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你太贴心了。那我真的睡啦，明天精神好再好好聊～晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那你睡吧。不过……明天你醒了会主动找我吗？还是我到时候再找你？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，当然会主动找你呀，你不用担心～快睡吧，明天见！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，有你这句话我就彻底放心了。那你也快睡吧，明天精神好了我们再好好聊～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯嗯，好的，那明天见～晚安！&quot;,
+    &quot;best_strategy&quot;: &quot;见好就收，不要继续追问或延长对话，给对方空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，晚安，明天见～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，有你这句话我就安心了。好好休息，明天精神好了我们再好好聊～晚安！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方需要休息的边界，没有继续追问或施压。&quot;,
+        &quot;用户用‘彻底放心’表达信任，没有施加任何压力。&quot;,
+        &quot;用户主动结束对话，鼓励对方休息，体现了共情和体贴。&quot;,
+        &quot;回复贴合当前对话目标，自然收尾，没有跑偏或制造新话题。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、体贴，有效降低了风险，巩固了信任。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;停止对话，等待对方明天主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f92c681c-8054-4f61-9ff1-00da72e339d4&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1674,
+      &quot;completion_tokens&quot;: 283,
+      &quot;total_tokens&quot;: 1957,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 778
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 3985ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好，那就明天见。我其实有点舍不得结束聊天，不过你累了就先睡吧。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，没事啦，明天见～晚安！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>轻松收尾，不要追加任何问题或情绪，保持安全距离。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，那明天见，晚安～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，我也舍不得，但明天精神好才能聊得更开心呀。晚安，好梦～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你好好休息，明天要是精神好我们再聊~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，明天见~晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我心安了。不过你这么说我更想多跟你聊两句了，但怕你累，还是放你去睡吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你太贴心了。那我真的睡啦，明天精神好再好好聊～晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那你睡吧。不过……明天你醒了会主动找我吗？还是我到时候再找你？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，当然会主动找你呀，你不用担心～快睡吧，明天见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有你这句话我就彻底放心了。那你也快睡吧，明天精神好了我们再好好聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那明天见～晚安！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好，那就明天见。我其实有点舍不得结束聊天，不过你累了就先睡吧。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，没事啦，明天见～晚安！&quot;,
+    &quot;best_strategy&quot;: &quot;轻松收尾，不要追加任何问题或情绪，保持安全距离。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，那明天见，晚安～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，我也舍不得，但明天精神好才能聊得更开心呀。晚安，好梦～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达了舍不得但尊重对方休息，没有追问或施压&quot;,
+        &quot;用户主动结束话题，没有纠缠&quot;,
+        &quot;语气轻松，没有负面情绪&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、降压，关系安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然结束对话，明天再开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;958b498a-58f8-46ae-81f3-139ef6b2373a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1741,
+      &quot;completion_tokens&quot;: 240,
+      &quot;total_tokens&quot;: 1981,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 717
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 6266ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，我是不是太黏人了？你累了我还一直说。那你快睡吧，明早起来如果精神好，记得给我发个消息哦～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，不会啦，你一点都不黏人。我明早起来精神好就给你发消息，放心睡吧～晚安！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方已多次安抚并明确表示会主动联系，此时应彻底停止推进，不再追加任何确认或情感索取，以轻松收尾巩固安全感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好，那我等你消息。晚安～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好，那我就不回啦，等你明天精神好的时候再聊。晚安，好梦～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你好好休息，明天要是精神好我们再聊~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，明天见~晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我心安了。不过你这么说我更想多跟你聊两句了，但怕你累，还是放你去睡吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你太贴心了。那我真的睡啦，明天精神好再好好聊～晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那你睡吧。不过……明天你醒了会主动找我吗？还是我到时候再找你？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，当然会主动找你呀，你不用担心～快睡吧，明天见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有你这句话我就彻底放心了。那你也快睡吧，明天精神好了我们再好好聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那明天见～晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那就明天见。我其实有点舍不得结束聊天，不过你累了就先睡吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没事啦，明天见～晚安！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，我是不是太黏人了？你累了我还一直说。那你快睡吧，明早起来如果精神好，记得给我发个消息哦～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，不会啦，你一点都不黏人。我明早起来精神好就给你发消息，放心睡吧～晚安！&quot;,
+    &quot;best_strategy&quot;: &quot;对方已多次安抚并明确表示会主动联系，此时应彻底停止推进，不再追加任何确认或情感索取，以轻松收尾巩固安全感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好，那我等你消息。晚安～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好，那我就不回啦，等你明天精神好的时候再聊。晚安，好梦～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动询问自己是否太黏人，表现出对对方感受的在意，没有继续施压。&quot;,
+        &quot;用户明确表示让对方快睡，并只要求对方精神好时再发消息，没有强迫立即回复。&quot;,
+        &quot;对方已多次确认会主动联系，用户没有继续追问或索取承诺，尊重了对方的边界。&quot;,
+        &quot;整体语气轻松、体贴，没有增加对方负担，降低了关系风险。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重对方疲劳状态，主动降压并给予空间，是安全且促进信任的回应。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话已自然收尾，建议停止发送新消息，等待对方明早主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a9c47433-b40b-44de-8f4c-443bbbc97e76&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1819,
+      &quot;completion_tokens&quot;: 353,
+      &quot;total_tokens&quot;: 2172,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 667
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4047ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那你快睡吧，我不闹你了。明早要是没收到消息，我就再发个早安给你～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那明早见～晚安！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>见好就收，停止延长对话，给对方空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好，那明早见～晚安！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好的，那我不打扰你啦。明早要是你还没醒，我就轻轻发个早安，你醒了再回我就好。晚安～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们连续几天互道晚安，今天你发了晚安，她只回了一个表情。你担心热度变低，想再补一句确认她是不是不想聊了。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你今天怎么连晚安都不好好说？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把仪式感变成考核，轻松收尾。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;收到表情版晚安。那我也不打扰啦，祝你今晚睡得轻松一点。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有点累，今天加班了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有不想聊啦，就是今天太累了，脑子转不动。你别多想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我睡啦，你也早点休息，晚安~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你好好休息，明天要是精神好我们再聊~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，明天见~晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我心安了。不过你这么说我更想多跟你聊两句了，但怕你累，还是放你去睡吧～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你太贴心了。那我真的睡啦，明天精神好再好好聊～晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那你睡吧。不过……明天你醒了会主动找我吗？还是我到时候再找你？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，当然会主动找你呀，你不用担心～快睡吧，明天见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，有你这句话我就彻底放心了。那你也快睡吧，明天精神好了我们再好好聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那明天见～晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那就明天见。我其实有点舍不得结束聊天，不过你累了就先睡吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没事啦，明天见～晚安！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我是不是太黏人了？你累了我还一直说。那你快睡吧，明早起来如果精神好，记得给我发个消息哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不会啦，你一点都不黏人。我明早起来精神好就给你发消息，放心睡吧～晚安！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那你快睡吧，我不闹你了。明早要是没收到消息，我就再发个早安给你～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那明早见～晚安！&quot;,
+    &quot;best_strategy&quot;: &quot;见好就收，停止延长对话，给对方空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好，那明早见～晚安！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好的，那我不打扰你啦。明早要是你还没醒，我就轻轻发个早安，你醒了再回我就好。晚安～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动说'不闹你了'，表明愿意结束对话&quot;,
+        &quot;用户提出'明早没收到消息就发早安'，既表达关心又不施压&quot;,
+        &quot;用户没有继续追问或要求对方承诺，尊重对方节奏&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全自然的收尾。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话自然结束，明早根据情况再决定是否主动发早安。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;怎么只回个表情呀，是不是今天太累了？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用关心的语气询问对方是否太累，没有指责或施压&quot;,
+            &quot;没有强迫对方解释或继续聊天，给了对方台阶&quot;,
+            &quot;保持了轻松自然的氛围，没有增加压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，尊重对方状态，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那赶紧休息吧，不过我还是想跟你说，看到只有表情的时候我有点慌，怕你不想聊了。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安，但未强迫对方回应，属于适度坦诚。&quot;,
+            &quot;用户没有指责或施压，只是说出自己的感受。&quot;,
+            &quot;对方已给出合理解释，用户未继续追问，边界感尚可。&quot;,
+            &quot;但用户将情绪负担抛给对方，轻微加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+        },
+        &quot;verdict&quot;: &quot;坦诚但略有负担，整体安全，可接受。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，吓我一跳。累了就早点睡吧，我不吵你了。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户接受了对方的解释，没有继续追问或施压&quot;,
+            &quot;用户主动结束话题，让对方休息，体现了尊重&quot;,
+            &quot;用户表达了关心，语气温和，没有负面情绪&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效降低了关系风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;95c206fc-5f2f-4366-a84d-7e480126463b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1905,
+      &quot;completion_tokens&quot;: 281,
+      &quot;total_tokens&quot;: 2186,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 753
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

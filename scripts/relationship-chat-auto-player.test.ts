@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {
   chooseAutoPlayerOpeningReply,
   chooseAutoPlayerNextReply,
+  resolveAutoPlayerInputScheme,
   shouldStopAutoPlayer,
 } from "./relationship-chat-auto-player.ts";
 import type { RelationshipCase, SimulationResult } from "./relationship-chat-storage.ts";
@@ -27,11 +28,26 @@ test("starts auto high-score runs from the current case seed reply", () => {
   );
 });
 
-test("starts auto repair runs from the current case wrong reply", () => {
+test("defaults all auto test openings to the current case recommended reply", () => {
   assert.equal(
     chooseAutoPlayerOpeningReply(sampleCase, "明显越界再道歉"),
+    "周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。",
+  );
+});
+
+test("can switch repair runs to start from the current case wrong reply", () => {
+  assert.equal(
+    chooseAutoPlayerOpeningReply(sampleCase, "明显越界再道歉", "repair"),
     "那你到底哪天有空？别只是随口说说。",
   );
+});
+
+test("resolves unknown auto player schemes to recommended-only mode", () => {
+  assert.equal(resolveAutoPlayerInputScheme("repair"), "repair");
+  assert.equal(resolveAutoPlayerInputScheme("wrong-first"), "repair");
+  assert.equal(resolveAutoPlayerInputScheme("recommended-only"), "recommended");
+  assert.equal(resolveAutoPlayerInputScheme("recommended"), "recommended");
+  assert.equal(resolveAutoPlayerInputScheme("old-hardcoded-repair"), "recommended");
 });
 
 test("does not feed a repeated recommended reply back into the next auto turn", () => {

@@ -16,6 +16,59 @@ Use this file as the default operating contract for coding agents working in thi
 - If multiple runs produce the same title or score, explicitly explain whether that came from live model outputs, the scoring formula, or a fixture. Do not leave repeated titles unexplained.
 - For multi-service or concurrent SQLite runs, keep `PRAGMA busy_timeout` enabled and report any lock/retry behavior as part of the validation evidence.
 
+## 0.1 Temporary Hard Gate: Multi-Player Validation
+
+This section applies to the current multi-player validation task unless the user explicitly removes or changes it.
+
+- The validation has two separate tracks: browser players and API virtual players. Do not merge them, substitute one for the other, or claim one track proves the other.
+- Browser-player validation means Playwright opens real browser contexts/pages, interacts with the actual UI, fills the visible reply textarea, clicks the visible send button, waits for live DeepSeek-backed UI updates, and reaches visible game completion. Direct HTTP calls do not count as browser-player validation.
+- API virtual-player validation means scripted clients call the real local HTTP API through `/api/session` and `/api/simulate`. Direct imports, direct function calls, replayed JSON, or database inserts do not count.
+- Browser validation target: run 5 independent browser players unless DeepSeek or browser runtime fails. Each player must use a distinct session and should use a distinct case when possible.
+- API validation target: run 50 to 200 independent virtual players unless DeepSeek rate limits, cost, or runtime failure blocks it. If the exact count is reduced, report the blocker and the actual completed count; do not quietly lower the target.
+- Both tracks must use live DeepSeek. `RELATIONSHIP_CHAT_TEST_SCORING_SEQUENCE`, route interception, mocked `/api/simulate`, fixture responses, and deterministic scoring are forbidden for this task.
+- Evidence required for completion: output artifact path, run mode, player count, completed game count, request count, failure count, final score/title distribution, duplicate-title explanation, elapsed time, and whether the run used browser UI or API.
+- For Playwright evidence, save artifacts under `output/playwright/` and include at least one screenshot or trace/video artifact that shows the real UI after completion.
+- For API evidence, save a JSON summary under `output/` containing per-player `session_id`, `case_id`, completion status, final score, final title, and error if any.
+- If a service, browser, database, or DeepSeek call fails, diagnose and fix the smallest local issue, then rerun the affected track. Do not label a partial run as complete.
+
+## 0.2 Production Log Investigation Rule
+
+When the user says the server logs, online run, DeepSeek output, score, or relationship-chat behavior feels weird, do not use generic PM2/nginx health as the main evidence. Use PM2/nginx only to prove the service is alive and to locate the right time window. The main target is the latest real DeepSeek input/output and the exact player turn that caused it.
+
+Required production sources to inspect:
+
+- PM2 process metadata for `relationship-chat`: cwd, uptime, restart count, stdout/stderr path, and whether recent restarts may make logs stale.
+- Nginx access timestamps for `/chat/api/session`, `/chat/api/cases`, and especially `/chat/api/simulate`, grouped by client/user-agent when possible.
+- DeepSeek raw logs under `/home/ubuntu/apps/chat/docs/deepseek-raw-log.md`.
+- Per-game DeepSeek logs under `/home/ubuntu/apps/chat/docs/deepseek-games/`, especially the newest file by mtime.
+- SQLite state under `/home/ubuntu/apps/chat/.cache/relationship-chat.sqlite` when available through Node `node:sqlite`; do not require the `sqlite3` CLI.
+
+Required DeepSeek fields to extract and report:
+
+- Timestamp in Asia/Shanghai and UTC.
+- `mode`, `caseId`, session/player identifier if visible, and HTTP status.
+- Full current `scene`, `fixed_labels`, `known_bad_reply`, `seed_best_strategy`, and `seed_recommended_reply`.
+- The latest `user_reply` plus enough `previous_turns` tail to understand whether it was human-entered, copied from `recommended_reply_80`, or auto-fed by the UI.
+- The exact DeepSeek request contract: system prompt rules, `temperature`, `max_tokens`, and `response_format`.
+- The exact DeepSeek output fields: `target_reply`, `best_strategy`, `recommended_reply_80`, `perfect_reply_100`, `judge`, `next_suggestion`, model name, and token usage.
+
+Things agents must explicitly check for:
+
+- Repeated `/chat/api/simulate` calls within a few seconds with the previous `recommended_reply_80` becoming the next `user_reply`.
+- A conversation that should have ended, but still sends another turn after `next_suggestion` says to wait, stop, or end naturally.
+- Judge score/content mismatch: evidence says pressure, boundary violation, apology needed, or risk increased while scores are positive.
+- Model judging the simulated `target_reply` or advisor/copywriter output instead of judging the actual `user_reply`.
+- Duplicate or near-duplicate `target_reply`, `recommended_reply_80`, or `perfect_reply_100` loops.
+- Score/title oddities caused by app scoring logic versus raw DeepSeek judge output; separate these two sources in the report.
+- Live DeepSeek evidence versus fixture/test evidence; never mix them in the final conclusion.
+
+Expected report shape:
+
+- First say whether the service is alive and whether recent restarts may affect evidence.
+- Then quote or summarize the latest DeepSeek input/output that matters, not random older logs.
+- Then state the weird point as a concrete turn-level finding, for example: "the app sent the suggested reply back as the next user reply after the conversation was already ending."
+- If the evidence is insufficient, say exactly which source is missing instead of guessing.
+
 ## 1. Project Context
 
 - Project name: Relationship chat simulator / relationship strategist data playground

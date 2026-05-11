@@ -1,0 +1,3025 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_021 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_021</h1>
+      <p>她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>68<span>score</span></b>
+        <b>成熟得不像第一次玩<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;cef5a812-ce18-4e83-b21c-5b7377e6ec40&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T172743Z-21__seed_game_021.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T172743Z-21__seed_game_021.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4696ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松回应，表示理解，不追问细节，保持自然互动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就好，朋友一起玩挺开心的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那就好，朋友一起玩挺开心的。你朋友挺会拍照的，下次可以让他多帮你拍几张。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。你朋友挺会拍照的，下次可以让他多帮你拍几张。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户以夸奖开头，降低攻击性&quot;,
+        &quot;提问方式自然，未强迫回答&quot;,
+        &quot;对方主动解释，说明用户提问未越界&quot;,
+        &quot;整体氛围轻松，无施压迹象&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，可以分享自己今天的趣事，保持平衡。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 7,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 7,
+    &quot;highest_title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8e5dd9be-b6a1-4d03-ad8b-8e28598cf6b2&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1278,
+      &quot;completion_tokens&quot;: 279,
+      &quot;total_tokens&quot;: 1557,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 638
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4459ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，谢谢夸奖！他确实挺会找角度的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，照片拍得挺自然的，你们玩得开心就好。</p></div>
+          <div><strong>perfect_reply_100</strong><p>是啊，构图很舒服，你笑得也很自然。朋友一起玩开心最重要，下次有机会也带上我呗？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;是啊，构图很舒服，你笑得也很自然。朋友一起玩开心最重要，下次有机会也带上我呗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+        &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+        &quot;用户没有要求对方解释或提供更多信息&quot;,
+        &quot;整体氛围友好，信任感未受损&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前节奏，可适当分享自己的日常，保持平衡交流。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 14,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 14,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d4750ac2-3df3-41e7-a7a2-2f93bf0dd773&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1415,
+      &quot;completion_tokens&quot;: 280,
+      &quot;total_tokens&quot;: 1695,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 775
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4728ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我周末一般宅着打游戏或者出去跑跑步，挺随意的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>我周末比较随意，有时宅家看书，有时约朋友打球。你呢，平时除了聚会还喜欢做什么？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我周末比较随意，有时宅家看书，有时约朋友打球。你呢，平时除了聚会还喜欢做什么？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+        &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+        &quot;话题自然延伸，保持对话开放性&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享自己生活，保持平衡互动，可以适当邀约但不要急切。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8dcbacea-1f52-40a1-b916-fc4b466247ba&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1550,
+      &quot;completion_tokens&quot;: 281,
+      &quot;total_tokens&quot;: 1831,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 910
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4511ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，不追问对方社交细节，平衡对话节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，偶尔聚聚也挺好的，放松一下。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那挺好的，有朋友一起玩也开心。我周末一般就是自己找乐子，挺随性的。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，不追问对方社交细节，平衡对话节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，偶尔聚聚也挺好的，放松一下。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那挺好的，有朋友一起玩也开心。我周末一般就是自己找乐子，挺随性的。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回应了对方的问题，没有追问或施压&quot;,
+        &quot;用户分享了自己的生活，保持自然互动&quot;,
+        &quot;没有表现出占有欲或过度关注对方社交&quot;,
+        &quot;对话节奏平衡，没有制造紧张感&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可适当分享更多自己生活，避免追问对方社交细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 28,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 28,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方的问题，没有追问或施压&quot;,
+            &quot;用户分享了自己的生活，保持自然互动&quot;,
+            &quot;没有表现出占有欲或过度关注对方社交&quot;,
+            &quot;对话节奏平衡，没有制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;bc1bf5f7-bd97-4766-8333-a6c3de7ed5be&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1693,
+      &quot;completion_tokens&quot;: 274,
+      &quot;total_tokens&quot;: 1967,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 797
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4564ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，可以啊，下次一起出来拍照，我让他教教你～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受邀请，保持轻松友好，不深入追问对方社交圈，让关系自然升温。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那敢情好，先谢谢啦！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那太好了，有专业指导肯定进步快。不过你可别嫌我笨手笨脚哦～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松分享，不追问对方社交细节，平衡对话节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，偶尔聚聚也挺好的，放松一下。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，可以啊，下次一起出来拍照，我让他教教你～&quot;,
+    &quot;best_strategy&quot;: &quot;接受邀请，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那敢情好，先谢谢啦！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那太好了，有专业指导肯定进步快。不过你可别嫌我笨手笨脚哦～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然承接话题，未追问对方社交细节，尊重边界。&quot;,
+        &quot;语气轻松，未施加压力或表现出占有欲。&quot;,
+        &quot;表达学习意愿，积极但不越界。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可适当分享自己生活，但避免过度追问对方社交圈。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 35,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 35,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方的问题，没有追问或施压&quot;,
+            &quot;用户分享了自己的生活，保持自然互动&quot;,
+            &quot;没有表现出占有欲或过度关注对方社交&quot;,
+            &quot;对话节奏平衡，没有制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，未追问对方社交细节，尊重边界。&quot;,
+            &quot;语气轻松，未施加压力或表现出占有欲。&quot;,
+            &quot;表达学习意愿，积极但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;cf393042-d7a9-4256-bbab-1e2f15b45e03&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1832,
+      &quot;completion_tokens&quot;: 278,
+      &quot;total_tokens&quot;: 2110,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 808
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 3951ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那敢情好，到时候可别嫌我笨手笨脚的。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，不会的，你肯定一学就会！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受邀请并表达期待，保持轻松友好，不深入追问对方社交圈，让关系自然升温。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就说定了，到时候请你们喝奶茶。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我可要认真学，争取下次也能给你拍出好看的照片。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松分享，不追问对方社交细节，平衡对话节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，偶尔聚聚也挺好的，放松一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，可以啊，下次一起出来拍照，我让他教教你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，先谢谢啦！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，不会的，你肯定一学就会！&quot;,
+    &quot;best_strategy&quot;: &quot;接受邀请并表达期待，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就说定了，到时候请你们喝奶茶。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我可要认真学，争取下次也能给你拍出好看的照片。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复轻松幽默，没有追问或施压，尊重对方边界。&quot;,
+        &quot;用户接受邀请并自嘲，降低期待，不给对方压力。&quot;,
+        &quot;对话自然延续，没有越界或操控迹象。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以自然过渡到其他话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 42,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 42,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方的问题，没有追问或施压&quot;,
+            &quot;用户分享了自己的生活，保持自然互动&quot;,
+            &quot;没有表现出占有欲或过度关注对方社交&quot;,
+            &quot;对话节奏平衡，没有制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，未追问对方社交细节，尊重边界。&quot;,
+            &quot;语气轻松，未施加压力或表现出占有欲。&quot;,
+            &quot;表达学习意愿，积极但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有追问或施压，尊重对方边界。&quot;,
+            &quot;用户接受邀请并自嘲，降低期待，不给对方压力。&quot;,
+            &quot;对话自然延续，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;63a9b099-78fb-4388-8f2c-f352b3533b10&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1963,
+      &quot;completion_tokens&quot;: 263,
+      &quot;total_tokens&quot;: 2226,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 811
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4689ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，我们常去公园或者江边，光线好，你到时候可以看看。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松回应，接受邀请并分享具体地点，保持自然互动，不追问对方社交细节。</p></div>
+          <div><strong>recommended_reply_80</strong><p>公园和江边确实不错，我记下了，到时候跟你们混。</p></div>
+          <div><strong>perfect_reply_100</strong><p>公园和江边听起来很赞，我正好最近想学构图，到时候就靠你们带啦。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松分享，不追问对方社交细节，平衡对话节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，偶尔聚聚也挺好的，放松一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，可以啊，下次一起出来拍照，我让他教教你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，先谢谢啦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不会的，你肯定一学就会！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请并表达期待，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就说定了，到时候请你们喝奶茶。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，我们常去公园或者江边，光线好，你到时候可以看看。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松回应，接受邀请并分享具体地点，保持自然互动，不追问对方社交细节。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;公园和江边确实不错，我记下了，到时候跟你们混。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;公园和江边听起来很赞，我正好最近想学构图，到时候就靠你们带啦。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户继续围绕拍照话题，没有追问对方社交细节，尊重边界。&quot;,
+        &quot;用户表达愿意学习，态度谦虚，没有施加压力。&quot;,
+        &quot;用户主动询问地点，显示兴趣但不过度，保持轻松。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以适当分享自己的拍照经历或喜好。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 48,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 48,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方的问题，没有追问或施压&quot;,
+            &quot;用户分享了自己的生活，保持自然互动&quot;,
+            &quot;没有表现出占有欲或过度关注对方社交&quot;,
+            &quot;对话节奏平衡，没有制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，未追问对方社交细节，尊重边界。&quot;,
+            &quot;语气轻松，未施加压力或表现出占有欲。&quot;,
+            &quot;表达学习意愿，积极但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有追问或施压，尊重对方边界。&quot;,
+            &quot;用户接受邀请并自嘲，降低期待，不给对方压力。&quot;,
+            &quot;对话自然延续，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕拍照话题，没有追问对方社交细节，尊重边界。&quot;,
+            &quot;用户表达愿意学习，态度谦虚，没有施加压力。&quot;,
+            &quot;用户主动询问地点，显示兴趣但不过度，保持轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;827be03e-3351-4b1b-a88d-eca6ec187b91&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2111,
+      &quot;completion_tokens&quot;: 288,
+      &quot;total_tokens&quot;: 2399,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1280
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1280,
+      &quot;prompt_cache_miss_tokens&quot;: 831
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4178ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>公园和江边确实不错，光线好很适合拍照。那下次你叫上我，我也去取取经。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，到时候叫上你，一起拍～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受邀请并表达期待，保持轻松自然，不追问细节，让关系自然升温。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就这么说定了，我等着你召唤。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，太好了，那我可等着啦！到时候请你们喝奶茶，顺便偷师学艺。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松分享，不追问对方社交细节，平衡对话节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，偶尔聚聚也挺好的，放松一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，可以啊，下次一起出来拍照，我让他教教你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，先谢谢啦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不会的，你肯定一学就会！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请并表达期待，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就说定了，到时候请你们喝奶茶。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我们常去公园或者江边，光线好，你到时候可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，接受邀请并分享具体地点，保持自然互动，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;公园和江边确实不错，我记下了，到时候跟你们混。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;公园和江边确实不错，光线好很适合拍照。那下次你叫上我，我也去取取经。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，到时候叫上你，一起拍～&quot;,
+    &quot;best_strategy&quot;: &quot;接受邀请并表达期待，保持轻松自然，不追问细节，让关系自然升温。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就这么说定了，我等着你召唤。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，太好了，那我可等着啦！到时候请你们喝奶茶，顺便偷师学艺。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回应了对方提出的地点建议，并表达了参与意愿，没有追问或施加压力。&quot;,
+        &quot;语气轻松自然，尊重对方之前的邀请，没有越界或操控迹象。&quot;,
+        &quot;对话保持友好互动，信任和安全感得到维护。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然友好，尊重边界，有助于关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以适当分享自己生活，保持平衡。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 54,
+    &quot;title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;highest_score&quot;: 54,
+    &quot;highest_title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方的问题，没有追问或施压&quot;,
+            &quot;用户分享了自己的生活，保持自然互动&quot;,
+            &quot;没有表现出占有欲或过度关注对方社交&quot;,
+            &quot;对话节奏平衡，没有制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，未追问对方社交细节，尊重边界。&quot;,
+            &quot;语气轻松，未施加压力或表现出占有欲。&quot;,
+            &quot;表达学习意愿，积极但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有追问或施压，尊重对方边界。&quot;,
+            &quot;用户接受邀请并自嘲，降低期待，不给对方压力。&quot;,
+            &quot;对话自然延续，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕拍照话题，没有追问对方社交细节，尊重边界。&quot;,
+            &quot;用户表达愿意学习，态度谦虚，没有施加压力。&quot;,
+            &quot;用户主动询问地点，显示兴趣但不过度，保持轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;公园和江边确实不错，光线好很适合拍照。那下次你叫上我，我也去取取经。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方提出的地点建议，并表达了参与意愿，没有追问或施加压力。&quot;,
+            &quot;语气轻松自然，尊重对方之前的邀请，没有越界或操控迹象。&quot;,
+            &quot;对话保持友好互动，信任和安全感得到维护。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，尊重边界，有助于关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，尊重边界，有助于关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;dd1d0e13-bff8-45c3-88a6-a9068e382577&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2263,
+      &quot;completion_tokens&quot;: 274,
+      &quot;total_tokens&quot;: 2537,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1408
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1408,
+      &quot;prompt_cache_miss_tokens&quot;: 855
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4436ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那就说定啦！我可得提前练练摆pose，免得到时候拖后腿。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你肯定没问题，到时候一起玩～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松接受邀请，保持自然互动，不追问对方社交细节，让关系自然升温。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我可得好好准备，不能掉链子。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我可得好好练练，争取不拖后腿。到时候你们可别嫌我笨，我请你们喝奶茶赔罪～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松分享，不追问对方社交细节，平衡对话节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，偶尔聚聚也挺好的，放松一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，可以啊，下次一起出来拍照，我让他教教你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，先谢谢啦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不会的，你肯定一学就会！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请并表达期待，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就说定了，到时候请你们喝奶茶。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我们常去公园或者江边，光线好，你到时候可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，接受邀请并分享具体地点，保持自然互动，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;公园和江边确实不错，我记下了，到时候跟你们混。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;公园和江边确实不错，光线好很适合拍照。那下次你叫上我，我也去取取经。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候叫上你，一起拍～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请并表达期待，保持轻松自然，不追问细节，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就这么说定了，我等着你召唤。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那就说定啦！我可得提前练练摆pose，免得到时候拖后腿。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你肯定没问题，到时候一起玩～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松接受邀请，保持自然互动，不追问对方社交细节，让关系自然升温。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我可得好好准备，不能掉链子。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我可得好好练练，争取不拖后腿。到时候你们可别嫌我笨，我请你们喝奶茶赔罪～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复轻松幽默，没有追问对方社交细节或施加压力&quot;,
+        &quot;用户接受邀请并表达积极态度，尊重对方边界&quot;,
+        &quot;用户没有表现出占有欲或负面情绪，关系安全&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然友好，有效推进关系，无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可适当分享自己生活，保持平衡。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 62,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 62,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方的问题，没有追问或施压&quot;,
+            &quot;用户分享了自己的生活，保持自然互动&quot;,
+            &quot;没有表现出占有欲或过度关注对方社交&quot;,
+            &quot;对话节奏平衡，没有制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，未追问对方社交细节，尊重边界。&quot;,
+            &quot;语气轻松，未施加压力或表现出占有欲。&quot;,
+            &quot;表达学习意愿，积极但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有追问或施压，尊重对方边界。&quot;,
+            &quot;用户接受邀请并自嘲，降低期待，不给对方压力。&quot;,
+            &quot;对话自然延续，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕拍照话题，没有追问对方社交细节，尊重边界。&quot;,
+            &quot;用户表达愿意学习，态度谦虚，没有施加压力。&quot;,
+            &quot;用户主动询问地点，显示兴趣但不过度，保持轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;公园和江边确实不错，光线好很适合拍照。那下次你叫上我，我也去取取经。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方提出的地点建议，并表达了参与意愿，没有追问或施加压力。&quot;,
+            &quot;语气轻松自然，尊重对方之前的邀请，没有越界或操控迹象。&quot;,
+            &quot;对话保持友好互动，信任和安全感得到维护。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，尊重边界，有助于关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，尊重边界，有助于关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，那就说定啦！我可得提前练练摆pose，免得到时候拖后腿。&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有追问对方社交细节或施加压力&quot;,
+            &quot;用户接受邀请并表达积极态度，尊重对方边界&quot;,
+            &quot;用户没有表现出占有欲或负面情绪，关系安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，有效推进关系，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，有效推进关系，无风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;00db3e20-c2c7-4031-9f02-ff9f7621ec67&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2397,
+      &quot;completion_tokens&quot;: 271,
+      &quot;total_tokens&quot;: 2668,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1536
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1536,
+      &quot;prompt_cache_miss_tokens&quot;: 861
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 3626ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那就这么定了，期待跟你们一起出去拍照！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，到时候一起玩～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松接受邀请，保持自然互动，不追问对方社交细节，让关系自然升温。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我可等着啦！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，期待！到时候我请你们喝奶茶，好好跟你们学学拍照。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发朋友圈晒聚会合照，照片里有一个男生离她很近。你想问那是谁，但又怕自己显得占有欲太强。她刚好私聊问你：“照片拍得还行吗？”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那个男的是谁？你们靠那么近？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先正常回应照片，再用轻松方式表达一点点在意。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;拍得挺自然的，你笑得很开心。旁边那位看起来也挺会抢镜，朋友吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他是我朋友，刚好路过就一起拍了。你观察力挺强嘛～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，表示理解，不追问细节，保持自然互动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，朋友一起玩挺开心的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢夸奖！他确实挺会找角度的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，不追问细节，保持自然互动，避免让对方感到被审视。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，照片拍得挺自然的，你们玩得开心就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，也不算经常啦，就偶尔聚聚。你呢，周末一般干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松自然，分享自己生活，平衡对话节奏，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;我周末一般宅着打游戏或者出去跑跑步，挺随意的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我周末也差不多，偶尔和朋友聚聚，但不会太多。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松分享，不追问对方社交细节，平衡对话节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，偶尔聚聚也挺好的，放松一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，可以啊，下次一起出来拍照，我让他教教你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，先谢谢啦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不会的，你肯定一学就会！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请并表达期待，保持轻松友好，不深入追问对方社交圈，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就说定了，到时候请你们喝奶茶。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我们常去公园或者江边，光线好，你到时候可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松回应，接受邀请并分享具体地点，保持自然互动，不追问对方社交细节。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;公园和江边确实不错，我记下了，到时候跟你们混。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;公园和江边确实不错，光线好很适合拍照。那下次你叫上我，我也去取取经。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候叫上你，一起拍～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受邀请并表达期待，保持轻松自然，不追问细节，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就这么说定了，我等着你召唤。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那就说定啦！我可得提前练练摆pose，免得到时候拖后腿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你肯定没问题，到时候一起玩～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;继续轻松接受邀请，保持自然互动，不追问对方社交细节，让关系自然升温。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得好好准备，不能掉链子。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那就这么定了，期待跟你们一起出去拍照！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，到时候一起玩～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松接受邀请，保持自然互动，不追问对方社交细节，让关系自然升温。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我可等着啦！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，期待！到时候我请你们喝奶茶，好好跟你们学学拍照。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复表达了期待和积极态度，没有追问或施压&quot;,
+        &quot;回复自然友好，符合当前轻松互动的节奏&quot;,
+        &quot;没有涉及敏感话题或越界行为&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，保持了良好的互动氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，可以适时分享自己的兴趣或生活，但避免追问对方社交细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 68,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 68,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;拍得挺好看的，你笑得特别甜。旁边那个男生是你朋友吗？感觉挺会拍照的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户以夸奖开头，降低攻击性&quot;,
+            &quot;提问方式自然，未强迫回答&quot;,
+            &quot;对方主动解释，说明用户提问未越界&quot;,
+            &quot;整体氛围轻松，无施压迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户提问得体，既表达了关心又未造成压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，就是刚好看到而已。你朋友挺会找位置的，照片构图不错。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然回应了对方的朋友，没有追问或施压&quot;,
+            &quot;用户保持了轻松语气，没有表现出占有欲或不安&quot;,
+            &quot;用户没有要求对方解释或提供更多信息&quot;,
+            &quot;整体氛围友好，信任感未受损&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有效维持了轻松互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那看来是专业选手啊，下次拍照可以请教他。你平时经常和朋友一起出去玩吗？&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问对方朋友细节，而是转向对方日常活动，尊重边界&quot;,
+            &quot;语气轻松，没有施加压力或要求对方解释&quot;,
+            &quot;话题自然延伸，保持对话开放性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了话题又不过度探究，关系推进平稳。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;周末啊，我一般宅家打游戏或者出去爬山，看心情。你呢，周末聚会多吗？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方的问题，没有追问或施压&quot;,
+            &quot;用户分享了自己的生活，保持自然互动&quot;,
+            &quot;没有表现出占有欲或过度关注对方社交&quot;,
+            &quot;对话节奏平衡，没有制造紧张感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，维持了轻松氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那挺好的，偶尔放松一下。我最近也想着多出去走走，可惜没什么拍照技术，下次可以跟你们学学。&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，未追问对方社交细节，尊重边界。&quot;,
+            &quot;语气轻松，未施加压力或表现出占有欲。&quot;,
+            &quot;表达学习意愿，积极但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，既延续了对话又未越界，关系保持良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那敢情好，到时候可别嫌我笨手笨脚的。&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有追问或施压，尊重对方边界。&quot;,
+            &quot;用户接受邀请并自嘲，降低期待，不给对方压力。&quot;,
+            &quot;对话自然延续，没有越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进关系，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我可记住啦，到时候当个跟班，别嫌我烦就行。对了，你们平时拍照一般去哪儿？我也好先踩踩点。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户继续围绕拍照话题，没有追问对方社交细节，尊重边界。&quot;,
+            &quot;用户表达愿意学习，态度谦虚，没有施加压力。&quot;,
+            &quot;用户主动询问地点，显示兴趣但不过度，保持轻松。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，推动关系正向发展，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;公园和江边确实不错，光线好很适合拍照。那下次你叫上我，我也去取取经。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回应了对方提出的地点建议，并表达了参与意愿，没有追问或施加压力。&quot;,
+            &quot;语气轻松自然，尊重对方之前的邀请，没有越界或操控迹象。&quot;,
+            &quot;对话保持友好互动，信任和安全感得到维护。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，尊重边界，有助于关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，尊重边界，有助于关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，那就说定啦！我可得提前练练摆pose，免得到时候拖后腿。&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有追问对方社交细节或施加压力&quot;,
+            &quot;用户接受邀请并表达积极态度，尊重对方边界&quot;,
+            &quot;用户没有表现出占有欲或负面情绪，关系安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，有效推进关系，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，有效推进关系，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;哈哈，那就这么定了，期待跟你们一起出去拍照！&quot;,
+        &quot;score_before&quot;: 62,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 68,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了期待和积极态度，没有追问或施压&quot;,
+            &quot;回复自然友好，符合当前轻松互动的节奏&quot;,
+            &quot;没有涉及敏感话题或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，保持了良好的互动氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，保持了良好的互动氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;80dcf80d-1d2f-48ad-9e1d-85087ecfc835&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2521,
+      &quot;completion_tokens&quot;: 253,
+      &quot;total_tokens&quot;: 2774,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1664
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1664,
+      &quot;prompt_cache_miss_tokens&quot;: 857
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

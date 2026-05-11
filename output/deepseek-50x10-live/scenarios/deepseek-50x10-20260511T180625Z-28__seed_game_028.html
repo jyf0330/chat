@@ -1,0 +1,1934 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_028 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_028</h1>
+      <p>你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>30<span>score</span></b>
+        <b>拒绝后仍然好看<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;ee2448d1-44ec-4645-8fc6-2b5136d62ee1&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T180625Z-28__seed_game_028.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T180625Z-28__seed_game_028.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4556ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受她的安排，表达理解，同时保持轻松期待，不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那你玩得开心点，明天有空了告诉我一声就行。</p></div>
+          <div><strong>perfect_reply_100</strong><p>当然可以，你好好享受今晚吧。我明天时间灵活，你忙完了随时找我，我都在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;,
+    &quot;best_strategy&quot;: &quot;接受她的安排，表达理解，同时保持轻松期待，不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那你玩得开心点，明天有空了告诉我一声就行。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;当然可以，你好好享受今晚吧。我明天时间灵活，你忙完了随时找我，我都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+        &quot;用户主动提出明天再聊，给予对方空间&quot;,
+        &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+        &quot;回复自然、安全，符合暧昧初期边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松氛围，明天主动开启话题，但不要追问昨晚细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 10,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 10,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;6932dc28-f2ad-4332-a60b-2d0fa62915b8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1375,
+      &quot;completion_tokens&quot;: 297,
+      &quot;total_tokens&quot;: 1672,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 735
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3808ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那就明天。你好好散步，别太晚回来。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的。你也早点休息，明天见。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不追加话题，为明天留自然开口空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，明天见。你也是，早点休息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，那明天聊。你散步开心点，我等你消息。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不追加话题，为明天留自然开口空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，明天见。你也是，早点休息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，那明天聊。你散步开心点，我等你消息。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+        &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+        &quot;没有纠缠或追问，边界感良好&quot;
+      ],
+      &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天主动开启话题，可以自然问散步怎么样，但不要过度追问。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;19fab330-4152-45a5-961e-dfb8dad6ce2a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1455,
+      &quot;completion_tokens&quot;: 248,
+      &quot;total_tokens&quot;: 1703,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 815
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3497ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，明天见。你也是，别太晚回。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的。你也早点休息，明天见。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持温和结束，明天主动开启话题，延续轻松氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，明天见。你玩得开心。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，明天见。你好好享受今晚，我等你明天有空再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;,
+    &quot;best_strategy&quot;: &quot;保持温和结束，明天主动开启话题，延续轻松氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，明天见。你玩得开心。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，明天见。你好好享受今晚，我等你明天有空再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+        &quot;用户主动结束对话，给予对方空间&quot;,
+        &quot;用户表达关心但不过度&quot;,
+        &quot;用户回复与场景高度贴合&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天主动开启话题，可以自然询问散步情况，保持轻松。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5d3f62f6-3a81-446f-9d5b-9705bab8cfaa&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1513,
+      &quot;completion_tokens&quot;: 250,
+      &quot;total_tokens&quot;: 1763,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 873
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4843ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续表达理解和关心，不施加等待压力，保持轻松期待。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那你注意安全，玩得开心。明天聊。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，穿暖和点，别着凉。我今晚也早点睡，明天精神好跟你聊。你散步开心就好，不用急着回我。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。&quot;,
+    &quot;best_strategy&quot;: &quot;继续表达理解和关心，不施加等待压力，保持轻松期待。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那你注意安全，玩得开心。明天聊。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，穿暖和点，别着凉。我今晚也早点睡，明天精神好跟你聊。你散步开心就好，不用急着回我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动关心对方加外套，体现体贴而非索取&quot;,
+        &quot;用户说'不用等我'，完全解除对方压力&quot;,
+        &quot;用户给出灵活选项'如果太晚就明天聊'，尊重对方时间&quot;,
+        &quot;整体语气温暖、不纠缠，符合暧昧初期健康互动&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界、共情且降压，是理想的安全回复。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方明天主动联系，期间不追加消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5b1c2c42-ca0e-42bb-96e9-c72e6dac53d2&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1581,
+      &quot;completion_tokens&quot;: 300,
+      &quot;total_tokens&quot;: 1881,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 941
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5009ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，好，那你路上注意安全。我可能不会那么早睡，你回来想聊的话就发个消息。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好，我回来如果还早的话就找你。你也不要太晚睡，明天还要上班呢。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持温和关心，不催促，给对方空间，同时表达期待但不施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那你也别太晚，回来注意安全。我等你消息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，你回来想聊就发消息，不想聊就早点休息，明天再说也行。我都理解的。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，好，那你路上注意安全。我可能不会那么早睡，你回来想聊的话就发个消息。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好，我回来如果还早的话就找你。你也不要太晚睡，明天还要上班呢。&quot;,
+    &quot;best_strategy&quot;: &quot;保持温和关心，不催促，给对方空间，同时表达期待但不施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那你也别太晚，回来注意安全。我等你消息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，你回来想聊就发消息，不想聊就早点休息，明天再说也行。我都理解的。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户明确表示不催促，允许对方回来再聊或不聊，完全尊重对方安排&quot;,
+        &quot;用户表达了自己可能不会早睡，但未要求对方必须回复，降压明显&quot;,
+        &quot;用户用'想聊的话就发个消息'，给予选择权，不施加任何压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且共情，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松关心，等待对方主动联系，若对方未联系则次日自然开启话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;80da5d4a-34ec-45e1-aab6-1cc733c88d48&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1663,
+      &quot;completion_tokens&quot;: 309,
+      &quot;total_tokens&quot;: 1972,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1023
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 5037ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，好，那你朋友那边玩得开心点。我这边反正也还有点工作上的事要处理，正好趁着今晚弄完。你回来要是累了就直接休息，不用特意找我。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好，那你先忙工作。我回来如果太晚就不打扰你了，明天再聊。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予空间，不追问不等待，保持轻松期待。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那你先忙工作，我回来如果太晚就不打扰你了，明天再聊。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，好的，你安心处理工作吧。我回来要是晚了就不吵你，明天白天有空再找你聊。你也别太累，早点弄完早点休息。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你路上注意安全。我可能不会那么早睡，你回来想聊的话就发个消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我回来如果还早的话就找你。你也不要太晚睡，明天还要上班呢。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，好，那你朋友那边玩得开心点。我这边反正也还有点工作上的事要处理，正好趁着今晚弄完。你回来要是累了就直接休息，不用特意找我。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好，那你先忙工作。我回来如果太晚就不打扰你了，明天再聊。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予空间，不追问不等待，保持轻松期待。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那你先忙工作，我回来如果太晚就不打扰你了，明天再聊。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，好的，你安心处理工作吧。我回来要是晚了就不吵你，明天白天有空再找你聊。你也别太累，早点弄完早点休息。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动表示有工作要处理，为对方提供合理理由不打扰&quot;,
+        &quot;用户明确说不用特意找自己，完全尊重对方时间&quot;,
+        &quot;用户语气平和，没有施加任何压力或期待&quot;,
+        &quot;用户延续了之前的安全氛围，关系风险进一步降低&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且共情，关系安全稳定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然过渡到第二天主动开启话题，比如问昨晚散步开心吗或工作处理得如何。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;86d57e2b-6706-4ddc-bbbd-abad903dc035&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1761,
+      &quot;completion_tokens&quot;: 317,
+      &quot;total_tokens&quot;: 2078,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1121
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4410ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，好吧，那你去散步吧，我这边也正好把工作收尾。你回来如果还早，可以给我发个消息，不用勉强。明天聊也行。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的，那我先出门了。你工作别太晚，明天我找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松接纳，不追加期待，让对方安心出门。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，去吧，玩得开心。我这边忙完也早点休息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，好的，你去吧。我这边工作收尾完也准备睡了。你回来如果还早，可以发个消息，不用特意聊，知道你已经安全到家就好。明天见。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你路上注意安全。我可能不会那么早睡，你回来想聊的话就发个消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我回来如果还早的话就找你。你也不要太晚睡，明天还要上班呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你朋友那边玩得开心点。我这边反正也还有点工作上的事要处理，正好趁着今晚弄完。你回来要是累了就直接休息，不用特意找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你先忙工作。我回来如果太晚就不打扰你了，明天再聊。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，好吧，那你去散步吧，我这边也正好把工作收尾。你回来如果还早，可以给我发个消息，不用勉强。明天聊也行。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的，那我先出门了。你工作别太晚，明天我找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松接纳，不追加期待，让对方安心出门。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，去吧，玩得开心。我这边忙完也早点休息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，好的，你去吧。我这边工作收尾完也准备睡了。你回来如果还早，可以发个消息，不用特意聊，知道你已经安全到家就好。明天见。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+        &quot;用户主动降低期待，允许对方不联系&quot;,
+        &quot;用户表达理解并给出空间，边界清晰&quot;,
+        &quot;用户没有纠缠或追问，信任感强&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，完全尊重对方边界，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方明天主动联系，期间不要追加消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;b73a3cf9-a21e-4496-8730-1b7b01ae8c55&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1854,
+      &quot;completion_tokens&quot;: 292,
+      &quot;total_tokens&quot;: 2146,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1214
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 5232ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，那你出门吧，我也忙会儿别的。等你回来如果还早，随时叫我。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的，那我先出门了。你忙你的，回来再说。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予空间，不追加期待，保持轻松收尾，等待对方主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，去吧，我这边也正好有点事。你回来如果还早，可以发个消息，不用勉强。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你去吧，我正好把工作收尾。你回来如果还早，想聊就叫我；如果累了就直接休息，明天再聊也一样。别担心我，我这边没事。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你路上注意安全。我可能不会那么早睡，你回来想聊的话就发个消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我回来如果还早的话就找你。你也不要太晚睡，明天还要上班呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你朋友那边玩得开心点。我这边反正也还有点工作上的事要处理，正好趁着今晚弄完。你回来要是累了就直接休息，不用特意找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你先忙工作。我回来如果太晚就不打扰你了，明天再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧，那你去散步吧，我这边也正好把工作收尾。你回来如果还早，可以给我发个消息，不用勉强。明天聊也行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先出门了。你工作别太晚，明天我找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，那你出门吧，我也忙会儿别的。等你回来如果还早，随时叫我。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的，那我先出门了。你忙你的，回来再说。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予空间，不追加期待，保持轻松收尾，等待对方主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，去吧，我这边也正好有点事。你回来如果还早，可以发个消息，不用勉强。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你去吧，我正好把工作收尾。你回来如果还早，想聊就叫我；如果累了就直接休息，明天再聊也一样。别担心我，我这边没事。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+        &quot;用户主动表示自己也有事可做，降低对方心理负担&quot;,
+        &quot;用户给出灵活选项，不要求对方必须回复&quot;,
+        &quot;整体语气温和、体贴，符合当前关系阶段&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效维持了信任和舒适感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，如果对方当晚没有消息，第二天可以自然开启话题，例如询问散步是否愉快。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;dc06552e-0993-409f-94b5-3140834cbf4a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1927,
+      &quot;completion_tokens&quot;: 323,
+      &quot;total_tokens&quot;: 2250,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1287
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4174ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，去吧。我这边也差不多忙完了，准备休息下。你回来别太晚，注意安全。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的，那我出门了。你早点休息，明天我找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持温和退场，不追加期待，留出自然空间，明天再主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，好，那你路上小心。我准备睡了，明天见。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，去吧，注意安全。我这边也准备休息了，明天等你消息。晚安。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你路上注意安全。我可能不会那么早睡，你回来想聊的话就发个消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我回来如果还早的话就找你。你也不要太晚睡，明天还要上班呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你朋友那边玩得开心点。我这边反正也还有点工作上的事要处理，正好趁着今晚弄完。你回来要是累了就直接休息，不用特意找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你先忙工作。我回来如果太晚就不打扰你了，明天再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧，那你去散步吧，我这边也正好把工作收尾。你回来如果还早，可以给我发个消息，不用勉强。明天聊也行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先出门了。你工作别太晚，明天我找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你出门吧，我也忙会儿别的。等你回来如果还早，随时叫我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先出门了。你忙你的，回来再说。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，去吧。我这边也差不多忙完了，准备休息下。你回来别太晚，注意安全。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的，那我出门了。你早点休息，明天我找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持温和退场，不追加期待，留出自然空间，明天再主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，好，那你路上小心。我准备睡了，明天见。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，去吧，注意安全。我这边也准备休息了，明天等你消息。晚安。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+        &quot;用户主动表示自己也要休息，降低对方回复负担&quot;,
+        &quot;用户提醒注意安全，体现关心但不纠缠&quot;,
+        &quot;对话自然收尾，没有强行延续话题&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效维持了关系温度，适合结束今晚对话。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;明天主动开启新话题，比如问她散步感觉如何，自然延续联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;0d751bc3-acc7-400f-b7c3-8a506c3ecded&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2001,
+      &quot;completion_tokens&quot;: 285,
+      &quot;total_tokens&quot;: 2286,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1361
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 3499ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，那好，你出门吧。我今晚也早点睡，明天等你消息。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的，那你早点睡。明天我忙完找你。晚安。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受她的安排，不追加任何期待，保持轻松结束对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，晚安，明天见。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，晚安。你出门注意安全，明天等你消息，不急。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你本来以为今晚能和她打电话，她临时说朋友约她出去散步，今晚可能不聊了。你心里有点落空，但她语气不是故意冷落。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你朋友一叫你就走，那我算什么？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;允许她有自己的安排，轻轻表达期待，不抢夺时间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;去吧，和朋友散散步也挺好。我本来有点期待今晚聊，但没关系，等你回来有精神再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你理解我。其实我也挺想跟你聊的，但朋友突然约我，我也不好拒绝。明天我找你，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。你也早点休息，明天见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你快去，外面凉记得加件外套。我等你回来，如果太晚就明天聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我穿件外套再出门。你早点休息，不用等我，明天我找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你路上注意安全。我可能不会那么早睡，你回来想聊的话就发个消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，我回来如果还早的话就找你。你也不要太晚睡，明天还要上班呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你朋友那边玩得开心点。我这边反正也还有点工作上的事要处理，正好趁着今晚弄完。你回来要是累了就直接休息，不用特意找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好，那你先忙工作。我回来如果太晚就不打扰你了，明天再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好吧，那你去散步吧，我这边也正好把工作收尾。你回来如果还早，可以给我发个消息，不用勉强。明天聊也行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先出门了。你工作别太晚，明天我找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，那你出门吧，我也忙会儿别的。等你回来如果还早，随时叫我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先出门了。你忙你的，回来再说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，去吧。我这边也差不多忙完了，准备休息下。你回来别太晚，注意安全。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我出门了。你早点休息，明天我找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，那好，你出门吧。我今晚也早点睡，明天等你消息。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的，那你早点睡。明天我忙完找你。晚安。&quot;,
+    &quot;best_strategy&quot;: &quot;接受她的安排，不追加任何期待，保持轻松结束对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，晚安，明天见。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，晚安。你出门注意安全，明天等你消息，不急。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方安排，不纠缠不追问&quot;,
+        &quot;用户主动结束话题，不给对方压力&quot;,
+        &quot;用户表达自己早睡，避免对方担心&quot;,
+        &quot;用户等待对方主动联系，不施加期待&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，完全尊重边界，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方明天主动联系，无需再发消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯，好吧……其实我本来挺期待今晚的，不过你朋友找你肯定有原因，去放松下吧。我明天再找你聊？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力或表达不满&quot;,
+            &quot;用户主动提出明天再聊，给予对方空间&quot;,
+            &quot;用户表达了自己的期待但并未让对方感到愧疚&quot;,
+            &quot;回复自然、安全，符合暧昧初期边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效维护了关系安全感，降低了风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好，那就明天。你好好散步，别太晚回来。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，没有施加任何压力&quot;,
+            &quot;回复简短自然，符合当前轻松收尾的氛围&quot;,
+            &quot;没有纠缠或追问，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、尊重、无压力的收尾，关系保持正向&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，明天见。你也是，别太晚回。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方安排，不纠缠不施压&quot;,
+            &quot;用户主动结束对话，给予对方空间&quot;,
+            &quot;用户表达关心但不过度&quot;,
+            &quot;用户回复与场景高度贴合&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系稳定推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f9408f3b-281a-441a-bff1-b4a61bf7ff35&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2070,
+      &quot;completion_tokens&quot;: 254,
+      &quot;total_tokens&quot;: 2324,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1430
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

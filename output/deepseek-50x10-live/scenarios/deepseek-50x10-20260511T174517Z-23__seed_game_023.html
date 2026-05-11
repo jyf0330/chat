@@ -1,0 +1,1913 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_023 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_023</h1>
+      <p>她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>29<span>score</span></b>
+        <b>不追问但在场<span>title</span></b>
+        <b>low<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;9d330b4a-3271-4de7-9380-360bce5bd940&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-23__seed_game_023.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-23__seed_game_023.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4734ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>抱抱，工作也太不让人省心了。想骂就骂两句，我听着。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，真的有点绷不住了……谢谢你愿意听。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续共情，保持倾听姿态，不追问细节，给她空间决定是否倾诉。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没事，我就在这儿，你想说的时候随时说。</p></div>
+          <div><strong>perfect_reply_100</strong><p>累了就靠一会儿，不用强撑。你想吐槽我陪你，不想说我们就安静待着，怎么都行。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;,
+    &quot;best_strategy&quot;: &quot;继续共情，保持倾听姿态，不追问细节，给她空间决定是否倾诉。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没事，我就在这儿，你想说的时候随时说。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;累了就靠一会儿，不用强撑。你想吐槽我陪你，不想说我们就安静待着，怎么都行。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+        &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+        &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续倾听，保持当前节奏，不要主动转移话题或给建议。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 11,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 11,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;aaf15f37-f21f-4f52-9556-b161af53d765&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1273,
+      &quot;completion_tokens&quot;: 279,
+      &quot;total_tokens&quot;: 1552,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 633
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3949ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>没事的，我懂那种感觉。累了就歇会儿，不着急。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，听你这么说，我心里好受多了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持温和共情，不追问细节，给予情绪支持即可。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，需要的时候我都在。</p></div>
+          <div><strong>perfect_reply_100</strong><p>能让你好受一点我就放心了。累了就好好休息，不用硬撑。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;,
+    &quot;best_strategy&quot;: &quot;保持温和共情，不追问细节，给予情绪支持即可。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，需要的时候我都在。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;能让你好受一点我就放心了。累了就好好休息，不用硬撑。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+        &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+        &quot;回复贴合当前情绪状态，没有跑题&quot;
+      ],
+      &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续温和陪伴，如果对方主动倾诉则倾听，否则不主动推进话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;情绪接住了&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;情绪接住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;eb6839d3-e960-49bd-b58c-7cad66de0aab&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1336,
+      &quot;completion_tokens&quot;: 246,
+      &quot;total_tokens&quot;: 1582,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 696
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3367ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，能让你轻松点就好。要是还有想说的，我随时在。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，有你在真好。那我先缓一缓，晚点再聊～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续提供安全空间，不追问细节，保持轻松收尾，让她掌控节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，你先休息，我随时都在。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你好好休息，不用急着回我。等你缓过来了，想聊什么我都陪你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;,
+    &quot;best_strategy&quot;: &quot;继续提供安全空间，不追问细节，保持轻松收尾，让她掌控节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，你先休息，我随时都在。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你好好休息，不用急着回我。等你缓过来了，想聊什么我都陪你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+        &quot;主动提供持续支持但不强求回应&quot;,
+        &quot;与对方当前情绪状态高度匹配&quot;
+      ],
+      &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然结束当前话题，等待对方主动开启新对话。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;eab8b8e6-a639-4f35-9e97-34485dfc5e31&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1399,
+      &quot;completion_tokens&quot;: 256,
+      &quot;total_tokens&quot;: 1655,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 631
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3783ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，你先歇着。我就在这，等你随时回来。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的。那我先休息一下，晚点找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持低压陪伴，不主动推进话题，等她主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，好好休息，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，你安心休息，不用急着回我。等你缓过来了，想聊什么我都陪你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，你先歇着。我就在这，等你随时回来。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的。那我先休息一下，晚点找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持低压陪伴，不主动推进话题，等她主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，好好休息，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，你安心休息，不用急着回我。等你缓过来了，想聊什么我都陪你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方暂停聊天的意愿，不施加任何压力&quot;,
+        &quot;回复简短自然，不给对方负担&quot;,
+        &quot;明确表示等待，不催促不追问&quot;,
+        &quot;符合当前关系阶段和对方情绪状态&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效维持了信任和舒适感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，期间不要发送新消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9ce043a5-93dc-4a60-b59c-6b2bcf5cd005&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1464,
+      &quot;completion_tokens&quot;: 259,
+      &quot;total_tokens&quot;: 1723,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 696
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 3746ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，好好休息，等你缓过来了随时找我。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的，那我先睡会儿。晚点找你聊～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予空间，不主动联系，等她恢复后自然开启话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，你好好休息，我随时都在。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，安心休息吧，不用急着回我。等你精神好了，想聊什么我都陪你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你先歇着。我就在这，等你随时回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息一下，晚点找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，好好休息，等你缓过来了随时找我。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的，那我先睡会儿。晚点找你聊～&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予空间，不主动联系，等她恢复后自然开启话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，你好好休息，我随时都在。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，安心休息吧，不用急着回我。等你精神好了，想聊什么我都陪你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方休息的决定，没有施加任何压力。&quot;,
+        &quot;用户表达‘随时找我’，给予安全感但不催促。&quot;,
+        &quot;回复贴合当前对话状态，延续了支持性氛围。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效巩固了信任和舒适感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要提前追问。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;3639ee2a-c237-4f5e-9da9-7f15246731d1&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1522,
+      &quot;completion_tokens&quot;: 258,
+      &quot;total_tokens&quot;: 1780,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 754
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4497ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那好好睡一觉，醒来找我，我请你喝奶茶补充能量~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那我可记下了，睡醒就找你讨奶茶~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的氛围，确认约定，但不要过度追问或施压，让她自然醒来后再联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没问题，等你睡醒随时找我，奶茶管够~</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，等你睡醒发我消息，我提前点好你最爱的那家，你到了直接喝~</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你先歇着。我就在这，等你随时回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息一下，晚点找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好好休息，等你缓过来了随时找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先睡会儿。晚点找你聊～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那好好睡一觉，醒来找我，我请你喝奶茶补充能量~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那我可记下了，睡醒就找你讨奶茶~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的氛围，确认约定，但不要过度追问或施压，让她自然醒来后再联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没问题，等你睡醒随时找我，奶茶管够~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，等你睡醒发我消息，我提前点好你最爱的那家，你到了直接喝~&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方休息的意愿，没有催促或追问&quot;,
+        &quot;用户主动提出请奶茶，表达关心且不给对方负担&quot;,
+        &quot;回复轻松自然，符合当前关系阶段和对话氛围&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复非常得体，既表达了关心，又完全尊重对方边界，是安全且增进关系的好回复。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要提前催促。如果对方醒来后联系，继续保持轻松愉快的聊天节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8811d9c9-38ba-44cb-b638-17206e5b9229&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1586,
+      &quot;completion_tokens&quot;: 294,
+      &quot;total_tokens&quot;: 1880,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 690
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4832ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，说到做到，你睡醒发我消息，我马上安排~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那我可要好好睡一觉，醒来就找你兑现~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的氛围，继续用奶茶约定作为小期待，不深入话题，维持舒适距离。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没问题，等你醒来，奶茶随时待命~</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，你安心睡，我这边随时待命，等你醒来想喝什么口味我都记着~</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你先歇着。我就在这，等你随时回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息一下，晚点找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好好休息，等你缓过来了随时找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先睡会儿。晚点找你聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那好好睡一觉，醒来找我，我请你喝奶茶补充能量~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可记下了，睡醒就找你讨奶茶~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，说到做到，你睡醒发我消息，我马上安排~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那我可要好好睡一觉，醒来就找你兑现~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的氛围，继续用奶茶约定作为小期待，不深入话题，维持舒适距离。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没问题，等你醒来，奶茶随时待命~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，你安心睡，我这边随时待命，等你醒来想喝什么口味我都记着~&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前的轻松约定，没有施加任何压力&quot;,
+        &quot;用户尊重对方休息的意愿，没有催促或追问&quot;,
+        &quot;用户主动提供正向奖励（奶茶），增强安全感&quot;,
+        &quot;回复完全贴合当前对话节奏，无越界风险&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固了信任和舒适感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方醒来主动联系，不要主动打扰。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;3dbdef3e-4bdf-4fe0-b49a-ea01c0305b14&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1653,
+      &quot;completion_tokens&quot;: 280,
+      &quot;total_tokens&quot;: 1933,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 757
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4312ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好，那我等着你睡醒来找我兑现奶茶~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，那我可要好好睡一觉，醒来就找你兑现~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的氛围，继续用奶茶约定作为互动锚点，但注意不要过度承诺或给对方压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，没问题，等你睡醒随时召唤我~</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，你安心睡，我先把奶茶店收藏好，等你醒了直接点你最爱的那家~</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你先歇着。我就在这，等你随时回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息一下，晚点找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好好休息，等你缓过来了随时找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先睡会儿。晚点找你聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那好好睡一觉，醒来找我，我请你喝奶茶补充能量~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可记下了，睡醒就找你讨奶茶~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，说到做到，你睡醒发我消息，我马上安排~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可要好好睡一觉，醒来就找你兑现~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好，那我等着你睡醒来找我兑现奶茶~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，那我可要好好睡一觉，醒来就找你兑现~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的氛围，继续用奶茶约定作为互动锚点，但注意不要过度承诺或给对方压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，没问题，等你睡醒随时召唤我~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，你安心睡，我先把奶茶店收藏好，等你醒了直接点你最爱的那家~&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方休息的边界，没有催促或要求立即回应&quot;,
+        &quot;用户用轻松玩笑的方式延续话题，不给对方任何压力&quot;,
+        &quot;用户回复与对方上一句高度相关，自然承接了奶茶约定&quot;,
+        &quot;整体氛围轻松愉快，信任感和安全感都很高&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复完美契合当前轻松氛围，尊重边界，降压且安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松互动，等对方主动联系后再推进话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f297976d-f733-4650-82e0-c3f98cc7fd97&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1715,
+      &quot;completion_tokens&quot;: 296,
+      &quot;total_tokens&quot;: 2011,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 691
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3933ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那说好了，醒来发我消息，我随时待命~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，那我可要好好睡一觉，醒来就找你兑现~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的氛围，等待对方主动联系，不要追加话题或催促。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好，那我等着你睡醒来找我兑现奶茶~</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好，那我等着你睡醒来找我兑现奶茶~</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你先歇着。我就在这，等你随时回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息一下，晚点找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好好休息，等你缓过来了随时找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先睡会儿。晚点找你聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那好好睡一觉，醒来找我，我请你喝奶茶补充能量~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可记下了，睡醒就找你讨奶茶~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，说到做到，你睡醒发我消息，我马上安排~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可要好好睡一觉，醒来就找你兑现~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等着你睡醒来找我兑现奶茶~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我可要好好睡一觉，醒来就找你兑现~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那说好了，醒来发我消息，我随时待命~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，那我可要好好睡一觉，醒来就找你兑现~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的氛围，等待对方主动联系，不要追加话题或催促。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好，那我等着你睡醒来找我兑现奶茶~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好，那我等着你睡醒来找我兑现奶茶~&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松玩笑的语气，没有施加任何压力。&quot;,
+        &quot;用户尊重对方需要休息的状态，没有追问或要求立即回应。&quot;,
+        &quot;用户主动承诺兑现奶茶，表达了关心但不过度。&quot;,
+        &quot;对话自然流畅，没有越界或操控迹象。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，保持了轻松愉快的氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，无需再发消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a13773ec-65f0-4468-90ce-7b811cbdfab4&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1782,
+      &quot;completion_tokens&quot;: 273,
+      &quot;total_tokens&quot;: 2055,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 758
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 3952ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那你可要好好休息，我等着你睡醒来找我兑现哦~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，那我可要好好睡一觉，醒来就找你兑现~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方在循环玩笑，可以自然收尾，避免无限重复。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好，那说定了，醒来见~</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好，那说定了，醒来见~ 你好好休息，我不吵你了。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她发来一句：“今天真的被工作折磨疯了。”后面跟了三个哭脸。她没有详细讲，但语气明显很累。你想安慰她，又不想像讲大道理。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;疲惫&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;工作嘛都这样，你想开点就好了。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先共情，不急着解决问题，给她选择要不要倾诉。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;听起来今天真的被耗干了。你想吐槽我就听着，不想说的话我也可以陪你缓一会儿。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，真的有点绷不住了……谢谢你愿意听。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，听你这么说，我心里好受多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，有你在真好。那我先缓一缓，晚点再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，你先歇着。我就在这，等你随时回来。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息一下，晚点找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，好好休息，等你缓过来了随时找我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的，那我先睡会儿。晚点找你聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那好好睡一觉，醒来找我，我请你喝奶茶补充能量~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可记下了，睡醒就找你讨奶茶~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，说到做到，你睡醒发我消息，我马上安排~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可要好好睡一觉，醒来就找你兑现~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等着你睡醒来找我兑现奶茶~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我可要好好睡一觉，醒来就找你兑现~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那说好了，醒来发我消息，我随时待命~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我可要好好睡一觉，醒来就找你兑现~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那你可要好好休息，我等着你睡醒来找我兑现哦~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，那我可要好好睡一觉，醒来就找你兑现~&quot;,
+    &quot;best_strategy&quot;: &quot;对方在循环玩笑，可以自然收尾，避免无限重复。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好，那说定了，醒来见~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好，那说定了，醒来见~ 你好好休息，我不吵你了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松玩笑，没有施加任何压力&quot;,
+        &quot;完全尊重对方休息的意愿，没有追问或要求&quot;,
+        &quot;信任感保持良好，没有破坏安全感&quot;,
+        &quot;风险极低，无任何越界或危险信号&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，适合当前轻松氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然收尾，等待对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;抱抱，工作也太不让人省心了。想骂就骂两句，我听着。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户用'抱抱'表达关心，没有追问或施压&quot;,
+            &quot;用户主动提供倾听选项'想骂就骂两句'，尊重对方意愿&quot;,
+            &quot;回复贴合对方疲惫情绪，没有否定或说教&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情且尊重边界，有效降低对方压力，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;没事的，我懂那种感觉。累了就歇会儿，不着急。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复表达了理解和支持，没有施加压力&quot;,
+            &quot;用户没有追问或要求对方倾诉，尊重对方节奏&quot;,
+            &quot;回复贴合当前情绪状态，没有跑题&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+        },
+        &quot;verdict&quot;: &quot;安全且共情的回复，维持了良好互动&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好，能让你轻松点就好。要是还有想说的，我随时在。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全尊重对方节奏，不追问、不施压&quot;,
+            &quot;主动提供持续支持但不强求回应&quot;,
+            &quot;与对方当前情绪状态高度匹配&quot;
+          ],
+          &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+        },
+        &quot;verdict&quot;: &quot;安全、体贴、不越界，有效巩固信任&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;93d3412a-cb44-45a8-897e-bd880e920c06&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1848,
+      &quot;completion_tokens&quot;: 269,
+      &quot;total_tokens&quot;: 2117,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 696
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

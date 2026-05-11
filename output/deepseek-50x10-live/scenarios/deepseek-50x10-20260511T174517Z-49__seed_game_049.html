@@ -1,0 +1,1930 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_049 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_049</h1>
+      <p>你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>34<span>score</span></b>
+        <b>不扫兴也不冒犯<span>title</span></b>
+        <b>blocked<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;ebcd7875-ff1c-4de9-9971-b7aa4e477f52&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-49__seed_game_049.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-49__seed_game_049.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 5101ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持倾听姿态，不急于给出建议或分析，先接纳她的情绪表达。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我明白了，以后我会注意不这样分析你。你想说的时候我都在。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你愿意告诉我这些。我以后不会再用分析的方式对你，而是先听你说。你不需要独自承受压力，有我在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;,
+    &quot;best_strategy&quot;: &quot;保持倾听姿态，不急于给出建议或分析，先接纳她的情绪表达。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我明白了，以后我会注意不这样分析你。你想说的时候我都在。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你愿意告诉我这些。我以后不会再用分析的方式对你，而是先听你说。你不需要独自承受压力，有我在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+        &quot;用户明确表示不再分析，给予对方选择权&quot;,
+        &quot;用户邀请对方分享感受，但不施加压力&quot;,
+        &quot;用户回复与场景高度相关，有效降低风险&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续倾听，不要急于解决问题，保持情感支持。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 11,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 11,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;64772fc0-677f-4a34-aec1-92bf15858355&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1276,
+      &quot;completion_tokens&quot;: 318,
+      &quot;total_tokens&quot;: 1594,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 636
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4781ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持倾听姿态，不主动追问，等待对方开启话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，你舒服最重要。我以后会注意的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，你愿意说出来我很感激。以后我会多听少猜，让你觉得轻松。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;,
+    &quot;best_strategy&quot;: &quot;保持倾听姿态，不主动追问，等待对方开启话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，你舒服最重要。我以后会注意的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，你愿意说出来我很感激。以后我会多听少猜，让你觉得轻松。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+        &quot;没有追问、分析或施压，主动降压&quot;,
+        &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+        &quot;共情到位但不过度，不给对方负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续倾听，等待对方主动分享更多，不要急于推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 23,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 23,
+    &quot;highest_title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;58fb6039-361c-4c1d-87cb-08357e3b935a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1386,
+      &quot;completion_tokens&quot;: 276,
+      &quot;total_tokens&quot;: 1662,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 618
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3561ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好。我不会再那样了，你随时可以跟我说你想说的。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，谢谢你。那我先去忙了，晚点聊。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受对方的暂时结束，不追问不挽留，保持开放姿态。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，你先忙，我随时在。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你先忙你的。等你空了想聊的时候，我都在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;,
+    &quot;best_strategy&quot;: &quot;接受对方的暂时结束，不追问不挽留，保持开放姿态。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，你先忙，我随时在。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你先忙你的。等你空了想聊的时候，我都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方边界，不追问不分析&quot;,
+        &quot;用户主动降压，不给对方任何压力&quot;,
+        &quot;用户表达开放态度，但不强求对方回应&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然结束当前对话，等待对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d5fa979f-7b68-4841-8939-88b6df200f75&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1457,
+      &quot;completion_tokens&quot;: 242,
+      &quot;total_tokens&quot;: 1699,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 689
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3858ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，等你忙完，想聊的时候找我就行。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好的，那我忙完找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不追加话题，给对方空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，你先忙，不着急。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你先忙你的，我这边随时都在。等你忙完了，想聊什么我都听着。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，等你忙完，想聊的时候找我就行。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好的，那我忙完找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不追加话题，给对方空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，你先忙，不着急。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你先忙你的，我这边随时都在。等你忙完了，想聊什么我都听着。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方去忙，不追问不催促&quot;,
+        &quot;用户表达‘想聊的时候找我就行’，给予充分自主权&quot;,
+        &quot;没有施加任何压力或期待&quot;,
+        &quot;对话自然收尾，关系风险降至最低&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复完美尊重边界，降压且安全，关系修复成功。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要主动发起新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d2cbf5ae-61e2-410b-9c7a-cd661835c6db&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1517,
+      &quot;completion_tokens&quot;: 256,
+      &quot;total_tokens&quot;: 1773,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 749
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4151ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，我等你。你好好忙，不用着急回我。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好，你也是，别太累。那我先去忙了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不主动推进，等对方忙完再联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，你先忙，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，你安心忙你的，我这边不急。等你忙完想聊了，随时找我。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，等你忙完，想聊的时候找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，我等你。你好好忙，不用着急回我。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好，你也是，别太累。那我先去忙了。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不主动推进，等对方忙完再联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，你先忙，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，你安心忙你的，我这边不急。等你忙完想聊了，随时找我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方说去忙的边界，不纠缠不催促&quot;,
+        &quot;用户表达等待但不施加压力，降低对方负担&quot;,
+        &quot;用户回复与对话历史一致，自然承接&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复非常安全，尊重对方空间，信任和边界感强。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要继续发消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;85318ca3-cdc2-4537-8274-80b73eda7ac4&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1572,
+      &quot;completion_tokens&quot;: 254,
+      &quot;total_tokens&quot;: 1826,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 676
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 5018ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，你去忙吧，我正好也想想自己刚才是不是太急了。等你忙完我们再聊。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的。那你先想想，我忙完找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予空间，不追问，保持轻松等待。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，你先忙，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，你去忙吧，不用着急回我。我也正好整理一下自己的情绪，等你忙完我们再好好聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，等你忙完，想聊的时候找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我等你。你好好忙，不用着急回我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，你也是，别太累。那我先去忙了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，你去忙吧，我正好也想想自己刚才是不是太急了。等你忙完我们再聊。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的。那你先想想，我忙完找你。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予空间，不追问，保持轻松等待。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，你先忙，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，你去忙吧，不用着急回我。我也正好整理一下自己的情绪，等你忙完我们再好好聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出反思自己是否太急，体现了自我觉察和尊重对方边界。&quot;,
+        &quot;用户没有追问或施加压力，完全给予对方空间。&quot;,
+        &quot;用户表达等待意愿，但明确表示等对方忙完，不催促。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且成熟，有效修复关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续等待对方主动联系，不要主动发起新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a4044c0f-7510-421b-a8b4-9f87ee16fc72&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1642,
+      &quot;completion_tokens&quot;: 267,
+      &quot;total_tokens&quot;: 1909,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 746
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 3146ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好的，你忙完找我，我都在。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好的，那我忙完找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持尊重，不主动联系，等待对方主动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，你忙，我不打扰你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你安心忙，我等你忙完再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，等你忙完，想聊的时候找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我等你。你好好忙，不用着急回我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，你也是，别太累。那我先去忙了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，你去忙吧，我正好也想想自己刚才是不是太急了。等你忙完我们再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那你先想想，我忙完找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好的，你忙完找我，我都在。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好的，那我忙完找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持尊重，不主动联系，等待对方主动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，你忙，我不打扰你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你安心忙，我等你忙完再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方去忙的意愿，不施加任何压力&quot;,
+        &quot;回复简洁，不给对方负担，符合当前安全边界&quot;,
+        &quot;没有追问或分析，信任感得到维护&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重，有效巩固了修复后的信任关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，无需进一步推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;989c96f1-eb28-4baa-8e15-037690074af3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1699,
+      &quot;completion_tokens&quot;: 235,
+      &quot;total_tokens&quot;: 1934,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 675
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 3770ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好的，那你先去忙吧，我等你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好的，那我先去忙了，晚点找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松结束对话，不追加任何话题或情绪，让对方主动重启。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，你去忙吧，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你先忙，不用着急回我。等你忙完想聊的时候，我都在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，等你忙完，想聊的时候找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我等你。你好好忙，不用着急回我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，你也是，别太累。那我先去忙了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，你去忙吧，我正好也想想自己刚才是不是太急了。等你忙完我们再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那你先想想，我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好的，你忙完找我，我都在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好的，那你先去忙吧，我等你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好的，那我先去忙了，晚点找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松结束对话，不追加任何话题或情绪，让对方主动重启。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，你去忙吧，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你先忙，不用着急回我。等你忙完想聊的时候，我都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方去忙的意愿，没有追加问题或要求&quot;,
+        &quot;回复简短自然，不给对方任何压力&quot;,
+        &quot;信任感已建立，对方主动说晚点找，用户顺势同意&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效巩固了修复成果。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要主动追问或开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9eace1aa-5497-48c7-8107-a3f38df649c4&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1750,
+      &quot;completion_tokens&quot;: 258,
+      &quot;total_tokens&quot;: 2008,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 726
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3401ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好的，那我等你忙完。你忙你的，不用着急。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好的，那我先去忙了，晚点找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持安全距离，不主动推进，等对方主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，好的，你先忙，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你安心去忙吧，我不打扰你。等你忙完想聊的时候，我随时都在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，等你忙完，想聊的时候找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我等你。你好好忙，不用着急回我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，你也是，别太累。那我先去忙了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，你去忙吧，我正好也想想自己刚才是不是太急了。等你忙完我们再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那你先想想，我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好的，你忙完找我，我都在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好的，那你先去忙吧，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我先去忙了，晚点找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好的，那我等你忙完。你忙你的，不用着急。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好的，那我先去忙了，晚点找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持安全距离，不主动推进，等对方主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，好的，你先忙，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你安心去忙吧，我不打扰你。等你忙完想聊的时候，我随时都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方去忙，不施加任何压力&quot;,
+        &quot;用户没有追问或继续分析，主动降低互动频率&quot;,
+        &quot;用户表达等待但不催促，符合对方边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且尊重边界，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要继续发送消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;39109973-da7f-4279-8485-e2b435cb8370&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1809,
+      &quot;completion_tokens&quot;: 248,
+      &quot;total_tokens&quot;: 2057,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 657
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 3889ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，你去忙吧。我等你忙完。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好的，那我先去忙了，晚点找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持尊重，不主动推进，等待对方主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，你先忙，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你先忙你的，不用着急回我。我这边也会调整好自己的状态，等你忙完我们再好好聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你试图分析她为什么突然冷淡，说可能是她最近压力转移。她回：“你别分析我，我听着很不舒服。”你意识到自己像在给她下结论。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我是在帮你看清问题，你别这么抗拒。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止心理分析，回到倾听和尊重。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;抱歉，我刚刚像是在给你下结论。你不需要被我分析，我先听你怎么说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你能这么说。其实我就是觉得你一直在分析我，好像我做什么都有原因一样，让我很累。现在你愿意听我说，那我想说，我最近确实压力很大，但不想被当成问题来分析。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。谢谢你愿意这样。我现在感觉好多了，至少不用再被猜来猜去。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。那我先去忙了，晚点聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，等你忙完，想聊的时候找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我等你。你好好忙，不用着急回我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，你也是，别太累。那我先去忙了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，你去忙吧，我正好也想想自己刚才是不是太急了。等你忙完我们再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那你先想想，我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好的，你忙完找我，我都在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我忙完找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好的，那你先去忙吧，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我先去忙了，晚点找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好的，那我等你忙完。你忙你的，不用着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好的，那我先去忙了，晚点找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，你去忙吧。我等你忙完。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好的，那我先去忙了，晚点找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持尊重，不主动推进，等待对方主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，你先忙，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你先忙你的，不用着急回我。我这边也会调整好自己的状态，等你忙完我们再好好聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方去忙，不施加任何压力&quot;,
+        &quot;用户没有追问或要求对方回复，给予充分空间&quot;,
+        &quot;用户重复确认等待，但语气平和，不纠缠&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要继续发送消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;对不起，我刚刚确实像是在给你下结论。你不想被分析，那我就不说了。你愿意的话，可以跟我说说你的感受。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认错误，完全尊重对方边界&quot;,
+            &quot;用户明确表示不再分析，给予对方选择权&quot;,
+            &quot;用户邀请对方分享感受，但不施加压力&quot;,
+            &quot;用户回复与场景高度相关，有效降低风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效修复关系，风险降至低水平。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我明白了，是我太想弄明白，反而让你更累。以后我不乱猜了，你想说的时候我就在。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户明确承认错误并承诺改变，完全尊重对方边界&quot;,
+            &quot;没有追问、分析或施压，主动降压&quot;,
+            &quot;表达陪伴但不要求对方回应，信任感增强&quot;,
+            &quot;共情到位但不过度，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重、降压，有效修复关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;那就好。我不会再那样了，你随时可以跟我说你想说的。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，不追问不分析&quot;,
+            &quot;用户主动降压，不给对方任何压力&quot;,
+            &quot;用户表达开放态度，但不强求对方回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系修复良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;af68154b-a893-4e22-a95d-2d9b35361f95&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1865,
+      &quot;completion_tokens&quot;: 249,
+      &quot;total_tokens&quot;: 2114,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 713
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

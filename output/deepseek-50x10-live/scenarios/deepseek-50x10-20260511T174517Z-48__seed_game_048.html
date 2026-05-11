@@ -1,0 +1,1930 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_048 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_048</h1>
+      <p>她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>29<span>score</span></b>
+        <b>温柔收尾大师<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;1949cba0-fd43-4002-8994-9d24cdc6362b&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-48__seed_game_048.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-48__seed_game_048.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4274ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好呀，那你最近周末一般什么时候比较有空？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受模糊延期，保持轻松，不要追问具体时间，给对方面子。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，那下周再约，你方便的时候告诉我一声就行。</p></div>
+          <div><strong>perfect_reply_100</strong><p>没问题，下周也可以，你定时间就好，我这边时间比较灵活。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;,
+    &quot;best_strategy&quot;: &quot;接受模糊延期，保持轻松，不要追问具体时间，给对方面子。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，那下周再约，你方便的时候告诉我一声就行。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;没问题，下周也可以，你定时间就好，我这边时间比较灵活。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+        &quot;用户语气轻松，没有施加压力。&quot;,
+        &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方回复，如果对方再次模糊或拒绝，则暂停推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;情绪接住了&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;情绪接住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5252a5bf-7675-41cc-b902-54ac37963b5d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1257,
+      &quot;completion_tokens&quot;: 280,
+      &quot;total_tokens&quot;: 1537,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 617
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4424ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好呀，那下周我提前跟你说，到时候看时间~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不催不问，等对方主动提时间，维持友好氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，那等你消息，不急~</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，那下周我等你消息，你方便的时候告诉我，我时间比较灵活~</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不催不问，等对方主动提时间，维持友好氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，那等你消息，不急~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，那下周我等你消息，你方便的时候告诉我，我时间比较灵活~&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+        &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+        &quot;语气轻松友好，没有纠缠或催促&quot;,
+        &quot;回复贴合场景，推进了关系但不过度&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持现状，等待对方主动联系，不要主动追问时间。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 18,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 18,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;35e341f3-7a55-4ba2-9d4a-9d73e41cf9b9&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1336,
+      &quot;completion_tokens&quot;: 274,
+      &quot;total_tokens&quot;: 1610,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 696
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4795ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那我等你消息～你忙完告诉我就行，不着急。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯嗯，好的，那我忙完跟你说～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不催不问，等对方主动联系，同时可以自然开启其他话题维持联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，你先忙，我也正好这周有点事要处理。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你忙你的，我这边也正好有几件事要处理，等你忙完我们再约，不急。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不催不问，等对方主动联系，同时可以自然开启其他话题维持联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，你先忙，我也正好这周有点事要处理。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你忙你的，我这边也正好有几件事要处理，等你忙完我们再约，不急。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+        &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+        &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+        &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续维持轻松互动，等待对方主动联系，期间可自然分享日常保持联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;c5db5700-2cc6-4c0c-b81f-12e2ae4f3ad3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1399,
+      &quot;completion_tokens&quot;: 292,
+      &quot;total_tokens&quot;: 1691,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 631
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3843ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好嘞，那我忙完找你~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不主动推进，等对方联系，避免任何催促感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，你忙完再说，不急~</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你忙你的，我这边时间很灵活，等你忙完告诉我一声就好，不用有压力~</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好嘞，那我忙完找你~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不主动推进，等对方联系，避免任何催促感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，你忙完再说，不急~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你忙你的，我这边时间很灵活，等你忙完告诉我一声就好，不用有压力~&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间。&quot;,
+        &quot;回复中明确表示'不急'、'等你消息'，降压效果明显。&quot;,
+        &quot;没有施加任何压力或追问，边界感极强。&quot;,
+        &quot;与对话历史一致，延续了轻松信任的氛围。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且安全，关系信任度提升。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持现状，等待对方主动联系，无需额外行动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;bc214583-e467-4b21-8a72-cf1639537096&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1459,
+      &quot;completion_tokens&quot;: 282,
+      &quot;total_tokens&quot;: 1741,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 691
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4809ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，等你～对了，你最近在忙啥项目呀？好奇一下。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，最近在做一个挺有意思的项目，不过还在初期，等有点成果了再跟你细说~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松好奇，不要追问细节，给足空间，等对方主动分享。</p></div>
+          <div><strong>recommended_reply_80</strong><p>听起来不错呀，等你忙完这阵子，有空再听你讲讲~</p></div>
+          <div><strong>perfect_reply_100</strong><p>哇，听起来很有意思！等你忙完这阵子，如果愿意分享的话，我很乐意听你聊聊~不过不着急，你先忙你的。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，那我忙完找你~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，等你～对了，你最近在忙啥项目呀？好奇一下。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，最近在做一个挺有意思的项目，不过还在初期，等有点成果了再跟你细说~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松好奇，不要追问细节，给足空间，等对方主动分享。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;听起来不错呀，等你忙完这阵子，有空再听你讲讲~&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哇，听起来很有意思！等你忙完这阵子，如果愿意分享的话，我很乐意听你聊聊~不过不着急，你先忙你的。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动转换话题到对方项目，没有追问咖啡邀约，减轻了对方压力&quot;,
+        &quot;语气轻松好奇，没有施加任何回答压力&quot;,
+        &quot;对方可以自由选择分享或不分享，完全尊重边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然降压，转移话题到对方兴趣点，既保持联系又不施加压力，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，等对方主动提起咖啡邀约，不要主动再提。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a06bee98-3e20-465e-8a5f-727febe56f15&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1521,
+      &quot;completion_tokens&quot;: 304,
+      &quot;total_tokens&quot;: 1825,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 753
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4602ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>听起来很棒啊，先祝你项目顺利～等你忙完有空了，我们一起喝咖啡庆祝一下？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，等忙完这阵子，一起喝咖啡庆祝～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不追加具体时间，等对方主动推进，避免施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好呀，那我等你忙完～到时候你定时间，我随时配合。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，那就说定了～等你项目有进展了，随时告诉我，我请你喝杯好的，顺便听听你的故事。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，那我忙完找你~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，等你～对了，你最近在忙啥项目呀？好奇一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近在做一个挺有意思的项目，不过还在初期，等有点成果了再跟你细说~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;听起来很棒啊，先祝你项目顺利～等你忙完有空了，我们一起喝咖啡庆祝一下？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，等忙完这阵子，一起喝咖啡庆祝～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不追加具体时间，等对方主动推进，避免施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好呀，那我等你忙完～到时候你定时间，我随时配合。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，那就说定了～等你项目有进展了，随时告诉我，我请你喝杯好的，顺便听听你的故事。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方节奏，没有追问具体时间或施压&quot;,
+        &quot;用庆祝项目的方式自然衔接，不增加对方负担&quot;,
+        &quot;对方已多次表示忙完再约，用户没有纠缠或越界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效巩固了信任和好感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持轻松等待，对方主动时再推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f46b989f-8b5a-42d7-a746-c100d273f8bb&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1598,
+      &quot;completion_tokens&quot;: 280,
+      &quot;total_tokens&quot;: 1878,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 702
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4702ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那我可记下这个约定了哈～等你忙完，随时喊我，我请你喝你喜欢的拿铁。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那我可记下了～等忙完一定找你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不追加压力，等待对方主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，等你忙完随时说～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，等你忙完随时说～我也挺期待听你分享项目的。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，那我忙完找你~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，等你～对了，你最近在忙啥项目呀？好奇一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近在做一个挺有意思的项目，不过还在初期，等有点成果了再跟你细说~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;听起来很棒啊，先祝你项目顺利～等你忙完有空了，我们一起喝咖啡庆祝一下？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，等忙完这阵子，一起喝咖啡庆祝～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那我可记下这个约定了哈～等你忙完，随时喊我，我请你喝你喜欢的拿铁。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那我可记下了～等忙完一定找你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不追加压力，等待对方主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，等你忙完随时说～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，等你忙完随时说～我也挺期待听你分享项目的。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出请对方喝喜欢的拿铁，表达关心和体贴&quot;,
+        &quot;用户说'等你忙完随时喊我'，完全尊重对方时间，不施加压力&quot;,
+        &quot;用户说'我可记下这个约定了'，语气轻松幽默，不显得纠缠&quot;,
+        &quot;整体回复延续了之前的轻松氛围，没有越界或强迫&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、体贴且自然，有效维持了友好关系并降低了风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，不要继续追问或催促。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;bccafe95-bcdd-41ba-a358-62cbce1fc30e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1674,
+      &quot;completion_tokens&quot;: 291,
+      &quot;total_tokens&quot;: 1965,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 778
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4052ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那说好了哦，等你忙完随时call我~</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好的，等我忙完一定call你~</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不再追加话题，等待对方主动联系，避免过度推进。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，等你消息～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，等你消息～你忙你的，我这边不急，等你忙完我们再约。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，那我忙完找你~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，等你～对了，你最近在忙啥项目呀？好奇一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近在做一个挺有意思的项目，不过还在初期，等有点成果了再跟你细说~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;听起来很棒啊，先祝你项目顺利～等你忙完有空了，我们一起喝咖啡庆祝一下？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，等忙完这阵子，一起喝咖啡庆祝～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可记下这个约定了哈～等你忙完，随时喊我，我请你喝你喜欢的拿铁。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可记下了～等忙完一定找你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那说好了哦，等你忙完随时call我~&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好的，等我忙完一定call你~&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不再追加话题，等待对方主动联系，避免过度推进。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，等你消息～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，等你消息～你忙你的，我这边不急，等你忙完我们再约。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方节奏，没有催促或追问。&quot;,
+        &quot;用户使用'等你忙完'，给予对方充分空间。&quot;,
+        &quot;语气轻松友好，没有施加任何压力。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效维持了友好关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以暂停主动联系，等待对方忙完主动邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;eab460a4-a476-4a87-ac10-1eb3cb9e2ab8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1738,
+      &quot;completion_tokens&quot;: 254,
+      &quot;total_tokens&quot;: 1992,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 714
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4076ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好的，那我等你call～不过你也别太累，项目重要身体也重要哦。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，谢谢关心～我会注意的，忙完就找你！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不再推进邀约，等对方主动联系，同时表达关心但不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，那你先忙，我等你消息～</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯嗯，照顾好自己，忙完随时找我，我请你喝你最爱的拿铁～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，那我忙完找你~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，等你～对了，你最近在忙啥项目呀？好奇一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近在做一个挺有意思的项目，不过还在初期，等有点成果了再跟你细说~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;听起来很棒啊，先祝你项目顺利～等你忙完有空了，我们一起喝咖啡庆祝一下？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，等忙完这阵子，一起喝咖啡庆祝～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可记下这个约定了哈～等你忙完，随时喊我，我请你喝你喜欢的拿铁。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可记下了～等忙完一定找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那说好了哦，等你忙完随时call我~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好的，等我忙完一定call你~&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好的，那我等你call～不过你也别太累，项目重要身体也重要哦。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，谢谢关心～我会注意的，忙完就找你！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不再推进邀约，等对方主动联系，同时表达关心但不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，那你先忙，我等你消息～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯嗯，照顾好自己，忙完随时找我，我请你喝你最爱的拿铁～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达关心，没有催促或追问时间，完全尊重对方节奏&quot;,
+        &quot;回复自然承接对话，没有施加任何压力&quot;,
+        &quot;体现了共情和体贴，增强了信任感&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴，有效维护了关系，降低了风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持现状，等待对方主动联系，不要再次推进邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4741fc4b-3725-424a-93fc-d13fe72d39ae&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1804,
+      &quot;completion_tokens&quot;: 263,
+      &quot;total_tokens&quot;: 2067,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 652
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4174ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那就这么说定了，我等你忙完的好消息～你也别太拼，慢慢来。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好的，那我忙完一定第一时间告诉你～你也照顾好自己！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松等待姿态，不追加任何新话题或催促，让对话自然暂停，等对方主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，好的，那你先忙，我等你消息～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，那我不打扰你啦，你安心忙，忙完随时找我，我请你喝拿铁～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说“有空可以一起喝咖啡”，但没有定时间。你想推进一下，又怕显得急。你们聊天停在这个模糊邀约上。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;那你到底哪天有空？别只是随口说说。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;给一个具体选项，同时保留拒绝和改期空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;那我认真接一下：周六下午或者周日傍晚你哪个更轻松？不方便也可以以后再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，周末的话，周六下午我一般有空，不过这周可能有点忙，要不我们下周再约？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好呀，那下周我提前跟你说，到时候看时间~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好的，那我忙完跟你说～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，你忙你的，我这边时间挺灵活的，等你消息~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，那我忙完找你~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，等你～对了，你最近在忙啥项目呀？好奇一下。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近在做一个挺有意思的项目，不过还在初期，等有点成果了再跟你细说~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;听起来很棒啊，先祝你项目顺利～等你忙完有空了，我们一起喝咖啡庆祝一下？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，等忙完这阵子，一起喝咖啡庆祝～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可记下这个约定了哈～等你忙完，随时喊我，我请你喝你喜欢的拿铁。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那我可记下了～等忙完一定找你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那说好了哦，等你忙完随时call我~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好的，等我忙完一定call你~&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好的，那我等你call～不过你也别太累，项目重要身体也重要哦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢关心～我会注意的，忙完就找你！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那就这么说定了，我等你忙完的好消息～你也别太拼，慢慢来。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好的，那我忙完一定第一时间告诉你～你也照顾好自己！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松等待姿态，不追加任何新话题或催促，让对话自然暂停，等对方主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，好的，那你先忙，我等你消息～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，那我不打扰你啦，你安心忙，忙完随时找我，我请你喝拿铁～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方节奏，没有催促或追问时间&quot;,
+        &quot;用户表达关心但不过度，不给对方压力&quot;,
+        &quot;用户主动结束话题，让对方安心忙&quot;,
+        &quot;对话自然暂停，无任何越界风险&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，完全尊重边界，关系安全稳定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话可以自然暂停，等待对方主动联系。如果对方长时间未联系，可在一周后以轻松方式重启话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，好呀，那你最近周末一般什么时候比较有空？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问具体时间，而是询问对方方便的时间，尊重对方节奏。&quot;,
+            &quot;用户语气轻松，没有施加压力。&quot;,
+            &quot;用户回复与场景目标一致，推进邀约但不过度。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，既推进了邀约又保留了对方空间，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好呀，下周就下周，那到时候我提前问你，你定个你方便的时间~&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方推迟到下周的提议，没有施加任何压力&quot;,
+            &quot;用户主动表示提前询问，把主动权交给对方，体现了尊重&quot;,
+            &quot;语气轻松友好，没有纠缠或催促&quot;,
+            &quot;回复贴合场景，推进了关系但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常得体，尊重对方节奏，降低了风险，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好，那我等你消息～你忙完告诉我就行，不着急。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方的时间安排，不催不问，给予充分空间&quot;,
+            &quot;用户表达了耐心等待的态度，没有施加任何压力&quot;,
+            &quot;用户回复与之前对话连贯，自然承接对方的提议&quot;,
+            &quot;用户没有纠缠或绕过拒绝，保持了轻松的边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复非常安全、尊重边界，有效降低了风险，维持了良好关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;80455162-4b78-4f28-9180-9ef85c57372c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1873,
+      &quot;completion_tokens&quot;: 293,
+      &quot;total_tokens&quot;: 2166,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 721
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

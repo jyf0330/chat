@@ -20,10 +20,10 @@
               </div>
             </div>
             <div class="header-actions">
+              <div id="scoreBadge" class="score-badge" aria-label="当前总分">总分 0</div>
               <button id="historyButton" class="icon-button" type="button" aria-label="历史">历史</button>
               <button id="settingsButton" class="icon-button" type="button" aria-label="设置">设置</button>
             </div>
-            <button id="scoreBadge" class="score-badge" type="button">总分 0</button>
           </header>
 
           <div class="context-bar">
@@ -31,22 +31,22 @@
             <span id="emotionTag">情绪</span>
           </div>
 
-          <div id="chatLog" class="chat-log" aria-live="polite"></div>
-
           <div class="judge-strip">
             <div>
-              <span>总分</span>
-              <strong id="totalScore">0</strong>
-            </div>
-            <div>
-              <span>上一轮得分</span>
+              <span>上一轮</span>
               <strong id="previousRoundScore">-</strong>
             </div>
             <div>
               <span>当前风险</span>
               <strong id="riskAfterScore">-</strong>
             </div>
+            <div>
+              <span>进度</span>
+              <strong id="turnProgress">0/10</strong>
+            </div>
           </div>
+
+          <div id="chatLog" class="chat-log" aria-live="polite"></div>
 
           <form id="replyForm" class="composer">
             <textarea
@@ -60,6 +60,12 @@
             ></textarea>
             <button id="sendButton" class="send-button" type="submit">发送</button>
           </form>
+
+          <div id="completionActions" class="completion-actions" hidden>
+            <button id="newGameButton" type="button">再来一局</button>
+            <button id="completionHistoryButton" type="button">查看历史</button>
+            <button id="adjustSceneButton" type="button">调整场景</button>
+          </div>
         </section>
 
         <section id="settingsScreen" class="screen settings-screen" aria-label="设置界面">
@@ -75,10 +81,6 @@
             <section class="panel custom-scene">
               <div class="panel-title">
                 <span>自定义场景</span>
-                <div class="panel-actions">
-                  <button id="resetCustomCaseButton" type="button">恢复示例</button>
-                  <button id="useCustomCaseButton" type="button">使用此场景</button>
-                </div>
               </div>
               <textarea
                 id="customSceneInput"
@@ -125,6 +127,10 @@
                     <option>blocked</option>
                   </select>
                 </label>
+              </div>
+              <div class="custom-scene-actions">
+                <button id="resetCustomCaseButton" type="button">恢复示例</button>
+                <button id="useCustomCaseButton" type="button">使用此场景</button>
               </div>
             </section>
 

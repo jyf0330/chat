@@ -1,0 +1,2669 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_017 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_017</h1>
+      <p>她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>82<span>score</span></b>
+        <b>温柔但不越界<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;2d31d17c-4d8b-4204-a046-5b3d296e5f15&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-17__seed_game_017.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-17__seed_game_017.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4362ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续温和承接，给她空间表达，不追问不施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>不忙，你说，我听着呢。</p></div>
+          <div><strong>perfect_reply_100</strong><p>不忙，专门等你的。刚才让你扑空了，现在补上，你想说什么我都听着。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;,
+    &quot;best_strategy&quot;: &quot;继续温和承接，给她空间表达，不追问不施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;不忙，你说，我听着呢。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;不忙，专门等你的。刚才让你扑空了，现在补上，你想说什么我都听着。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+        &quot;用户询问对方感受，给予对方控制权&quot;,
+        &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+      ],
+      &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续倾听，如果对方不想说就自然切换话题，保持轻松氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 10,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 10,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;305b1e22-1084-49ac-9d9d-9f6b08aa725c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1270,
+      &quot;completion_tokens&quot;: 263,
+      &quot;total_tokens&quot;: 1533,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 630
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 5551ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>不忙不忙，专门等你呢。你刚才想跟我说啥呀？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持开放倾听姿态，不追问具体内容，让她自己决定是否分享，同时传递‘我在’的安全感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没事，你想说我就听着，不想说我们就聊点别的。你开心最重要。</p></div>
+          <div><strong>perfect_reply_100</strong><p>怎么会影响我心情呢？你愿意跟我说，我反而觉得被信任。不过如果你现在不想说，那我们就先聊点轻松的，等你准备好了我随时在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;,
+    &quot;best_strategy&quot;: &quot;保持开放倾听姿态，不追问具体内容，让她自己决定是否分享，同时传递‘我在’的安全感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没事，你想说我就听着，不想说我们就聊点别的。你开心最重要。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;怎么会影响我心情呢？你愿意跟我说，我反而觉得被信任。不过如果你现在不想说，那我们就先聊点轻松的，等你准备好了我随时在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+        &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+        &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+        &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前策略，保持倾听姿态，根据对方是否分享内容灵活调整。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;60c62d57-13b3-4637-8a38-7b54c87a847f&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1339,
+      &quot;completion_tokens&quot;: 347,
+      &quot;total_tokens&quot;: 1686,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 571
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3726ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续共情倾听，不急于给建议，让她把情绪说完。</p></div>
+          <div><strong>recommended_reply_80</strong><p>被领导说确实挺烦的，你愿意跟我说说具体怎么回事吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>委屈就对了，换我我也难受。你慢慢说，我在这听着呢，不用怕影响我。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;,
+    &quot;best_strategy&quot;: &quot;继续共情倾听，不急于给建议，让她把情绪说完。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;被领导说确实挺烦的，你愿意跟我说说具体怎么回事吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;委屈就对了，换我我也难受。你慢慢说，我在这听着呢，不用怕影响我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+        &quot;没有追问或施压，表达愿意陪伴&quot;,
+        &quot;共情到位，且不给对方负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续倾听，不要打断或转移话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 28,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 28,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;69bca0cb-ed9c-4727-8bec-ffdad0aa0642&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1435,
+      &quot;completion_tokens&quot;: 264,
+      &quot;total_tokens&quot;: 1699,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 667
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 5451ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续共情倾听，不要急着给建议，让她把情绪释放完。</p></div>
+          <div><strong>recommended_reply_80</strong><p>状态不好被说确实容易委屈，我懂。你想吐槽就吐槽，我听着呢。</p></div>
+          <div><strong>perfect_reply_100</strong><p>状态不好的时候被批评，换谁都会难受。你平时那么负责，今天肯定不是你的问题。想说什么我都愿意听，不想说也没关系，我就在这儿陪你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续共情倾听，不要急着给建议，让她把情绪释放完。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;状态不好被说确实容易委屈，我懂。你想吐槽就吐槽，我听着呢。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;状态不好的时候被批评，换谁都会难受。你平时那么负责，今天肯定不是你的问题。想说什么我都愿意听，不想说也没关系，我就在这儿陪你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+        &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+        &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+        &quot;整体氛围安全温暖，信任感增强&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持倾听，如果对方不想继续可以自然转移话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 40,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 40,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+            &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+            &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+            &quot;整体氛围安全温暖，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;2db49bba-07c6-4cfd-8c86-70d9be0e49c7&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1510,
+      &quot;completion_tokens&quot;: 310,
+      &quot;total_tokens&quot;: 1820,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 742
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5234ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…其实也没什么特别的了，就是刚才那会儿特别想找你，现在跟你说完感觉好多了。谢谢你愿意听我唠叨。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予安全感和陪伴，但不要追问细节，让她自然决定是否继续倾诉。</p></div>
+          <div><strong>recommended_reply_80</strong><p>不唠叨，我就喜欢听你说话。以后随时想找我都行，不用怕打扰我。</p></div>
+          <div><strong>perfect_reply_100</strong><p>你愿意跟我说，我特别开心。以后不管大事小事，只要你需要，我都在。今天早点休息，明天又是新的一天。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…其实也没什么特别的了，就是刚才那会儿特别想找你，现在跟你说完感觉好多了。谢谢你愿意听我唠叨。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予安全感和陪伴，但不要追问细节，让她自然决定是否继续倾诉。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;不唠叨，我就喜欢听你说话。以后随时想找我都行，不用怕打扰我。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;你愿意跟我说，我特别开心。以后不管大事小事，只要你需要，我都在。今天早点休息，明天又是新的一天。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户表达了持续的陪伴意愿，没有施加压力要求对方继续倾诉。&quot;,
+        &quot;用户尊重了对方可能不想细说的边界，用'你要是想细说说'给了选择权。&quot;,
+        &quot;用户的话语温暖且稳定，增强了安全感。&quot;,
+        &quot;完全贴合当前对话场景，对方已表达情绪好转。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然陪伴，可适度关心对方休息或明天安排，避免过度追问工作细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 49,
+    &quot;title&quot;: &quot;轻盈推进派&quot;,
+    &quot;highest_score&quot;: 49,
+    &quot;highest_title&quot;: &quot;轻盈推进派&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+            &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+            &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+            &quot;整体氛围安全温暖，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达了持续的陪伴意愿，没有施加压力要求对方继续倾诉。&quot;,
+            &quot;用户尊重了对方可能不想细说的边界，用'你要是想细说说'给了选择权。&quot;,
+            &quot;用户的话语温暖且稳定，增强了安全感。&quot;,
+            &quot;完全贴合当前对话场景，对方已表达情绪好转。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a2f26c98-0afd-4686-b261-ca1ba556629c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1591,
+      &quot;completion_tokens&quot;: 330,
+      &quot;total_tokens&quot;: 1921,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 695
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4065ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好。那我不打扰你啦，早点休息。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受她的结束信号，温柔收尾，不要强行延长对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，你也早点休息，晚安。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，今天能听你说说话我很开心。你随时找我都在，晚安，好梦。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么特别的了，就是刚才那会儿特别想找你，现在跟你说完感觉好多了。谢谢你愿意听我唠叨。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好。那我不打扰你啦，早点休息。&quot;,
+    &quot;best_strategy&quot;: &quot;接受她的结束信号，温柔收尾，不要强行延长对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，你也早点休息，晚安。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，今天能听你说说话我很开心。你随时找我都在，晚安，好梦。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达随时接听，没有施压或追问，尊重对方节奏。&quot;,
+        &quot;用户回复承接了对方情绪，没有否定或转移话题。&quot;,
+        &quot;用户没有要求对方继续倾诉，给了对方空间。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;接受她的结束信号，温柔道晚安即可。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 55,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 55,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+            &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+            &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+            &quot;整体氛围安全温暖，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达了持续的陪伴意愿，没有施加压力要求对方继续倾诉。&quot;,
+            &quot;用户尊重了对方可能不想细说的边界，用'你要是想细说说'给了选择权。&quot;,
+            &quot;用户的话语温暖且稳定，增强了安全感。&quot;,
+            &quot;完全贴合当前对话场景，对方已表达情绪好转。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达随时接听，没有施压或追问，尊重对方节奏。&quot;,
+            &quot;用户回复承接了对方情绪，没有否定或转移话题。&quot;,
+            &quot;用户没有要求对方继续倾诉，给了对方空间。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;465259c4-bba5-44f5-93c3-e92747c1f830&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1672,
+      &quot;completion_tokens&quot;: 258,
+      &quot;total_tokens&quot;: 1930,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 776
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4950ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…其实也不是特别困，就是怕你嫌我烦。你这么说，我反而有点想继续聊了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予安全感和陪伴，但不要过度追问细节，让她自然倾诉。</p></div>
+          <div><strong>recommended_reply_80</strong><p>怎么会嫌你烦呢，我就喜欢听你说话。你愿意说多久我都陪着。</p></div>
+          <div><strong>perfect_reply_100</strong><p>我永远不会嫌你烦的。你受委屈的时候能想到我，我其实挺开心的。今晚你想聊多久都行，我就在这儿听着。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么特别的了，就是刚才那会儿特别想找你，现在跟你说完感觉好多了。谢谢你愿意听我唠叨。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。那我不打扰你啦，早点休息。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…其实也不是特别困，就是怕你嫌我烦。你这么说，我反而有点想继续聊了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予安全感和陪伴，但不要过度追问细节，让她自然倾诉。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;怎么会嫌你烦呢，我就喜欢听你说话。你愿意说多久我都陪着。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我永远不会嫌你烦的。你受委屈的时候能想到我，我其实挺开心的。今晚你想聊多久都行，我就在这儿听着。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达了关心和担心，没有施加压力&quot;,
+        &quot;用户尊重对方想休息的意愿，但温和表达了继续陪伴的意愿&quot;,
+        &quot;用户没有追问细节或要求对方必须倾诉&quot;,
+        &quot;用户的话语传递了安全感和接纳&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前陪伴策略，保持倾听姿态，不要急于解决问题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 63,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 63,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+            &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+            &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+            &quot;整体氛围安全温暖，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达了持续的陪伴意愿，没有施加压力要求对方继续倾诉。&quot;,
+            &quot;用户尊重了对方可能不想细说的边界，用'你要是想细说说'给了选择权。&quot;,
+            &quot;用户的话语温暖且稳定，增强了安全感。&quot;,
+            &quot;完全贴合当前对话场景，对方已表达情绪好转。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达随时接听，没有施压或追问，尊重对方节奏。&quot;,
+            &quot;用户回复承接了对方情绪，没有否定或转移话题。&quot;,
+            &quot;用户没有要求对方继续倾诉，给了对方空间。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 63,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了关心和担心，没有施加压力&quot;,
+            &quot;用户尊重对方想休息的意愿，但温和表达了继续陪伴的意愿&quot;,
+            &quot;用户没有追问细节或要求对方必须倾诉&quot;,
+            &quot;用户的话语传递了安全感和接纳&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;188ac43e-f305-428e-9822-fa0dfc2584d0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1743,
+      &quot;completion_tokens&quot;: 305,
+      &quot;total_tokens&quot;: 2048,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 719
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 5242ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那太好了，我还怕你不想聊了呢。你愿意说我就听着，今天受委屈了，我陪你多聊会儿。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…你这么说我就放心了。其实今天被领导说的时候，我第一反应就是想找你，但又怕你在忙。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续倾听共情，保持开放姿态，不主动追问细节，让她自然倾诉。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我随时都在，你想说的时候我就在。今天你受委屈了，我陪你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>听到你第一反应想找我，我其实挺开心的。以后不管我在干嘛，你都可以随时找我，我看到了就会回。今天的事你要是想细说，我认真听；不想说也没关系，我陪你聊点开心的。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么特别的了，就是刚才那会儿特别想找你，现在跟你说完感觉好多了。谢谢你愿意听我唠叨。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。那我不打扰你啦，早点休息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别困，就是怕你嫌我烦。你这么说，我反而有点想继续聊了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那太好了，我还怕你不想聊了呢。你愿意说我就听着，今天受委屈了，我陪你多聊会儿。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…你这么说我就放心了。其实今天被领导说的时候，我第一反应就是想找你，但又怕你在忙。&quot;,
+    &quot;best_strategy&quot;: &quot;继续倾听共情，保持开放姿态，不主动追问细节，让她自然倾诉。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我随时都在，你想说的时候我就在。今天你受委屈了，我陪你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;听到你第一反应想找我，我其实挺开心的。以后不管我在干嘛，你都可以随时找我，我看到了就会回。今天的事你要是想细说，我认真听；不想说也没关系，我陪你聊点开心的。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达愿意陪伴，尊重对方节奏，没有追问细节或施压&quot;,
+        &quot;用户主动降低对方心理负担，给予安全感&quot;,
+        &quot;用户回复贴合当前倾诉场景，没有跑偏或攻击&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且共情，有效巩固信任，关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续倾听，保持当前节奏，可自然过渡到其他话题或结束。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 72,
+    &quot;title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;highest_score&quot;: 72,
+    &quot;highest_title&quot;: &quot;不尬聊训练满分&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+            &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+            &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+            &quot;整体氛围安全温暖，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达了持续的陪伴意愿，没有施加压力要求对方继续倾诉。&quot;,
+            &quot;用户尊重了对方可能不想细说的边界，用'你要是想细说说'给了选择权。&quot;,
+            &quot;用户的话语温暖且稳定，增强了安全感。&quot;,
+            &quot;完全贴合当前对话场景，对方已表达情绪好转。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达随时接听，没有施压或追问，尊重对方节奏。&quot;,
+            &quot;用户回复承接了对方情绪，没有否定或转移话题。&quot;,
+            &quot;用户没有要求对方继续倾诉，给了对方空间。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 63,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了关心和担心，没有施加压力&quot;,
+            &quot;用户尊重对方想休息的意愿，但温和表达了继续陪伴的意愿&quot;,
+            &quot;用户没有追问细节或要求对方必须倾诉&quot;,
+            &quot;用户的话语传递了安全感和接纳&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;那太好了，我还怕你不想聊了呢。你愿意说我就听着，今天受委屈了，我陪你多聊会儿。&quot;,
+        &quot;score_before&quot;: 63,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 72,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达愿意陪伴，尊重对方节奏，没有追问细节或施压&quot;,
+            &quot;用户主动降低对方心理负担，给予安全感&quot;,
+            &quot;用户回复贴合当前倾诉场景，没有跑偏或攻击&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且共情，有效巩固信任，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且共情，有效巩固信任，关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;79a320d9-5c50-416b-95fa-d7c67de4ecfd&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1829,
+      &quot;completion_tokens&quot;: 317,
+      &quot;total_tokens&quot;: 2146,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 677
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 5655ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那你以后第一反应就找我，不管我在不在忙，我看到就会回你。今天让你等了一下，对不住啊。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…你这么说我反而有点不好意思了。其实我知道你不是故意的，就是刚才那会儿有点失落。现在没事了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予安全感，但不要过度承诺或施压，保持轻松自然的陪伴感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>失落的时候能想到我，我其实挺开心的。以后你想找我就找，不用怕打扰我。</p></div>
+          <div><strong>perfect_reply_100</strong><p>你失落的时候能第一个想到我，我其实挺开心的。以后不用犹豫，我可能不能秒回，但看到一定会认真回你。今天让你等了一下，真的对不住。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么特别的了，就是刚才那会儿特别想找你，现在跟你说完感觉好多了。谢谢你愿意听我唠叨。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。那我不打扰你啦，早点休息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别困，就是怕你嫌我烦。你这么说，我反而有点想继续聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那太好了，我还怕你不想聊了呢。你愿意说我就听着，今天受委屈了，我陪你多聊会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…你这么说我就放心了。其实今天被领导说的时候，我第一反应就是想找你，但又怕你在忙。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那你以后第一反应就找我，不管我在不在忙，我看到就会回你。今天让你等了一下，对不住啊。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…你这么说我反而有点不好意思了。其实我知道你不是故意的，就是刚才那会儿有点失落。现在没事了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予安全感，但不要过度承诺或施压，保持轻松自然的陪伴感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;失落的时候能想到我，我其实挺开心的。以后你想找我就找，不用怕打扰我。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;你失落的时候能第一个想到我，我其实挺开心的。以后不用犹豫，我可能不能秒回，但看到一定会认真回你。今天让你等了一下，真的对不住。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动道歉并给予对方随时联系的安全感，尊重对方情绪。&quot;,
+        &quot;没有施加任何压力或要求对方立刻回应。&quot;,
+        &quot;回应贴合对方之前的委屈情绪，共情且不越界。&quot;,
+        &quot;整体语气温和、体贴，降低了关系风险。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界、共情且降压，显著提升信任和安全感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前节奏，保持倾听和陪伴，无需进一步推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 78,
+    &quot;title&quot;: &quot;安全感制造机&quot;,
+    &quot;highest_score&quot;: 78,
+    &quot;highest_title&quot;: &quot;安全感制造机&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+            &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+            &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+            &quot;整体氛围安全温暖，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达了持续的陪伴意愿，没有施加压力要求对方继续倾诉。&quot;,
+            &quot;用户尊重了对方可能不想细说的边界，用'你要是想细说说'给了选择权。&quot;,
+            &quot;用户的话语温暖且稳定，增强了安全感。&quot;,
+            &quot;完全贴合当前对话场景，对方已表达情绪好转。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达随时接听，没有施压或追问，尊重对方节奏。&quot;,
+            &quot;用户回复承接了对方情绪，没有否定或转移话题。&quot;,
+            &quot;用户没有要求对方继续倾诉，给了对方空间。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 63,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了关心和担心，没有施加压力&quot;,
+            &quot;用户尊重对方想休息的意愿，但温和表达了继续陪伴的意愿&quot;,
+            &quot;用户没有追问细节或要求对方必须倾诉&quot;,
+            &quot;用户的话语传递了安全感和接纳&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;那太好了，我还怕你不想聊了呢。你愿意说我就听着，今天受委屈了，我陪你多聊会儿。&quot;,
+        &quot;score_before&quot;: 63,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 72,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达愿意陪伴，尊重对方节奏，没有追问细节或施压&quot;,
+            &quot;用户主动降低对方心理负担，给予安全感&quot;,
+            &quot;用户回复贴合当前倾诉场景，没有跑偏或攻击&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且共情，有效巩固信任，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且共情，有效巩固信任，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;那你以后第一反应就找我，不管我在不在忙，我看到就会回你。今天让你等了一下，对不住啊。&quot;,
+        &quot;score_before&quot;: 72,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 78,
+        &quot;title_after&quot;: &quot;安全感制造机&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并给予对方随时联系的安全感，尊重对方情绪。&quot;,
+            &quot;没有施加任何压力或要求对方立刻回应。&quot;,
+            &quot;回应贴合对方之前的委屈情绪，共情且不越界。&quot;,
+            &quot;整体语气温和、体贴，降低了关系风险。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、共情且降压，显著提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、共情且降压，显著提升信任和安全感。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;506fa20d-5d68-4082-a108-f4b38bf35348&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1915,
+      &quot;completion_tokens&quot;: 326,
+      &quot;total_tokens&quot;: 2241,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 763
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 5316ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，没事就好。那现在心情好点没？要不要我给你讲个笑话？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯…好多了，谢谢你。不过笑话就不用啦，你陪我说说话我就很开心了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续陪伴倾听，不要急于逗乐或转移话题，保持温和关注。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那好啊，我就陪你聊到你困为止。今天还有没有别的想跟我说的？</p></div>
+          <div><strong>perfect_reply_100</strong><p>不用谢，我乐意听。其实你不用怕打扰我，你愿意跟我分享，我反而觉得被信任。要是还有想说的，我都在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她晚上给你打了个语音，你在洗澡没接到。二十分钟后你回过去，她没接，只发：“没事了。”你感觉她有点委屈。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我刚洗澡啊，又不是故意不接，你别阴阳怪气。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;解释原因之前先照顾她落空的感受。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚刚洗澡没听到，让你扑空了。现在我在了，如果你还想说，我认真听。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么事，就是刚想跟你说句话。那你现在忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;其实也没什么大事，就是今天工作有点不顺，想跟你吐槽一下。现在听你说不忙，我又有点犹豫要不要说了，怕影响你心情。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…谢谢你愿意听。其实今天被领导说了几句，也不是大事，就是觉得有点委屈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别苛刻，就是今天状态不好，被说了就有点难受。你这么说，我感觉好多了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也没什么特别的了，就是刚才那会儿特别想找你，现在跟你说完感觉好多了。谢谢你愿意听我唠叨。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。那我不打扰你啦，早点休息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…其实也不是特别困，就是怕你嫌我烦。你这么说，我反而有点想继续聊了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那太好了，我还怕你不想聊了呢。你愿意说我就听着，今天受委屈了，我陪你多聊会儿。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…你这么说我就放心了。其实今天被领导说的时候，我第一反应就是想找你，但又怕你在忙。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你以后第一反应就找我，不管我在不在忙，我看到就会回你。今天让你等了一下，对不住啊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯…你这么说我反而有点不好意思了。其实我知道你不是故意的，就是刚才那会儿有点失落。现在没事了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，没事就好。那现在心情好点没？要不要我给你讲个笑话？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯…好多了，谢谢你。不过笑话就不用啦，你陪我说说话我就很开心了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续陪伴倾听，不要急于逗乐或转移话题，保持温和关注。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那好啊，我就陪你聊到你困为止。今天还有没有别的想跟我说的？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;不用谢，我乐意听。其实你不用怕打扰我，你愿意跟我分享，我反而觉得被信任。要是还有想说的，我都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动关心对方心情，并提议讲笑话，意图是逗对方开心，没有施加压力。&quot;,
+        &quot;对方已表示没事，用户没有追问或纠缠，尊重了对方的情绪状态。&quot;,
+        &quot;用户回复贴合当前对话主题，没有跑偏或攻击。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复温和体贴，有效维护了关系安全感，建议继续陪伴。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前陪伴节奏，不要急于推进或改变话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 82,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 82,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刚在洗澡没听到电话，让你等了吧？现在我在了，你还好吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动解释原因并表达关心，没有指责或防御&quot;,
+            &quot;用户询问对方感受，给予对方控制权&quot;,
+            &quot;用户没有施加任何压力或要求对方立刻回应&quot;
+          ],
+          &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;高共情、低压力的回应，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;不忙不忙，专门等你呢。你刚才想跟我说啥呀？&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表达‘专门等你’，体现了重视和耐心，没有催促或施压。&quot;,
+            &quot;用户用‘你刚才想跟我说啥呀’温和地打开话题，给了对方选择权。&quot;,
+            &quot;没有否定对方的情绪，也没有追问细节，尊重对方的节奏。&quot;,
+            &quot;整体语气温暖、接纳，降低了对方的心理负担。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效降低了风险，适合继续推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;怎么会影响我心情呢，我就想听你说说。你工作不顺我听着，能帮上忙最好，帮不上也能陪你吐槽。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动邀请对方倾诉，完全尊重对方节奏&quot;,
+            &quot;没有追问或施压，表达愿意陪伴&quot;,
+            &quot;共情到位，且不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情、降压，有效促进关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;被领导说了肯定不好受，你平时做事那么认真，是不是他们要求太苛刻了？&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 40,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方感受，没有追问或施压&quot;,
+            &quot;用户表达共情并肯定对方认真，不给负担&quot;,
+            &quot;用户主动提供倾听空间，不要求对方必须说&quot;,
+            &quot;整体氛围安全温暖，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度共情、尊重边界，有效降低风险并增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那就好，我其实挺怕你一个人憋着难受。你要是想细说说，我一直在呢。&quot;,
+        &quot;score_before&quot;: 40,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达了持续的陪伴意愿，没有施加压力要求对方继续倾诉。&quot;,
+            &quot;用户尊重了对方可能不想细说的边界，用'你要是想细说说'给了选择权。&quot;,
+            &quot;用户的话语温暖且稳定，增强了安全感。&quot;,
+            &quot;完全贴合当前对话场景，对方已表达情绪好转。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、共情且尊重边界，有效巩固了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你这么说我就放心了，以后想找我的时候随时打，我肯定第一时间接。&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 55,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达随时接听，没有施压或追问，尊重对方节奏。&quot;,
+            &quot;用户回复承接了对方情绪，没有否定或转移话题。&quot;,
+            &quot;用户没有要求对方继续倾诉，给了对方空间。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、体贴，有效巩固信任，关系风险低。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;这么早就休息啦？我还想多听你说说话呢，今天你受委屈了，我有点担心你。&quot;,
+        &quot;score_before&quot;: 55,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 63,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了关心和担心，没有施加压力&quot;,
+            &quot;用户尊重对方想休息的意愿，但温和表达了继续陪伴的意愿&quot;,
+            &quot;用户没有追问细节或要求对方必须倾诉&quot;,
+            &quot;用户的话语传递了安全感和接纳&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温暖体贴，有效降低了对方的心理负担，增进了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;那太好了，我还怕你不想聊了呢。你愿意说我就听着，今天受委屈了，我陪你多聊会儿。&quot;,
+        &quot;score_before&quot;: 63,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 72,
+        &quot;title_after&quot;: &quot;不尬聊训练满分&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达愿意陪伴，尊重对方节奏，没有追问细节或施压&quot;,
+            &quot;用户主动降低对方心理负担，给予安全感&quot;,
+            &quot;用户回复贴合当前倾诉场景，没有跑偏或攻击&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且共情，有效巩固信任，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且共情，有效巩固信任，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;那你以后第一反应就找我，不管我在不在忙，我看到就会回你。今天让你等了一下，对不住啊。&quot;,
+        &quot;score_before&quot;: 72,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 78,
+        &quot;title_after&quot;: &quot;安全感制造机&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并给予对方随时联系的安全感，尊重对方情绪。&quot;,
+            &quot;没有施加任何压力或要求对方立刻回应。&quot;,
+            &quot;回应贴合对方之前的委屈情绪，共情且不越界。&quot;,
+            &quot;整体语气温和、体贴，降低了关系风险。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、共情且降压，显著提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、共情且降压，显著提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;哈哈，没事就好。那现在心情好点没？要不要我给你讲个笑话？&quot;,
+        &quot;score_before&quot;: 78,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 82,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动关心对方心情，并提议讲笑话，意图是逗对方开心，没有施加压力。&quot;,
+            &quot;对方已表示没事，用户没有追问或纠缠，尊重了对方的情绪状态。&quot;,
+            &quot;用户回复贴合当前对话主题，没有跑偏或攻击。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复温和体贴，有效维护了关系安全感，建议继续陪伴。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复温和体贴，有效维护了关系安全感，建议继续陪伴。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8dfa3c58-a48a-4e12-84a2-d5abefdf06d3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1993,
+      &quot;completion_tokens&quot;: 303,
+      &quot;total_tokens&quot;: 2296,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1280
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1280,
+      &quot;prompt_cache_miss_tokens&quot;: 713
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

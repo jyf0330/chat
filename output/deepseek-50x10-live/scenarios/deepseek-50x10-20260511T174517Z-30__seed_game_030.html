@@ -1,0 +1,2622 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_030 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_030</h1>
+      <p>你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>66<span>score</span></b>
+        <b>这句回得很会<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;bb0c91c1-1933-43c6-bf6d-e9e5ccf20505&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-30__seed_game_030.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-30__seed_game_030.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4958ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松话题，继续了解对方兴趣，避免自嘲过度。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我也喜欢搞笑视频，最近有看到什么好笑的吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>看来你更喜欢动态的搞笑内容，我最近刷到一个猫咪合集特别逗，要不要推荐给你？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松话题，继续了解对方兴趣，避免自嘲过度。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我也喜欢搞笑视频，最近有看到什么好笑的吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;看来你更喜欢动态的搞笑内容，我最近刷到一个猫咪合集特别逗，要不要推荐给你？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+        &quot;提问开放且轻松，不强迫对方回答&quot;,
+        &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松话题，观察对方回应热情，若仍简短可考虑暂时结束。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 8,
+    &quot;title&quot;: &quot;情绪接住了&quot;,
+    &quot;highest_score&quot;: 8,
+    &quot;highest_title&quot;: &quot;情绪接住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4dfac826-02e1-454a-8650-b4a27cb94e7a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1272,
+      &quot;completion_tokens&quot;: 274,
+      &quot;total_tokens&quot;: 1546,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 632
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4885ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，用具体推荐延续话题，同时观察对方是否主动延伸。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哦哦，那个我知道，确实挺逗的。你还有别的宝藏博主吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>小蓝那个我也看过几期，确实好笑！你平时还看其他类型的搞笑内容吗？比如脱口秀或者搞笑综艺？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，用具体推荐延续话题，同时观察对方是否主动延伸。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哦哦，那个我知道，确实挺逗的。你还有别的宝藏博主吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;小蓝那个我也看过几期，确实好笑！你平时还看其他类型的搞笑内容吗？比如脱口秀或者搞笑综艺？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+        &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+        &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享和询问，保持平衡，若对方回应变短则考虑降低频率。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 15,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 15,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;b36ad4e5-328a-47d6-abd5-d6cdee99f443&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1358,
+      &quot;completion_tokens&quot;: 301,
+      &quot;total_tokens&quot;: 1659,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 718
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3901ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享节奏，用开放式问题延续话题，避免查户口式追问。</p></div>
+          <div><strong>recommended_reply_80</strong><p>晚上看确实解压，我有时候白天摸鱼也看，哈哈。</p></div>
+          <div><strong>perfect_reply_100</strong><p>晚上看确实解压，我有时候白天摸鱼也看，哈哈。你睡前刷多久？我经常一刷就停不下来。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享节奏，用开放式问题延续话题，避免查户口式追问。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;晚上看确实解压，我有时候白天摸鱼也看，哈哈。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;晚上看确实解压，我有时候白天摸鱼也看，哈哈。你睡前刷多久？我经常一刷就停不下来。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动延续话题，没有冷场或施压&quot;,
+        &quot;问题自然，不涉及隐私或强迫回答&quot;,
+        &quot;语气轻松，符合当前破冰阶段&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松分享，可适当加入自身经历，保持平衡。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 22,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 22,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;64737013-2bcf-46ab-bf2a-945eb8d9031b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1449,
+      &quot;completion_tokens&quot;: 275,
+      &quot;total_tokens&quot;: 1724,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 681
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4730ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续分享搞笑内容，保持轻松互动，同时注意不要过度追问，给对方留出选择空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>王蓝莓？我好像也刷到过，确实挺逗的。那我回头也关注一下。</p></div>
+          <div><strong>perfect_reply_100</strong><p>王蓝莓！我关注她好久了，她那个“我妈系列”简直是我的日常复刻，每次看都笑到肚子疼。你最喜欢她哪个视频？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续分享搞笑内容，保持轻松互动，同时注意不要过度追问，给对方留出选择空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;王蓝莓？我好像也刷到过，确实挺逗的。那我回头也关注一下。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;王蓝莓！我关注她好久了，她那个“我妈系列”简直是我的日常复刻，每次看都笑到肚子疼。你最喜欢她哪个视频？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+        &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+        &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享搞笑内容，保持轻松互动，可以适当加入个人感受，但避免连续提问。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+            &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+            &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8e58ea09-c603-42c7-8cf2-daa92a44d71f&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1530,
+      &quot;completion_tokens&quot;: 307,
+      &quot;total_tokens&quot;: 1837,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 762
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4925ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，对，她模仿老师也特别逗！看来咱们笑点挺一致的嘛。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松共鸣，自然过渡到分享更多共同兴趣，避免追问或施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，看来我们笑点很合拍！你平时还喜欢看其他类型的搞笑内容吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，看来我们笑点很合拍！你平时还喜欢看其他类型的搞笑内容吗？比如脱口秀或者搞笑综艺？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，对，她模仿老师也特别逗！看来咱们笑点挺一致的嘛。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松共鸣，自然过渡到分享更多共同兴趣，避免追问或施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，看来我们笑点很合拍！你平时还喜欢看其他类型的搞笑内容吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，看来我们笑点很合拍！你平时还喜欢看其他类型的搞笑内容吗？比如脱口秀或者搞笑综艺？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户积极回应对方推荐的内容，并补充了更多细节，显示兴趣和共鸣。&quot;,
+        &quot;没有追问隐私或施加压力，话题自然延伸。&quot;,
+        &quot;语气轻松友好，没有负面情绪或越界行为。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享共同兴趣，保持轻松节奏，可以适当引入新话题但不要急。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+            &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+            &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户积极回应对方推荐的内容，并补充了更多细节，显示兴趣和共鸣。&quot;,
+            &quot;没有追问隐私或施加压力，话题自然延伸。&quot;,
+            &quot;语气轻松友好，没有负面情绪或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f8e9c411-6eee-4331-9cf5-92e4510b0eb2&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1613,
+      &quot;completion_tokens&quot;: 293,
+      &quot;total_tokens&quot;: 1906,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 717
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4304ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我平时还喜欢看看电影、打打游戏，你呢？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，用开放问题延续话题，避免查户口式追问。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我也喜欢看电影！最近有看什么好片吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>电影和游戏我也爱！最近刚二刷了《星际穿越》，每次看都有新感受。你最近有看什么好片或者玩什么游戏吗？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，她模仿老师也特别逗！看来咱们笑点挺一致的嘛。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我平时还喜欢看看电影、打打游戏，你呢？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，用开放问题延续话题，避免查户口式追问。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我也喜欢看电影！最近有看什么好片吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;电影和游戏我也爱！最近刚二刷了《星际穿越》，每次看都有新感受。你最近有看什么好片或者玩什么游戏吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享笑点合拍，并自然转移话题到其他兴趣，没有追问或施压。&quot;,
+        &quot;用户使用开放性问题，给对方自由选择回答的空间。&quot;,
+        &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松分享，根据对方回答再决定是否深入。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;松弛感回复王&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;松弛感回复王&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+            &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+            &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户积极回应对方推荐的内容，并补充了更多细节，显示兴趣和共鸣。&quot;,
+            &quot;没有追问隐私或施加压力，话题自然延伸。&quot;,
+            &quot;语气轻松友好，没有负面情绪或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享笑点合拍，并自然转移话题到其他兴趣，没有追问或施压。&quot;,
+            &quot;用户使用开放性问题，给对方自由选择回答的空间。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;92ded8da-bf75-4b10-9c90-d2095cadb26c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1693,
+      &quot;completion_tokens&quot;: 286,
+      &quot;total_tokens&quot;: 1979,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 797
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 6023ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，《热辣滚烫》还没看，听说口碑不错，准备周末去看。王者我偶尔玩，但比较菜，主要玩吃鸡和原神。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，继续交换兴趣，避免追问或评价对方水平，维持平等对话节奏。</p></div>
+          <div><strong>recommended_reply_80</strong><p>吃鸡我也玩过，不过总是落地成盒哈哈。原神我还没入坑，好玩吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>吃鸡我也玩，不过经常落地成盒。原神我还没开始，听说剧情很丰富，你推荐入坑吗？周末看《热辣滚烫》的话，可以看完交流下感受～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，她模仿老师也特别逗！看来咱们笑点挺一致的嘛。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时还喜欢看看电影、打打游戏，你呢？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，《热辣滚烫》还没看，听说口碑不错，准备周末去看。王者我偶尔玩，但比较菜，主要玩吃鸡和原神。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，继续交换兴趣，避免追问或评价对方水平，维持平等对话节奏。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;吃鸡我也玩过，不过总是落地成盒哈哈。原神我还没入坑，好玩吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;吃鸡我也玩，不过经常落地成盒。原神我还没开始，听说剧情很丰富，你推荐入坑吗？周末看《热辣滚烫》的话，可以看完交流下感受～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户自然延续了对方提到的电影和游戏话题，没有追问隐私或施压。&quot;,
+        &quot;用户主动分享自己的游戏经历，保持平等交流。&quot;,
+        &quot;没有评价对方水平或兴趣，尊重对方节奏。&quot;,
+        &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前策略，保持轻松分享，可适当加入具体细节或共同兴趣点。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 52,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 52,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+            &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+            &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户积极回应对方推荐的内容，并补充了更多细节，显示兴趣和共鸣。&quot;,
+            &quot;没有追问隐私或施加压力，话题自然延伸。&quot;,
+            &quot;语气轻松友好，没有负面情绪或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享笑点合拍，并自然转移话题到其他兴趣，没有追问或施压。&quot;,
+            &quot;用户使用开放性问题，给对方自由选择回答的空间。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然延续了对方提到的电影和游戏话题，没有追问隐私或施压。&quot;,
+            &quot;用户主动分享自己的游戏经历，保持平等交流。&quot;,
+            &quot;没有评价对方水平或兴趣，尊重对方节奏。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5b54b3df-b8d8-46e4-af0e-4d7de20eb4b3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1777,
+      &quot;completion_tokens&quot;: 347,
+      &quot;total_tokens&quot;: 2124,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 753
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 5970ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>吃鸡和原神都是大热门啊！我原神刚入坑，还在蒙德瞎逛，吃鸡倒是玩得比较多，有机会可以一起开黑。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，可以啊！不过我吃鸡比较菜，别嫌弃就行。你原神刚入坑的话，有什么不懂的可以问我，虽然我也不是大佬哈哈。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>顺势接受游戏邀约，保持轻松友好，同时展示愿意帮助的态度，进一步拉近距离。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，菜不菜的无所谓，开心最重要！那加个好友？我游戏ID发你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，没事，我带你吃鸡，保证让你体验一把躺赢的快乐！原神的话，我正好有个小号，可以一起开荒，顺便给你当导游。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，她模仿老师也特别逗！看来咱们笑点挺一致的嘛。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时还喜欢看看电影、打打游戏，你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，《热辣滚烫》还没看，听说口碑不错，准备周末去看。王者我偶尔玩，但比较菜，主要玩吃鸡和原神。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;吃鸡和原神都是大热门啊！我原神刚入坑，还在蒙德瞎逛，吃鸡倒是玩得比较多，有机会可以一起开黑。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，可以啊！不过我吃鸡比较菜，别嫌弃就行。你原神刚入坑的话，有什么不懂的可以问我，虽然我也不是大佬哈哈。&quot;,
+    &quot;best_strategy&quot;: &quot;顺势接受游戏邀约，保持轻松友好，同时展示愿意帮助的态度，进一步拉近距离。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，菜不菜的无所谓，开心最重要！那加个好友？我游戏ID发你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，没事，我带你吃鸡，保证让你体验一把躺赢的快乐！原神的话，我正好有个小号，可以一起开荒，顺便给你当导游。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出一起开黑，自然推进关系，没有施加压力。&quot;,
+        &quot;用户表达了自己玩得多，但语气轻松，没有炫耀或贬低对方。&quot;,
+        &quot;用户没有追问对方隐私或敏感话题，完全围绕共同兴趣。&quot;,
+        &quot;用户回复贴合对话历史，延续了游戏话题，没有跑偏。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然友好，尊重对方节奏，有效推进关系且无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续推进游戏邀约，但保持轻松，不要急于索要联系方式。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 60,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 60,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+            &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+            &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户积极回应对方推荐的内容，并补充了更多细节，显示兴趣和共鸣。&quot;,
+            &quot;没有追问隐私或施加压力，话题自然延伸。&quot;,
+            &quot;语气轻松友好，没有负面情绪或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享笑点合拍，并自然转移话题到其他兴趣，没有追问或施压。&quot;,
+            &quot;用户使用开放性问题，给对方自由选择回答的空间。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然延续了对方提到的电影和游戏话题，没有追问隐私或施压。&quot;,
+            &quot;用户主动分享自己的游戏经历，保持平等交流。&quot;,
+            &quot;没有评价对方水平或兴趣，尊重对方节奏。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;吃鸡和原神都是大热门啊！我原神刚入坑，还在蒙德瞎逛，吃鸡倒是玩得比较多，有机会可以一起开黑。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 60,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起开黑，自然推进关系，没有施加压力。&quot;,
+            &quot;用户表达了自己玩得多，但语气轻松，没有炫耀或贬低对方。&quot;,
+            &quot;用户没有追问对方隐私或敏感话题，完全围绕共同兴趣。&quot;,
+            &quot;用户回复贴合对话历史，延续了游戏话题，没有跑偏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，尊重对方节奏，有效推进关系且无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，尊重对方节奏，有效推进关系且无风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f1fdd2c7-b51a-4a4e-955d-e46534b0a48d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1882,
+      &quot;completion_tokens&quot;: 351,
+      &quot;total_tokens&quot;: 2233,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 730
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 5670ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那太好了，有你这个老玩家带路我就放心了。吃鸡的话我虽然不算大神，但带你吃个鸡应该没问题，什么时候有空一起？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀！我周末晚上一般都有空，你什么时候方便？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方已接受邀约，保持轻松自然，确认具体时间即可，不要过度追问或施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，周末晚上我也行，那到时候我拉你？你游戏ID是什么？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那周末晚上约起来！我吃鸡ID是XXX，你加我好友，到时候我拉你，咱们边玩边聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，她模仿老师也特别逗！看来咱们笑点挺一致的嘛。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时还喜欢看看电影、打打游戏，你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，《热辣滚烫》还没看，听说口碑不错，准备周末去看。王者我偶尔玩，但比较菜，主要玩吃鸡和原神。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;吃鸡和原神都是大热门啊！我原神刚入坑，还在蒙德瞎逛，吃鸡倒是玩得比较多，有机会可以一起开黑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，可以啊！不过我吃鸡比较菜，别嫌弃就行。你原神刚入坑的话，有什么不懂的可以问我，虽然我也不是大佬哈哈。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那太好了，有你这个老玩家带路我就放心了。吃鸡的话我虽然不算大神，但带你吃个鸡应该没问题，什么时候有空一起？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀！我周末晚上一般都有空，你什么时候方便？&quot;,
+    &quot;best_strategy&quot;: &quot;对方已接受邀约，保持轻松自然，确认具体时间即可，不要过度追问或施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，周末晚上我也行，那到时候我拉你？你游戏ID是什么？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那周末晚上约起来！我吃鸡ID是XXX，你加我好友，到时候我拉你，咱们边玩边聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出一起玩游戏，但给出了选择空间（什么时候有空），没有强迫对方立刻答应。&quot;,
+        &quot;用户语气轻松，使用了“哈哈”和“应该没问题”等缓和表达，没有施压。&quot;,
+        &quot;用户没有追问隐私或敏感话题，话题保持在游戏邀约的合理范围内。&quot;,
+        &quot;对方之前已表现出兴趣，用户顺势推进，符合关系阶段。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户自然推进关系，尊重对方节奏，安全且有效。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，确认具体时间后可以自然结束或转入其他话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 66,
+    &quot;title&quot;: &quot;这句回得很会&quot;,
+    &quot;highest_score&quot;: 66,
+    &quot;highest_title&quot;: &quot;这句回得很会&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+            &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+            &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户积极回应对方推荐的内容，并补充了更多细节，显示兴趣和共鸣。&quot;,
+            &quot;没有追问隐私或施加压力，话题自然延伸。&quot;,
+            &quot;语气轻松友好，没有负面情绪或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享笑点合拍，并自然转移话题到其他兴趣，没有追问或施压。&quot;,
+            &quot;用户使用开放性问题，给对方自由选择回答的空间。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然延续了对方提到的电影和游戏话题，没有追问隐私或施压。&quot;,
+            &quot;用户主动分享自己的游戏经历，保持平等交流。&quot;,
+            &quot;没有评价对方水平或兴趣，尊重对方节奏。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;吃鸡和原神都是大热门啊！我原神刚入坑，还在蒙德瞎逛，吃鸡倒是玩得比较多，有机会可以一起开黑。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 60,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起开黑，自然推进关系，没有施加压力。&quot;,
+            &quot;用户表达了自己玩得多，但语气轻松，没有炫耀或贬低对方。&quot;,
+            &quot;用户没有追问对方隐私或敏感话题，完全围绕共同兴趣。&quot;,
+            &quot;用户回复贴合对话历史，延续了游戏话题，没有跑偏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，尊重对方节奏，有效推进关系且无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，尊重对方节奏，有效推进关系且无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，那太好了，有你这个老玩家带路我就放心了。吃鸡的话我虽然不算大神，但带你吃个鸡应该没问题，什么时候有空一起？&quot;,
+        &quot;score_before&quot;: 60,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 66,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起玩游戏，但给出了选择空间（什么时候有空），没有强迫对方立刻答应。&quot;,
+            &quot;用户语气轻松，使用了“哈哈”和“应该没问题”等缓和表达，没有施压。&quot;,
+            &quot;用户没有追问隐私或敏感话题，话题保持在游戏邀约的合理范围内。&quot;,
+            &quot;对方之前已表现出兴趣，用户顺势推进，符合关系阶段。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户自然推进关系，尊重对方节奏，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户自然推进关系，尊重对方节奏，安全且有效。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8427ac32-bc4e-4daa-825d-c83e3f6bb0a8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1986,
+      &quot;completion_tokens&quot;: 330,
+      &quot;total_tokens&quot;: 2316,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 834
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4568ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，周末晚上好啊，我一般周六晚上和周日全天都有空，咱们可以约个时间一起玩。你吃鸡还是原神？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那就周六晚上吧，咱们先吃鸡，我加你游戏好友？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>确认具体时间，保持轻松邀约，避免过度追问或施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好呀，周六晚上吃鸡，我游戏ID是XXX，加我好友就行。</p></div>
+          <div><strong>perfect_reply_100</strong><p>周六晚上吃鸡听起来不错！我游戏ID是XXX，你加我或者我加你都行，到时候语音聊，一起快乐。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你刚认识她没多久，发了一个自以为有趣的段子，她只回“哈哈”。你不知道她是真的觉得好笑，还是礼貌结束话题。你想再接一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;陌生破冰&quot;,
+      &quot;target_emotion&quot;: &quot;礼貌敷衍&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你就回两个字啊，也太冷淡了吧。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;降低存在感，用容易回应的小问题继续试探兴趣。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;这个段子看来只拿到两字评价。我换个正常问题：你平时也喜欢这种冷笑话吗？&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，其实我平时看搞笑视频比较多，段子也看但不多。你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，沙雕动画确实上头！我最近在追一个叫“小蓝和他的朋友们”的博主，挺搞笑的，你可以看看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，就是那个蓝色火柴人！我一般晚上睡前刷，当放松了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，最近刷到一个叫“王蓝莓”的，她模仿妈妈特别像，笑死我了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，对，她模仿老师也特别逗！看来咱们笑点挺一致的嘛。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时还喜欢看看电影、打打游戏，你呢？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，《热辣滚烫》还没看，听说口碑不错，准备周末去看。王者我偶尔玩，但比较菜，主要玩吃鸡和原神。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;吃鸡和原神都是大热门啊！我原神刚入坑，还在蒙德瞎逛，吃鸡倒是玩得比较多，有机会可以一起开黑。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，可以啊！不过我吃鸡比较菜，别嫌弃就行。你原神刚入坑的话，有什么不懂的可以问我，虽然我也不是大佬哈哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那太好了，有你这个老玩家带路我就放心了。吃鸡的话我虽然不算大神，但带你吃个鸡应该没问题，什么时候有空一起？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀！我周末晚上一般都有空，你什么时候方便？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，周末晚上好啊，我一般周六晚上和周日全天都有空，咱们可以约个时间一起玩。你吃鸡还是原神？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那就周六晚上吧，咱们先吃鸡，我加你游戏好友？&quot;,
+    &quot;best_strategy&quot;: &quot;确认具体时间，保持轻松邀约，避免过度追问或施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好呀，周六晚上吃鸡，我游戏ID是XXX，加我好友就行。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;周六晚上吃鸡听起来不错！我游戏ID是XXX，你加我或者我加你都行，到时候语音聊，一起快乐。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动提供时间选择，尊重对方节奏&quot;,
+        &quot;没有催促或要求立即回复，语气轻松&quot;,
+        &quot;话题延续自然，没有越界或施压&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，推进自然，关系安全升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松互动，确认具体游戏细节后可以自然过渡到其他话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 66,
+    &quot;title&quot;: &quot;这句回得很会&quot;,
+    &quot;highest_score&quot;: 66,
+    &quot;highest_title&quot;: &quot;这句回得很会&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，看来我这个段子水平有限啊。那你平时喜欢看什么类型的搞笑内容？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 8,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动自嘲并转移话题，尊重对方可能的敷衍，没有施压&quot;,
+            &quot;提问开放且轻松，不强迫对方回答&quot;,
+            &quot;没有纠缠或负面情绪，保持了友好氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，既化解了尴尬又推进了对话，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我啊，最近迷上那种沙雕动画，就是那种角色特别夸张的，每次看都能笑出声。你有推荐的搞笑视频博主吗？&quot;,
+        &quot;score_before&quot;: 8,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的喜好并询问对方推荐，话题自然且无压迫感&quot;,
+            &quot;没有追问对方之前的冷淡回应，尊重了边界&quot;,
+            &quot;回复内容与当前话题高度相关，延续了轻松氛围&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进对话且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;小蓝？是不是那个蓝色火柴人？我好像刷到过，确实挺魔性的。你一般什么时候看这些啊？&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动延续话题，没有冷场或施压&quot;,
+            &quot;问题自然，不涉及隐私或强迫回答&quot;,
+            &quot;语气轻松，符合当前破冰阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然推进对话，保持兴趣且不越界。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，睡前刷确实解压，我也是睡前看点轻松的。那你最近有刷到什么特别搞笑的视频吗？分享一下呗。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接对方话题，没有施加压力&quot;,
+            &quot;用户主动分享自己的习惯，保持对话平衡&quot;,
+            &quot;用户请求分享具体内容，但语气轻松，没有强迫感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;王蓝莓模仿妈妈那个我也刷到过，太传神了！她还有模仿老师系列，也超搞笑。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户积极回应对方推荐的内容，并补充了更多细节，显示兴趣和共鸣。&quot;,
+            &quot;没有追问隐私或施加压力，话题自然延伸。&quot;,
+            &quot;语气轻松友好，没有负面情绪或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然共鸣，安全推进对话。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，那咱们笑点还挺合拍的。对了，你平时除了看搞笑视频，还喜欢做点别的什么吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享笑点合拍，并自然转移话题到其他兴趣，没有追问或施压。&quot;,
+            &quot;用户使用开放性问题，给对方自由选择回答的空间。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效推进话题且尊重对方边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，我也喜欢看电影，最近有部新片《热辣滚烫》你看了吗？打游戏的话，我偶尔玩王者荣耀，你玩什么？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户自然延续了对方提到的电影和游戏话题，没有追问隐私或施压。&quot;,
+            &quot;用户主动分享自己的游戏经历，保持平等交流。&quot;,
+            &quot;没有评价对方水平或兴趣，尊重对方节奏。&quot;,
+            &quot;整体语气轻松友好，没有越界或强迫感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，有效延续对话，无风险行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;吃鸡和原神都是大热门啊！我原神刚入坑，还在蒙德瞎逛，吃鸡倒是玩得比较多，有机会可以一起开黑。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 60,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起开黑，自然推进关系，没有施加压力。&quot;,
+            &quot;用户表达了自己玩得多，但语气轻松，没有炫耀或贬低对方。&quot;,
+            &quot;用户没有追问对方隐私或敏感话题，完全围绕共同兴趣。&quot;,
+            &quot;用户回复贴合对话历史，延续了游戏话题，没有跑偏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然友好，尊重对方节奏，有效推进关系且无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然友好，尊重对方节奏，有效推进关系且无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，那太好了，有你这个老玩家带路我就放心了。吃鸡的话我虽然不算大神，但带你吃个鸡应该没问题，什么时候有空一起？&quot;,
+        &quot;score_before&quot;: 60,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 66,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出一起玩游戏，但给出了选择空间（什么时候有空），没有强迫对方立刻答应。&quot;,
+            &quot;用户语气轻松，使用了“哈哈”和“应该没问题”等缓和表达，没有施压。&quot;,
+            &quot;用户没有追问隐私或敏感话题，话题保持在游戏邀约的合理范围内。&quot;,
+            &quot;对方之前已表现出兴趣，用户顺势推进，符合关系阶段。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户自然推进关系，尊重对方节奏，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户自然推进关系，尊重对方节奏，安全且有效。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;92b386c3-eb9a-49c3-865e-8b7c6ec26001&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2067,
+      &quot;completion_tokens&quot;: 277,
+      &quot;total_tokens&quot;: 2344,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1280
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1280,
+      &quot;prompt_cache_miss_tokens&quot;: 787
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

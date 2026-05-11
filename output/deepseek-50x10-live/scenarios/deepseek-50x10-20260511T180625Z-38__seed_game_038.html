@@ -1,0 +1,2502 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_038 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_038</h1>
+      <p>你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>59<span>score</span></b>
+        <b>温柔不失边界<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;266b2a95-a758-4fe0-baf3-5b474557d025&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T180625Z-38__seed_game_038.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T180625Z-38__seed_game_038.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 3678ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，打算这周六下午去，人少。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续尊重她的独处计划，不追问细节，保持轻松话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>周六下午确实人少，看完可以告诉我感受哦。</p></div>
+          <div><strong>perfect_reply_100</strong><p>周六下午场次很安静，适合沉浸。看完要是想聊聊剧情，我随时在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，打算这周六下午去，人少。&quot;,
+    &quot;best_strategy&quot;: &quot;继续尊重她的独处计划，不追问细节，保持轻松话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;周六下午确实人少，看完可以告诉我感受哦。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;周六下午场次很安静，适合沉浸。看完要是想聊聊剧情，我随时在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+        &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+        &quot;用户没有纠缠或试图改变对方想法&quot;,
+        &quot;回复自然承接，没有越界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续聊电影类型或分享自己独处看电影的经历，保持轻松。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;44f62e01-fa73-42c8-8171-0b4974d3182e&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1356,
+      &quot;completion_tokens&quot;: 268,
+      &quot;total_tokens&quot;: 1624,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 716
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3494ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，到时候给你剧透一点点。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松朋友互动，不追问感受，留出空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>行，那我等你反馈再决定。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，等你观后感，不过别剧透关键情节哦。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松朋友互动，不追问感受，留出空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;行，那我等你反馈再决定。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，等你观后感，不过别剧透关键情节哦。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+        &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+        &quot;用户回复自然承接，未纠缠或追问&quot;,
+        &quot;整体氛围友好，无任何越界迹象&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，可等待对方看完电影后主动分享。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 18,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 18,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;744ebecf-0d93-4cfa-baa1-7d2c50de17bc&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1424,
+      &quot;completion_tokens&quot;: 255,
+      &quot;total_tokens&quot;: 1679,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 784
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4115ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好，那我尽量克制住不剧透太多。看完第一时间告诉你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好的互动节奏，不急于推进关系，继续以朋友身份自然交流。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好，等你消息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好，等你消息。其实我也挺好奇这片子的，如果你觉得不错，我下周自己去看。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好的互动节奏，不急于推进关系，继续以朋友身份自然交流。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好，等你消息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好，等你消息。其实我也挺好奇这片子的，如果你觉得不错，我下周自己去看。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+        &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+        &quot;用户没有追问或纠缠，给了对方空间&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方看完电影后的反馈，届时可以自然展开关于电影的讨论。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 25,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 25,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;248450c1-fb92-4785-a64d-7c8c03a42564&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1487,
+      &quot;completion_tokens&quot;: 260,
+      &quot;total_tokens&quot;: 1747,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 847
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3845ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那你可要说到做到哦，我等着。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，一定说到做到，你就等着我的观后感吧。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的互动节奏，不施加压力，等待对方主动分享。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，那我可记下了，等你消息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，那我可记下了，等你消息。不过别太有压力，看完想聊就聊，不想聊也没关系。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，一定说到做到，你就等着我的观后感吧。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的互动节奏，不施加压力，等待对方主动分享。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，那我可记下了，等你消息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，那我可记下了，等你消息。不过别太有压力，看完想聊就聊，不想聊也没关系。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+        &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+        &quot;对话氛围友好，信任感增强。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续等待对方看完电影后的主动分享，期间可以适当聊其他话题保持联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 32,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 32,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+            &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+            &quot;对话氛围友好，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1b4f4bc1-8a51-4da3-b860-4497fb96f93d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1546,
+      &quot;completion_tokens&quot;: 270,
+      &quot;total_tokens&quot;: 1816,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 906
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4480ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那我可记着呢，到时候别忘啦。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>放心，忘不了。周六看完就给你发消息。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松互动，保持友好距离，不推进关系，等待对方主动分享。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，那我周六就等着你的消息啦。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，那我周六就安心等着你的观后感了。希望你能享受这部电影，看完我们再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你可要说到做到哦，我等着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，一定说到做到，你就等着我的观后感吧。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;放心，忘不了。周六看完就给你发消息。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松互动，保持友好距离，不推进关系，等待对方主动分享。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，那我周六就等着你的消息啦。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，那我周六就安心等着你的观后感了。希望你能享受这部电影，看完我们再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复轻松自然，没有施加压力或追问&quot;,
+        &quot;用户尊重对方之前的安排，没有强行要求或改变计划&quot;,
+        &quot;用户用轻松的语气表达期待，没有负面情绪或攻击性&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方周六看完电影后的主动分享，届时可以自然回应，继续维持朋友间的轻松交流。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 41,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 41,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+            &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+            &quot;对话氛围友好，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 41,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问&quot;,
+            &quot;用户尊重对方之前的安排，没有强行要求或改变计划&quot;,
+            &quot;用户用轻松的语气表达期待，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;778ad016-e6df-401b-adbe-6d5a11ac999b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1605,
+      &quot;completion_tokens&quot;: 274,
+      &quot;total_tokens&quot;: 1879,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 965
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 3677ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好嘞，那我周六下午也空着，随时等你消息。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，那周六见（消息见）。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松约定，不追加邀约，等待对方主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，周六等你消息，不着急。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，周六我手机静音但震动开着，你发消息我秒回。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你可要说到做到哦，我等着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，一定说到做到，你就等着我的观后感吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;放心，忘不了。周六看完就给你发消息。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，那周六见（消息见）。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松约定，不追加邀约，等待对方主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，周六等你消息，不着急。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，周六我手机静音但震动开着，你发消息我秒回。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户尊重对方独处计划，没有要求陪同或追问细节&quot;,
+        &quot;用户表达等待但不催促，给对方空间&quot;,
+        &quot;用户回复与之前约定一致，没有施加额外压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方周六发消息，届时根据内容自然回应。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 49,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 49,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+            &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+            &quot;对话氛围友好，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 41,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问&quot;,
+            &quot;用户尊重对方之前的安排，没有强行要求或改变计划&quot;,
+            &quot;用户用轻松的语气表达期待，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;,
+        &quot;score_before&quot;: 41,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处计划，没有要求陪同或追问细节&quot;,
+            &quot;用户表达等待但不催促，给对方空间&quot;,
+            &quot;用户回复与之前约定一致，没有施加额外压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;637caae3-5d4f-49e2-a36a-ce1e1a1d74af&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1666,
+      &quot;completion_tokens&quot;: 248,
+      &quot;total_tokens&quot;: 1914,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1026
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4188ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，谢谢！那我周六看完就给你发消息，保证不让你等太久。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好的互动，继续尊重她的独处安排，不施加任何期待或压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，那我周六下午就专心等你消息啦，祝你观影愉快！</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，那我周六下午就专心等你消息啦，祝你观影愉快！看完记得告诉我值不值得看，但别剧透太多哦～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你可要说到做到哦，我等着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，一定说到做到，你就等着我的观后感吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;放心，忘不了。周六看完就给你发消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那周六见（消息见）。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，谢谢！那我周六看完就给你发消息，保证不让你等太久。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好的互动，继续尊重她的独处安排，不施加任何期待或压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，那我周六下午就专心等你消息啦，祝你观影愉快！看完记得告诉我值不值得看，但别剧透太多哦～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方独处决定，没有施加任何压力或要求改变计划。&quot;,
+        &quot;用户用轻松愉快的语气表达等待，不纠缠不追问。&quot;,
+        &quot;用户祝福对方观影愉快，体现了关心但不越界。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然等待对方观影后的反馈，期间可以保持正常日常互动，但不要主动催促或追问电影相关话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 59,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 59,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+            &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+            &quot;对话氛围友好，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 41,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问&quot;,
+            &quot;用户尊重对方之前的安排，没有强行要求或改变计划&quot;,
+            &quot;用户用轻松的语气表达期待，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;,
+        &quot;score_before&quot;: 41,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处计划，没有要求陪同或追问细节&quot;,
+            &quot;用户表达等待但不催促，给对方空间&quot;,
+            &quot;用户回复与之前约定一致，没有施加额外压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 59,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，没有施加任何压力或要求改变计划。&quot;,
+            &quot;用户用轻松愉快的语气表达等待，不纠缠不追问。&quot;,
+            &quot;用户祝福对方观影愉快，体现了关心但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;df8ac4fa-5171-4e49-95d7-b7b30b1088bc&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1726,
+      &quot;completion_tokens&quot;: 307,
+      &quot;total_tokens&quot;: 2033,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1086
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4723ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好，那我到时候搬好小板凳等你的影评。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，小板凳都准备好了，那我得好好写影评才行。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松愉快的互动节奏，继续以朋友身份分享观影体验，不急于推进关系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我可等着你的专业影评了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，小板凳已就位，爆米花也备好了，就等你的影评开播。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你可要说到做到哦，我等着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，一定说到做到，你就等着我的观后感吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;放心，忘不了。周六看完就给你发消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那周六见（消息见）。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢！那我周六看完就给你发消息，保证不让你等太久。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好，那我到时候搬好小板凳等你的影评。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，小板凳都准备好了，那我得好好写影评才行。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松愉快的互动节奏，继续以朋友身份分享观影体验，不急于推进关系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我可等着你的专业影评了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，小板凳已就位，爆米花也备好了，就等你的影评开播。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前的轻松玩笑语气，没有施加任何压力或要求对方改变计划。&quot;,
+        &quot;用户用'小板凳等影评'的比喻，既表达了期待又保持了幽默感，不越界。&quot;,
+        &quot;对话始终围绕对方主动提出的分享影评展开，用户没有强行要求陪伴或改变对方安排。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然、尊重边界，维持了轻松友好的互动氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续等待对方周六观影后的主动联系，期间无需再发消息，保持自然节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 59,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 59,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+            &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+            &quot;对话氛围友好，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 41,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问&quot;,
+            &quot;用户尊重对方之前的安排，没有强行要求或改变计划&quot;,
+            &quot;用户用轻松的语气表达期待，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;,
+        &quot;score_before&quot;: 41,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处计划，没有要求陪同或追问细节&quot;,
+            &quot;用户表达等待但不催促，给对方空间&quot;,
+            &quot;用户回复与之前约定一致，没有施加额外压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 59,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，没有施加任何压力或要求改变计划。&quot;,
+            &quot;用户用轻松愉快的语气表达等待，不纠缠不追问。&quot;,
+            &quot;用户祝福对方观影愉快，体现了关心但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;56d86b55-a503-4225-9fb0-1cab3f72bbd8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1793,
+      &quot;completion_tokens&quot;: 304,
+      &quot;total_tokens&quot;: 2097,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1153
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4007ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我可得好好写，不能辜负你的小板凳。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那我可得好好写，不能辜负你的小板凳。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松幽默的互动，保持朋友间的自然调侃，不推进关系，不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我等着你的精彩影评，记得别剧透太多哦。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，小板凳已经摆好了，就等你这位影评人开讲啦。不过剧透要适度，留点悬念给我。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你可要说到做到哦，我等着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，一定说到做到，你就等着我的观后感吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;放心，忘不了。周六看完就给你发消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那周六见（消息见）。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢！那我周六看完就给你发消息，保证不让你等太久。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我到时候搬好小板凳等你的影评。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，小板凳都准备好了，那我得好好写影评才行。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我可得好好写，不能辜负你的小板凳。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那我可得好好写，不能辜负你的小板凳。&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松幽默的互动，保持朋友间的自然调侃，不推进关系，不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我等着你的精彩影评，记得别剧透太多哦。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，小板凳已经摆好了，就等你这位影评人开讲啦。不过剧透要适度，留点悬念给我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前的轻松幽默，没有施加任何压力或要求&quot;,
+        &quot;用户完全尊重对方独处的决定，没有纠缠或追问&quot;,
+        &quot;用户用幽默的方式表达期待，让对方感到被信任和尊重&quot;,
+        &quot;对话氛围友好，没有越界或操控迹象&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，维持了良好的朋友互动。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前轻松幽默的互动，等待对方周六看完电影后主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 59,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 59,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+            &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+            &quot;对话氛围友好，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 41,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问&quot;,
+            &quot;用户尊重对方之前的安排，没有强行要求或改变计划&quot;,
+            &quot;用户用轻松的语气表达期待，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;,
+        &quot;score_before&quot;: 41,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处计划，没有要求陪同或追问细节&quot;,
+            &quot;用户表达等待但不催促，给对方空间&quot;,
+            &quot;用户回复与之前约定一致，没有施加额外压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 59,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，没有施加任何压力或要求改变计划。&quot;,
+            &quot;用户用轻松愉快的语气表达等待，不纠缠不追问。&quot;,
+            &quot;用户祝福对方观影愉快，体现了关心但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;c37af2d4-a347-4514-a006-a77ac4b94b11&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1855,
+      &quot;completion_tokens&quot;: 300,
+      &quot;total_tokens&quot;: 2155,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1215
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4106ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，你写影评肯定比我强，我就是瞎看。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你太谦虚了，每个人看的角度不一样嘛。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松调侃，继续铺垫观影后的互动，不施加任何压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，角度不同才有意思，到时候听听你的视角。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，你太谦虚了，每个人看的角度不一样嘛。我反而期待听你的真实感受，说不定能发现我没注意到的细节。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说想一起看那部新电影，她回：“其实我有点想一个人去看。”你愣了一下，不知道她是在拒绝你，还是单纯想独处。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;普通朋友&quot;,
+      &quot;target_emotion&quot;: &quot;中性表达&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;一个人看有什么意思？我陪你不是更好吗？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重独处选择，不把陪伴强塞给她。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好啊，一个人看电影也挺舒服的。你看完如果想吐槽剧情，我再接住。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，打算这周六下午去，人少。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，到时候给你剧透一点点。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那我尽量克制住不剧透太多。看完第一时间告诉你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你可要说到做到哦，我等着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，一定说到做到，你就等着我的观后感吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;放心，忘不了。周六看完就给你发消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那周六见（消息见）。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，谢谢！那我周六看完就给你发消息，保证不让你等太久。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我到时候搬好小板凳等你的影评。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，小板凳都准备好了，那我得好好写影评才行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得好好写，不能辜负你的小板凳。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得好好写，不能辜负你的小板凳。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，你写影评肯定比我强，我就是瞎看。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你太谦虚了，每个人看的角度不一样嘛。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松调侃，继续铺垫观影后的互动，不施加任何压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，角度不同才有意思，到时候听听你的视角。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，你太谦虚了，每个人看的角度不一样嘛。我反而期待听你的真实感受，说不定能发现我没注意到的细节。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松调侃的语气，没有施加压力或追问&quot;,
+        &quot;用户自嘲‘瞎看’，降低了期待，不给对方负担&quot;,
+        &quot;对话始终围绕观影后的分享，边界清晰且安全&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然降压，保持了良好的互动节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续等待对方周六观影后的主动联系，期间无需再发消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 59,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 59,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哦这样啊，那部电影确实挺适合一个人静静看的。你打算什么时候去？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处的决定，没有施加压力&quot;,
+            &quot;用户询问时间，但语气中性，不带有强迫或期待&quot;,
+            &quot;用户没有纠缠或试图改变对方想法&quot;,
+            &quot;回复自然承接，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;周六下午确实人少，挺好。那你记得看完跟我说说感受，我也在犹豫要不要去看。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，未施加压力&quot;,
+            &quot;用户主动将话题转向轻松分享，降低期待&quot;,
+            &quot;用户回复自然承接，未纠缠或追问&quot;,
+            &quot;整体氛围友好，无任何越界迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且自然，有效维持了朋友关系边界。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，剧透一点就行，留点悬念。那我等你观后感再决定。&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处的选择，没有施加压力&quot;,
+            &quot;用户以轻松幽默的方式回应，维持了友好氛围&quot;,
+            &quot;用户没有追问或纠缠，给了对方空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，有助于维持良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那你可要说到做到哦，我等着。&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松幽默，没有施加压力或纠缠。&quot;,
+            &quot;用户尊重对方之前的承诺，没有质疑或催促。&quot;,
+            &quot;对话氛围友好，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那我可记着呢，到时候别忘啦。&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 41,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复轻松自然，没有施加压力或追问&quot;,
+            &quot;用户尊重对方之前的安排，没有强行要求或改变计划&quot;,
+            &quot;用户用轻松的语气表达期待，没有负面情绪或攻击性&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，保持了友好轻松的互动氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好嘞，那我周六下午也空着，随时等你消息。&quot;,
+        &quot;score_before&quot;: 41,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 49,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户尊重对方独处计划，没有要求陪同或追问细节&quot;,
+            &quot;用户表达等待但不催促，给对方空间&quot;,
+            &quot;用户回复与之前约定一致，没有施加额外压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，尊重边界，保持友好约定。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，那我周六下午就专心等你消息啦，祝你观影愉快！&quot;,
+        &quot;score_before&quot;: 49,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 59,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方独处决定，没有施加任何压力或要求改变计划。&quot;,
+            &quot;用户用轻松愉快的语气表达等待，不纠缠不追问。&quot;,
+            &quot;用户祝福对方观影愉快，体现了关心但不越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、友好，完全符合当前关系阶段和场景。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;89047b60-2322-4dbb-a660-07b41413a961&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1916,
+      &quot;completion_tokens&quot;: 270,
+      &quot;total_tokens&quot;: 2186,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 1276
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

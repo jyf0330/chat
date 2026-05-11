@@ -1,0 +1,1407 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_024 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_024</h1>
+      <p>你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。</p>
+      <div class="kpis">
+        <b>7<span>turns</span></b>
+        <b><span>score</span></b>
+        <b><span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;ad4b7524-9de3-4d9d-a264-078577616caa&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-24__seed_game_024.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-24__seed_game_024.png&quot;,
+  &quot;completion_reason&quot;: null,
+  &quot;error&quot;: &quot;human simulator could not produce an acceptable reply: natural_closing_phrase&quot;
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 3445ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好吧，那我也先刷会儿剧，等你忙完。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯嗯，好呀，那我也先看会儿剧，晚点聊～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松，不追问不施压，等对方主动开启话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好嘞，那我也去忙了，回头聊。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，那我也先看会儿剧，你忙完找我就行，不急。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;冷淡&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么不回？你看到消息了吧？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要追击已读，用低成本收尾把压力降下来。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我先去忙点别的啦，你看到不用急着回，晚点有空再说。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯嗯，好呀，那我也先看会儿剧，晚点聊～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松，不追问不施压，等对方主动开启话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好嘞，那我也去忙了，回头聊。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，那我也先看会儿剧，你忙完找我就行，不急。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问或施压，主动降低对话压力&quot;,
+        &quot;用刷剧作为自己的活动，给对方空间&quot;,
+        &quot;没有要求对方回复时间，完全尊重边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动回复，不要继续发消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，主动降低对话压力&quot;,
+            &quot;用刷剧作为自己的活动，给对方空间&quot;,
+            &quot;没有要求对方回复时间，完全尊重边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4509ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>你是在看什么剧呀？我最近剧荒了，求推荐～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我最近在看《繁花》，挺好看的，推荐给你～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>顺势接住话题，自然延续对话，不要追问已读不回。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哦哦《繁花》啊，我听说口碑不错，正好去看看。</p></div>
+          <div><strong>perfect_reply_100</strong><p>《繁花》我还没看呢，听说画面很美，正好你推荐了，我今晚就开刷～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;冷淡&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么不回？你看到消息了吧？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要追击已读，用低成本收尾把压力降下来。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我先去忙点别的啦，你看到不用急着回，晚点有空再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好呀，那我也先看会儿剧，晚点聊～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我最近在看《繁花》，挺好看的，推荐给你～&quot;,
+    &quot;best_strategy&quot;: &quot;顺势接住话题，自然延续对话，不要追问已读不回。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哦哦《繁花》啊，我听说口碑不错，正好去看看。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;《繁花》我还没看呢，听说画面很美，正好你推荐了，我今晚就开刷～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问已读不回，而是转向新话题，尊重了对方的沉默空间&quot;,
+        &quot;用户主动提供价值（求推荐），表达了对对方兴趣的关注&quot;,
+        &quot;语气轻松自然，没有施加任何压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊天，保持轻松节奏，不要突然又绕回已读不回的话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 16,
+    &quot;title&quot;: &quot;情绪接住了&quot;,
+    &quot;highest_score&quot;: 16,
+    &quot;highest_title&quot;: &quot;情绪接住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，主动降低对话压力&quot;,
+            &quot;用刷剧作为自己的活动，给对方空间&quot;,
+            &quot;没有要求对方回复时间，完全尊重边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问已读不回，而是转向新话题，尊重了对方的沉默空间&quot;,
+            &quot;用户主动提供价值（求推荐），表达了对对方兴趣的关注&quot;,
+            &quot;语气轻松自然，没有施加任何压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4590ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我刚看到第10集，后面越来越精彩了！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>顺势延续话题，保持轻松自然，不要追问已读不回，用剧集内容维持热度。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那我得赶紧追了，不然被你剧透啦～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哇，你进度比我快！那我得抓紧了，不然明天聊起来就被你剧透一脸了～你最喜欢哪个角色？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;冷淡&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么不回？你看到消息了吧？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要追击已读，用低成本收尾把压力降下来。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我先去忙点别的啦，你看到不用急着回，晚点有空再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好呀，那我也先看会儿剧，晚点聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看《繁花》，挺好看的，推荐给你～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我刚看到第10集，后面越来越精彩了！&quot;,
+    &quot;best_strategy&quot;: &quot;顺势延续话题，保持轻松自然，不要追问已读不回，用剧集内容维持热度。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那我得赶紧追了，不然被你剧透啦～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哇，你进度比我快！那我得抓紧了，不然明天聊起来就被你剧透一脸了～你最喜欢哪个角色？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然承接话题，没有追问已读不回，尊重对方节奏。&quot;,
+        &quot;内容聚焦在共同兴趣上，没有施加任何压力。&quot;,
+        &quot;语气轻松友好，有助于重建对话安全感。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然聊剧集内容，保持轻松节奏，无需特别处理已读不回。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 25,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 25,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，主动降低对话压力&quot;,
+            &quot;用刷剧作为自己的活动，给对方空间&quot;,
+            &quot;没有要求对方回复时间，完全尊重边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问已读不回，而是转向新话题，尊重了对方的沉默空间&quot;,
+            &quot;用户主动提供价值（求推荐），表达了对对方兴趣的关注&quot;,
+            &quot;语气轻松自然，没有施加任何压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问已读不回，尊重对方节奏。&quot;,
+            &quot;内容聚焦在共同兴趣上，没有施加任何压力。&quot;,
+            &quot;语气轻松友好，有助于重建对话安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3590ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那我不剧透你，等你全看完再聊～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那等我追完跟你汇报～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不追问不施压，让对话自然暂停。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，等你追完告诉我结局～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，等你追完咱们好好聊聊～不着急，慢慢看。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;冷淡&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么不回？你看到消息了吧？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要追击已读，用低成本收尾把压力降下来。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我先去忙点别的啦，你看到不用急着回，晚点有空再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好呀，那我也先看会儿剧，晚点聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看《繁花》，挺好看的，推荐给你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我刚看到第10集，后面越来越精彩了！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那等我追完跟你汇报～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不追问不施压，让对话自然暂停。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，等你追完告诉我结局～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，等你追完咱们好好聊聊～不着急，慢慢看。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动表示不剧透，尊重对方进度&quot;,
+        &quot;语气轻松，没有追问或施压&quot;,
+        &quot;话题自然收尾，不给对方负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话可以自然暂停，等待对方主动开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 34,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 34,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，主动降低对话压力&quot;,
+            &quot;用刷剧作为自己的活动，给对方空间&quot;,
+            &quot;没有要求对方回复时间，完全尊重边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问已读不回，而是转向新话题，尊重了对方的沉默空间&quot;,
+            &quot;用户主动提供价值（求推荐），表达了对对方兴趣的关注&quot;,
+            &quot;语气轻松自然，没有施加任何压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问已读不回，尊重对方节奏。&quot;,
+            &quot;内容聚焦在共同兴趣上，没有施加任何压力。&quot;,
+            &quot;语气轻松友好，有助于重建对话安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表示不剧透，尊重对方进度&quot;,
+            &quot;语气轻松，没有追问或施压&quot;,
+            &quot;话题自然收尾，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4298ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那你看完记得告诉我结局怎么样，我慢慢追～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，不过可能得等一阵子，我追剧比较慢～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松话题，不追问不施压，保持自然收尾。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没事，慢慢看，好剧值得细品～</p></div>
+          <div><strong>perfect_reply_100</strong><p>不急，你慢慢追，好剧值得细品。等你看完了随时跟我聊，我随时都在～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;冷淡&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么不回？你看到消息了吧？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要追击已读，用低成本收尾把压力降下来。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我先去忙点别的啦，你看到不用急着回，晚点有空再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好呀，那我也先看会儿剧，晚点聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看《繁花》，挺好看的，推荐给你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我刚看到第10集，后面越来越精彩了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那等我追完跟你汇报～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那你看完记得告诉我结局怎么样，我慢慢追～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，不过可能得等一阵子，我追剧比较慢～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松话题，不追问不施压，保持自然收尾。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没事，慢慢看，好剧值得细品～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;不急，你慢慢追，好剧值得细品。等你看完了随时跟我聊，我随时都在～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然承接话题，没有追问或施压&quot;,
+        &quot;用户表达耐心等待，尊重对方节奏&quot;,
+        &quot;用户没有因已读不回而焦虑或纠缠&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，维持了轻松友好的氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续自然聊天，但避免开启新话题链，等待对方主动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，主动降低对话压力&quot;,
+            &quot;用刷剧作为自己的活动，给对方空间&quot;,
+            &quot;没有要求对方回复时间，完全尊重边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问已读不回，而是转向新话题，尊重了对方的沉默空间&quot;,
+            &quot;用户主动提供价值（求推荐），表达了对对方兴趣的关注&quot;,
+            &quot;语气轻松自然，没有施加任何压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问已读不回，尊重对方节奏。&quot;,
+            &quot;内容聚焦在共同兴趣上，没有施加任何压力。&quot;,
+            &quot;语气轻松友好，有助于重建对话安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表示不剧透，尊重对方进度&quot;,
+            &quot;语气轻松，没有追问或施压&quot;,
+            &quot;话题自然收尾，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那你看完记得告诉我结局怎么样，我慢慢追～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问或施压&quot;,
+            &quot;用户表达耐心等待，尊重对方节奏&quot;,
+            &quot;用户没有因已读不回而焦虑或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，维持了轻松友好的氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，维持了轻松友好的氛围。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4569ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，没事，我不着急，你先慢慢看，我正好也补补觉～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，那你好好休息，我继续追剧啦～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不追加话题，让对话自然暂停。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，那你看完告诉我哦，我先睡啦～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好嘞，那你看完记得跟我分享感受，我先补觉去啦，晚安～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;冷淡&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么不回？你看到消息了吧？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要追击已读，用低成本收尾把压力降下来。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我先去忙点别的啦，你看到不用急着回，晚点有空再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好呀，那我也先看会儿剧，晚点聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看《繁花》，挺好看的，推荐给你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我刚看到第10集，后面越来越精彩了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那等我追完跟你汇报～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你看完记得告诉我结局怎么样，我慢慢追～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，不过可能得等一阵子，我追剧比较慢～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，没事，我不着急，你先慢慢看，我正好也补补觉～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，那你好好休息，我继续追剧啦～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不追加话题，让对话自然暂停。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，那你看完告诉我哦，我先睡啦～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好嘞，那你看完记得跟我分享感受，我先补觉去啦，晚安～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动表示不着急，尊重对方节奏&quot;,
+        &quot;用户给出合理理由（补觉），不追问不纠缠&quot;,
+        &quot;对话自然收尾，无施压或情绪勒索&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降压，关系稳定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以暂停聊天，等待对方主动开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 51,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 51,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，主动降低对话压力&quot;,
+            &quot;用刷剧作为自己的活动，给对方空间&quot;,
+            &quot;没有要求对方回复时间，完全尊重边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问已读不回，而是转向新话题，尊重了对方的沉默空间&quot;,
+            &quot;用户主动提供价值（求推荐），表达了对对方兴趣的关注&quot;,
+            &quot;语气轻松自然，没有施加任何压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问已读不回，尊重对方节奏。&quot;,
+            &quot;内容聚焦在共同兴趣上，没有施加任何压力。&quot;,
+            &quot;语气轻松友好，有助于重建对话安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表示不剧透，尊重对方进度&quot;,
+            &quot;语气轻松，没有追问或施压&quot;,
+            &quot;话题自然收尾，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那你看完记得告诉我结局怎么样，我慢慢追～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问或施压&quot;,
+            &quot;用户表达耐心等待，尊重对方节奏&quot;,
+            &quot;用户没有因已读不回而焦虑或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，维持了轻松友好的氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，维持了轻松友好的氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，没事，我不着急，你先慢慢看，我正好也补补觉～&quot;,
+        &quot;score_before&quot;: 43,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 51,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表示不着急，尊重对方节奏&quot;,
+            &quot;用户给出合理理由（补觉），不追问不纠缠&quot;,
+            &quot;对话自然收尾，无施压或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降压，关系稳定。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 3636ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好，那我先睡啦，你也别追太晚～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，晚安～我也准备睡了，明天还要早起呢。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方主动结束话题，应顺势收尾，不要追加新话题或追问，保持轻松自然。</p></div>
+          <div><strong>recommended_reply_80</strong><p>晚安，好梦～</p></div>
+          <div><strong>perfect_reply_100</strong><p>晚安，好梦～明天有空再聊，不急。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你们刚才聊得还不错，她突然已读后没回。过了两个小时你看到她还在线。你有点焦虑，手已经放在输入框里想补一句。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;冷淡&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么不回？你看到消息了吧？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要追击已读，用低成本收尾把压力降下来。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我先去忙点别的啦，你看到不用急着回，晚点有空再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯嗯，好呀，那我也先看会儿剧，晚点聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我最近在看《繁花》，挺好看的，推荐给你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我刚看到第10集，后面越来越精彩了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那等我追完跟你汇报～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你看完记得告诉我结局怎么样，我慢慢追～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，不过可能得等一阵子，我追剧比较慢～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，没事，我不着急，你先慢慢看，我正好也补补觉～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，那你好好休息，我继续追剧啦～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好，那我先睡啦，你也别追太晚～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，晚安～我也准备睡了，明天还要早起呢。&quot;,
+    &quot;best_strategy&quot;: &quot;对方主动结束话题，应顺势收尾，不要追加新话题或追问，保持轻松自然。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;晚安，好梦～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;晚安，好梦～明天有空再聊，不急。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动结束对话，未追问或施压&quot;,
+        &quot;回复自然承接对方晚安，无纠缠&quot;,
+        &quot;语气轻松，尊重对方节奏&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复得体，安全收尾，关系稳定。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话已自然结束，建议暂停，等待对方下次主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 57,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 57,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，那我也先刷会儿剧，等你忙完。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，主动降低对话压力&quot;,
+            &quot;用刷剧作为自己的活动，给对方空间&quot;,
+            &quot;没有要求对方回复时间，完全尊重边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟得体，有效降压，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;你是在看什么剧呀？我最近剧荒了，求推荐～&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问已读不回，而是转向新话题，尊重了对方的沉默空间&quot;,
+            &quot;用户主动提供价值（求推荐），表达了对对方兴趣的关注&quot;,
+            &quot;语气轻松自然，没有施加任何压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低了之前的沉默压力，关系升温机会增加。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;《繁花》！好嘞，加入片单～我刚看完一集，王导的镜头确实讲究，你看到第几集了？&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 25,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问已读不回，尊重对方节奏。&quot;,
+            &quot;内容聚焦在共同兴趣上，没有施加任何压力。&quot;,
+            &quot;语气轻松友好，有助于重建对话安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效降低风险，维持了良好互动。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我不剧透你，等你全看完再聊～&quot;,
+        &quot;score_before&quot;: 25,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 34,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表示不剧透，尊重对方进度&quot;,
+            &quot;语气轻松，没有追问或施压&quot;,
+            &quot;话题自然收尾，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，关系安全。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那你看完记得告诉我结局怎么样，我慢慢追～&quot;,
+        &quot;score_before&quot;: 34,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接话题，没有追问或施压&quot;,
+            &quot;用户表达耐心等待，尊重对方节奏&quot;,
+            &quot;用户没有因已读不回而焦虑或纠缠&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，维持了轻松友好的氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，维持了轻松友好的氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，没事，我不着急，你先慢慢看，我正好也补补觉～&quot;,
+        &quot;score_before&quot;: 43,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 51,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动表示不着急，尊重对方节奏&quot;,
+            &quot;用户给出合理理由（补觉），不追问不纠缠&quot;,
+            &quot;对话自然收尾，无施压或情绪勒索&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降压，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降压，关系稳定。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，好，那我先睡啦，你也别追太晚～&quot;,
+        &quot;score_before&quot;: 51,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动结束对话，未追问或施压&quot;,
+            &quot;回复自然承接对方晚安，无纠缠&quot;,
+            &quot;语气轻松，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，安全收尾，关系稳定。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，安全收尾，关系稳定。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,2701 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_045 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_045</h1>
+      <p>你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>87<span>score</span></b>
+        <b>温柔不失边界<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;63aed5d5-06e0-4bfa-ae19-4ca934826d17&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-45__seed_game_045.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-45__seed_game_045.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4566ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续共情并确认她的需求，给出具体承诺，保持安全边界。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，记住了。以后忙的时候一定提前告诉你，不让你干等。</p></div>
+          <div><strong>perfect_reply_100</strong><p>我明白你的失落，换我我也会在意。以后忙到不能及时回，我会先发条消息告诉你大概几点有空，这样你就不用一直等着了。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续共情并确认她的需求，给出具体承诺，保持安全边界。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，记住了。以后忙的时候一定提前告诉你，不让你干等。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我明白你的失落，换我我也会在意。以后忙到不能及时回，我会先发条消息告诉你大概几点有空，这样你就不用一直等着了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+        &quot;用户表达理解对方的感受，共情到位&quot;,
+        &quot;用户没有施加压力或要求对方立刻回应&quot;,
+        &quot;回复贴合场景，没有跑题或越界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续推进，保持真诚沟通。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;616eca34-d14c-4233-bd8e-a81d306f09f2&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1271,
+      &quot;completion_tokens&quot;: 295,
+      &quot;total_tokens&quot;: 1566,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 631
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3810ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续肯定对方的理解，保持轻松氛围，不要过度道歉或解释。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，我一定记得。你早点休息，别等我了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，有你这句话我就安心了。你也别太累，忙完早点休息，明天有空再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;,
+    &quot;best_strategy&quot;: &quot;继续肯定对方的理解，保持轻松氛围，不要过度道歉或解释。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，我一定记得。你早点休息，别等我了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，有你这句话我就安心了。你也别太累，忙完早点休息，明天有空再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+        &quot;没有施加压力或要求对方立刻回应&quot;,
+        &quot;表达关心，让对方安心&quot;,
+        &quot;完全贴合当前对话情境&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然过渡到其他话题，或结束对话。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8b72d02a-8bb3-466d-a932-99289c8e3778&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1353,
+      &quot;completion_tokens&quot;: 261,
+      &quot;total_tokens&quot;: 1614,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 640
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 640,
+      &quot;prompt_cache_miss_tokens&quot;: 713
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4601ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>你这么说我更内疚了，下次一定提前告诉你，不让你空等。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续表达理解和安心，同时传递想念，保持情感连接，不增加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我也想你了，明天忙完早点找你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>我也想你了。今天让你等这么久，明天我一定早点把事情处理完，好好陪你聊会儿。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续表达理解和安心，同时传递想念，保持情感连接，不增加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我也想你了，明天忙完早点找你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我也想你了。今天让你等这么久，明天我一定早点把事情处理完，好好陪你聊会儿。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+        &quot;用户没有追问或施压，而是主动承担责任&quot;,
+        &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+        &quot;用户回复贴合当前对话，继续巩固信任&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持当前节奏，可以适当表达想念，但不要过度承诺。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 29,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 29,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d307af5c-ddb5-4e7d-b1d6-8076c949f1cb&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1421,
+      &quot;completion_tokens&quot;: 278,
+      &quot;total_tokens&quot;: 1699,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 653
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4352ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，我知道你心里有我。那就好，我不生气了。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续表达想念和重视，同时保持轻松，不要过度道歉或解释。</p></div>
+          <div><strong>recommended_reply_80</strong><p>你这么说我就放心了，以后忙完一定第一时间找你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>听到你说想我，我心里暖暖的。以后不管多忙，我都会记得先告诉你一声，不让你一个人空等。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，我知道你心里有我。那就好，我不生气了。&quot;,
+    &quot;best_strategy&quot;: &quot;继续表达想念和重视，同时保持轻松，不要过度道歉或解释。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;你这么说我就放心了，以后忙完一定第一时间找你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;听到你说想我，我心里暖暖的。以后不管多忙，我都会记得先告诉你一声，不让你一个人空等。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+        &quot;用户没有施加压力或要求对方立即回应。&quot;,
+        &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+        &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持温暖、坦诚的沟通，可以自然过渡到日常话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 39,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 39,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+            &quot;用户没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+            &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9775d283-c4f9-4955-94e8-38cc280cb9c1&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1494,
+      &quot;completion_tokens&quot;: 289,
+      &quot;total_tokens&quot;: 1783,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 726
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5423ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，那样我会更安心的。其实你不用太紧张，我知道你心里有我就好。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续肯定对方的体贴，同时降低她的压力，让她知道不需要过度承诺，自然就好。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那就这么说定了。不过你也不用太刻意，自然就好。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我会尽量做到。不过如果偶尔忙忘了，你也要记得我是在乎你的，别一个人瞎想。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你心里有我。那就好，我不生气了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，那样我会更安心的。其实你不用太紧张，我知道你心里有我就好。&quot;,
+    &quot;best_strategy&quot;: &quot;继续肯定对方的体贴，同时降低她的压力，让她知道不需要过度承诺，自然就好。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那就这么说定了。不过你也不用太刻意，自然就好。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我会尽量做到。不过如果偶尔忙忘了，你也要记得我是在乎你的，别一个人瞎想。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出忙时也发消息，尊重对方感受，不施压。&quot;,
+        &quot;用户用'免得你胡思乱想'表达体贴，但未贬低对方。&quot;,
+        &quot;用户没有要求对方立即回应或承诺，边界清晰。&quot;,
+        &quot;整体语气温和，降低对方焦虑，关系更安全。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然互动，可适当分享日常，保持轻松氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 48,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 48,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+            &quot;用户没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+            &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出忙时也发消息，尊重对方感受，不施压。&quot;,
+            &quot;用户用'免得你胡思乱想'表达体贴，但未贬低对方。&quot;,
+            &quot;用户没有要求对方立即回应或承诺，边界清晰。&quot;,
+            &quot;整体语气温和，降低对方焦虑，关系更安全。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9fffeee6-93e9-4576-b957-61a160cc8d42&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1564,
+      &quot;completion_tokens&quot;: 308,
+      &quot;total_tokens&quot;: 1872,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 668
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4675ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>你这么说，我心里暖暖的。其实我也有点任性，谢谢你包容我。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续肯定对方的体谅，同时保持轻松氛围，避免过度承诺。</p></div>
+          <div><strong>recommended_reply_80</strong><p>你真好，这么理解我。以后我会更注意的。</p></div>
+          <div><strong>perfect_reply_100</strong><p>你总是这么善解人意，让我觉得自己很幸运。以后忙的时候我会提前告诉你，不让你空等。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你心里有我。那就好，我不生气了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，那样我会更安心的。其实你不用太紧张，我知道你心里有我就好。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;你这么说，我心里暖暖的。其实我也有点任性，谢谢你包容我。&quot;,
+    &quot;best_strategy&quot;: &quot;继续肯定对方的体谅，同时保持轻松氛围，避免过度承诺。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;你真好，这么理解我。以后我会更注意的。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;你总是这么善解人意，让我觉得自己很幸运。以后忙的时候我会提前告诉你，不让你空等。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户表达感动并承诺改进，完全尊重对方感受&quot;,
+        &quot;没有施加任何压力或要求对方回应&quot;,
+        &quot;语气温和，巩固信任&quot;,
+        &quot;贴合当前对话目标，无偏离&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然过渡到日常话题，或表达想念，保持轻松互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 57,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 57,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+            &quot;用户没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+            &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出忙时也发消息，尊重对方感受，不施压。&quot;,
+            &quot;用户用'免得你胡思乱想'表达体贴，但未贬低对方。&quot;,
+            &quot;用户没有要求对方立即回应或承诺，边界清晰。&quot;,
+            &quot;整体语气温和，降低对方焦虑，关系更安全。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达感动并承诺改进，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或要求对方回应&quot;,
+            &quot;语气温和，巩固信任&quot;,
+            &quot;贴合当前对话目标，无偏离&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;6b2db238-0883-4bd5-897d-7c55e5881c28&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1636,
+      &quot;completion_tokens&quot;: 270,
+      &quot;total_tokens&quot;: 1906,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 740
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 5588ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>你从来都不任性，是我太粗心了。以后我会更用心，不让你等。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>你真好，总是这么让着我。那我以后也少闹小情绪，好好等你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续肯定对方，保持温暖基调，避免过度道歉或承诺，自然过渡到轻松话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>你从来都不闹，是我做得不够好。以后我会更细心，让你安心。</p></div>
+          <div><strong>perfect_reply_100</strong><p>你愿意说出来，我反而更懂你了。以后我忙的时候也会抽空告诉你，不让你一个人瞎想。你等我，我也等你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你心里有我。那就好，我不生气了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，那样我会更安心的。其实你不用太紧张，我知道你心里有我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说，我心里暖暖的。其实我也有点任性，谢谢你包容我。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;你真好，总是这么让着我。那我以后也少闹小情绪，好好等你。&quot;,
+    &quot;best_strategy&quot;: &quot;继续肯定对方，保持温暖基调，避免过度道歉或承诺，自然过渡到轻松话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;你从来都不闹，是我做得不够好。以后我会更细心，让你安心。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;你愿意说出来，我反而更懂你了。以后我忙的时候也会抽空告诉你，不让你一个人瞎想。你等我，我也等你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动归因于自己粗心，没有指责对方&quot;,
+        &quot;承诺未来更用心，但未施加压力或要求对方回应&quot;,
+        &quot;完全贴合当前对话主题，延续温暖氛围&quot;,
+        &quot;尊重对方情绪，没有否定或忽视&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以自然过渡到日常分享或轻松话题，保持联系感。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 66,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 66,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+            &quot;用户没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+            &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出忙时也发消息，尊重对方感受，不施压。&quot;,
+            &quot;用户用'免得你胡思乱想'表达体贴，但未贬低对方。&quot;,
+            &quot;用户没有要求对方立即回应或承诺，边界清晰。&quot;,
+            &quot;整体语气温和，降低对方焦虑，关系更安全。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达感动并承诺改进，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或要求对方回应&quot;,
+            &quot;语气温和，巩固信任&quot;,
+            &quot;贴合当前对话目标，无偏离&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 66,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动归因于自己粗心，没有指责对方&quot;,
+            &quot;承诺未来更用心，但未施加压力或要求对方回应&quot;,
+            &quot;完全贴合当前对话主题，延续温暖氛围&quot;,
+            &quot;尊重对方情绪，没有否定或忽视&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;29109f5d-fc9c-413a-bdf7-577af8fe3b65&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1706,
+      &quot;completion_tokens&quot;: 299,
+      &quot;total_tokens&quot;: 2005,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 682
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4036ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那你以后想闹小情绪的时候就告诉我，我哄你，不让你一个人憋着。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>你这么说，我都不好意思闹了。那你可要说到做到哦。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续给予安全感，但不过度承诺，保持轻松自然。</p></div>
+          <div><strong>recommended_reply_80</strong><p>当然说到做到，你随时可以找我。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，我保证。你闹小情绪的时候，我就抱抱你，听你说，不让你一个人扛着。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你心里有我。那就好，我不生气了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，那样我会更安心的。其实你不用太紧张，我知道你心里有我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说，我心里暖暖的。其实我也有点任性，谢谢你包容我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你真好，总是这么让着我。那我以后也少闹小情绪，好好等你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那你以后想闹小情绪的时候就告诉我，我哄你，不让你一个人憋着。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;你这么说，我都不好意思闹了。那你可要说到做到哦。&quot;,
+    &quot;best_strategy&quot;: &quot;继续给予安全感，但不过度承诺，保持轻松自然。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;当然说到做到，你随时可以找我。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，我保证。你闹小情绪的时候，我就抱抱你，听你说，不让你一个人扛着。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出哄对方，给予情绪支持，不施加压力。&quot;,
+        &quot;回应了对方之前表达的委屈和想念，高度共情。&quot;,
+        &quot;没有追问或要求对方改变，尊重对方的情绪节奏。&quot;,
+        &quot;整体语气温暖、包容，提升了关系安全感。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持当前温暖节奏，可自然过渡到日常话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 75,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 75,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+            &quot;用户没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+            &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出忙时也发消息，尊重对方感受，不施压。&quot;,
+            &quot;用户用'免得你胡思乱想'表达体贴，但未贬低对方。&quot;,
+            &quot;用户没有要求对方立即回应或承诺，边界清晰。&quot;,
+            &quot;整体语气温和，降低对方焦虑，关系更安全。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达感动并承诺改进，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或要求对方回应&quot;,
+            &quot;语气温和，巩固信任&quot;,
+            &quot;贴合当前对话目标，无偏离&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 66,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动归因于自己粗心，没有指责对方&quot;,
+            &quot;承诺未来更用心，但未施加压力或要求对方回应&quot;,
+            &quot;完全贴合当前对话主题，延续温暖氛围&quot;,
+            &quot;尊重对方情绪，没有否定或忽视&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;那你以后想闹小情绪的时候就告诉我，我哄你，不让你一个人憋着。&quot;,
+        &quot;score_before&quot;: 66,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出哄对方，给予情绪支持，不施加压力。&quot;,
+            &quot;回应了对方之前表达的委屈和想念，高度共情。&quot;,
+            &quot;没有追问或要求对方改变，尊重对方的情绪节奏。&quot;,
+            &quot;整体语气温暖、包容，提升了关系安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，降低风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4eab2ce6-bdb6-4518-94a3-e7ac8a6a0f1d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1778,
+      &quot;completion_tokens&quot;: 280,
+      &quot;total_tokens&quot;: 2058,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 754
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3892ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那必须的，男子汉说话算话。以后你闹小情绪，我第一个来哄你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>那你可要记住今天说的话哦，我等着你哄我。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续强化承诺，用轻松语气确认约定，保持温暖互动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>放心，我记性可好了，你随时可以检验。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，我记在心里了。以后你只要皱一下眉头，我就知道该出场了。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你心里有我。那就好，我不生气了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，那样我会更安心的。其实你不用太紧张，我知道你心里有我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说，我心里暖暖的。其实我也有点任性，谢谢你包容我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你真好，总是这么让着我。那我以后也少闹小情绪，好好等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你以后想闹小情绪的时候就告诉我，我哄你，不让你一个人憋着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说，我都不好意思闹了。那你可要说到做到哦。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那必须的，男子汉说话算话。以后你闹小情绪，我第一个来哄你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;那你可要记住今天说的话哦，我等着你哄我。&quot;,
+    &quot;best_strategy&quot;: &quot;继续强化承诺，用轻松语气确认约定，保持温暖互动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;放心，我记性可好了，你随时可以检验。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，我记在心里了。以后你只要皱一下眉头，我就知道该出场了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动承诺并强化了之前的约定，没有施加压力。&quot;,
+        &quot;回复温暖且尊重对方的感受，没有越界。&quot;,
+        &quot;语气轻松，符合当前热聊升温阶段。&quot;,
+        &quot;没有要求对方回应或解释，给予空间。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且积极，巩固了信任和亲密感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前节奏，保持自然互动，无需额外推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 80,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 80,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+            &quot;用户没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+            &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出忙时也发消息，尊重对方感受，不施压。&quot;,
+            &quot;用户用'免得你胡思乱想'表达体贴，但未贬低对方。&quot;,
+            &quot;用户没有要求对方立即回应或承诺，边界清晰。&quot;,
+            &quot;整体语气温和，降低对方焦虑，关系更安全。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达感动并承诺改进，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或要求对方回应&quot;,
+            &quot;语气温和，巩固信任&quot;,
+            &quot;贴合当前对话目标，无偏离&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 66,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动归因于自己粗心，没有指责对方&quot;,
+            &quot;承诺未来更用心，但未施加压力或要求对方回应&quot;,
+            &quot;完全贴合当前对话主题，延续温暖氛围&quot;,
+            &quot;尊重对方情绪，没有否定或忽视&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;那你以后想闹小情绪的时候就告诉我，我哄你，不让你一个人憋着。&quot;,
+        &quot;score_before&quot;: 66,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出哄对方，给予情绪支持，不施加压力。&quot;,
+            &quot;回应了对方之前表达的委屈和想念，高度共情。&quot;,
+            &quot;没有追问或要求对方改变，尊重对方的情绪节奏。&quot;,
+            &quot;整体语气温暖、包容，提升了关系安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;那必须的，男子汉说话算话。以后你闹小情绪，我第一个来哄你。&quot;,
+        &quot;score_before&quot;: 75,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 80,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动承诺并强化了之前的约定，没有施加压力。&quot;,
+            &quot;回复温暖且尊重对方的感受，没有越界。&quot;,
+            &quot;语气轻松，符合当前热聊升温阶段。&quot;,
+            &quot;没有要求对方回应或解释，给予空间。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，巩固了信任和亲密感。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;db3e9dae-b4a2-4812-81d1-92fbf1416c2a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1851,
+      &quot;completion_tokens&quot;: 272,
+      &quot;total_tokens&quot;: 2123,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 699
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4017ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>放心，我记性好着呢。以后你一闹小情绪，我立马就出现在你面前，变着法子哄你开心。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那我可记住了，看你表现哦。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的承诺，同时不增加压力，维持当前信任温度。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没问题，你就等着看吧。</p></div>
+          <div><strong>perfect_reply_100</strong><p>一言为定。以后你每次闹小情绪，我都变着花样哄你，直到你笑为止。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你今天忙到很晚才回，她说：“你现在回消息越来越慢了。”她没有发火，但你能感觉到她在意这件事。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我也有自己的事啊，又不是天天围着你转。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认被冷落的感受，再解释忙碌并给预期。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;今天确实回慢了，让你等着不好受。以后忙到不能回时，我会先跟你说一声。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你忙，但就是有点失落。下次忙的话提前说一声就好，我就不一直等了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你这么说。那我就不担心了，你忙完找我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你这么说我就放心了。其实我不是怪你，就是有点想你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道你心里有我。那就好，我不生气了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，那样我会更安心的。其实你不用太紧张，我知道你心里有我就好。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说，我心里暖暖的。其实我也有点任性，谢谢你包容我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你真好，总是这么让着我。那我以后也少闹小情绪，好好等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那你以后想闹小情绪的时候就告诉我，我哄你，不让你一个人憋着。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你这么说，我都不好意思闹了。那你可要说到做到哦。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那必须的，男子汉说话算话。以后你闹小情绪，我第一个来哄你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;那你可要记住今天说的话哦，我等着你哄我。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;放心，我记性好着呢。以后你一闹小情绪，我立马就出现在你面前，变着法子哄你开心。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那我可记住了，看你表现哦。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的承诺，同时不增加压力，维持当前信任温度。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没问题，你就等着看吧。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;一言为定。以后你每次闹小情绪，我都变着花样哄你，直到你笑为止。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户承诺具体行动，完全尊重对方边界&quot;,
+        &quot;没有施加任何压力，反而给予安全感&quot;,
+        &quot;回应了对方之前的情绪需求，共情且不负担&quot;,
+        &quot;整体氛围轻松，信任感增强&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系升温安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续自然互动，无需额外推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 87,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 87,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;唉，我知道我回慢了，让你等着不好受。今天事情实在太多，忙得晕头转向的。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认回慢了并解释忙碌，没有辩解或攻击&quot;,
+            &quot;用户表达理解对方的感受，共情到位&quot;,
+            &quot;用户没有施加压力或要求对方立刻回应&quot;,
+            &quot;回复贴合场景，没有跑题或越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低风险，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，我记住了。今天是我不好，让你等那么久。下次一定提前说，不让你担心。&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认错误并承诺改进，尊重对方感受&quot;,
+            &quot;没有施加压力或要求对方立刻回应&quot;,
+            &quot;表达关心，让对方安心&quot;,
+            &quot;完全贴合当前对话情境&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效修复关系，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;你这么说我更内疚了，下次一定提前告诉你，不让你空等。&quot;,
+        &quot;score_before&quot;: 19,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 29,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认内疚并承诺下次提前告知，完全尊重对方边界&quot;,
+            &quot;用户没有追问或施压，而是主动承担责任&quot;,
+            &quot;用户表达内疚但不过度，保持真诚和体贴&quot;,
+            &quot;用户回复贴合当前对话，继续巩固信任&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低风险，增进信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;我也想你了。今天忙完第一时间就想找你，可越急越乱，拖到现在才回。&quot;,
+        &quot;score_before&quot;: 29,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 39,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户表达了想念，并解释了回慢的原因，没有推卸责任。&quot;,
+            &quot;用户没有施加压力或要求对方立即回应。&quot;,
+            &quot;用户承认了自己的情绪，并给出了改进的承诺。&quot;,
+            &quot;整体语气温柔、坦诚，有助于修复关系。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复真诚、共情，有效安抚了对方的失落，并巩固了信任。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;那我以后忙的时候也抽空给你发条消息，哪怕只有几个字，免得你胡思乱想。&quot;,
+        &quot;score_before&quot;: 39,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 48,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出忙时也发消息，尊重对方感受，不施压。&quot;,
+            &quot;用户用'免得你胡思乱想'表达体贴，但未贬低对方。&quot;,
+            &quot;用户没有要求对方立即回应或承诺，边界清晰。&quot;,
+            &quot;整体语气温和，降低对方焦虑，关系更安全。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复体贴且尊重边界，有效安抚对方情绪，关系升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;你能这么体谅我，我真的很感动。以后我一定注意，不让你担心。&quot;,
+        &quot;score_before&quot;: 48,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 57,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户表达感动并承诺改进，完全尊重对方感受&quot;,
+            &quot;没有施加任何压力或要求对方回应&quot;,
+            &quot;语气温和，巩固信任&quot;,
+            &quot;贴合当前对话目标，无偏离&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且增进关系，边界清晰，降压明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;你从来都不任性，是我太粗心了。以后我会更用心，不让你等。&quot;,
+        &quot;score_before&quot;: 57,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 66,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动归因于自己粗心，没有指责对方&quot;,
+            &quot;承诺未来更用心，但未施加压力或要求对方回应&quot;,
+            &quot;完全贴合当前对话主题，延续温暖氛围&quot;,
+            &quot;尊重对方情绪，没有否定或忽视&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;那你以后想闹小情绪的时候就告诉我，我哄你，不让你一个人憋着。&quot;,
+        &quot;score_before&quot;: 66,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出哄对方，给予情绪支持，不施加压力。&quot;,
+            &quot;回应了对方之前表达的委屈和想念，高度共情。&quot;,
+            &quot;没有追问或要求对方改变，尊重对方的情绪节奏。&quot;,
+            &quot;整体语气温暖、包容，提升了关系安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;那必须的，男子汉说话算话。以后你闹小情绪，我第一个来哄你。&quot;,
+        &quot;score_before&quot;: 75,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 80,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动承诺并强化了之前的约定，没有施加压力。&quot;,
+            &quot;回复温暖且尊重对方的感受，没有越界。&quot;,
+            &quot;语气轻松，符合当前热聊升温阶段。&quot;,
+            &quot;没有要求对方回应或解释，给予空间。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，巩固了信任和亲密感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，巩固了信任和亲密感。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;放心，我记性好着呢。以后你一闹小情绪，我立马就出现在你面前，变着法子哄你开心。&quot;,
+        &quot;score_before&quot;: 80,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 87,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户承诺具体行动，完全尊重对方边界&quot;,
+            &quot;没有施加任何压力，反而给予安全感&quot;,
+            &quot;回应了对方之前的情绪需求，共情且不负担&quot;,
+            &quot;整体氛围轻松，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系升温安全。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟体贴，有效巩固信任，关系升温安全。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9ae33e3b-90d1-45a9-a160-f1764c04a6b5&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1926,
+      &quot;completion_tokens&quot;: 255,
+      &quot;total_tokens&quot;: 2181,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 774
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

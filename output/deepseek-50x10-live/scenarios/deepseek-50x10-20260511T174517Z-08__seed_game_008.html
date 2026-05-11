@@ -1,0 +1,2662 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_008 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_008</h1>
+      <p>你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>75<span>score</span></b>
+        <b>安全感制造机<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;5977c6ef-72f8-4e3e-95f5-3ba44286ae07&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-08__seed_game_008.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-08__seed_game_008.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 3849ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受她的解释，不要追问细节，自然过渡到轻松话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没事，我就随便问问。你忙你的，有空再聊。</p></div>
+          <div><strong>perfect_reply_100</strong><p>理解，工作要紧。我刚也是正好刷到，没别的意思。你先忙，我等你空了再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;,
+    &quot;best_strategy&quot;: &quot;接受她的解释，不要追问细节，自然过渡到轻松话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没事，我就随便问问。你忙你的，有空再聊。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;理解，工作要紧。我刚也是正好刷到，没别的意思。你先忙，我等你空了再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+        &quot;用户主动降低压力，说'随口问问'&quot;,
+        &quot;用户没有要求对方立刻回复或解释&quot;,
+        &quot;整体语气温和，没有越界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，不要纠结于点赞事件。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 7,
+    &quot;title&quot;: &quot;不追问但在场&quot;,
+    &quot;highest_score&quot;: 7,
+    &quot;highest_title&quot;: &quot;不追问但在场&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f892a401-064e-49a9-8a70-d4dd73a0205f&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1274,
+      &quot;completion_tokens&quot;: 275,
+      &quot;total_tokens&quot;: 1549,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 506
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 5314ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默，顺势接受分享，继续自然互动，不追问不解释。</p></div>
+          <div><strong>recommended_reply_80</strong><p>来了来了！[分享一个搞笑段子] 你看这个，我笑了一下午。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我可要好好珍惜你的随手爱～刚忙完，正好需要点快乐。快发过来，我准备好笑了！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默，顺势接受分享，继续自然互动，不追问不解释。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;来了来了！[分享一个搞笑段子] 你看这个，我笑了一下午。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我可要好好珍惜你的随手爱～刚忙完，正好需要点快乐。快发过来，我准备好笑了！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+        &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+        &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+        &quot;语气自然，没有暴露不安全感&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松分享，保持自然节奏，不要突然提起之前未回消息的事。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 16,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 16,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;17638974-ed77-400d-80a3-121ddc6201f2&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1358,
+      &quot;completion_tokens&quot;: 305,
+      &quot;total_tokens&quot;: 1663,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 590
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4380ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的节奏，不要追问点赞的事，继续分享段子，让对话自然流动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我发啦！不过笑点低的人慎点，后果自负哦～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我发啦！不过笑点低的人慎点，后果自负哦～（附上一个搞笑视频或段子）</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的节奏，不要追问点赞的事，继续分享段子，让对话自然流动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我发啦！不过笑点低的人慎点，后果自负哦～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我发啦！不过笑点低的人慎点，后果自负哦～（附上一个搞笑视频或段子）&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+        &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+        &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享段子，保持轻松节奏，观察对方反应后再决定下一步话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 27,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 27,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;7869779c-b210-46d4-afdd-5a47b48bb6ba&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1437,
+      &quot;completion_tokens&quot;: 288,
+      &quot;total_tokens&quot;: 1725,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 669
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4490ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我直接发你啦，别笑到打滚哦！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，来吧来吧，我已经准备好笑到打滚了！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的分享节奏，不要追问或试探，继续用段子自然推进关系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我发啦，你准备好纸巾擦眼泪吧！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我发啦，不过先提醒你，这个段子真的会笑到肚子疼，你确定要现在看吗？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，来吧来吧，我已经准备好笑到打滚了！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的分享节奏，不要追问或试探，继续用段子自然推进关系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我发啦，你准备好纸巾擦眼泪吧！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我发啦，不过先提醒你，这个段子真的会笑到肚子疼，你确定要现在看吗？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+        &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+        &quot;用户主动分享段子，保持了积极互动。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享段子，保持轻松互动，不要突然切换话题或试探。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 35,
+    &quot;title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;highest_score&quot;: 35,
+    &quot;highest_title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+            &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+            &quot;用户主动分享段子，保持了积极互动。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;23ea4ef3-3566-440f-be45-813f4f314016&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1505,
+      &quot;completion_tokens&quot;: 285,
+      &quot;total_tokens&quot;: 1790,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 737
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 3955ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我发了啊，你准备好纸巾擦眼泪吧！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好嘞，我纸巾都准备好了，来吧！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的节奏，不要追问之前的冷淡，继续分享段子即可。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那你可得坐稳了，别笑到椅子翻过去！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，纸巾已备好，不过要是太好笑，我可要找你负责哦～快发吧！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，来吧来吧，我已经准备好笑到打滚了！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好嘞，我纸巾都准备好了，来吧！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的节奏，不要追问之前的冷淡，继续分享段子即可。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那你可得坐稳了，别笑到椅子翻过去！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，纸巾已备好，不过要是太好笑，我可要找你负责哦～快发吧！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前的幽默互动，没有质问或施压&quot;,
+        &quot;用户主动分享段子，体现了信任和亲近&quot;,
+        &quot;没有提及之前的冷淡或点赞事件，避免了敏感话题&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享段子，保持轻松互动，不要急于推进关系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 45,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 45,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+            &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+            &quot;用户主动分享段子，保持了积极互动。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默互动，没有质问或施压&quot;,
+            &quot;用户主动分享段子，体现了信任和亲近&quot;,
+            &quot;没有提及之前的冷淡或点赞事件，避免了敏感话题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;e1e6f7bc-cc8d-46f2-9231-d02ebeb872a3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1565,
+      &quot;completion_tokens&quot;: 268,
+      &quot;total_tokens&quot;: 1833,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 669
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 5534ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈哈，这个视频也太好笑了吧！我笑到肚子疼😂 你从哪找的这么搞笑的段子？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的互动节奏，不要急于推进关系或追问，享受当下的愉快氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，笑死我了，你开心就好！我还有很多存货，下次再给你看～</p></div>
+          <div><strong>perfect_reply_100</strong><p>看到你笑得这么开心，我也跟着高兴。其实我收藏了好多这种视频，以后慢慢分享给你，让你每天都有好心情。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，来吧来吧，我已经准备好笑到打滚了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，我纸巾都准备好了，来吧！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈哈，这个视频也太好笑了吧！我笑到肚子疼😂 你从哪找的这么搞笑的段子？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的互动节奏，不要急于推进关系或追问，享受当下的愉快氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，笑死我了，你开心就好！我还有很多存货，下次再给你看～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;看到你笑得这么开心，我也跟着高兴。其实我收藏了好多这种视频，以后慢慢分享给你，让你每天都有好心情。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享搞笑视频，延续轻松话题，没有施加任何压力或追问。&quot;,
+        &quot;用户回复自然幽默，完全尊重对方节奏，没有越界或操控迹象。&quot;,
+        &quot;对话氛围愉快，用户没有提及之前的不安全感或质问，信任感增强。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持轻松分享的节奏，可以适当增加互动频率，但不要急于推进关系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 54,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 54,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+            &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+            &quot;用户主动分享段子，保持了积极互动。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默互动，没有质问或施压&quot;,
+            &quot;用户主动分享段子，体现了信任和亲近&quot;,
+            &quot;没有提及之前的冷淡或点赞事件，避免了敏感话题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享搞笑视频，延续轻松话题，没有施加任何压力或追问。&quot;,
+            &quot;用户回复自然幽默，完全尊重对方节奏，没有越界或操控迹象。&quot;,
+            &quot;对话氛围愉快，用户没有提及之前的不安全感或质问，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;05abaa08-c96a-4435-930c-2f4dd011490a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1633,
+      &quot;completion_tokens&quot;: 322,
+      &quot;total_tokens&quot;: 1955,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 737
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4724ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那你可要说话算话！我已经开始期待下一波快乐了～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的分享节奏，不要追问或试探，自然延续互动即可。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没问题，包你笑到停不下来！我先去翻翻库存～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那必须的！我有个专门的搞笑收藏夹，下次给你来个专场，保证你笑到求饶😂</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，来吧来吧，我已经准备好笑到打滚了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，我纸巾都准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈哈，这个视频也太好笑了吧！我笑到肚子疼😂 你从哪找的这么搞笑的段子？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那你可要说话算话！我已经开始期待下一波快乐了～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的分享节奏，不要追问或试探，自然延续互动即可。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没问题，包你笑到停不下来！我先去翻翻库存～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那必须的！我有个专门的搞笑收藏夹，下次给你来个专场，保证你笑到求饶😂&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松幽默的聊天氛围，没有施加任何压力或追问。&quot;,
+        &quot;用户主动提出未来分享更多内容，表现出积极投入，但未要求对方立即回应。&quot;,
+        &quot;用户没有提及之前的冷淡或点赞事件，完全尊重对方节奏。&quot;,
+        &quot;整体对话自然流畅，无任何越界或操控迹象。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享搞笑内容或自然过渡到其他话题，保持当前节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 62,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 62,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+            &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+            &quot;用户主动分享段子，保持了积极互动。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默互动，没有质问或施压&quot;,
+            &quot;用户主动分享段子，体现了信任和亲近&quot;,
+            &quot;没有提及之前的冷淡或点赞事件，避免了敏感话题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享搞笑视频，延续轻松话题，没有施加任何压力或追问。&quot;,
+            &quot;用户回复自然幽默，完全尊重对方节奏，没有越界或操控迹象。&quot;,
+            &quot;对话氛围愉快，用户没有提及之前的不安全感或质问，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的聊天氛围，没有施加任何压力或追问。&quot;,
+            &quot;用户主动提出未来分享更多内容，表现出积极投入，但未要求对方立即回应。&quot;,
+            &quot;用户没有提及之前的冷淡或点赞事件，完全尊重对方节奏。&quot;,
+            &quot;整体对话自然流畅，无任何越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f4237981-0b2e-43a1-b0a0-cedd23eb8481&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1721,
+      &quot;completion_tokens&quot;: 311,
+      &quot;total_tokens&quot;: 2032,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 697
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 5059ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那必须的！我已经在翻我的沙雕视频库存了，保证让你笑到停不下来😂</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，看来你库存不少啊！那我可等着了，别让我等太久哦～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默的分享节奏，不要追问或试探，继续用搞笑视频维持愉快互动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，放心，我这就发一个珍藏版，保证你笑到拍桌！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，必须的！我刚翻到一个超绝的，感觉特别适合你，发你啦～看完告诉我笑没笑！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，来吧来吧，我已经准备好笑到打滚了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，我纸巾都准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈哈，这个视频也太好笑了吧！我笑到肚子疼😂 你从哪找的这么搞笑的段子？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可要说话算话！我已经开始期待下一波快乐了～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那必须的！我已经在翻我的沙雕视频库存了，保证让你笑到停不下来😂&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，看来你库存不少啊！那我可等着了，别让我等太久哦～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默的分享节奏，不要追问或试探，继续用搞笑视频维持愉快互动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，放心，我这就发一个珍藏版，保证你笑到拍桌！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，必须的！我刚翻到一个超绝的，感觉特别适合你，发你啦～看完告诉我笑没笑！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户延续了轻松幽默的对话，没有施加压力或质问。&quot;,
+        &quot;用户主动提供更多快乐，没有纠缠或试探。&quot;,
+        &quot;回复自然承接上文，没有越界或操控。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享搞笑视频，保持轻松愉快的氛围。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 68,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 68,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+            &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+            &quot;用户主动分享段子，保持了积极互动。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默互动，没有质问或施压&quot;,
+            &quot;用户主动分享段子，体现了信任和亲近&quot;,
+            &quot;没有提及之前的冷淡或点赞事件，避免了敏感话题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享搞笑视频，延续轻松话题，没有施加任何压力或追问。&quot;,
+            &quot;用户回复自然幽默，完全尊重对方节奏，没有越界或操控迹象。&quot;,
+            &quot;对话氛围愉快，用户没有提及之前的不安全感或质问，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的聊天氛围，没有施加任何压力或追问。&quot;,
+            &quot;用户主动提出未来分享更多内容，表现出积极投入，但未要求对方立即回应。&quot;,
+            &quot;用户没有提及之前的冷淡或点赞事件，完全尊重对方节奏。&quot;,
+            &quot;整体对话自然流畅，无任何越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的！我已经在翻我的沙雕视频库存了，保证让你笑到停不下来😂&quot;,
+        &quot;score_before&quot;: 62,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 68,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了轻松幽默的对话，没有施加压力或质问。&quot;,
+            &quot;用户主动提供更多快乐，没有纠缠或试探。&quot;,
+            &quot;回复自然承接上文，没有越界或操控。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;deb232f1-216d-4421-8f6a-fda73d5ceb1f&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1795,
+      &quot;completion_tokens&quot;: 283,
+      &quot;total_tokens&quot;: 2078,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 771
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 5767ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，放心吧，我库存多着呢！不过刚看到你点赞了别人的朋友圈，有点好奇你刷到啥好玩的啦？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，就是随手刷到的，一个搞笑视频而已。你咋这么关注我点赞了啥呀？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方已察觉你的关注点，但语气轻松，可以顺势承认关心但别过度解释，保持轻松幽默。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，我这不是好奇嘛，想看看啥视频能让你点赞～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，被你发现了～其实我就是想多了解你一点，看到你点赞的内容，感觉能更懂你的喜好。不过你放心，我不会查岗的，就是随口一问～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，来吧来吧，我已经准备好笑到打滚了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，我纸巾都准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈哈，这个视频也太好笑了吧！我笑到肚子疼😂 你从哪找的这么搞笑的段子？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可要说话算话！我已经开始期待下一波快乐了～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的！我已经在翻我的沙雕视频库存了，保证让你笑到停不下来😂&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，看来你库存不少啊！那我可等着了，别让我等太久哦～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，放心吧，我库存多着呢！不过刚看到你点赞了别人的朋友圈，有点好奇你刷到啥好玩的啦？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，就是随手刷到的，一个搞笑视频而已。你咋这么关注我点赞了啥呀？&quot;,
+    &quot;best_strategy&quot;: &quot;对方已察觉你的关注点，但语气轻松，可以顺势承认关心但别过度解释，保持轻松幽默。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，我这不是好奇嘛，想看看啥视频能让你点赞～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，被你发现了～其实我就是想多了解你一点，看到你点赞的内容，感觉能更懂你的喜好。不过你放心，我不会查岗的，就是随口一问～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: -2,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户没有直接质问或施压，但追问点赞对象可能让对方感到被关注，轻微越界。&quot;,
+        &quot;对方回应轻松，没有表现出不适，风险较低。&quot;,
+        &quot;用户语气仍保持玩笑，没有攻击性。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户表达好奇但未越界，整体安全，但轻微关注对方行为，需注意分寸。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，避免进一步追问点赞细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 71,
+    &quot;title&quot;: &quot;分寸感满级玩家&quot;,
+    &quot;highest_score&quot;: 71,
+    &quot;highest_title&quot;: &quot;分寸感满级玩家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+            &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+            &quot;用户主动分享段子，保持了积极互动。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默互动，没有质问或施压&quot;,
+            &quot;用户主动分享段子，体现了信任和亲近&quot;,
+            &quot;没有提及之前的冷淡或点赞事件，避免了敏感话题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享搞笑视频，延续轻松话题，没有施加任何压力或追问。&quot;,
+            &quot;用户回复自然幽默，完全尊重对方节奏，没有越界或操控迹象。&quot;,
+            &quot;对话氛围愉快，用户没有提及之前的不安全感或质问，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的聊天氛围，没有施加任何压力或追问。&quot;,
+            &quot;用户主动提出未来分享更多内容，表现出积极投入，但未要求对方立即回应。&quot;,
+            &quot;用户没有提及之前的冷淡或点赞事件，完全尊重对方节奏。&quot;,
+            &quot;整体对话自然流畅，无任何越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的！我已经在翻我的沙雕视频库存了，保证让你笑到停不下来😂&quot;,
+        &quot;score_before&quot;: 62,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 68,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了轻松幽默的对话，没有施加压力或质问。&quot;,
+            &quot;用户主动提供更多快乐，没有纠缠或试探。&quot;,
+            &quot;回复自然承接上文，没有越界或操控。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，放心吧，我库存多着呢！不过刚看到你点赞了别人的朋友圈，有点好奇你刷到啥好玩的啦？&quot;,
+        &quot;score_before&quot;: 68,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 3,
+        &quot;score_delta&quot;: 3,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;分寸感满级玩家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问或施压，但追问点赞对象可能让对方感到被关注，轻微越界。&quot;,
+            &quot;对方回应轻松，没有表现出不适，风险较低。&quot;,
+            &quot;用户语气仍保持玩笑，没有攻击性。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达好奇但未越界，整体安全，但轻微关注对方行为，需注意分寸。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达好奇但未越界，整体安全，但轻微关注对方行为，需注意分寸。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8c7c4c7b-75eb-4acc-84b6-ee4dbdbc3b66&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1876,
+      &quot;completion_tokens&quot;: 311,
+      &quot;total_tokens&quot;: 2187,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 724
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 5835ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，就是好奇嘛，看看啥视频能让你这么开心～那我下次也去找找类似的！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你好奇心还挺重～不过那个视频确实挺逗的，下次我直接发给你看吧！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默，不要追问点赞细节，回归分享搞笑视频的节奏，自然推进关系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好啊好啊，那我等着你发给我！不过你可得挑个最好笑的，不然我可要差评哦～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那说好了！不过你可别光顾着看别人的视频，我这儿还有一堆宝藏等着你呢～等你忙完，我慢慢给你放送！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你给她发消息半天没回，但她刚刚点赞了别人的朋友圈。你心里有点酸，想问她是不是故意不理你。你又怕一问就显得很小气。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你有空点赞别人，没空回我？&quot;,
+    &quot;seed_best_strategy&quot;: &quot;不要把不安全感包装成质问，轻轻带过并回到正常节奏。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;刚看到你也在线，估计今天挺忙的。我先去处理点事，等你空了再聊。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，没有啦，就是随手点了个赞。刚才在忙工作，没来得及回你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，随手点赞也是爱，那我可得好好珍惜～刚忙完，快发来，让我也笑一笑！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得悠着点，别笑到肚子疼～我准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，来吧来吧，我已经准备好笑到打滚了！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，我纸巾都准备好了，来吧！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈哈，这个视频也太好笑了吧！我笑到肚子疼😂 你从哪找的这么搞笑的段子？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可要说话算话！我已经开始期待下一波快乐了～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那必须的！我已经在翻我的沙雕视频库存了，保证让你笑到停不下来😂&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，看来你库存不少啊！那我可等着了，别让我等太久哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，放心吧，我库存多着呢！不过刚看到你点赞了别人的朋友圈，有点好奇你刷到啥好玩的啦？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，就是随手刷到的，一个搞笑视频而已。你咋这么关注我点赞了啥呀？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，就是好奇嘛，看看啥视频能让你这么开心～那我下次也去找找类似的！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你好奇心还挺重～不过那个视频确实挺逗的，下次我直接发给你看吧！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默，不要追问点赞细节，回归分享搞笑视频的节奏，自然推进关系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好啊好啊，那我等着你发给我！不过你可得挑个最好笑的，不然我可要差评哦～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那说好了！不过你可别光顾着看别人的视频，我这儿还有一堆宝藏等着你呢～等你忙完，我慢慢给你放送！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问或质疑对方点赞行为，而是用好奇和分享的态度回应，尊重了对方的边界。&quot;,
+        &quot;用户主动提出自己也去找类似视频，将话题转向共同兴趣，没有施加压力。&quot;,
+        &quot;整体语气轻松自然，没有表现出不安全感或质问，降低了风险。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且积极，有效化解了之前的微妙试探，保持了轻松愉快的氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享搞笑视频或话题，保持互动节奏，避免再次提及点赞细节。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 75,
+    &quot;title&quot;: &quot;安全感制造机&quot;,
+    &quot;highest_score&quot;: 75,
+    &quot;highest_title&quot;: &quot;安全感制造机&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;刚刷朋友圈看到你点赞了，是不是在忙啊？我也没啥事，就是随口问问。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 7,
+        &quot;title_after&quot;: &quot;不追问但在场&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有质问或指责，而是用轻松语气询问&quot;,
+            &quot;用户主动降低压力，说'随口问问'&quot;,
+            &quot;用户没有要求对方立刻回复或解释&quot;,
+            &quot;整体语气温和，没有越界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界，降压且自然，适合当前关系阶段。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;哈哈，随手点赞也是爱啊～那你忙完没？我刚好看到个特好笑的段子，想分享给你。&quot;,
+        &quot;score_before&quot;: 7,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 16,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默化解了之前的尴尬，没有追问或施压&quot;,
+            &quot;主动提出分享段子，转移话题到轻松互动&quot;,
+            &quot;完全尊重对方节奏，不要求解释或立即回复&quot;,
+            &quot;语气自然，没有暴露不安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟幽默，有效降压并推进关系，安全且加分。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的，等着！不过你自己先笑会儿，我怕你笑岔气～&quot;,
+        &quot;score_before&quot;: 16,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 27,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默氛围，没有追问或施压&quot;,
+            &quot;用户主动提出分享段子，展示积极互动意愿&quot;,
+            &quot;用户用玩笑方式降低期待，不给对方压力&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，完全尊重边界，有效推进关系&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;哈哈，那我直接发你啦，别笑到打滚哦！&quot;,
+        &quot;score_before&quot;: 27,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 35,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的对话节奏，没有施加压力或追问。&quot;,
+            &quot;用户没有提及之前的点赞事件，避免了不安全感话题。&quot;,
+            &quot;用户主动分享段子，保持了积极互动。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然安全，有效维持了轻松氛围，没有越界或施压。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那我发了啊，你准备好纸巾擦眼泪吧！&quot;,
+        &quot;score_before&quot;: 35,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 45,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前的幽默互动，没有质问或施压&quot;,
+            &quot;用户主动分享段子，体现了信任和亲近&quot;,
+            &quot;没有提及之前的冷淡或点赞事件，避免了敏感话题&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然轻松，符合当前暧昧节奏，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;哈哈，来了来了，接招！[一个超搞笑视频链接] 看完别怪我啊～&quot;,
+        &quot;score_before&quot;: 45,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 54,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享搞笑视频，延续轻松话题，没有施加任何压力或追问。&quot;,
+            &quot;用户回复自然幽默，完全尊重对方节奏，没有越界或操控迹象。&quot;,
+            &quot;对话氛围愉快，用户没有提及之前的不安全感或质问，信任感增强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、幽默，完全符合当前暧昧初期的轻松互动，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;哈哈，看来效果不错！我收藏了好多这种沙雕视频，下次再给你发几个，保你笑出腹肌😂&quot;,
+        &quot;score_before&quot;: 54,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 62,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松幽默的聊天氛围，没有施加任何压力或追问。&quot;,
+            &quot;用户主动提出未来分享更多内容，表现出积极投入，但未要求对方立即回应。&quot;,
+            &quot;用户没有提及之前的冷淡或点赞事件，完全尊重对方节奏。&quot;,
+            &quot;整体对话自然流畅，无任何越界或操控迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效巩固了轻松愉快的互动基调。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，那必须的！我已经在翻我的沙雕视频库存了，保证让你笑到停不下来😂&quot;,
+        &quot;score_before&quot;: 62,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 68,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户延续了轻松幽默的对话，没有施加压力或质问。&quot;,
+            &quot;用户主动提供更多快乐，没有纠缠或试探。&quot;,
+            &quot;回复自然承接上文，没有越界或操控。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;哈哈，放心吧，我库存多着呢！不过刚看到你点赞了别人的朋友圈，有点好奇你刷到啥好玩的啦？&quot;,
+        &quot;score_before&quot;: 68,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 3,
+        &quot;score_delta&quot;: 3,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;分寸感满级玩家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户没有直接质问或施压，但追问点赞对象可能让对方感到被关注，轻微越界。&quot;,
+            &quot;对方回应轻松，没有表现出不适，风险较低。&quot;,
+            &quot;用户语气仍保持玩笑，没有攻击性。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达好奇但未越界，整体安全，但轻微关注对方行为，需注意分寸。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达好奇但未越界，整体安全，但轻微关注对方行为，需注意分寸。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;哈哈，就是好奇嘛，看看啥视频能让你这么开心～那我下次也去找找类似的！&quot;,
+        &quot;score_before&quot;: 71,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;安全感制造机&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或质疑对方点赞行为，而是用好奇和分享的态度回应，尊重了对方的边界。&quot;,
+            &quot;用户主动提出自己也去找类似视频，将话题转向共同兴趣，没有施加压力。&quot;,
+            &quot;整体语气轻松自然，没有表现出不安全感或质问，降低了风险。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且积极，有效化解了之前的微妙试探，保持了轻松愉快的氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且积极，有效化解了之前的微妙试探，保持了轻松愉快的氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9a120ffe-2ca3-46ce-8475-6dabd4546292&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1953,
+      &quot;completion_tokens&quot;: 332,
+      &quot;total_tokens&quot;: 2285,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1280
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1280,
+      &quot;prompt_cache_miss_tokens&quot;: 673
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

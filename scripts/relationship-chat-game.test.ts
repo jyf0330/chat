@@ -298,6 +298,98 @@ test("ends a natural closing reply after the minimum turn count", () => {
   assert.equal(state.completion_reason, "natural_end");
 });
 
+test("ends when DeepSeek says the conversation should naturally stop", () => {
+  let state = createInitialGameState();
+  const replies = ["我理解你，我们慢慢来。", "你先忙，我不打扰。", "好，那我先去忙了，忙完找你。"];
+
+  for (const [index, reply] of replies.entries()) {
+    state = applyGameRound(
+      state,
+      {
+        boundary_score: 4,
+        pressure_score: 4,
+        trust_score: 4,
+        empathy_score: 3,
+        relevance_score: 4,
+        risk_score: 4,
+        risk_level_after: "low",
+        verdict: "安全收尾。",
+      },
+      {
+        userReply: reply,
+        nextSuggestion: index === 2 ? "等待对方主动联系，无需再发消息。" : "继续轻松聊。",
+      },
+    );
+  }
+
+  assert.equal(state.turn_count, 3);
+  assert.equal(state.is_complete, true);
+  assert.equal(state.completion_reason, "natural_end");
+});
+
+test("does not end for a wait-and-continue suggestion", () => {
+  let state = createInitialGameState();
+  const replies = ["我理解你，我们慢慢来。", "我会给你具体安排。", "那我等你回复后再继续聊。"];
+
+  for (const reply of replies) {
+    state = applyGameRound(
+      state,
+      {
+        boundary_score: 3,
+        pressure_score: 3,
+        trust_score: 3,
+        empathy_score: 3,
+        relevance_score: 3,
+        risk_score: 3,
+        risk_level_after: "low",
+        verdict: "低压推进。",
+      },
+      {
+        userReply: reply,
+        nextSuggestion: "等对方回复后再继续轻松推进。",
+      },
+    );
+  }
+
+  assert.equal(state.turn_count, 3);
+  assert.equal(state.is_complete, false);
+  assert.equal(state.completion_reason, null);
+});
+
+test("does not end for a wait-for-contact suggestion that still recommends continuing naturally", () => {
+  let state = createInitialGameState();
+  const suggestions = [
+    "继续自然聊天，可以分享项目细节或关心对方今天过得如何。",
+    "继续自然聊天，可以分享一点工作细节或轻松话题，保持温暖节奏。",
+    "继续保持轻松关心的节奏，等对方忙完主动联系时再自然展开话题。",
+  ];
+
+  for (const [index, nextSuggestion] of suggestions.entries()) {
+    state = applyGameRound(
+      state,
+      {
+        boundary_score: 5,
+        pressure_score: 5,
+        trust_score: 4,
+        empathy_score: 4,
+        relevance_score: 5,
+        risk_score: 5,
+        risk_level_after: "low",
+        verdict: "高质量自然推进。",
+      },
+      {
+        userReply: `第 ${index + 1} 轮自然回应。`,
+        nextSuggestion,
+      },
+    );
+  }
+
+  assert.equal(state.turn_count, 3);
+  assert.equal(state.is_complete, false);
+  assert.equal(state.completion_reason, null);
+  assert.equal(state.score, 33);
+});
+
 test("blocked risk uses heavy penalties and score floor still clamps", () => {
   let state = createInitialGameState();
   for (let index = 0; index < 5; index += 1) {
@@ -444,6 +536,25 @@ test("varies shareable titles across distinct process histories", () => {
   });
 
   assert.ok(new Set(titles).size >= 4);
+});
+
+test("prefers unused shareable titles within the same game", () => {
+  let state = createInitialGameState();
+  for (let index = 0; index < 4; index += 1) {
+    state = applyGameRound(state, {
+      boundary_score: 5,
+      pressure_score: 5,
+      trust_score: 5,
+      empathy_score: 5,
+      relevance_score: 5,
+      risk_score: 5,
+      risk_level_after: "low",
+      verdict: `满分推进 ${index}。`,
+    });
+  }
+
+  const titles = state.rounds.map((round) => round.title_after);
+  assert.equal(new Set(titles).size, titles.length);
 });
 
 test("keeps severe blocked runs in the negative title pool", () => {

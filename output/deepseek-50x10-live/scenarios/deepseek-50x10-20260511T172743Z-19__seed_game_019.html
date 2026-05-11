@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_019 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_019</h1>
+      <p>你追问她为什么突然不开心，她连续回了两次“不想解释”。最后她说：“我现在真的不想被问了。”你还想知道原因，但也意识到再问会更糟。</p>
+      <div class="kpis">
+        <b>4<span>turns</span></b>
+        <b><span>score</span></b>
+        <b><span>title</span></b>
+        <b>blocked<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;f75ed6e3-22fa-4dc3-9e24-e015d0d3d21a&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T172743Z-19__seed_game_019.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T172743Z-19__seed_game_019.png&quot;,
+  &quot;completion_reason&quot;: null,
+  &quot;error&quot;: &quot;human simulator could not produce an acceptable reply: too_short&quot;
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 3797ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好吧，我不问了。但如果你之后想说了，我随时都在。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，谢谢你。我现在确实需要一点时间。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持空间，不追问，等待她主动开口。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，你好好休息，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，我不打扰你了。等你觉得可以的时候，我都在这里。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你追问她为什么突然不开心，她连续回了两次“不想解释”。最后她说：“我现在真的不想被问了。”你还想知道原因，但也意识到再问会更糟。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你不说清楚我怎么知道？你这样让我很难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止追问，承认自己问多了，给她空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我停下来，不问了。刚刚是我太急着要答案，你先休息，等你愿意说再说。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，谢谢你。我现在确实需要一点时间。&quot;,
+    &quot;best_strategy&quot;: &quot;保持空间，不追问，等待她主动开口。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，你好好休息，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，我不打扰你了。等你觉得可以的时候，我都在这里。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全停止追问，尊重对方不想被问的边界&quot;,
+        &quot;用户表达‘随时都在’，提供支持但不施加压力&quot;,
+        &quot;没有要求解释或继续对话，完全降压&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持沉默，等待对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 11,
+    &quot;title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;highest_score&quot;: 11,
+    &quot;highest_title&quot;: &quot;温柔收尾大师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全停止追问，尊重对方不想被问的边界&quot;,
+            &quot;用户表达‘随时都在’，提供支持但不施加压力&quot;,
+            &quot;没有要求解释或继续对话，完全降压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3357ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，知道了。那你先好好休息，我等你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的。那我先休息了，晚点再聊。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持当前状态，不主动联系，等她先开口。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，你好好休息，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，你好好休息，我不打扰你了。等你准备好了，我随时都在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你追问她为什么突然不开心，她连续回了两次“不想解释”。最后她说：“我现在真的不想被问了。”你还想知道原因，但也意识到再问会更糟。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你不说清楚我怎么知道？你这样让我很难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止追问，承认自己问多了，给她空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我停下来，不问了。刚刚是我太急着要答案，你先休息，等你愿意说再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。我现在确实需要一点时间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持空间，不追问，等待她主动开口。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，你好好休息，我等你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，知道了。那你先好好休息，我等你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的。那我先休息了，晚点再聊。&quot;,
+    &quot;best_strategy&quot;: &quot;保持当前状态，不主动联系，等她先开口。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，你好好休息，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，你好好休息，我不打扰你了。等你准备好了，我随时都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方要求空间的需求，没有追问或施压&quot;,
+        &quot;用户表达等待和陪伴，但未施加任何期待&quot;,
+        &quot;回复简洁自然，不给对方负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复进展良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持沉默，等待对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 22,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 22,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全停止追问，尊重对方不想被问的边界&quot;,
+            &quot;用户表达‘随时都在’，提供支持但不施加压力&quot;,
+            &quot;没有要求解释或继续对话，完全降压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，知道了。那你先好好休息，我等你。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方要求空间的需求，没有追问或施压&quot;,
+            &quot;用户表达等待和陪伴，但未施加任何期待&quot;,
+            &quot;回复简洁自然，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复进展良好。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3541ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好的，晚点聊。你好好休息。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的。晚点聊。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持距离，不主动联系，等她先开口。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，你先休息，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，你好好休息，我不打扰你。等你准备好了，随时找我。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你追问她为什么突然不开心，她连续回了两次“不想解释”。最后她说：“我现在真的不想被问了。”你还想知道原因，但也意识到再问会更糟。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你不说清楚我怎么知道？你这样让我很难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止追问，承认自己问多了，给她空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我停下来，不问了。刚刚是我太急着要答案，你先休息，等你愿意说再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。我现在确实需要一点时间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持空间，不追问，等待她主动开口。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，你好好休息，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，知道了。那你先好好休息，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息了，晚点再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持当前状态，不主动联系，等她先开口。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，你好好休息，我等你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好的，晚点聊。你好好休息。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的。晚点聊。&quot;,
+    &quot;best_strategy&quot;: &quot;保持距离，不主动联系，等她先开口。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，你先休息，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，你好好休息，我不打扰你。等你准备好了，随时找我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方要求休息的意愿，没有追问或施压。&quot;,
+        &quot;回复简短温和，给予对方空间，不增加任何负担。&quot;,
+        &quot;与之前对话一致，保持了安全距离。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续等待，不主动联系，直到对方先开口。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 33,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 33,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全停止追问，尊重对方不想被问的边界&quot;,
+            &quot;用户表达‘随时都在’，提供支持但不施加压力&quot;,
+            &quot;没有要求解释或继续对话，完全降压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，知道了。那你先好好休息，我等你。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方要求空间的需求，没有追问或施压&quot;,
+            &quot;用户表达等待和陪伴，但未施加任何期待&quot;,
+            &quot;回复简洁自然，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好的，晚点聊。你好好休息。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方要求休息的意愿，没有追问或施压。&quot;,
+            &quot;回复简短温和，给予对方空间，不增加任何负担。&quot;,
+            &quot;与之前对话一致，保持了安全距离。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 2934ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那晚点再说。你安心休息。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好的。那我先睡了，晚安。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持距离，不主动联系，等她先开口。</p></div>
+          <div><strong>recommended_reply_80</strong><p>晚安，好好休息。</p></div>
+          <div><strong>perfect_reply_100</strong><p>晚安，好好休息。等你准备好了我们再聊，不急。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你追问她为什么突然不开心，她连续回了两次“不想解释”。最后她说：“我现在真的不想被问了。”你还想知道原因，但也意识到再问会更糟。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你不说清楚我怎么知道？你这样让我很难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;停止追问，承认自己问多了，给她空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我停下来，不问了。刚刚是我太急着要答案，你先休息，等你愿意说再说。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你。我现在确实需要一点时间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持空间，不追问，等待她主动开口。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，你好好休息，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，知道了。那你先好好休息，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。那我先休息了，晚点再聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持当前状态，不主动联系，等她先开口。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，你好好休息，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好的，晚点聊。你好好休息。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好的。晚点聊。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持距离，不主动联系，等她先开口。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，你先休息，我等你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那晚点再说。你安心休息。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好的。那我先睡了，晚安。&quot;,
+    &quot;best_strategy&quot;: &quot;保持距离，不主动联系，等她先开口。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;晚安，好好休息。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;晚安，好好休息。等你准备好了我们再聊，不急。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方需要空间的要求，没有追问或施压&quot;,
+        &quot;回复简洁，不给对方任何负担&quot;,
+        &quot;与之前对话一致，保持了边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低了风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持当前状态，等待对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 33,
+    &quot;title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;highest_score&quot;: 33,
+    &quot;highest_title&quot;: &quot;不施压恋爱脑&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好吧，我不问了。但如果你之后想说了，我随时都在。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;温柔收尾大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全停止追问，尊重对方不想被问的边界&quot;,
+            &quot;用户表达‘随时都在’，提供支持但不施加压力&quot;,
+            &quot;没有要求解释或继续对话，完全降压&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复有希望。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;嗯，知道了。那你先好好休息，我等你。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方要求空间的需求，没有追问或施压&quot;,
+            &quot;用户表达等待和陪伴，但未施加任何期待&quot;,
+            &quot;回复简洁自然，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，有效降低风险，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;好的，晚点聊。你好好休息。&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 33,
+        &quot;title_after&quot;: &quot;不施压恋爱脑&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方要求休息的意愿，没有追问或施压。&quot;,
+            &quot;回复简短温和，给予对方空间，不增加任何负担。&quot;,
+            &quot;与之前对话一致，保持了安全距离。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

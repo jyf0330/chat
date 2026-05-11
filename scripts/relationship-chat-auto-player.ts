@@ -1,6 +1,8 @@
 import type { RelationshipCase, SimulationResult } from "./relationship-chat-storage.ts";
 
 export type AutoPlayerStopReason = "stale_loop" | "natural_end";
+export type AutoPlayerInputScheme = "recommended" | "repair";
+const autoPlayerSchemeEnvKey = "RELATIONSHIP_CHAT_AUTO_PLAYER_SCHEME";
 
 type ChooseAutoPlayerNextReplyInput = {
   currentCase: RelationshipCase;
@@ -8,8 +10,18 @@ type ChooseAutoPlayerNextReplyInput = {
   previousUserReplies: string[];
 };
 
-export function chooseAutoPlayerOpeningReply(currentCase: RelationshipCase, runStyle: string) {
-  if (isMistakeFirstStyle(runStyle)) return currentCase.wrong_reply;
+export function resolveAutoPlayerInputScheme(value?: string): AutoPlayerInputScheme {
+  const normalized = normalizeReply(value).toLowerCase();
+  if (normalized === "repair" || normalized === "wrong-first") return "repair";
+  return "recommended";
+}
+
+export function chooseAutoPlayerOpeningReply(
+  currentCase: RelationshipCase,
+  runStyle: string,
+  scheme: AutoPlayerInputScheme = resolveAutoPlayerInputScheme(process.env[autoPlayerSchemeEnvKey]),
+) {
+  if (scheme === "repair" && isMistakeFirstStyle(runStyle)) return currentCase.wrong_reply;
   return currentCase.recommended_reply;
 }
 

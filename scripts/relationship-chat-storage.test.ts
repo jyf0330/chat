@@ -194,3 +194,95 @@ test("history summarizes game titles and best or worst turns", () => {
     assert.equal(history[0].best_turn?.perfect_reply_100, "嗯嗯，蕾姆陪着我，我会更有动力把事情做好。");
   });
 });
+
+test("lists completed non-custom case ids for a visitor", () => {
+  withStore((store) => {
+    const session = store.createSession({
+      visitorId: "visitor-completed-cases",
+      consentForDataset: true,
+    });
+
+    store.recordSimulation({
+      sessionId: session.id,
+      caseId: "case-complete",
+      mode: "chat",
+      consentForDataset: true,
+      userReply: "好的。",
+      turns: [],
+      result: {
+        target_reply: "嗯。",
+        game: {
+          schema_version: "relationship_game_score_v1",
+          max_turns: 10,
+          turn_count: 10,
+          score: 60,
+          title: "信任升温",
+          highest_score: 60,
+          highest_title: "信任升温",
+          is_complete: true,
+          completion_reason: "max_turns",
+          rounds: [],
+        },
+      },
+    });
+    store.recordSimulation({
+      sessionId: session.id,
+      caseId: "case-incomplete",
+      mode: "chat",
+      consentForDataset: true,
+      userReply: "继续。",
+      turns: [],
+      result: {
+        target_reply: "继续聊。",
+        game: {
+          schema_version: "relationship_game_score_v1",
+          max_turns: 10,
+          turn_count: 1,
+          score: 5,
+          title: "稳定对话",
+          highest_score: 5,
+          highest_title: "稳定对话",
+          is_complete: false,
+          completion_reason: null,
+          rounds: [],
+        },
+      },
+    });
+    store.recordSimulation({
+      sessionId: session.id,
+      caseId: "custom-complete",
+      mode: "chat",
+      consentForDataset: true,
+      customCase: {
+        id: "custom-complete",
+        real_relationship_scene: "自定义",
+        relationship_stage_label: "热聊升温",
+        target_emotion_label: "撒娇",
+        risk_level: "low",
+        wrong_reply: "无",
+        best_strategy: "无",
+        recommended_reply: "无",
+        user_feedback: null,
+      },
+      userReply: "继续。",
+      turns: [],
+      result: {
+        target_reply: "继续聊。",
+        game: {
+          schema_version: "relationship_game_score_v1",
+          max_turns: 10,
+          turn_count: 10,
+          score: 80,
+          title: "高质量陪伴",
+          highest_score: 80,
+          highest_title: "高质量陪伴",
+          is_complete: true,
+          completion_reason: "max_turns",
+          rounds: [],
+        },
+      },
+    });
+
+    assert.deepEqual(store.getCompletedCaseIds("visitor-completed-cases"), ["case-complete"]);
+  });
+});

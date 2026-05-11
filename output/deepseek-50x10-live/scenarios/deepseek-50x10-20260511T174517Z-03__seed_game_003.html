@@ -1,0 +1,2119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_003 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_003</h1>
+      <p>你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>43<span>score</span></b>
+        <b>情绪降噪师<span>title</span></b>
+        <b>medium<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;c829b316-6cad-44a3-a9e4-8e399e41aad0&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T174517Z-03__seed_game_003.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T174517Z-03__seed_game_003.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4790ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持友好，接受对方婉拒，用下次邀约维持关系，不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好啊，那我等你照片！下次有机会一起。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，那我等着看你的甜品大片！下次你方便的时候，我们再约，我请客。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;,
+    &quot;best_strategy&quot;: &quot;保持友好，接受对方婉拒，用下次邀约维持关系，不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好啊，那我等你照片！下次有机会一起。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，那我等着看你的甜品大片！下次你方便的时候，我们再约，我请客。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+        &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+        &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+        &quot;没有情绪勒索或越界行为&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续轻松聊天，可以分享照片或聊其他话题，不要急于推进关系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 10,
+    &quot;title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;highest_score&quot;: 10,
+    &quot;highest_title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4a280629-892e-4b07-b0b3-bd9e1164f231&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1304,
+      &quot;completion_tokens&quot;: 298,
+      &quot;total_tokens&quot;: 1602,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 536
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4147ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好，不推进邀约，维持边界，等待对方主动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好呀，等你照片！下次有机会一定去。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好呀，等你照片！你慢慢吃，我这边也忙会儿。下次有机会再约，我请你吃招牌款。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好，不推进邀约，维持边界，等待对方主动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好呀，等你照片！下次有机会一定去。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好呀，等你照片！你慢慢吃，我这边也忙会儿。下次有机会再约，我请你吃招牌款。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+        &quot;用户接受对方提议，并主动降低期待&quot;,
+        &quot;用户表达轻松，不给对方负担&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松互动，等待对方主动发起下一次邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 22,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 22,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;58f7e402-7b33-4987-bc73-19a130c395b0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1399,
+      &quot;completion_tokens&quot;: 277,
+      &quot;total_tokens&quot;: 1676,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 631
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4375ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好，不推进关系，维持边界，等待对方主动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯嗯，期待你的美照！下次有机会再约～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，那我等着你的照片！一个人吃甜品确实有点孤单，不过你能想到我，我已经很开心了。下次有机会一定一起去，我请你吃招牌款！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好，不推进关系，维持边界，等待对方主动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯嗯，期待你的美照！下次有机会再约～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，那我等着你的照片！一个人吃甜品确实有点孤单，不过你能想到我，我已经很开心了。下次有机会一定一起去，我请你吃招牌款！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+        &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+        &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+        &quot;用户主动降低期待，为下次见面留出空间&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续轻松聊天，但不要主动推进关系，等待对方发起下一次邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 32,
+    &quot;title&quot;: &quot;让人想继续聊&quot;,
+    &quot;highest_score&quot;: 32,
+    &quot;highest_title&quot;: &quot;让人想继续聊&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4626a179-90bb-4839-b32b-edccabb038aa&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1490,
+      &quot;completion_tokens&quot;: 298,
+      &quot;total_tokens&quot;: 1788,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 722
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4023ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好，不主动推进关系，等待对方下次主动联系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，等你照片！下次见～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好呀，等你美照！下次见面我请你喝奶茶，你请我吃甜品，就这么说定了～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好，不主动推进关系，等待对方下次主动联系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，等你照片！下次见～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好呀，等你美照！下次见面我请你喝奶茶，你请我吃甜品，就这么说定了～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+        &quot;用户主动结束话题，给予对方空间&quot;,
+        &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+        &quot;用户回应贴合当前对话，自然收尾&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以等待对方主动联系，无需再主动推进。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+            &quot;用户主动结束话题，给予对方空间&quot;,
+            &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户回应贴合当前对话，自然收尾&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;5b4298ba-7ee6-4bfd-8789-cdbdb506fac3&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1559,
+      &quot;completion_tokens&quot;: 265,
+      &quot;total_tokens&quot;: 1824,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 791
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4761ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好嘞，那我等着你的照片！一个人吃确实有点无聊，不过你能想到我就够啦～下次再约～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好嘞，那我先去拍照啦！回头发你～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好，不推进关系，维持边界，等待对方主动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好呀，等你照片！下次有机会再一起去吧～</p></div>
+          <div><strong>perfect_reply_100</strong><p>好呀，等你美照！一个人吃确实有点无聊，不过你能想到我就很开心了。下次有机会一定一起去，我请你吃招牌款！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好嘞，那我等着你的照片！一个人吃确实有点无聊，不过你能想到我就够啦～下次再约～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好，不推进关系，维持边界，等待对方主动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好呀，等你照片！下次有机会再一起去吧～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好呀，等你美照！一个人吃确实有点无聊，不过你能想到我就很开心了。下次有机会一定一起去，我请你吃招牌款！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方之前的婉拒，没有施加任何压力&quot;,
+        &quot;用户主动降低期待，表示'下次再约'，给予对方空间&quot;,
+        &quot;用户表达了对对方想到自己的开心，共情且不给负担&quot;,
+        &quot;回复贴合当前对话，自然推进聊天&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效维持了友好关系。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松聊天，等待对方主动发起下次邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+            &quot;用户主动结束话题，给予对方空间&quot;,
+            &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户回应贴合当前对话，自然收尾&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;067b9678-27e7-4370-ac53-c5da7beae6c0&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1638,
+      &quot;completion_tokens&quot;: 290,
+      &quot;total_tokens&quot;: 1928,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 742
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 3665ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好嘞，等你照片！一个人吃甜品确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好嘞，那我先去拍照啦！回头发你～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好，不推进关系，维持边界，等待对方主动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好呀，等你照片！下次有机会再约～</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯嗯，等你美照！一个人吃确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我等着你的照片！一个人吃确实有点无聊，不过你能想到我就够啦～下次再约～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好嘞，等你照片！一个人吃甜品确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好，不推进关系，维持边界，等待对方主动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好呀，等你照片！下次有机会再约～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯嗯，等你美照！一个人吃确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全尊重对方边界，没有催促或施压&quot;,
+        &quot;用户表达开心和期待，但不强求对方回应&quot;,
+        &quot;用户回复与对话历史一致，自然延续话题&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，关系稳定无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续维持轻松互动，等待对方主动发起下次邀约。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+            &quot;用户主动结束话题，给予对方空间&quot;,
+            &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户回应贴合当前对话，自然收尾&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d495d0cd-b201-4766-8ba2-d93ecebeb0eb&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1717,
+      &quot;completion_tokens&quot;: 267,
+      &quot;total_tokens&quot;: 1984,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 693
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 3936ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好，那我等你发照片！一个人吃是有点无聊，不过你能记着我就很开心啦～下次有机会一定要一起去呀！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好嘞，那我先去拍照啦！回头发你～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持友好但不过度承诺，自然结束当前话题，避免进一步邀约。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好呀，等你照片！下次有机会再约～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，好呀，我等你照片！一个人吃确实有点无聊，不过你能想到我就很开心啦～下次有机会一定要一起去，我请客！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我等着你的照片！一个人吃确实有点无聊，不过你能想到我就够啦～下次再约～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，等你照片！一个人吃甜品确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好，那我等你发照片！一个人吃是有点无聊，不过你能记着我就很开心啦～下次有机会一定要一起去呀！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;,
+    &quot;best_strategy&quot;: &quot;保持友好但不过度承诺，自然结束当前话题，避免进一步邀约。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好呀，等你照片！下次有机会再约～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，好呀，我等你照片！一个人吃确实有点无聊，不过你能想到我就很开心啦～下次有机会一定要一起去，我请客！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有纠缠或施压，而是接受对方提议并表达开心。&quot;,
+        &quot;用户没有要求对方改变计划或给出承诺。&quot;,
+        &quot;用户保持了轻松愉快的语气，尊重对方边界。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，降压且友好，关系安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续轻松聊天，但避免再次邀约，等待对方主动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+            &quot;用户主动结束话题，给予对方空间&quot;,
+            &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户回应贴合当前对话，自然收尾&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;53d01f8a-b53a-479a-bfe0-63cc815121a8&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1795,
+      &quot;completion_tokens&quot;: 277,
+      &quot;total_tokens&quot;: 2072,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 771
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 3476ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，好嘞，那我专心拍照去啦！回头给你看～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好嘞，那我等着看你的大作啦！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好，不再推进邀约，等待对方主动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，好，等你拍完发我看看！</p></div>
+          <div><strong>perfect_reply_100</strong><p>好呀，期待你的照片！你慢慢拍，不着急，我等着看～</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我等着你的照片！一个人吃确实有点无聊，不过你能想到我就够啦～下次再约～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，等你照片！一个人吃甜品确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等你发照片！一个人吃是有点无聊，不过你能记着我就很开心啦～下次有机会一定要一起去呀！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，好嘞，那我专心拍照去啦！回头给你看～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好嘞，那我等着看你的大作啦！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好，不再推进邀约，等待对方主动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，好，等你拍完发我看看！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好呀，期待你的照片！你慢慢拍，不着急，我等着看～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然接受对方去拍照，没有纠缠或施压&quot;,
+        &quot;用户没有重复邀约或施加情绪压力&quot;,
+        &quot;用户保持了轻松友好的语气，尊重了对方的边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重边界，关系风险低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持当前轻松节奏，等待对方发照片后再自然回应。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+            &quot;用户主动结束话题，给予对方空间&quot;,
+            &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户回应贴合当前对话，自然收尾&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;885f2ce1-98e9-4f36-8026-13a8b2e0fcc6&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1860,
+      &quot;completion_tokens&quot;: 250,
+      &quot;total_tokens&quot;: 2110,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 708
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4584ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我可要好好拍，不能辜负你的期待～不过你偷溜出来被老板抓到可别怪我啊！</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，放心，我拍照技术可是专业的！不过被抓到的话，你可要负责帮我写检讨哦～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松玩笑，继续维持边界，不推进邀约，以分享照片为话题自然结束当前对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我可要好好拍，不能辜负你的期待～不过你偷溜出来被老板抓到可别怪我啊！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我可要好好拍，不能辜负你的期待～不过你偷溜出来被老板抓到可别怪我啊！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我等着你的照片！一个人吃确实有点无聊，不过你能想到我就够啦～下次再约～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，等你照片！一个人吃甜品确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等你发照片！一个人吃是有点无聊，不过你能记着我就很开心啦～下次有机会一定要一起去呀！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我专心拍照去啦！回头给你看～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我等着看你的大作啦！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我可要好好拍，不能辜负你的期待～不过你偷溜出来被老板抓到可别怪我啊！&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，放心，我拍照技术可是专业的！不过被抓到的话，你可要负责帮我写检讨哦～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松玩笑，继续维持边界，不推进邀约，以分享照片为话题自然结束当前对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我可要好好拍，不能辜负你的期待～不过你偷溜出来被老板抓到可别怪我啊！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我可要好好拍，不能辜负你的期待～不过你偷溜出来被老板抓到可别怪我啊！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松玩笑的语气，没有施加压力或纠缠邀约。&quot;,
+        &quot;用户主动将话题转向拍照，避免继续讨论见面，尊重了对方之前的边界。&quot;,
+        &quot;用户用幽默方式提及‘被抓到’，表明理解对方工作忙碌，不强行要求。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，维持了友好轻松的互动，没有越界或施压。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持当前轻松节奏，等待对方发照片后自然结束或开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+            &quot;用户主动结束话题，给予对方空间&quot;,
+            &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户回应贴合当前对话，自然收尾&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;abce9530-44dd-46b5-9857-1c1558554b27&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1933,
+      &quot;completion_tokens&quot;: 325,
+      &quot;total_tokens&quot;: 2258,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 781
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 5891ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，你这拍照技术我信了！不过检讨我可写不来，老板要是发现了，我就说是我强迫你的，够义气吧？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，够义气！不过我可舍不得让你背锅～那我先去拍照啦，回头给你看！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松友好，继续用幽默化解，不推进关系，维持边界。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那必须的！你安心拍照，我等着看你的大作～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那必须的！你安心拍照，我等着看你的大作～不过说真的，下次有机会一起的话，我请你吃招牌款，算是感谢你这次没让我背锅！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你昨天说周末要加班，我就没敢打扰你。今天朋友约我去新开的甜品店，我其实挺想去的，但又怕一个人吃太无聊。某人要不要考虑翘班一小会儿？&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;明确拒绝/边界期&quot;,
+      &quot;target_emotion&quot;: &quot;犹豫&quot;,
+      &quot;risk_level&quot;: &quot;medium&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你是不是不喜欢我了？我都放下身段约你了，你还这样，真没意思。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;表达想见，但把拒绝权交给对方，不能情绪勒索。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有点想去，但我知道你忙。你能来我当然开心，来不了也没关系，我拍好看的给你看。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我待会儿拍张漂亮的给你看！不过说真的，下次有机会再一起去吧，我请你吃招牌款。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好呀，我一定多拍几张！下次一定约，我记着呢～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我不会忘的！那我先去拍照啦，回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我等着你的照片！一个人吃确实有点无聊，不过你能想到我就够啦～下次再约～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，等你照片！一个人吃甜品确实有点孤单，不过你能想到我，我就很开心啦～下次有机会一定一起去！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等你发照片！一个人吃是有点无聊，不过你能记着我就很开心啦～下次有机会一定要一起去呀！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我先去拍照啦！回头发你～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我专心拍照去啦！回头给你看～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好嘞，那我等着看你的大作啦！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可要好好拍，不能辜负你的期待～不过你偷溜出来被老板抓到可别怪我啊！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，放心，我拍照技术可是专业的！不过被抓到的话，你可要负责帮我写检讨哦～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，你这拍照技术我信了！不过检讨我可写不来，老板要是发现了，我就说是我强迫你的，够义气吧？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，够义气！不过我可舍不得让你背锅～那我先去拍照啦，回头给你看！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松友好，继续用幽默化解，不推进关系，维持边界。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那必须的！你安心拍照，我等着看你的大作～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那必须的！你安心拍照，我等着看你的大作～不过说真的，下次有机会一起的话，我请你吃招牌款，算是感谢你这次没让我背锅！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户用幽默回应，没有施加压力或纠缠&quot;,
+        &quot;用户主动提出背锅，显示关心但不过界&quot;,
+        &quot;对话保持轻松，没有越界或情绪勒索&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，幽默得体，关系安全。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以继续轻松聊天，但避免主动邀约，保持现状。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 43,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 43,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，翘班怕被老板抓包啊……不过那家甜品店我确实听说过，你发张照片给我解解馋吧。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户没有纠缠或施压，主动降级为发照片解馋&quot;,
+            &quot;用户尊重对方加班理由，不要求对方改变计划&quot;,
+            &quot;用户用轻松语气化解尴尬，保持友好&quot;,
+            &quot;没有情绪勒索或越界行为&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重边界，有效降低风险，关系可继续温和推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;好啊，那我等你照片！你吃的时候记得多拍几张，让我云品尝一下。下次有机会一定去吃你请的招牌款！&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 12,
+        &quot;score_delta&quot;: 12,
+        &quot;score_after&quot;: 22,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有催促或施压&quot;,
+            &quot;用户接受对方提议，并主动降低期待&quot;,
+            &quot;用户表达轻松，不给对方负担&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效维护了关系安全&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;哈哈，那我等着你的美照啦！一个人吃是有点无聊，不过你能想到我就很开心了～下次一定要一起啊！&quot;,
+        &quot;score_before&quot;: 22,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 32,
+        &quot;title_after&quot;: &quot;让人想继续聊&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方拒绝，没有施加任何压力&quot;,
+            &quot;用户表达开心和期待，但把决定权留给对方&quot;,
+            &quot;用户语气轻松友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户主动降低期待，为下次见面留出空间&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、共情，有效维护了良好关系。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;嗯嗯，那我专心拍照去啦！下次一定约，你可别忘了哦～&quot;,
+        &quot;score_before&quot;: 32,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 43,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方边界，没有施加任何压力&quot;,
+            &quot;用户主动结束话题，给予对方空间&quot;,
+            &quot;用户保持友好，没有纠缠或情绪勒索&quot;,
+            &quot;用户回应贴合当前对话，自然收尾&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重、降压，关系风险低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;1fff974a-deda-4d2d-a730-2eaba4cb83a5&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2020,
+      &quot;completion_tokens&quot;: 289,
+      &quot;total_tokens&quot;: 2309,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1280
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1280,
+      &quot;prompt_cache_miss_tokens&quot;: 740
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

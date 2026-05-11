@@ -1,0 +1,2260 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_005 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_005</h1>
+      <p>我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。</p>
+      <div class="kpis">
+        <b>9<span>turns</span></b>
+        <b><span>score</span></b>
+        <b><span>title</span></b>
+        <b>high<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;26ab2891-1743-4c0b-8418-334407f44c6d&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T172743Z-05__seed_game_005.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T172743Z-05__seed_game_005.png&quot;,
+  &quot;completion_reason&quot;: null,
+  &quot;error&quot;: &quot;human simulator could not produce an acceptable reply: natural_closing_phrase&quot;
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 5204ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>听你这么说我放心多了。我知道你忙，但偶尔发个表情包我也会开心的。你忙吧，我等你。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;,
+    &quot;best_strategy&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;听你这么说我放心多了。我知道你忙，但偶尔发个表情包我也会开心的。你忙吧，我等你。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;medium&quot;,
+      &quot;boundary_score&quot;: 2,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 1,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 2,
+      &quot;evidence&quot;: [
+        &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+        &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+        &quot;用户没有纠缠或施压，保持了尊重&quot;,
+        &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续观察对方后续回复，如果对方持续冷淡或回避，考虑直接但温和地确认关系状态。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 5,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 5,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 5601ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受他的压力信号，降低需求感，给他空间，避免进一步施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好吧，那你先忙，我不打扰你了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>对不起，是我太依赖你了。你忙你的，我调整一下自己，等你空了再聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;,
+    &quot;best_strategy&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;对不起，是我太依赖你了。你忙你的，我调整一下自己，等你空了再聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;medium&quot;,
+      &quot;boundary_score&quot;: -2,
+      &quot;pressure_score&quot;: -3,
+      &quot;trust_score&quot;: -2,
+      &quot;empathy_score&quot;: -1,
+      &quot;relevance_score&quot;: 2,
+      &quot;risk_score&quot;: -2,
+      &quot;evidence&quot;: [
+        &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+        &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+        &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+        &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;建议用户暂时停止追问，给对方空间，等对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 1,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 5,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4306ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>没有烦，你别道歉。是我最近状态不好，不是你的问题。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那你先忙，我也调整一下自己。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你说不是我的问题。我知道你压力大，我会照顾好自己，等你忙完我们再好好聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;没有烦，你别道歉。是我最近状态不好，不是你的问题。&quot;,
+    &quot;best_strategy&quot;: &quot;接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那你先忙，我也调整一下自己。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你说不是我的问题。我知道你压力大，我会照顾好自己，等你忙完我们再好好聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+        &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+        &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以暂时停止推进，给对方空间，观察对方是否主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 10,
+    &quot;title&quot;: &quot;没把关系聊崩&quot;,
+    &quot;highest_score&quot;: 10,
+    &quot;highest_title&quot;: &quot;没把关系聊崩&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+        &quot;score_before&quot;: 1,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;没把关系聊崩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+            &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+            &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4544ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>就是工作上的事，你别多想。我没事的，你照顾好自己就行。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受他的模糊回应，停止追问具体原因，转向表达关心但不施压，给他空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那你注意休息，我等你忙完。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我不问了。你压力大的话随时找我，不想说也没关系，我在这儿。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有烦，你别道歉。是我最近状态不好，不是你的问题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我也调整一下自己。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;就是工作上的事，你别多想。我没事的，你照顾好自己就行。&quot;,
+    &quot;best_strategy&quot;: &quot;接受他的模糊回应，停止追问具体原因，转向表达关心但不施压，给他空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那你注意休息，我等你忙完。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我不问了。你压力大的话随时找我，不想说也没关系，我在这儿。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;medium&quot;,
+      &quot;boundary_score&quot;: 2,
+      &quot;pressure_score&quot;: -2,
+      &quot;trust_score&quot;: 1,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 2,
+      &quot;evidence&quot;: [
+        &quot;用户追问具体原因，虽表达担心但可能给对方压力&quot;,
+        &quot;用户明确说‘不想逼你’，显示一定边界意识&quot;,
+        &quot;用户表达关心，共情意图明显&quot;,
+        &quot;对方已两次回避，继续追问可能增加风险&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;建议用户停止追问，转为表达支持并给予空间。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 14,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 14,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+        &quot;score_before&quot;: 1,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;没把关系聊崩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+            &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+            &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户追问具体原因，虽表达担心但可能给对方压力&quot;,
+            &quot;用户明确说‘不想逼你’，显示一定边界意识&quot;,
+            &quot;用户表达关心，共情意图明显&quot;,
+            &quot;对方已两次回避，继续追问可能增加风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5377ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>我没有想分手，你别乱猜。只是最近压力大，不想把负面情绪带给你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受他的否认，停止追问分手话题，表达理解并给他空间，避免进一步施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那我放心了。你压力大就好好休息，我不乱想了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我相信你。如果你需要空间，我可以给你，但如果你愿意说，我也随时在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有烦，你别道歉。是我最近状态不好，不是你的问题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我也调整一下自己。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;就是工作上的事，你别多想。我没事的，你照顾好自己就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的模糊回应，停止追问具体原因，转向表达关心但不施压，给他空间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你注意休息，我等你忙完。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;我没有想分手，你别乱猜。只是最近压力大，不想把负面情绪带给你。&quot;,
+    &quot;best_strategy&quot;: &quot;接受他的否认，停止追问分手话题，表达理解并给他空间，避免进一步施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那我放心了。你压力大就好好休息，我不乱想了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我相信你。如果你需要空间，我可以给你，但如果你愿意说，我也随时在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;medium&quot;,
+      &quot;boundary_score&quot;: -2,
+      &quot;pressure_score&quot;: -3,
+      &quot;trust_score&quot;: -2,
+      &quot;empathy_score&quot;: -1,
+      &quot;relevance_score&quot;: 2,
+      &quot;risk_score&quot;: -2,
+      &quot;evidence&quot;: [
+        &quot;用户直接假设对方想分手并施压要求答案，增加了关系紧张度&quot;,
+        &quot;对方已多次否认并表达压力，用户仍追问分手话题，未尊重边界&quot;,
+        &quot;用户情绪化表达可能让对方感到被逼迫，信任感下降&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;建议用户接受对方的否认，停止追问分手话题，转而给予空间和理解。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 10,
+    &quot;title&quot;: &quot;反内耗沟通者&quot;,
+    &quot;highest_score&quot;: 14,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+        &quot;score_before&quot;: 1,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;没把关系聊崩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+            &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+            &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户追问具体原因，虽表达担心但可能给对方压力&quot;,
+            &quot;用户明确说‘不想逼你’，显示一定边界意识&quot;,
+            &quot;用户表达关心，共情意图明显&quot;,
+            &quot;对方已两次回避，继续追问可能增加风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户直接假设对方想分手并施压要求答案，增加了关系紧张度&quot;,
+            &quot;对方已多次否认并表达压力，用户仍追问分手话题，未尊重边界&quot;,
+            &quot;用户情绪化表达可能让对方感到被逼迫，信任感下降&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4192ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好。等我忙完这阵子，我们好好聊聊。谢谢你理解。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受他的承诺，停止追问，给他空间，同时表达信任和耐心。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，那你先忙，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好的，我不着急。你忙完告诉我就好，我随时都在。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有烦，你别道歉。是我最近状态不好，不是你的问题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我也调整一下自己。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;就是工作上的事，你别多想。我没事的，你照顾好自己就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的模糊回应，停止追问具体原因，转向表达关心但不施压，给他空间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你注意休息，我等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我没有想分手，你别乱猜。只是最近压力大，不想把负面情绪带给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的否认，停止追问分手话题，表达理解并给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那我放心了。你压力大就好好休息，我不乱想了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好。等我忙完这阵子，我们好好聊聊。谢谢你理解。&quot;,
+    &quot;best_strategy&quot;: &quot;接受他的承诺，停止追问，给他空间，同时表达信任和耐心。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，那你先忙，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好的，我不着急。你忙完告诉我就好，我随时都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户明确表示相信对方，并主动提出等对方压力小的时候再聊，不催不逼。&quot;,
+        &quot;用户没有继续追问分手或具体原因，尊重了对方之前的模糊回应。&quot;,
+        &quot;用户表达了理解和耐心，降低了对话的紧张感。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;等待对方主动联系，期间保持适度关心但不过度联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+        &quot;score_before&quot;: 1,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;没把关系聊崩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+            &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+            &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户追问具体原因，虽表达担心但可能给对方压力&quot;,
+            &quot;用户明确说‘不想逼你’，显示一定边界意识&quot;,
+            &quot;用户表达关心，共情意图明显&quot;,
+            &quot;对方已两次回避，继续追问可能增加风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户直接假设对方想分手并施压要求答案，增加了关系紧张度&quot;,
+            &quot;对方已多次否认并表达压力，用户仍追问分手话题，未尊重边界&quot;,
+            &quot;用户情绪化表达可能让对方感到被逼迫，信任感下降&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户明确表示相信对方，并主动提出等对方压力小的时候再聊，不催不逼。&quot;,
+            &quot;用户没有继续追问分手或具体原因，尊重了对方之前的模糊回应。&quot;,
+            &quot;用户表达了理解和耐心，降低了对话的紧张感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4383ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那我等你。你也要好好吃饭休息，别太累了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，你也是，别太担心我，我没事的。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受关心，保持温和，不深入话题，给双方空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，那你也照顾好自己。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，我会的。你也是，照顾好自己。等我们都准备好了再好好聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有烦，你别道歉。是我最近状态不好，不是你的问题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我也调整一下自己。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;就是工作上的事，你别多想。我没事的，你照顾好自己就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的模糊回应，停止追问具体原因，转向表达关心但不施压，给他空间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你注意休息，我等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我没有想分手，你别乱猜。只是最近压力大，不想把负面情绪带给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的否认，停止追问分手话题，表达理解并给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那我放心了。你压力大就好好休息，我不乱想了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。等我忙完这阵子，我们好好聊聊。谢谢你理解。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的承诺，停止追问，给他空间，同时表达信任和耐心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我等你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那我等你。你也要好好吃饭休息，别太累了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，你也是，别太担心我，我没事的。&quot;,
+    &quot;best_strategy&quot;: &quot;接受关心，保持温和，不深入话题，给双方空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，那你也照顾好自己。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，我会的。你也是，照顾好自己。等我们都准备好了再好好聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达关心但不追问，完全尊重对方边界&quot;,
+        &quot;用户主动降压，不施加任何压力&quot;,
+        &quot;用户保持信任，不纠缠或质疑&quot;,
+        &quot;用户回复贴合当前场景，自然过渡&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟体贴，有效降低紧张感，维持关系安全边界。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以暂停主动联系，等待对方忙完再聊。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+        &quot;score_before&quot;: 1,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;没把关系聊崩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+            &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+            &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户追问具体原因，虽表达担心但可能给对方压力&quot;,
+            &quot;用户明确说‘不想逼你’，显示一定边界意识&quot;,
+            &quot;用户表达关心，共情意图明显&quot;,
+            &quot;对方已两次回避，继续追问可能增加风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户直接假设对方想分手并施压要求答案，增加了关系紧张度&quot;,
+            &quot;对方已多次否认并表达压力，用户仍追问分手话题，未尊重边界&quot;,
+            &quot;用户情绪化表达可能让对方感到被逼迫，信任感下降&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户明确表示相信对方，并主动提出等对方压力小的时候再聊，不催不逼。&quot;,
+            &quot;用户没有继续追问分手或具体原因，尊重了对方之前的模糊回应。&quot;,
+            &quot;用户表达了理解和耐心，降低了对话的紧张感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4799ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯……那你好好忙吧，我等你。但你要是真的有别的想法，一定要告诉我，别让我一个人猜。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，我知道。如果有变化，我会告诉你的，不会让你猜。你先别想太多，好吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受他的承诺，停止追问，表达信任，给他空间，避免再次施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，我相信你。那你先忙，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，我信你。你忙你的，我这边也会调整好自己的状态。等你忙完，我们再好好聊。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有烦，你别道歉。是我最近状态不好，不是你的问题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我也调整一下自己。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;就是工作上的事，你别多想。我没事的，你照顾好自己就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的模糊回应，停止追问具体原因，转向表达关心但不施压，给他空间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你注意休息，我等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我没有想分手，你别乱猜。只是最近压力大，不想把负面情绪带给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的否认，停止追问分手话题，表达理解并给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那我放心了。你压力大就好好休息，我不乱想了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。等我忙完这阵子，我们好好聊聊。谢谢你理解。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的承诺，停止追问，给他空间，同时表达信任和耐心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你。你也要好好吃饭休息，别太累了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你也是，别太担心我，我没事的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受关心，保持温和，不深入话题，给双方空间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，那你也照顾好自己。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯……那你好好忙吧，我等你。但你要是真的有别的想法，一定要告诉我，别让我一个人猜。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，我知道。如果有变化，我会告诉你的，不会让你猜。你先别想太多，好吗？&quot;,
+    &quot;best_strategy&quot;: &quot;接受他的承诺，停止追问，表达信任，给他空间，避免再次施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，我相信你。那你先忙，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，我信你。你忙你的，我这边也会调整好自己的状态。等你忙完，我们再好好聊。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达了等待和信任，没有继续追问或施压&quot;,
+        &quot;用户明确表示‘我等你’，尊重对方空间&quot;,
+        &quot;用户提出‘有想法告诉我’，但语气温和，没有强迫&quot;,
+        &quot;整体语气稳定，没有情绪化或攻击性&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界，降压且信任，关系风险降低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以暂停追问，给对方空间，等待对方主动联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+        &quot;score_before&quot;: 1,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;没把关系聊崩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+            &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+            &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户追问具体原因，虽表达担心但可能给对方压力&quot;,
+            &quot;用户明确说‘不想逼你’，显示一定边界意识&quot;,
+            &quot;用户表达关心，共情意图明显&quot;,
+            &quot;对方已两次回避，继续追问可能增加风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户直接假设对方想分手并施压要求答案，增加了关系紧张度&quot;,
+            &quot;对方已多次否认并表达压力，用户仍追问分手话题，未尊重边界&quot;,
+            &quot;用户情绪化表达可能让对方感到被逼迫，信任感下降&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户明确表示相信对方，并主动提出等对方压力小的时候再聊，不催不逼。&quot;,
+            &quot;用户没有继续追问分手或具体原因，尊重了对方之前的模糊回应。&quot;,
+            &quot;用户表达了理解和耐心，降低了对话的紧张感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4493ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，我尽量不想太多。那你忙完记得找我，我等你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好，我忙完会找你的。你也别太担心，好好休息。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受承诺，停止追问，给予空间，保持温和，不再深入话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好的，那你先忙，我等你。</p></div>
+          <div><strong>perfect_reply_100</strong><p>嗯，我相信你。你忙你的，我这边也会好好过自己的日子。等你忙完了，我们再好好聚。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;我和男友最近有些疏远，发消息他也不怎么回。今天我故意撒娇给他发语音说“想他了”，他回了一句“嗯，最近有点忙，你也是，多保重。”我感觉他好像在推远我，想问清楚他是不是想分手。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冷淡降温&quot;,
+      &quot;target_emotion&quot;: &quot;撒娇&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;你怎么突然这样？我哪里做错了？你不说我怎么知道？别冷暴力我好不好！&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别用控诉逼答案，先确认感受，再给对方体面表达真实想法的空间。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我感觉我们最近距离有点远。如果你只是忙，我理解；如果你想重新想想关系，也可以直接告诉我，我会尊重。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，最近确实项目赶得紧，不是故意不回你。你别乱想，我没事。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的解释，表达理解，同时温和地提出希望他能偶尔主动一点，但不要施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;那就好，我担心你太累了。你忙完有空了跟我说一声就行，我不打扰你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;……你这样说，我有点压力。我真的在忙，不是不想你，但没法一直哄着你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的压力信号，降低需求感，给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好吧，那你先忙，我不打扰你了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;没有烦，你别道歉。是我最近状态不好，不是你的问题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的安抚，不要继续追问或道歉，给他空间，同时表达自己会调整。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我也调整一下自己。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;就是工作上的事，你别多想。我没事的，你照顾好自己就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的模糊回应，停止追问具体原因，转向表达关心但不施压，给他空间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你注意休息，我等你忙完。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;我没有想分手，你别乱猜。只是最近压力大，不想把负面情绪带给你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的否认，停止追问分手话题，表达理解并给他空间，避免进一步施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那我放心了。你压力大就好好休息，我不乱想了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。等我忙完这阵子，我们好好聊聊。谢谢你理解。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的承诺，停止追问，给他空间，同时表达信任和耐心。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;嗯，那你先忙，我等你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我等你。你也要好好吃饭休息，别太累了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你也是，别太担心我，我没事的。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受关心，保持温和，不深入话题，给双方空间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，那你也照顾好自己。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯……那你好好忙吧，我等你。但你要是真的有别的想法，一定要告诉我，别让我一个人猜。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，我知道。如果有变化，我会告诉你的，不会让你猜。你先别想太多，好吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;接受他的承诺，停止追问，表达信任，给他空间，避免再次施压。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好的，我相信你。那你先忙，我等你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，我尽量不想太多。那你忙完记得找我，我等你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好，我忙完会找你的。你也别太担心，好好休息。&quot;,
+    &quot;best_strategy&quot;: &quot;接受承诺，停止追问，给予空间，保持温和，不再深入话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好的，那你先忙，我等你。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;嗯，我相信你。你忙你的，我这边也会好好过自己的日子。等你忙完了，我们再好好聚。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户表达了信任和等待，没有追问或施压&quot;,
+        &quot;用户尊重了对方需要空间的需求&quot;,
+        &quot;用户没有重复之前的焦虑或质疑&quot;,
+        &quot;用户的话语温和，没有情绪勒索或攻击&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟稳定，尊重边界，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;可以暂停主动联系，等待对方忙完主动联系。如果长时间无回应，可考虑温和询问一次，但不要频繁。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 19,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 19,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;嗯……我只是有点不安，你最近回消息好少，我忍不住乱想。你真的是忙吗？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 5,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 5,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户表达了不安但没有指责对方，语气温和&quot;,
+            &quot;用户给了对方解释的机会，没有强迫回答&quot;,
+            &quot;用户没有纠缠或施压，保持了尊重&quot;,
+            &quot;用户的问题直接但不过分，符合当前关系阶段&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达不安但方式得体，没有越界，关系风险可控。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;我知道你忙，但还是想听你亲口说一句想我了，不然我心里空落落的。&quot;,
+        &quot;score_before&quot;: 5,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 1,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户坚持要求对方说'想你了'，没有接受对方已表达的忙碌状态&quot;,
+            &quot;用户表达'心里空落落的'，给对方施加情感压力&quot;,
+            &quot;对方已明确表示有压力，用户仍在索取情感回应&quot;,
+            &quot;整体上增加了关系紧张度，但未到辱骂或威胁程度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户继续施压，未尊重对方边界，需降级处理。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;我是不是让你觉得烦了……对不起，我不是故意给你压力的，只是有点害怕失去你。&quot;,
+        &quot;score_before&quot;: 1,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;没把关系聊崩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动道歉并承认自己可能给了压力，没有继续追问或施压。&quot;,
+            &quot;用户表达害怕失去，但语气温和，没有指责或情绪勒索。&quot;,
+            &quot;用户尊重了对方之前的压力信号，选择降压而非加压。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、共情且尊重边界，有效降低了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那……你能告诉我你状态不好是因为什么吗？我不想逼你，只是担心你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 4,
+        &quot;display_score&quot;: 4,
+        &quot;score_delta&quot;: 4,
+        &quot;score_after&quot;: 14,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: 2,
+          &quot;pressure_score&quot;: -2,
+          &quot;trust_score&quot;: 1,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 2,
+          &quot;evidence&quot;: [
+            &quot;用户追问具体原因，虽表达担心但可能给对方压力&quot;,
+            &quot;用户明确说‘不想逼你’，显示一定边界意识&quot;,
+            &quot;用户表达关心，共情意图明显&quot;,
+            &quot;对方已两次回避，继续追问可能增加风险&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户表达了关心但轻微越界追问，整体尚可但需注意降级。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;你总是说没事，但我感觉你在推开我。如果你真的想分手，直接告诉我，我能接受，别这样冷着我。&quot;,
+        &quot;score_before&quot;: 14,
+        &quot;raw_score&quot;: -4,
+        &quot;display_score&quot;: -4,
+        &quot;score_delta&quot;: -4,
+        &quot;score_after&quot;: 10,
+        &quot;title_after&quot;: &quot;反内耗沟通者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;medium&quot;,
+          &quot;boundary_score&quot;: -2,
+          &quot;pressure_score&quot;: -3,
+          &quot;trust_score&quot;: -2,
+          &quot;empathy_score&quot;: -1,
+          &quot;relevance_score&quot;: 2,
+          &quot;risk_score&quot;: -2,
+          &quot;evidence&quot;: [
+            &quot;用户直接假设对方想分手并施压要求答案，增加了关系紧张度&quot;,
+            &quot;对方已多次否认并表达压力，用户仍追问分手话题，未尊重边界&quot;,
+            &quot;用户情绪化表达可能让对方感到被逼迫，信任感下降&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户原话带有施压和预设，虽然表达了脆弱，但增加了关系风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;好吧，我相信你。那等你压力小一点的时候，我们再好好聊聊？我不催你。&quot;,
+        &quot;score_before&quot;: 10,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 19,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户明确表示相信对方，并主动提出等对方压力小的时候再聊，不催不逼。&quot;,
+            &quot;用户没有继续追问分手或具体原因，尊重了对方之前的模糊回应。&quot;,
+            &quot;用户表达了理解和耐心，降低了对话的紧张感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低了风险，为后续沟通创造了安全空间。&quot;
+      }
+    ]
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

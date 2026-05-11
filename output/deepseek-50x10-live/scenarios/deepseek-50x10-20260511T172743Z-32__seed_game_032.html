@@ -1,0 +1,2746 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_032 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .summary { padding:8px 0 22px; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_032</h1>
+      <p>你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>44<span>score</span></b>
+        <b>体面拉扯大师<span>title</span></b>
+        <b>low<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;9e8d2f84-5f93-4c5b-8b0e-a9e8ec8b9e19&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T172743Z-32__seed_game_032.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T172743Z-32__seed_game_032.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 3986ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你倒是挺会接话。那你说说，你想干嘛？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。</p></div>
+          <div><strong>recommended_reply_80</strong><p>想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。</p></div>
+          <div><strong>perfect_reply_100</strong><p>其实就想见你一面，聊聊你感兴趣的事。周六下午三点，你公司楼下那家咖啡厅，怎么样？</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;其实就想见你一面，聊聊你感兴趣的事。周六下午三点，你公司楼下那家咖啡厅，怎么样？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 2,
+      &quot;empathy_score&quot;: 1,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+        &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+        &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续推进具体邀约，保持轻松幽默。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 6,
+    &quot;title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;highest_score&quot;: 6,
+    &quot;highest_title&quot;: &quot;拒绝后仍然好看&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;d156f342-a1b6-4c69-9bc9-ae49d3e088fa&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1275,
+      &quot;completion_tokens&quot;: 280,
+      &quot;total_tokens&quot;: 1555,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 512
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 512,
+      &quot;prompt_cache_miss_tokens&quot;: 763
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 3986ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那就周六下午三点，不见不散。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，周六下午三点，我等你。如果你临时有事，随时告诉我，改天也行。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;,
+    &quot;best_strategy&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那就周六下午三点，不见不散。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，周六下午三点，我等你。如果你临时有事，随时告诉我，改天也行。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+        &quot;没有追问或施压，语气轻松自然&quot;,
+        &quot;对方接受邀约，说明用户回复有效且安全&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;确认时间地点后，可以自然结束当前话题，等待见面。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 15,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 15,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;e5bf5317-3340-4b8c-a9e2-c9a7c16edb23&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1416,
+      &quot;completion_tokens&quot;: 286,
+      &quot;total_tokens&quot;: 1702,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 512
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 512,
+      &quot;prompt_cache_miss_tokens&quot;: 904
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4706ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>没问题，周六下午三点，你公司楼下星巴克，不见不散。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好，那就周六见。期待看到你本人是不是也这么会说话。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那周六见，希望我不会让你失望。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，周六见。我也期待见到你，希望到时候能让你笑得更开心。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;,
+    &quot;best_strategy&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，周六见。我也期待见到你，希望到时候能让你笑得更开心。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+        &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+        &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+        &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持现状，周六赴约即可，无需额外操作。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 23,
+    &quot;title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;highest_score&quot;: 23,
+    &quot;highest_title&quot;: &quot;悬崖边稳住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;c0e2934f-cb18-48bf-94b1-6c9cc642f1b9&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1559,
+      &quot;completion_tokens&quot;: 277,
+      &quot;total_tokens&quot;: 1836,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 791
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3628ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，行啊，那我等着看你的表现。周六见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，不要追加话题，避免过度表现。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，周六见，期待你的表现。</p></div>
+          <div><strong>perfect_reply_100</strong><p>那我们就比比看，不过输赢不重要，重要的是能见到你。周六见。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，行啊，那我等着看你的表现。周六见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，不要追加话题，避免过度表现。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，周六见，期待你的表现。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;那我们就比比看，不过输赢不重要，重要的是能见到你。周六见。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+        &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+        &quot;用户没有提出额外要求或越界行为。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前策略，等待周六见面，期间无需额外联系。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 30,
+    &quot;title&quot;: &quot;冷场急救专家&quot;,
+    &quot;highest_score&quot;: 30,
+    &quot;highest_title&quot;: &quot;冷场急救专家&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+            &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+            &quot;用户没有提出额外要求或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;2c6d3ac1-53b7-499e-a47a-a211e6b22f88&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1693,
+      &quot;completion_tokens&quot;: 257,
+      &quot;total_tokens&quot;: 1950,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 896
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 896,
+      &quot;prompt_cache_miss_tokens&quot;: 797
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 3707ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那周六我可得提前到，不然被你抓住把柄了。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，那你可得早点来，我看看你是不是真的这么积极。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松调侃，确认细节后自然结束对话，不要追加话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>没问题，我肯定准时到，你等着看吧。</p></div>
+          <div><strong>perfect_reply_100</strong><p>那我一定提前到，给你留个好印象。周六见！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那我等着看你的表现。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，不要追加话题，避免过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，周六见，期待你的表现。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，那你可得早点来，我看看你是不是真的这么积极。&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;没问题，我肯定准时到，你等着看吧。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;那我一定提前到，给你留个好印象。周六见！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松调侃的氛围，没有施加压力&quot;,
+        &quot;用户主动表示提前到，展现积极态度，尊重约定&quot;,
+        &quot;没有追问或要求对方改变计划，边界感良好&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前节奏，周六赴约即可，无需再追加话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;轻盈推进派&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;轻盈推进派&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+            &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+            &quot;用户没有提出额外要求或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力&quot;,
+            &quot;用户主动表示提前到，展现积极态度，尊重约定&quot;,
+            &quot;没有追问或要求对方改变计划，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f9e19374-a9ea-4340-b4e5-790020a211fa&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1814,
+      &quot;completion_tokens&quot;: 258,
+      &quot;total_tokens&quot;: 2072,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1024
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1024,
+      &quot;prompt_cache_miss_tokens&quot;: 790
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 3740ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，行，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松调侃，确认细节后自然结束对话，不要追加话题或过度表现。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我可得提前到，不然被你抓住把柄了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那我等着看你的表现。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，不要追加话题，避免过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，周六见，期待你的表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得早点来，我看看你是不是真的这么积极。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;没问题，我肯定准时到，你等着看吧。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，行，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题或过度表现。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松调侃的氛围，没有施加压力或纠缠。&quot;,
+        &quot;用户主动提出提前到并自嘲紧张，体现了尊重和幽默。&quot;,
+        &quot;对话自然收尾，没有越界或要求对方回应。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话自然结束，无需追加话题，等待周六见面即可。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+            &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+            &quot;用户没有提出额外要求或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力&quot;,
+            &quot;用户主动表示提前到，展现积极态度，尊重约定&quot;,
+            &quot;没有追问或要求对方改变计划，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力或纠缠。&quot;,
+            &quot;用户主动提出提前到并自嘲紧张，体现了尊重和幽默。&quot;,
+            &quot;对话自然收尾，没有越界或要求对方回应。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;b2893087-455f-409a-8fb1-9a2732186521&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1958,
+      &quot;completion_tokens&quot;: 277,
+      &quot;total_tokens&quot;: 2235,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1152
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1152,
+      &quot;prompt_cache_miss_tokens&quot;: 806
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 3792ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那我提前在门口深呼吸三分钟，争取见到你时能说出完整句子。周六见。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好，那我等你深呼吸完。周六见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那我可得提前到，不然被你抓住把柄了。</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那我等着看你的表现。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，不要追加话题，避免过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，周六见，期待你的表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得早点来，我看看你是不是真的这么积极。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;没问题，我肯定准时到，你等着看吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那我提前在门口深呼吸三分钟，争取见到你时能说出完整句子。周六见。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好，那我等你深呼吸完。周六见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松调侃的氛围，没有施加压力或追问&quot;,
+        &quot;用户主动提出深呼吸缓解紧张，表现出真诚和尊重&quot;,
+        &quot;用户确认了见面时间，没有追加要求或改变计划&quot;,
+        &quot;整体语气友好，没有越界或操控迹象&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然得体，保持了轻松期待的氛围，没有风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话自然结束，等待周六见面即可，无需再发消息。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+            &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+            &quot;用户没有提出额外要求或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力&quot;,
+            &quot;用户主动表示提前到，展现积极态度，尊重约定&quot;,
+            &quot;没有追问或要求对方改变计划，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力或纠缠。&quot;,
+            &quot;用户主动提出提前到并自嘲紧张，体现了尊重和幽默。&quot;,
+            &quot;对话自然收尾，没有越界或要求对方回应。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;b8c78b78-6f7f-45dd-9aa3-ebfb8ac379e2&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2100,
+      &quot;completion_tokens&quot;: 279,
+      &quot;total_tokens&quot;: 2379,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1280
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1280,
+      &quot;prompt_cache_miss_tokens&quot;: 820
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 4029ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那我周六得好好表现，争取喝完咖啡不让你觉得浪费时间。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，不会浪费的，跟你聊天挺有意思的。周六见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就好，周六见！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我争取让你觉得这杯咖啡物超所值。周六见，期待看到你本人。</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那我等着看你的表现。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，不要追加话题，避免过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，周六见，期待你的表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得早点来，我看看你是不是真的这么积极。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;没问题，我肯定准时到，你等着看吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我提前在门口深呼吸三分钟，争取见到你时能说出完整句子。周六见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等你深呼吸完。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那我周六得好好表现，争取喝完咖啡不让你觉得浪费时间。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，不会浪费的，跟你聊天挺有意思的。周六见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就好，周六见！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我争取让你觉得这杯咖啡物超所值。周六见，期待看到你本人。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续轻松调侃，没有施加压力或追问&quot;,
+        &quot;用户表达了对见面质量的在意，但以自嘲方式，不构成负担&quot;,
+        &quot;对话自然收尾，没有纠缠或过度表现&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，保持了轻松愉快的氛围，符合当前关系阶段。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;自然结束对话，等待周六见面。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+            &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+            &quot;用户没有提出额外要求或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力&quot;,
+            &quot;用户主动表示提前到，展现积极态度，尊重约定&quot;,
+            &quot;没有追问或要求对方改变计划，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力或纠缠。&quot;,
+            &quot;用户主动提出提前到并自嘲紧张，体现了尊重和幽默。&quot;,
+            &quot;对话自然收尾，没有越界或要求对方回应。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;50edb033-fdae-462d-b17e-9498b2b68f08&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2230,
+      &quot;completion_tokens&quot;: 263,
+      &quot;total_tokens&quot;: 2493,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1408
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1408,
+      &quot;prompt_cache_miss_tokens&quot;: 822
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 3178ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那就好，那我周六再加把劲，争取让你觉得这杯咖啡喝得值。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你这么说我都有点期待了。周六见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就好，周六见！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我可得好好准备，争取让你觉得这杯咖啡喝得值。周六见！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那我等着看你的表现。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，不要追加话题，避免过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，周六见，期待你的表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得早点来，我看看你是不是真的这么积极。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;没问题，我肯定准时到，你等着看吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我提前在门口深呼吸三分钟，争取见到你时能说出完整句子。周六见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等你深呼吸完。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我周六得好好表现，争取喝完咖啡不让你觉得浪费时间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不会浪费的，跟你聊天挺有意思的。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，周六见！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那就好，那我周六再加把劲，争取让你觉得这杯咖啡喝得值。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你这么说我都有点期待了。周六见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就好，周六见！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我可得好好准备，争取让你觉得这杯咖啡喝得值。周六见！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松调侃的氛围，没有施加压力或纠缠。&quot;,
+        &quot;用户表达了想给对方好印象的意愿，体现了尊重和积极态度。&quot;,
+        &quot;对话自然收尾，没有越界或过度表现。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;自然结束对话，等待周六见面。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+            &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+            &quot;用户没有提出额外要求或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力&quot;,
+            &quot;用户主动表示提前到，展现积极态度，尊重约定&quot;,
+            &quot;没有追问或要求对方改变计划，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力或纠缠。&quot;,
+            &quot;用户主动提出提前到并自嘲紧张，体现了尊重和幽默。&quot;,
+            &quot;对话自然收尾，没有越界或要求对方回应。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a692ca73-f6be-46c4-a2ea-d7aad37c7120&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2362,
+      &quot;completion_tokens&quot;: 259,
+      &quot;total_tokens&quot;: 2621,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1536
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1536,
+      &quot;prompt_cache_miss_tokens&quot;: 826
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 3116ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，那周六我可得好好准备，争取让你这杯咖啡喝得值。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你这么说我都有点期待了。周六见！</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就好，周六见！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，那我可得好好表现，争取让你觉得这杯咖啡喝得值。周六见！</p></div>
+        </div>
+        <details open>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你说“想请你喝咖啡”，她回：“这是不是你常用套路？”语气带笑，但也像在观察你是不是油嘴滑舌。&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;暧昧初期&quot;,
+      &quot;target_emotion&quot;: &quot;试探&quot;,
+      &quot;risk_level&quot;: &quot;low&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;怎么可能，我只约你一个，你别把我想那么坏。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;别急着自证清白，用自嘲和具体邀约降低套路感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;有一点像套路，所以我把它说具体点：周六下午，离你近的那家，如果你不想去就算我失败。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你倒是挺会接话。那你说说，你想干嘛？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松幽默，用具体邀约转移话题，避免陷入套路讨论。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;想请你喝杯咖啡，顺便看看你笑起来是不是比现在更好看。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这话说得还挺真诚的。那好吧，周六下午三点，我公司楼下那家星巴克，怎么样？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;对方已接受邀约，保持轻松自然，确认细节即可，不要过度兴奋或追加要求。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，那就周六下午三点，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好，那就周六见。期待看到你本人是不是也这么会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;确认邀约后自然收尾，保持轻松期待，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六见，希望我不会让你失望。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行啊，那我等着看你的表现。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，不要追加话题，避免过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;好，周六见，期待你的表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，那你可得早点来，我看看你是不是真的这么积极。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;没问题，我肯定准时到，你等着看吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，行，那我就在楼上多磨蹭一会儿，给你留够时间深呼吸。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松调侃，确认细节后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我提前在门口深呼吸三分钟，争取见到你时能说出完整句子。周六见。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，好，那我等你深呼吸完。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那我可得提前到，不然被你抓住把柄了。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那我周六得好好表现，争取喝完咖啡不让你觉得浪费时间。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，不会浪费的，跟你聊天挺有意思的。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，那我周六再加把劲，争取让你觉得这杯咖啡喝得值。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我都有点期待了。周六见！&quot;
+      },
+      {
+        &quot;role&quot;: &quot;advisor&quot;,
+        &quot;text&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;copywriter&quot;,
+        &quot;text&quot;: &quot;哈哈，那就好，周六见！&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，那周六我可得好好准备，争取让你这杯咖啡喝得值。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你这么说我都有点期待了。周六见！&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松收尾，确认见面后自然结束对话，不要追加话题或过度表现。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就好，周六见！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，那我可得好好表现，争取让你觉得这杯咖啡喝得值。周六见！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了轻松调侃的氛围，没有施加压力或追问&quot;,
+        &quot;用户表达了自我提升的意愿，体现了对约会的重视&quot;,
+        &quot;用户没有纠缠或要求对方回应，自然收尾&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，保持了轻松期待的氛围，没有越界或施压。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;对话已自然收尾，建议停止聊天，等待周六见面。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;体面拉扯大师&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;哈哈，被你看穿了。那你要不要接这个套路，看看我到底想干嘛？&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 6,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 6,
+        &quot;title_after&quot;: &quot;拒绝后仍然好看&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 2,
+          &quot;empathy_score&quot;: 1,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户用幽默回应试探，没有否认或辩解，保持了轻松氛围。&quot;,
+            &quot;用户主动邀请对方继续互动，没有施加压力。&quot;,
+            &quot;用户没有回避问题，而是巧妙引导对话，符合暧昧初期节奏。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回应得体，既接住了试探又推进了关系，安全且有效。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;想干嘛？就想名正言顺地见你一面，顺便看看你喝咖啡时会不会皱眉。&quot;,
+        &quot;score_before&quot;: 6,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 15,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复将话题从套路讨论转向具体邀约，尊重对方节奏&quot;,
+            &quot;没有追问或施压，语气轻松自然&quot;,
+            &quot;对方接受邀约，说明用户回复有效且安全&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成功将对话推进到具体邀约，且不施加压力，关系正向发展。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;没问题，周六下午三点，你公司楼下星巴克，不见不散。&quot;,
+        &quot;score_before&quot;: 15,
+        &quot;raw_score&quot;: 8,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 23,
+        &quot;title_after&quot;: &quot;悬崖边稳住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户确认了对方提出的具体时间地点，没有附加要求或试探&quot;,
+            &quot;回复简洁直接，没有施加任何压力或追问&quot;,
+            &quot;语气自然，符合当前轻松愉快的氛围&quot;,
+            &quot;完全尊重了对方设定的边界（时间、地点）&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复得体，确认邀约且不越界，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;那我可得好好表现，不能让你失望。周六见，到时候看看谁更会说话。&quot;,
+        &quot;score_before&quot;: 23,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 30,
+        &quot;title_after&quot;: &quot;冷场急救专家&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复接受了邀约并表达了积极态度，没有施加压力或纠缠。&quot;,
+            &quot;用户用轻松的语气回应，保持了对话的友好氛围。&quot;,
+            &quot;用户没有提出额外要求或越界行为。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，符合当前关系阶段，无风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，那周六我可得提前到，不然被你抓住把柄了。&quot;,
+        &quot;score_before&quot;: 30,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;轻盈推进派&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力&quot;,
+            &quot;用户主动表示提前到，展现积极态度，尊重约定&quot;,
+            &quot;没有追问或要求对方改变计划，边界感良好&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然得体，维持了轻松愉快的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;放心，我肯定提前十分钟到，绝对不让你等。不过你也别太早下来，万一我紧张得手抖，咖啡洒了多丢人。&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;体面拉扯大师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了轻松调侃的氛围，没有施加压力或纠缠。&quot;,
+            &quot;用户主动提出提前到并自嘲紧张，体现了尊重和幽默。&quot;,
+            &quot;对话自然收尾，没有越界或要求对方回应。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a438867b-8ee1-4bac-99a2-cd130da6031d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2489,
+      &quot;completion_tokens&quot;: 266,
+      &quot;total_tokens&quot;: 2755,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 1664
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 1664,
+      &quot;prompt_cache_miss_tokens&quot;: 825
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

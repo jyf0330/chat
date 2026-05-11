@@ -139,6 +139,7 @@ function buildSimulationPrompt(
   turns: ChatTurn[],
   userReply: string,
   mode: SimulationMode,
+  corpusTargetTurns?: number,
 ) {
   const modeInstruction =
     mode === "prime"
@@ -148,6 +149,20 @@ function buildSimulationPrompt(
           "如果 scene 已包含“对方:”“蕾姆:”或类似角色的最后一句，把它作为 target_reply；不要额外推进剧情。",
         ].join("\n")
       : "当前是 chat 模式：user_reply 是用户刚刚发出的真实消息，请模拟对方下一句并更新策略。";
+
+  const corpusInstruction =
+    mode === "chat" && corpusTargetTurns
+      ? [
+          `当前是 live 数据采样模式：目标是连续采集 ${corpusTargetTurns} 轮真实两人聊天。`,
+          `当前即将生成第 ${Math.floor(turns.filter((turn) => turn.role === "user").length) + 1} 轮回复。`,
+          `除非 user_reply 已经构成危险、骚扰、威胁或明确无视拒绝，在第 ${corpusTargetTurns} 轮之前禁止自然收尾。`,
+          "第 10 轮之前，target_reply 禁止出现：晚安、先睡、先休息、先忙、拜拜、周六见、明天见、等你准备好、等你主动、我会找你、回头聊、下次再聊。",
+          "第 10 轮之前，next_suggestion 禁止出现：自然结束、停止联系、无需继续、不必继续、等待对方主动、暂时搁置、不要主动发起新话题。",
+          "第 10 轮之前，target_reply 必须引入一个可继续承接的小细节、感受或问题，像真实对话继续往下走，而不是关闭话题。",
+          "blocked/high 风险也要保持边界安全：可以继续澄清感受、确认边界、轻量表达理解，但不要推进表白、见面、索取解释或要求承诺。",
+          "recommended_reply_80 和 perfect_reply_100 必须明显不同，不要复读上一轮话术。",
+        ].join("\n")
+      : "";
 
   return [
     {
@@ -159,6 +174,8 @@ function buildSimulationPrompt(
         "best_strategy、recommended_reply_80、perfect_reply_100 必须基于模拟后的最新对话状态，不要复述初始场景里的旧建议。",
         "recommended_reply_80 是给玩家局中填入的 80 分自然安全答案，不能是最优标准答案。",
         "perfect_reply_100 是 100 分满分参考答案，用于数据库和局后复盘展示。",
+        "recommended_reply_80 和 perfect_reply_100 必须在措辞和信息量上明显不同；80 分可以安全自然，100 分必须更具体、更共情、更可复盘。",
+        "如果 previous_turns 里已有 copywriter 内容，本轮 recommended_reply_80 不要复读上一轮话术，必须回应最新 target_reply 和 user_reply 的变化。",
         "judge 所有细分分数必须是 -5 到 +5 的整数，不要输出旧版 -25 到 25 分，也不要输出 risk_penalty。",
         "judge 只评价 user_reply 这句话本身对关系造成的影响；不要给 target_reply、best_strategy、recommended_reply_80 或 perfect_reply_100 打分。",
         "如果 user_reply 是辱骂、攻击、威胁、纠缠、绕过拒绝、情绪勒索，即使你生成了温和降级的 target_reply，judge 也必须给用户原话负分。",
@@ -167,6 +184,7 @@ function buildSimulationPrompt(
         "评分前先自检：六项分数、risk_level_after、evidence、verdict 是否都在评价同一个对象 user_reply，且方向一致。",
         "pressure_score 正分代表降压，负分代表加压；risk_score 正分代表更安全，负分代表更危险。",
         modeInstruction,
+        corpusInstruction,
         "只输出紧凑 JSON，不要 Markdown。",
       ].join("\n"),
     },
@@ -218,6 +236,7 @@ async function callDeepSeek(
   userReply: string,
   mode: SimulationMode,
   logFile?: string,
+  corpusTargetTurns?: number,
 ) {
   if (process.env.RELATIONSHIP_CHAT_TEST_SCORING_SEQUENCE === "45_TO_55") {
     return {
@@ -239,7 +258,7 @@ async function callDeepSeek(
 
   const requestBody = {
     model: process.env.DEEPSEEK_MODEL ?? "deepseek-chat",
-    messages: buildSimulationPrompt(currentCase, turns, userReply, mode),
+    messages: buildSimulationPrompt(currentCase, turns, userReply, mode, corpusTargetTurns),
     temperature: 0.3,
     max_tokens: 700,
     response_format: { type: "json_object" },
@@ -425,6 +444,19 @@ const server = createServer(async (request, response) => {
       return;
     }
 
+    if (request.method === "GET" && pathname === "/api/completed-cases") {
+      const visitorId = url.searchParams.get("visitorId")?.trim();
+      if (!visitorId) {
+        sendJson(response, 400, {
+          error: "missing_visitor_id",
+          message: "缺少 visitorId。",
+        });
+        return;
+      }
+      sendJson(response, 200, { case_ids: store.getCompletedCaseIds(visitorId) });
+      return;
+    }
+
     if (request.method === "GET" && pathname === "/api/export.jsonl") {
       const admin = assertAdmin(request, url);
       if (!admin.ok) {
@@ -462,6 +494,7 @@ const server = createServer(async (request, response) => {
         consentForDataset?: boolean;
         mode?: SimulationMode;
         gameState?: GameState;
+        corpusTargetTurns?: number;
       };
       const cases = await loadCases();
       const currentCase =
@@ -475,12 +508,16 @@ const server = createServer(async (request, response) => {
         body.userReply,
         body.mode ?? "chat",
         deepSeekLogFile,
+        body.corpusTargetTurns,
       );
       if (result.statusCode === 200) {
         const payload = normalizeSimulationPayload(result.payload);
         const game =
           (body.mode ?? "chat") === "chat"
-            ? applyGameRound(body.gameState, payload.judge, { userReply: body.userReply })
+            ? applyGameRound(body.gameState, payload.judge, {
+                userReply: body.userReply,
+                nextSuggestion: payload.next_suggestion,
+              })
             : normalizeGameState(body.gameState ?? createInitialGameState());
         result.payload = { ...payload, game };
       }

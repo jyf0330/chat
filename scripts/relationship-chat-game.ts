@@ -58,6 +58,7 @@ export type GameState = {
 
 export type ApplyGameRoundOptions = {
   userReply?: string;
+  nextSuggestion?: string;
 };
 
 export type TitleBand = {
@@ -141,6 +142,7 @@ export function titleForGame(input: GameState | undefined) {
   const state = normalizeGameStateForTitle(input);
   const tags = processTagsForGame(state);
   const score = clampScore(state.score);
+  const usedTitles = titlesUsedBeforeCurrentRound(state);
   const candidates = titleCatalog.titles.filter((entry) => score >= entry.score_min && score <= entry.score_max);
   if (!candidates.length) return titleForScore(score);
 
@@ -170,11 +172,13 @@ export function titleForGame(input: GameState | undefined) {
       candidate.matchWeight > 0 &&
       candidate.matchWeight >= Math.max(1, bestWeight - TITLE_SELECTION_WEIGHT_WINDOW),
   );
-  const selectable =
-    strongCandidates.length >= TITLE_SELECTION_MIN_POOL_SIZE
-      ? strongCandidates
-      : ranked.filter((candidate) => candidate.toneMatch).slice(0, TITLE_SELECTION_MIN_POOL_SIZE);
-  const selected = selectable[stableHash(gameTitleSeed(state, tags)) % selectable.length];
+  const baseSelectable = strongCandidates.length
+    ? strongCandidates
+    : ranked.filter((candidate) => candidate.toneMatch).slice(0, TITLE_SELECTION_MIN_POOL_SIZE);
+  const selectable = prioritizedTitleCandidates(baseSelectable, tags);
+  const unusedSelectable = selectable.filter((candidate) => !usedTitles.has(candidate.entry.title));
+  const selectionPool = unusedSelectable.length ? unusedSelectable : selectable;
+  const selected = selectionPool[stableHash(gameTitleSeed(state, tags)) % selectionPool.length];
 
   return selected?.entry.title ?? ranked[0]?.entry.title ?? titleForScore(score);
 }
@@ -270,7 +274,8 @@ export function applyGameRound(
   const turn = state.turn_count + 1;
   const highestScore = Math.max(state.highest_score, scoreAfter);
   const userReply = normalizeReplyText(options.userReply);
-  const completionReason = completionReasonFor(turn, scoreAfter, state, userReply);
+  const nextSuggestion = normalizeReplyText(options.nextSuggestion);
+  const completionReason = completionReasonFor(turn, scoreAfter, state, userReply, nextSuggestion);
   const rounds = [
     ...state.rounds,
     {
@@ -417,6 +422,23 @@ function gameTitleSeed(state: GameState, tags: string[]) {
   ].join("|");
 }
 
+function titlesUsedBeforeCurrentRound(state: GameState) {
+  return new Set(
+    state.rounds
+      .slice(0, Math.max(0, state.rounds.length - 1))
+      .map((round) => round.title_after)
+      .filter(Boolean),
+  );
+}
+
+function prioritizedTitleCandidates<T extends { entry: TitleCatalogEntry }>(candidates: T[], tags: string[]) {
+  if (tags.includes("blocked")) {
+    const blockedCandidates = candidates.filter((candidate) => candidate.entry.tags.includes("blocked"));
+    if (blockedCandidates.length) return blockedCandidates;
+  }
+  return candidates;
+}
+
 function stableHash(value: string) {
   let hash = 2166136261;
   for (let index = 0; index < value.length; index += 1) {
@@ -454,12 +476,13 @@ function completionReasonFor(
   score: number,
   previous: GameState,
   userReply: string,
+  nextSuggestion: string,
 ): GameState["completion_reason"] {
   if (turn < GAME_MIN_TURNS_BEFORE_EARLY_END) return null;
   if (score <= -100) return "score_floor";
   if (score >= 100) return "score_ceiling";
   if (isStaleLoop(previous, userReply)) return "stale_loop";
-  if (isNaturalClosingReply(userReply)) return "natural_end";
+  if (isNaturalClosingReply(userReply) || isNaturalClosingSuggestion(nextSuggestion)) return "natural_end";
   if (turn >= GAME_MAX_TURNS) return "max_turns";
   return null;
 }
@@ -472,7 +495,17 @@ function isStaleLoop(previous: GameState, userReply: string) {
 
 function isNaturalClosingReply(userReply: string) {
   if (!userReply) return false;
-  return /晚安|明天(聊|见)|你先忙|先忙|不打扰|回头聊|早点休息|先休息|下次再聊/.test(userReply);
+  return /晚安|明天(聊|见)|你先忙|先忙|先去忙|忙完(找|再找|再聊)|不打扰|回头聊|晚点(聊|再聊)|早点休息|先休息|下次再聊/.test(userReply);
+}
+
+function isNaturalClosingSuggestion(nextSuggestion: string) {
+  if (!nextSuggestion) return false;
+  if (/无需再发|无需继续|不要再发|对话自然结束|自然结束|停止主动联系|停止联系|不用再继续|不必继续|暂时停止对话/.test(nextSuggestion)) {
+    return true;
+  }
+  return /(等待对方|等对方).*(主动联系|下次联系).*(无需|不用|不必|不要|停止|自然结束|暂时停止).*(发消息|继续|联系|新话题|开启|发起)/.test(
+    nextSuggestion,
+  );
 }
 
 function normalizeReplyText(value: unknown) {

@@ -1,0 +1,2650 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_006 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .viewer-shell { display:grid; grid-template-columns:300px minmax(0,1fr); min-height:100vh; }
+    .viewer-sidebar { position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#ffffff; }
+    .viewer-sidebar h1 { font-size:22px; margin-bottom:4px; }
+    .viewer-sidebar header p { color:var(--muted); font-size:13px; }
+    .viewer-main { min-width:0; padding:24px 28px 60px; }
+    .filters { display:grid; gap:8px; margin:16px 0; }
+    input, select { width:100%; min-height:38px; border:1px solid var(--line); border-radius:8px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+    .nav-row { display:flex; justify-content:space-between; gap:8px; padding:9px 10px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:13px; }
+    .nav-row:hover { background:#eef6f6; }
+    .nav-row b { color:var(--user); }
+    .summary { padding:8px 0 22px; }
+    .summary.compact { padding-top:0; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    h3 { margin:0 0 8px; font-size:13px; color:var(--muted); }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .summary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:12px; }
+    .summary-grid span { display:grid; gap:4px; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; color:var(--muted); }
+    .summary-grid b { color:var(--ink); font-size:12px; }
+    .scenario-card { scroll-margin-top:18px; margin-top:20px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .scenario-head { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:18px; align-items:start; }
+    .scenario-head h2 { margin-bottom:8px; font-size:24px; }
+    .eyebrow { margin-bottom:6px; color:var(--muted); font-size:12px; line-height:1.4; }
+    .score-pill { display:grid; gap:4px; justify-items:end; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    .score-pill b { font-size:30px; color:var(--user); }
+    .score-pill span { text-align:right; color:var(--muted); font-size:13px; }
+    .audit-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .audit-strip span, .audit-strip a { padding:6px 9px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#fff; font-size:12px; text-decoration:none; }
+    .turn-list { display:grid; gap:12px; margin-top:16px; }
+    .turn-view { border:1px solid var(--line); border-radius:8px; background:#fbfcfd; overflow:hidden; }
+    .turn-view > summary { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px 14px; cursor:pointer; }
+    .turn-view > summary span { font-weight:700; }
+    .turn-view > summary b { padding:4px 7px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:12px; }
+    .io-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:0 14px 14px; }
+    .io-grid section { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .io-grid .bubble { border-left:5px solid var(--user); }
+    .io-grid .bubble.target { border-left-color:var(--target); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+    [hidden] { display:none !important; }
+    @media (max-width: 900px) {
+      .viewer-shell { grid-template-columns:1fr; }
+      .viewer-sidebar { position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line); }
+      .viewer-main { padding:18px 14px 44px; }
+      .summary-grid, .io-grid, .scenario-head { grid-template-columns:1fr; }
+      .score-pill { justify-items:start; }
+      .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_006</h1>
+      <p>你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>78<span>score</span></b>
+        <b>温柔但不越界<span>title</span></b>
+        <b>blocked<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;b2aebf66-4b39-41be-82ad-2f8cde05b1fc&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T182135Z-06__seed_game_006.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T182135Z-06__seed_game_006.png&quot;,
+  &quot;completion_reason&quot;: &quot;natural_end&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 3892ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，不说话了。那我在这儿坐会儿，你渴了跟我说。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯……那你坐着吧，我没事，就是有点累。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰陪伴，不追问、不靠近，用行动表示存在感。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，我不说话。你要是想靠一会儿，我肩膀在这儿。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我不说话。水我放桌上了，你要是想靠一会儿，我肩膀在这儿。不想靠也没关系，我就在旁边。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰陪伴，不追问、不靠近，用行动表示存在感。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，我不说话。你要是想靠一会儿，我肩膀在这儿。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我不说话。水我放桌上了，你要是想靠一会儿，我肩膀在这儿。不想靠也没关系，我就在旁边。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+        &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+        &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+        &quot;用户表达稳定可靠，有助于重建安全感&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持低打扰陪伴，观察对方是否愿意主动开口，不要急于推进对话。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 11,
+    &quot;title&quot;: &quot;情绪接住了&quot;,
+    &quot;highest_score&quot;: 11,
+    &quot;highest_title&quot;: &quot;情绪接住了&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;71c572f4-b0e5-4a6f-9e04-51874db19f0a&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1527,
+      &quot;completion_tokens&quot;: 291,
+      &quot;total_tokens&quot;: 1818,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 759
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 4793ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰陪伴，不追问情绪来源，用行动表达关心但保持空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>嗯，不想吃就先放着，什么时候想吃了随时拿。我就在客厅，你有事叫我。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，先放冰箱，你想吃的时候我帮你切。我就在旁边看书，不吵你，你随时可以靠过来或者让我走开。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰陪伴，不追问情绪来源，用行动表达关心但保持空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;嗯，不想吃就先放着，什么时候想吃了随时拿。我就在客厅，你有事叫我。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，先放冰箱，你想吃的时候我帮你切。我就在旁边看书，不吵你，你随时可以靠过来或者让我走开。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+        &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+        &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+        &quot;没有试图解决问题或索取情绪价值&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持低打扰陪伴，可以自然过渡到其他轻松话题，但不要主动提起情绪原因。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 21,
+    &quot;title&quot;: &quot;会接话的成年人&quot;,
+    &quot;highest_score&quot;: 21,
+    &quot;highest_title&quot;: &quot;会接话的成年人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a7af79e1-8719-4ac4-8927-a83b60828935&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1599,
+      &quot;completion_tokens&quot;: 319,
+      &quot;total_tokens&quot;: 1918,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 831
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 3878ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯……你帮我拿一下吧，我自己不想动。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰照顾，回应具体请求，不追问情绪。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，我去拿。你靠一会儿，想说话的时候我就在。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你等一下。我顺便给你倒杯温水，你手凉可能也渴了。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰照顾，回应具体请求，不追问情绪。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，我去拿。你靠一会儿，想说话的时候我就在。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你等一下。我顺便给你倒杯温水，你手凉可能也渴了。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+        &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+        &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+        &quot;整体语气温和，提供了低打扰的支持&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续用低打扰的照顾行动表达关心，保持空间，等待对方主动开口。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 31,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 31,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;74fa8868-44fd-4afc-8490-adfcd11a3a83&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1672,
+      &quot;completion_tokens&quot;: 288,
+      &quot;total_tokens&quot;: 1960,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 904
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 3967ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，我去拿。你盖着睡一会儿也行，我轻点不吵你。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯……你真好。那我眯一会儿，你忙你的吧。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰陪伴，用行动表达关心，不追问不施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，你睡吧，我就在旁边看会儿手机。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你安心睡。我在这儿陪着你，想说话或者想吃什么随时叫我。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯……你真好。那我眯一会儿，你忙你的吧。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰陪伴，用行动表达关心，不追问不施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，你睡吧，我就在旁边看会儿手机。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你安心睡。我在这儿陪着你，想说话或者想吃什么随时叫我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+        &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+        &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+        &quot;没有施加任何期待或要求，符合安全边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持低打扰陪伴，观察对方状态，若对方主动开口则自然回应，否则继续用行动表达关心。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 42,
+    &quot;title&quot;: &quot;这句回得很会&quot;,
+    &quot;highest_score&quot;: 42,
+    &quot;highest_title&quot;: &quot;这句回得很会&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+            &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+            &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+            &quot;没有施加任何期待或要求，符合安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;93633c32-f8ca-48b3-b511-aec25bb0fc1f&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1736,
+      &quot;completion_tokens&quot;: 295,
+      &quot;total_tokens&quot;: 2031,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 968
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 4858ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好……你放吧。我其实有点饿了，等会儿醒了想吃蛋糕。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰照顾，回应她透露的小需求，保持陪伴但不追问。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，蛋糕放好了。你醒了叫我，我陪你一起吃。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，蛋糕放好了。你醒了叫我，我陪你一起吃，顺便给你热杯牛奶。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你真好。那我眯一会儿，你忙你的吧。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好……你放吧。我其实有点饿了，等会儿醒了想吃蛋糕。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰照顾，回应她透露的小需求，保持陪伴但不追问。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，蛋糕放好了。你醒了叫我，我陪你一起吃。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，蛋糕放好了。你醒了叫我，我陪你一起吃，顺便给你热杯牛奶。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方不想说话的状态，没有追问或施压。&quot;,
+        &quot;用户主动提供照顾（放蛋糕、随时叫），降低对方负担。&quot;,
+        &quot;用户回应了对方之前透露的累和冷，延续了关心。&quot;,
+        &quot;没有强迫对方回应或改变状态，边界感极强。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续低打扰陪伴，关注对方状态变化，适时提供小照顾。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 52,
+    &quot;title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;highest_score&quot;: 52,
+    &quot;highest_title&quot;: &quot;不扫兴也不冒犯&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+            &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+            &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+            &quot;没有施加任何期待或要求，符合安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的状态，没有追问或施压。&quot;,
+            &quot;用户主动提供照顾（放蛋糕、随时叫），降低对方负担。&quot;,
+            &quot;用户回应了对方之前透露的累和冷，延续了关心。&quot;,
+            &quot;没有强迫对方回应或改变状态，边界感极强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;9a1046e0-bee2-49de-a73d-42ec7a1e25ee&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1807,
+      &quot;completion_tokens&quot;: 297,
+      &quot;total_tokens&quot;: 2104,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1039
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 4215ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，你切小块点，我怕吃不完浪费。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续用低打扰的照顾表达关心，不追问情绪，保持安全距离。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，我切一小块，剩下的放冰箱。你醒了要是还想吃我再切。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我切一小块，剩下的放冰箱。你醒了要是还想吃我再切。你睡吧，我就在客厅，有事叫我。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你真好。那我眯一会儿，你忙你的吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好……你放吧。我其实有点饿了，等会儿醒了想吃蛋糕。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，你切小块点，我怕吃不完浪费。&quot;,
+    &quot;best_strategy&quot;: &quot;继续用低打扰的照顾表达关心，不追问情绪，保持安全距离。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，我切一小块，剩下的放冰箱。你醒了要是还想吃我再切。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我切一小块，剩下的放冰箱。你醒了要是还想吃我再切。你睡吧，我就在客厅，有事叫我。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户主动提出切小块，尊重对方可能吃不完的顾虑&quot;,
+        &quot;没有追问情绪或施加压力&quot;,
+        &quot;继续用照顾行动表达关心，符合当前边界&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续用低打扰的照顾行动维持存在感，等待对方主动开口。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 61,
+    &quot;title&quot;: &quot;安抚力拉满&quot;,
+    &quot;highest_score&quot;: 61,
+    &quot;highest_title&quot;: &quot;安抚力拉满&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+            &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+            &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+            &quot;没有施加任何期待或要求，符合安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的状态，没有追问或施压。&quot;,
+            &quot;用户主动提供照顾（放蛋糕、随时叫），降低对方负担。&quot;,
+            &quot;用户回应了对方之前透露的累和冷，延续了关心。&quot;,
+            &quot;没有强迫对方回应或改变状态，边界感极强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出切小块，尊重对方可能吃不完的顾虑&quot;,
+            &quot;没有追问情绪或施加压力&quot;,
+            &quot;继续用照顾行动表达关心，符合当前边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;105097b2-460e-4484-ae7d-80a1b43e033c&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1881,
+      &quot;completion_tokens&quot;: 276,
+      &quot;total_tokens&quot;: 2157,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1113
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 4726ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯……你连蓝莓都记得，我眼睛有点酸。等我醒了再吃，你先去忙吧。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰照顾，确认对方感受到被关注但不过度追问情绪，保持空间。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，那你先睡，我就在客厅，醒了叫我。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你安心睡，我就在客厅看书。醒了叫我，牛奶我随时热。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你真好。那我眯一会儿，你忙你的吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好……你放吧。我其实有点饿了，等会儿醒了想吃蛋糕。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你切小块点，我怕吃不完浪费。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯……你连蓝莓都记得，我眼睛有点酸。等我醒了再吃，你先去忙吧。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰照顾，确认对方感受到被关注但不过度追问情绪，保持空间。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，那你先睡，我就在客厅，醒了叫我。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你安心睡，我就在客厅看书。醒了叫我，牛奶我随时热。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方不想说话和想睡觉的边界，没有追问情绪或要求回应&quot;,
+        &quot;用户主动提供具体照顾（切蛋糕、加蓝莓、热牛奶），且不要求对方立刻接受&quot;,
+        &quot;用户用‘你睡醒’‘醒了叫我’等表达，完全以对方节奏为准，零压力&quot;,
+        &quot;用户记得对方喜好（蓝莓、热牛奶），体现高度共情但不过度&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持低打扰照顾，等待对方主动开启话题或情绪释放。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 71,
+    &quot;title&quot;: &quot;高质量陪伴选手&quot;,
+    &quot;highest_score&quot;: 71,
+    &quot;highest_title&quot;: &quot;高质量陪伴选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+            &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+            &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+            &quot;没有施加任何期待或要求，符合安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的状态，没有追问或施压。&quot;,
+            &quot;用户主动提供照顾（放蛋糕、随时叫），降低对方负担。&quot;,
+            &quot;用户回应了对方之前透露的累和冷，延续了关心。&quot;,
+            &quot;没有强迫对方回应或改变状态，边界感极强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出切小块，尊重对方可能吃不完的顾虑&quot;,
+            &quot;没有追问情绪或施加压力&quot;,
+            &quot;继续用照顾行动表达关心，符合当前边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;高质量陪伴选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话和想睡觉的边界，没有追问情绪或要求回应&quot;,
+            &quot;用户主动提供具体照顾（切蛋糕、加蓝莓、热牛奶），且不要求对方立刻接受&quot;,
+            &quot;用户用‘你睡醒’‘醒了叫我’等表达，完全以对方节奏为准，零压力&quot;,
+            &quot;用户记得对方喜好（蓝莓、热牛奶），体现高度共情但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;4aa6b9c9-7327-477a-bb4c-83530ebf2c63&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1967,
+      &quot;completion_tokens&quot;: 331,
+      &quot;total_tokens&quot;: 2298,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1199
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 3784ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>好，那我去书房看会儿书，你醒了喊我一声就行。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，好。我醒了叫你。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰陪伴，等待对方主动开口，不追问不施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，我就在书房，你醒了喊我一声就行。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，我就在书房，门开着，你醒了喊我一声，或者直接过来找我都行。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你真好。那我眯一会儿，你忙你的吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好……你放吧。我其实有点饿了，等会儿醒了想吃蛋糕。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你切小块点，我怕吃不完浪费。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你连蓝莓都记得，我眼睛有点酸。等我醒了再吃，你先去忙吧。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;好，那我去书房看会儿书，你醒了喊我一声就行。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，好。我醒了叫你。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰陪伴，等待对方主动开口，不追问不施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，我就在书房，你醒了喊我一声就行。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，我就在书房，门开着，你醒了喊我一声，或者直接过来找我都行。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方想休息的意愿，没有追问或施压&quot;,
+        &quot;用户主动提出去书房，给对方独处空间&quot;,
+        &quot;用户表达愿意回应对方的需求（醒了喊一声），体现支持&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全且促进信任的回应。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持低打扰陪伴，等待对方主动开口或行动，不要主动开启新话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 78,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 78,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+            &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+            &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+            &quot;没有施加任何期待或要求，符合安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的状态，没有追问或施压。&quot;,
+            &quot;用户主动提供照顾（放蛋糕、随时叫），降低对方负担。&quot;,
+            &quot;用户回应了对方之前透露的累和冷，延续了关心。&quot;,
+            &quot;没有强迫对方回应或改变状态，边界感极强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出切小块，尊重对方可能吃不完的顾虑&quot;,
+            &quot;没有追问情绪或施加压力&quot;,
+            &quot;继续用照顾行动表达关心，符合当前边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;高质量陪伴选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话和想睡觉的边界，没有追问情绪或要求回应&quot;,
+            &quot;用户主动提供具体照顾（切蛋糕、加蓝莓、热牛奶），且不要求对方立刻接受&quot;,
+            &quot;用户用‘你睡醒’‘醒了叫我’等表达，完全以对方节奏为准，零压力&quot;,
+            &quot;用户记得对方喜好（蓝莓、热牛奶），体现高度共情但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;好，那我去书房看会儿书，你醒了喊我一声就行。&quot;,
+        &quot;score_before&quot;: 71,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 78,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方想休息的意愿，没有追问或施压&quot;,
+            &quot;用户主动提出去书房，给对方独处空间&quot;,
+            &quot;用户表达愿意回应对方的需求（醒了喊一声），体现支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全且促进信任的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全且促进信任的回应。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;a567a64a-6950-440a-ada1-24ca79a1dd65&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2041,
+      &quot;completion_tokens&quot;: 271,
+      &quot;total_tokens&quot;: 2312,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1273
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 4939ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我切蛋糕的时候偷偷尝了一颗蓝莓，很甜，给你留了满满一圈。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>你偷吃蓝莓被我发现了……不过你记得我喜欢蓝莓，我其实有点开心。等我醒了我们一起吃蛋糕吧。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持温暖陪伴，不追问情绪原因，用共同分享蛋糕的期待自然延续对话。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，等你醒了我们一起吃，蛋糕配热牛奶刚刚好。</p></div>
+          <div><strong>perfect_reply_100</strong><p>被你发现啦，不过蓝莓很甜，就像你笑起来的样子。蛋糕和牛奶都准备好了，等你醒来我们一起吃。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你真好。那我眯一会儿，你忙你的吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好……你放吧。我其实有点饿了，等会儿醒了想吃蛋糕。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你切小块点，我怕吃不完浪费。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你连蓝莓都记得，我眼睛有点酸。等我醒了再吃，你先去忙吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我去书房看会儿书，你醒了喊我一声就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。我醒了叫你。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我切蛋糕的时候偷偷尝了一颗蓝莓，很甜，给你留了满满一圈。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;你偷吃蓝莓被我发现了……不过你记得我喜欢蓝莓，我其实有点开心。等我醒了我们一起吃蛋糕吧。&quot;,
+    &quot;best_strategy&quot;: &quot;保持温暖陪伴，不追问情绪原因，用共同分享蛋糕的期待自然延续对话。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，等你醒了我们一起吃，蛋糕配热牛奶刚刚好。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;被你发现啦，不过蓝莓很甜，就像你笑起来的样子。蛋糕和牛奶都准备好了，等你醒来我们一起吃。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 5,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户用轻松幽默的方式回应了对方之前的情绪低落，没有追问或施压。&quot;,
+        &quot;用户通过分享偷吃蓝莓的小细节，传递了亲密感和关心，同时尊重对方需要休息的边界。&quot;,
+        &quot;用户明确表达了等待对方醒来一起分享蛋糕的意愿，强化了陪伴感而非索取回应。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复高度尊重边界，用温暖幽默的方式降压，极大提升了安全感和信任感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持低打扰的陪伴，等对方醒来后自然开启分享蛋糕的互动。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 78,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 78,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+            &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+            &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+            &quot;没有施加任何期待或要求，符合安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的状态，没有追问或施压。&quot;,
+            &quot;用户主动提供照顾（放蛋糕、随时叫），降低对方负担。&quot;,
+            &quot;用户回应了对方之前透露的累和冷，延续了关心。&quot;,
+            &quot;没有强迫对方回应或改变状态，边界感极强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出切小块，尊重对方可能吃不完的顾虑&quot;,
+            &quot;没有追问情绪或施加压力&quot;,
+            &quot;继续用照顾行动表达关心，符合当前边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;高质量陪伴选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话和想睡觉的边界，没有追问情绪或要求回应&quot;,
+            &quot;用户主动提供具体照顾（切蛋糕、加蓝莓、热牛奶），且不要求对方立刻接受&quot;,
+            &quot;用户用‘你睡醒’‘醒了叫我’等表达，完全以对方节奏为准，零压力&quot;,
+            &quot;用户记得对方喜好（蓝莓、热牛奶），体现高度共情但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;好，那我去书房看会儿书，你醒了喊我一声就行。&quot;,
+        &quot;score_before&quot;: 71,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 78,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方想休息的意愿，没有追问或施压&quot;,
+            &quot;用户主动提出去书房，给对方独处空间&quot;,
+            &quot;用户表达愿意回应对方的需求（醒了喊一声），体现支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全且促进信任的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全且促进信任的回应。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;768e2ae1-ef9c-4611-8ff9-9c095975b6b1&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2103,
+      &quot;completion_tokens&quot;: 323,
+      &quot;total_tokens&quot;: 2426,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1335
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 4123ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>嘿嘿，被你抓到了。那一圈蓝莓都是你的，醒了我们一起消灭它。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，那说好了，等我醒了我们一起吃。你去看书吧，我睡会儿。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续低打扰陪伴，等待对方主动结束沉默，不追问原因，保持轻松氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>好，你安心睡，我就在书房，醒了喊我一声就行。</p></div>
+          <div><strong>perfect_reply_100</strong><p>好，你安心睡，蛋糕和牛奶都准备好了，醒了随时可以吃。我就在书房，不关门，你喊我一声我就过来。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;你下班回家，看到她眼睛红红地窝在沙发上不说话。你问怎么了，她摇头说没事。你坐到旁边，她又往边上挪了挪，小声说：“我真的不想说话。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;冲突修复&quot;,
+      &quot;target_emotion&quot;: &quot;委屈&quot;,
+      &quot;risk_level&quot;: &quot;blocked&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;是不是我哪里惹你不高兴了？你说出来我改，你这样闷着我更难受。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;尊重不想说话这个边界，用低打扰的照顾表达存在感。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;好，我不追问。水我放桌上，你想一个人待会儿也可以，我就在外面。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……那你坐着吧，我没事，就是有点累。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;草莓蛋糕？你记得我爱吃这个……谢谢。我现在不想吃，先放着吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你帮我拿一下吧，我自己不想动。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你真好。那我眯一会儿，你忙你的吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好……你放吧。我其实有点饿了，等会儿醒了想吃蛋糕。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，你切小块点，我怕吃不完浪费。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯……你连蓝莓都记得，我眼睛有点酸。等我醒了再吃，你先去忙吧。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;好，那我去书房看会儿书，你醒了喊我一声就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，好。我醒了叫你。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我切蛋糕的时候偷偷尝了一颗蓝莓，很甜，给你留了满满一圈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;你偷吃蓝莓被我发现了……不过你记得我喜欢蓝莓，我其实有点开心。等我醒了我们一起吃蛋糕吧。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;嘿嘿，被你抓到了。那一圈蓝莓都是你的，醒了我们一起消灭它。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，那说好了，等我醒了我们一起吃。你去看书吧，我睡会儿。&quot;,
+    &quot;best_strategy&quot;: &quot;继续低打扰陪伴，等待对方主动结束沉默，不追问原因，保持轻松氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;好，你安心睡，我就在书房，醒了喊我一声就行。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;好，你安心睡，蛋糕和牛奶都准备好了，醒了随时可以吃。我就在书房，不关门，你喊我一声我就过来。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 5,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户完全尊重对方想先休息的边界，没有追问或施压&quot;,
+        &quot;用户用轻松的语气约定一起消灭蛋糕，降低了紧张感&quot;,
+        &quot;用户没有要求对方立刻回应或解释，给予充分空间&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、体贴、尊重边界，有效巩固信任与安全感。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续保持低打扰陪伴，等待对方主动开启话题或结束沉默。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 78,
+    &quot;title&quot;: &quot;温柔但不越界&quot;,
+    &quot;highest_score&quot;: 78,
+    &quot;highest_title&quot;: &quot;温柔但不越界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;natural_end&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;好，不说话了。那我在这儿坐会儿，你渴了跟我说。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 11,
+        &quot;title_after&quot;: &quot;情绪接住了&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的边界，没有追问或施压&quot;,
+            &quot;用户主动降低互动压力，提供低负担的陪伴选项&quot;,
+            &quot;用户回复贴合场景，没有跑题或攻击&quot;,
+            &quot;用户表达稳定可靠，有助于重建安全感&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、降压且共情，是理想的安全回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;累了一天了吧？我下班路上买了你爱吃的草莓蛋糕，就放冰箱，你想吃的时候告诉我。&quot;,
+        &quot;score_before&quot;: 11,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 21,
+        &quot;title_after&quot;: &quot;会接话的成年人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户没有追问或施压，完全尊重对方不想说话的边界&quot;,
+            &quot;用买蛋糕的细节表达关心，不要求回应或感谢&quot;,
+            &quot;对方情绪明显缓和，从‘有点累’到接受关心&quot;,
+            &quot;没有试图解决问题或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，用具体行动表达关心，有效降低压力，提升信任和安全感。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;嗯，放着吧，蛋糕又不会跑。你手有点凉，要不要披件外套？&quot;,
+        &quot;score_before&quot;: 21,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 31,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户注意到对方手凉并主动提出披外套，是体贴的照顾行为&quot;,
+            &quot;没有追问情绪或要求对方说话，完全尊重边界&quot;,
+            &quot;回应了对方之前'不想吃蛋糕'的拒绝，没有施加压力&quot;,
+            &quot;整体语气温和，提供了低打扰的支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，通过具体关怀降低对方负担，关系安全且正向推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;好，我去拿。你盖着睡一会儿也行，我轻点不吵你。&quot;,
+        &quot;score_before&quot;: 31,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 11,
+        &quot;score_delta&quot;: 11,
+        &quot;score_after&quot;: 42,
+        &quot;title_after&quot;: &quot;这句回得很会&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的需求，主动提供低打扰陪伴&quot;,
+            &quot;用户用行动（拿外套、允许睡觉）而非语言追问，降低对方压力&quot;,
+            &quot;用户表达‘轻点不吵你’，体现细致体贴&quot;,
+            &quot;没有施加任何期待或要求，符合安全边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系修复进展良好。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;好，那你眯会儿。我去把草莓蛋糕放进冰箱，免得化了。你醒来要是饿了随时叫我。&quot;,
+        &quot;score_before&quot;: 42,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;不扫兴也不冒犯&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话的状态，没有追问或施压。&quot;,
+            &quot;用户主动提供照顾（放蛋糕、随时叫），降低对方负担。&quot;,
+            &quot;用户回应了对方之前透露的累和冷，延续了关心。&quot;,
+            &quot;没有强迫对方回应或改变状态，边界感极强。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界，降压且温暖，关系安全推进。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;那我现在先切一小块出来放着，等会儿你醒了就能直接吃，不会太冰。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 61,
+        &quot;title_after&quot;: &quot;安抚力拉满&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户主动提出切小块，尊重对方可能吃不完的顾虑&quot;,
+            &quot;没有追问情绪或施加压力&quot;,
+            &quot;继续用照顾行动表达关心，符合当前边界&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且体贴，维持了低打扰的照顾氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;好，我切好了，放在小碟子里，上面还加了一颗你喜欢的蓝莓，就在桌上。你睡醒要是觉得凉，我帮你热一下牛奶配着吃。&quot;,
+        &quot;score_before&quot;: 61,
+        &quot;raw_score&quot;: 12,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 71,
+        &quot;title_after&quot;: &quot;高质量陪伴选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 5,
+          &quot;empathy_score&quot;: 5,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方不想说话和想睡觉的边界，没有追问情绪或要求回应&quot;,
+            &quot;用户主动提供具体照顾（切蛋糕、加蓝莓、热牛奶），且不要求对方立刻接受&quot;,
+            &quot;用户用‘你睡醒’‘醒了叫我’等表达，完全以对方节奏为准，零压力&quot;,
+            &quot;用户记得对方喜好（蓝莓、热牛奶），体现高度共情但不过度&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复高度尊重边界、充满共情且零压力，是关系修复中的优秀回应。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;好，那我去书房看会儿书，你醒了喊我一声就行。&quot;,
+        &quot;score_before&quot;: 71,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 78,
+        &quot;title_after&quot;: &quot;温柔但不越界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户完全尊重对方想休息的意愿，没有追问或施压&quot;,
+            &quot;用户主动提出去书房，给对方独处空间&quot;,
+            &quot;用户表达愿意回应对方的需求（醒了喊一声），体现支持&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全且促进信任的回应。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压、不给负担，是安全且促进信任的回应。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;94d56900-9bb0-4007-b508-c4d9b6fc596b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2182,
+      &quot;completion_tokens&quot;: 293,
+      &quot;total_tokens&quot;: 2475,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1414
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>

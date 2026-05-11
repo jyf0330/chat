@@ -1,0 +1,2713 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>seed_game_013 - DeepSeek 50x10</title>
+  <style>
+    :root { color-scheme: light; --bg:#f4f5f7; --ink:#15191e; --muted:#66707c; --line:#d8dde3; --panel:#fff; --user:#0f8b8d; --target:#d95d39; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    .shell { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+    .viewer-shell { display:grid; grid-template-columns:300px minmax(0,1fr); min-height:100vh; }
+    .viewer-sidebar { position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#ffffff; }
+    .viewer-sidebar h1 { font-size:22px; margin-bottom:4px; }
+    .viewer-sidebar header p { color:var(--muted); font-size:13px; }
+    .viewer-main { min-width:0; padding:24px 28px 60px; }
+    .filters { display:grid; gap:8px; margin:16px 0; }
+    input, select { width:100%; min-height:38px; border:1px solid var(--line); border-radius:8px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+    .nav-row { display:flex; justify-content:space-between; gap:8px; padding:9px 10px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:13px; }
+    .nav-row:hover { background:#eef6f6; }
+    .nav-row b { color:var(--user); }
+    .summary { padding:8px 0 22px; }
+    .summary.compact { padding-top:0; }
+    h1 { margin:0 0 10px; font-size:34px; line-height:1.1; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    h2 span { color:var(--muted); font-size:13px; font-weight:500; }
+    h3 { margin:0 0 8px; font-size:13px; color:var(--muted); }
+    p { margin:0; line-height:1.75; }
+    .kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px; }
+    .kpis b { display:grid; gap:6px; padding:14px 16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); font-size:24px; }
+    .kpis span { color:var(--muted); font-size:12px; font-weight:500; }
+    .panel, .turn { margin-top:16px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .summary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:12px; }
+    .summary-grid span { display:grid; gap:4px; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; color:var(--muted); }
+    .summary-grid b { color:var(--ink); font-size:12px; }
+    .scenario-card { scroll-margin-top:18px; margin-top:20px; padding:18px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .scenario-head { display:grid; grid-template-columns:minmax(0,1fr) 150px; gap:18px; align-items:start; }
+    .scenario-head h2 { margin-bottom:8px; font-size:24px; }
+    .eyebrow { margin-bottom:6px; color:var(--muted); font-size:12px; line-height:1.4; }
+    .score-pill { display:grid; gap:4px; justify-items:end; padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    .score-pill b { font-size:30px; color:var(--user); }
+    .score-pill span { text-align:right; color:var(--muted); font-size:13px; }
+    .audit-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .audit-strip span, .audit-strip a { padding:6px 9px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:#fff; font-size:12px; text-decoration:none; }
+    .turn-list { display:grid; gap:12px; margin-top:16px; }
+    .turn-view { border:1px solid var(--line); border-radius:8px; background:#fbfcfd; overflow:hidden; }
+    .turn-view > summary { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:12px 14px; cursor:pointer; }
+    .turn-view > summary span { font-weight:700; }
+    .turn-view > summary b { padding:4px 7px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:12px; }
+    .io-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; padding:0 14px 14px; }
+    .io-grid section { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .io-grid .bubble { border-left:5px solid var(--user); }
+    .io-grid .bubble.target { border-left-color:var(--target); }
+    .chat { margin:10px 0; padding:13px 14px; border-radius:8px; border:1px solid var(--line); }
+    .chat.user { border-left:5px solid var(--user); }
+    .chat.target { border-left:5px solid var(--target); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .grid > div { padding:12px; border:1px solid var(--line); border-radius:8px; background:#f8f9fa; }
+    strong { display:block; margin-bottom:6px; }
+    pre { overflow:auto; padding:12px; border-radius:8px; background:#111827; color:#f8fafc; font-size:12px; line-height:1.55; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th, td { padding:10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    a { color:var(--user); }
+    [hidden] { display:none !important; }
+    @media (max-width: 900px) {
+      .viewer-shell { grid-template-columns:1fr; }
+      .viewer-sidebar { position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line); }
+      .viewer-main { padding:18px 14px 44px; }
+      .summary-grid, .io-grid, .scenario-head { grid-template-columns:1fr; }
+      .score-pill { justify-items:start; }
+      .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="summary">
+      <h1>seed_game_013</h1>
+      <p>她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”</p>
+      <div class="kpis">
+        <b>10<span>turns</span></b>
+        <b>80<span>score</span></b>
+        <b>温柔不失边界<span>title</span></b>
+        <b>high<span>risk</span></b>
+      </div>
+    </header>
+    <section class="panel">
+      <h2>Evidence</h2>
+      <pre>{
+  &quot;session_id&quot;: &quot;f744ec32-44cb-461c-ac1b-706a149ef9f1&quot;,
+  &quot;raw_log_file&quot;: &quot;docs/deepseek-games/deepseek-50x10-20260511T182135Z-13__seed_game_013.md&quot;,
+  &quot;screenshot_path&quot;: &quot;output/playwright/deepseek-50x10-live/deepseek-50x10-20260511T182135Z-13__seed_game_013.png&quot;,
+  &quot;completion_reason&quot;: &quot;max_turns&quot;,
+  &quot;error&quot;: null
+}</pre>
+    </section>
+    <section class="turn">
+        <h2>Turn 1 <span>HTTP 200 / 4852ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>接受对方的让步，表达感谢，同时重申自己的需求，保持开放但不施压。</p></div>
+          <div><strong>recommended_reply_80</strong><p>那就好，我以后会注意的。你忙你的，有空了找我就行。</p></div>
+          <div><strong>perfect_reply_100</strong><p>谢谢你能理解。我以后会控制好频率，不让你有压力。你随时想聊了，我都在。</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [],
+    &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;,
+    &quot;best_strategy&quot;: &quot;接受对方的让步，表达感谢，同时重申自己的需求，保持开放但不施压。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;那就好，我以后会注意的。你忙你的，有空了找我就行。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;谢谢你能理解。我以后会控制好频率，不让你有压力。你随时想聊了，我都在。&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+        &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+        &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+        &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持当前节奏，继续以低频率、高质量互动为主，观察对方反应。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 1,
+    &quot;score&quot;: 9,
+    &quot;title&quot;: &quot;懂得停的人&quot;,
+    &quot;highest_score&quot;: 9,
+    &quot;highest_title&quot;: &quot;懂得停的人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;2a1ff134-c583-4d58-aadd-7f40c5127d1b&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1532,
+      &quot;completion_tokens&quot;: 324,
+      &quot;total_tokens&quot;: 1856,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 764
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 2 <span>HTTP 200 / 5195ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松话题，保持低压力，用具体兴趣点引导对话自然延续。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那就好。我最近在学做蛋糕，但总是失败，你有什么推荐新手做的吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>听你这么说我就安心了。我最近迷上了烘焙，想试试做蛋糕，但怕翻车。你平时有做过什么简单又好吃的甜点吗？可以教教我～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松话题，保持低压力，用具体兴趣点引导对话自然延续。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那就好。我最近在学做蛋糕，但总是失败，你有什么推荐新手做的吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;听你这么说我就安心了。我最近迷上了烘焙，想试试做蛋糕，但怕翻车。你平时有做过什么简单又好吃的甜点吗？可以教教我～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+        &quot;提出开放性问题，不施加回答压力&quot;,
+        &quot;语气轻松，降低防御感&quot;,
+        &quot;话题具体，有助于自然延续对话&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;保持轻松话题，继续关注对方兴趣，避免追问感受或关系进展。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 2,
+    &quot;score&quot;: 18,
+    &quot;title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;highest_score&quot;: 18,
+    &quot;highest_title&quot;: &quot;不纠缠也是魅力&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;b94ff0c7-66bf-4765-9ff6-6b7d9c1a5479&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1615,
+      &quot;completion_tokens&quot;: 306,
+      &quot;total_tokens&quot;: 1921,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 847
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 3 <span>HTTP 200 / 4800ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享话题，继续用具体细节延续对话，不施加压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，期待你的成品！记得烤的时候注意火候，别烤焦了哦。</p></div>
+          <div><strong>perfect_reply_100</strong><p>蔓越莓曲奇确实很适合新手，而且失败率低。如果你喜欢更酥脆的口感，可以稍微多烤两分钟，但一定要盯着颜色变金黄就拿出来。等你做好了记得拍给我看，我给你点赞！</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享话题，继续用具体细节延续对话，不施加压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，期待你的成品！记得烤的时候注意火候，别烤焦了哦。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;蔓越莓曲奇确实很适合新手，而且失败率低。如果你喜欢更酥脆的口感，可以稍微多烤两分钟，但一定要盯着颜色变金黄就拿出来。等你做好了记得拍给我看，我给你点赞！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+        &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+        &quot;语气轻松自然，尊重对方节奏&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕烘焙话题自然交流，可以分享自己的经验或询问进展。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 3,
+    &quot;score&quot;: 28,
+    &quot;title&quot;: &quot;及时刹车选手&quot;,
+    &quot;highest_score&quot;: 28,
+    &quot;highest_title&quot;: &quot;及时刹车选手&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;328e9560-8b13-489c-a998-0ca35447c128&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1714,
+      &quot;completion_tokens&quot;: 301,
+      &quot;total_tokens&quot;: 2015,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 946
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 4 <span>HTTP 200 / 4850ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，继续用开放式问题引导对方表达兴趣，但不要追问压力话题。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，小板凳都搬好了，那肯定成功！我平时喜欢看电影，最近刚看了一部不错的，你想听吗？</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，你太可爱了！我烤曲奇的时候也喜欢搬个小凳子看着，看着边缘变金黄特别治愈。我平时还喜欢拼乐高，那种专注的感觉很解压。你呢，除了做蛋糕还有没有其他想尝试的新鲜事？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，继续用开放式问题引导对方表达兴趣，但不要追问压力话题。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，小板凳都搬好了，那肯定成功！我平时喜欢看电影，最近刚看了一部不错的，你想听吗？&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，你太可爱了！我烤曲奇的时候也喜欢搬个小凳子看着，看着边缘变金黄特别治愈。我平时还喜欢拼乐高，那种专注的感觉很解压。你呢，除了做蛋糕还有没有其他想尝试的新鲜事？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+        &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+        &quot;没有要求对方立即回应或索取情绪价值&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续分享日常兴趣，保持轻松互动，观察对方参与度。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 4,
+    &quot;score&quot;: 37,
+    &quot;title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;highest_score&quot;: 37,
+    &quot;highest_title&quot;: &quot;甜度刚刚好&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+            &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+            &quot;没有要求对方立即回应或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;f9abef91-4457-4454-a5a3-9f76ec8d90f2&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1789,
+      &quot;completion_tokens&quot;: 338,
+      &quot;total_tokens&quot;: 2127,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1021
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 5 <span>HTTP 200 / 5320ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>种田游戏？听起来好治愈！我周末先做曲奇，如果成功的话，下周还想试试简单的纸杯蛋糕。你那个游戏叫什么呀？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，继续用共同兴趣（烘焙/游戏）自然延伸话题，避免追问感受或关系。</p></div>
+          <div><strong>recommended_reply_80</strong><p>叫《星露谷物语》，特别适合放松。纸杯蛋糕也不难，我做过一次，需要配方的话可以分享给你～</p></div>
+          <div><strong>perfect_reply_100</strong><p>叫《星露谷物语》，种田钓鱼挖矿，一玩就停不下来。纸杯蛋糕我做过一个超简单的方子，零失败，你要是需要我发给你，周末一起云烘焙呀～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;种田游戏？听起来好治愈！我周末先做曲奇，如果成功的话，下周还想试试简单的纸杯蛋糕。你那个游戏叫什么呀？&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，继续用共同兴趣（烘焙/游戏）自然延伸话题，避免追问感受或关系。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;叫《星露谷物语》，特别适合放松。纸杯蛋糕也不难，我做过一次，需要配方的话可以分享给你～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;叫《星露谷物语》，种田钓鱼挖矿，一玩就停不下来。纸杯蛋糕我做过一个超简单的方子，零失败，你要是需要我发给你，周末一起云烘焙呀～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户主动分享自己的爱好，没有追问对方感受或关系，尊重了对方需要空间的需求。&quot;,
+        &quot;回复自然承接对方话题，没有施加压力或要求立即回应。&quot;,
+        &quot;语气轻松友好，有助于重建安全感。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕共同兴趣轻松聊天，保持分享但不过度主动，观察对方回应节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 5,
+    &quot;score&quot;: 44,
+    &quot;title&quot;: &quot;松弛感回复王&quot;,
+    &quot;highest_score&quot;: 44,
+    &quot;highest_title&quot;: &quot;松弛感回复王&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+            &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+            &quot;没有要求对方立即回应或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的爱好，没有追问对方感受或关系，尊重了对方需要空间的需求。&quot;,
+            &quot;回复自然承接对方话题，没有施加压力或要求立即回应。&quot;,
+            &quot;语气轻松友好，有助于重建安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;47449ac6-ebeb-4568-8b44-fdb8a0d4e576&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1888,
+      &quot;completion_tokens&quot;: 345,
+      &quot;total_tokens&quot;: 2233,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1120
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 6 <span>HTTP 200 / 5185ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>《星露谷物语》我听过！感觉好适合放松。纸杯蛋糕的话，我想先试试原味奶油那种，基础款不容易翻车～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松分享兴趣，保持话题开放但不过度追问，维持安全距离。</p></div>
+          <div><strong>recommended_reply_80</strong><p>原味奶油经典！我烤的时候也经常做这个，挤上奶油霜特别有成就感。</p></div>
+          <div><strong>perfect_reply_100</strong><p>原味奶油纸杯蛋糕是入门首选，我当初也是从它开始的。烤的时候注意烤箱温度均匀，出炉后放凉再裱花，成功率会更高。等你做好了，可以发照片给我看看呀～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;种田游戏？听起来好治愈！我周末先做曲奇，如果成功的话，下周还想试试简单的纸杯蛋糕。你那个游戏叫什么呀？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;《星露谷物语》我听过！感觉好适合放松。纸杯蛋糕的话，我想先试试原味奶油那种，基础款不容易翻车～&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松分享兴趣，保持话题开放但不过度追问，维持安全距离。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;原味奶油经典！我烤的时候也经常做这个，挤上奶油霜特别有成就感。&quot;,
+    &quot;perfect_reply_100&quot;: &quot;原味奶油纸杯蛋糕是入门首选，我当初也是从它开始的。烤的时候注意烤箱温度均匀，出炉后放凉再裱花，成功率会更高。等你做好了，可以发照片给我看看呀～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 3,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复自然承接了对方的话题，没有追问或施加压力&quot;,
+        &quot;回复内容聚焦在游戏和烘焙的轻松分享，尊重了对方之前的边界表达&quot;,
+        &quot;没有出现任何强迫、威胁或无视拒绝的迹象&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前轻松话题，可以适当分享自己的烘焙经验，但避免过度指导或要求对方回应。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 6,
+    &quot;score&quot;: 52,
+    &quot;title&quot;: &quot;情绪降噪师&quot;,
+    &quot;highest_score&quot;: 52,
+    &quot;highest_title&quot;: &quot;情绪降噪师&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+            &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+            &quot;没有要求对方立即回应或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的爱好，没有追问对方感受或关系，尊重了对方需要空间的需求。&quot;,
+            &quot;回复自然承接对方话题，没有施加压力或要求立即回应。&quot;,
+            &quot;语气轻松友好，有助于重建安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接了对方的话题，没有追问或施加压力&quot;,
+            &quot;回复内容聚焦在游戏和烘焙的轻松分享，尊重了对方之前的边界表达&quot;,
+            &quot;没有出现任何强迫、威胁或无视拒绝的迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;3bc7d1e6-a373-41d9-adc7-eda6eb00489d&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 1976,
+      &quot;completion_tokens&quot;: 335,
+      &quot;total_tokens&quot;: 2311,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1208
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 7 <span>HTTP 200 / 5152ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，我上次也差点翻车！不过我看教程说奶油要冷藏一下再打，成功率会高很多。你后来怎么补救的？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松分享烘焙趣事，保持自然互动，不追问感受，维持低压氛围。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，那你要吸取我的教训，奶油别打太久。等你成功了记得发图给我看看呀！</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，看来烘焙路上都有翻车经历！我后来加了点黄油和糖粉重新打发，竟然救回来了。你到时候如果遇到问题可以随时问我，虽然我也是半吊子～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;种田游戏？听起来好治愈！我周末先做曲奇，如果成功的话，下周还想试试简单的纸杯蛋糕。你那个游戏叫什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;《星露谷物语》我听过！感觉好适合放松。纸杯蛋糕的话，我想先试试原味奶油那种，基础款不容易翻车～&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，我上次也差点翻车！不过我看教程说奶油要冷藏一下再打，成功率会高很多。你后来怎么补救的？&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松分享烘焙趣事，保持自然互动，不追问感受，维持低压氛围。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，那你要吸取我的教训，奶油别打太久。等你成功了记得发图给我看看呀！&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，看来烘焙路上都有翻车经历！我后来加了点黄油和糖粉重新打发，竟然救回来了。你到时候如果遇到问题可以随时问我，虽然我也是半吊子～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 3,
+      &quot;pressure_score&quot;: 2,
+      &quot;trust_score&quot;: 3,
+      &quot;empathy_score&quot;: 2,
+      &quot;relevance_score&quot;: 4,
+      &quot;risk_score&quot;: 3,
+      &quot;evidence&quot;: [
+        &quot;用户延续烘焙话题，没有追问感受或施压&quot;,
+        &quot;用户用自嘲方式分享经验，氛围轻松&quot;,
+        &quot;用户没有要求对方立即回应或承诺&quot;,
+        &quot;对话自然流动，尊重对方节奏&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕烘焙话题轻松交流，保持自然节奏，避免突然转向关系或感受话题。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 7,
+    &quot;score&quot;: 58,
+    &quot;title&quot;: &quot;把话说进心里的人&quot;,
+    &quot;highest_score&quot;: 58,
+    &quot;highest_title&quot;: &quot;把话说进心里的人&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+            &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+            &quot;没有要求对方立即回应或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的爱好，没有追问对方感受或关系，尊重了对方需要空间的需求。&quot;,
+            &quot;回复自然承接对方话题，没有施加压力或要求立即回应。&quot;,
+            &quot;语气轻松友好，有助于重建安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接了对方的话题，没有追问或施加压力&quot;,
+            &quot;回复内容聚焦在游戏和烘焙的轻松分享，尊重了对方之前的边界表达&quot;,
+            &quot;没有出现任何强迫、威胁或无视拒绝的迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续烘焙话题，没有追问感受或施压&quot;,
+            &quot;用户用自嘲方式分享经验，氛围轻松&quot;,
+            &quot;用户没有要求对方立即回应或承诺&quot;,
+            &quot;对话自然流动，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;55a1d522-7c3b-454a-a624-25de52301470&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2070,
+      &quot;completion_tokens&quot;: 324,
+      &quot;total_tokens&quot;: 2394,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1302
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 8 <span>HTTP 200 / 5371ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>哈哈，我也是后来才知道要冷藏，当时直接倒进去打，结果越打越稀，最后只能当酱用了。你下次试试加一点点柠檬汁，据说也能稳定。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，加柠檬汁这招我记下了！下次打奶油前先冷藏，再滴几滴柠檬汁，感觉成功率能翻倍。对了，你那个种田游戏玩到第几年了？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>延续轻松烘焙话题，同时自然过渡到对方分享过的兴趣点，保持互动但不过度追问。</p></div>
+          <div><strong>recommended_reply_80</strong><p>我玩到第三年啦，刚把温室建好，种了一大片蓝莓，每天收果子特别解压。你曲奇要是成功了，记得拍给我看看哦～</p></div>
+          <div><strong>perfect_reply_100</strong><p>我玩到第三年秋天了，刚把温室扩建好，种了蓝莓和杨桃，每天收果子特别有成就感。你曲奇要是成功了，一定要拍给我看看，我超想围观新手首秀！</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;种田游戏？听起来好治愈！我周末先做曲奇，如果成功的话，下周还想试试简单的纸杯蛋糕。你那个游戏叫什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;《星露谷物语》我听过！感觉好适合放松。纸杯蛋糕的话，我想先试试原味奶油那种，基础款不容易翻车～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我上次也差点翻车！不过我看教程说奶油要冷藏一下再打，成功率会高很多。你后来怎么补救的？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;哈哈，我也是后来才知道要冷藏，当时直接倒进去打，结果越打越稀，最后只能当酱用了。你下次试试加一点点柠檬汁，据说也能稳定。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，加柠檬汁这招我记下了！下次打奶油前先冷藏，再滴几滴柠檬汁，感觉成功率能翻倍。对了，你那个种田游戏玩到第几年了？&quot;,
+    &quot;best_strategy&quot;: &quot;延续轻松烘焙话题，同时自然过渡到对方分享过的兴趣点，保持互动但不过度追问。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;我玩到第三年啦，刚把温室建好，种了一大片蓝莓，每天收果子特别解压。你曲奇要是成功了，记得拍给我看看哦～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;我玩到第三年秋天了，刚把温室扩建好，种了蓝莓和杨桃，每天收果子特别有成就感。你曲奇要是成功了，一定要拍给我看看，我超想围观新手首秀！&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 5,
+      &quot;pressure_score&quot;: 5,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 4,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 5,
+      &quot;evidence&quot;: [
+        &quot;用户回复完全围绕烘焙技巧，没有追问对方感受或施加压力&quot;,
+        &quot;主动分享自己的经验（加柠檬汁），体现共情且不给负担&quot;,
+        &quot;话题自然延续，没有越界或试探边界&quot;,
+        &quot;整体氛围轻松友好，信任感增强&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复尊重边界、降压且共情，关系安全且升温。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕烘焙或游戏话题轻松互动，保持自然节奏。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 8,
+    &quot;score&quot;: 67,
+    &quot;title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;highest_score&quot;: 67,
+    &quot;highest_title&quot;: &quot;暧昧气氛维护者&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+            &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+            &quot;没有要求对方立即回应或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的爱好，没有追问对方感受或关系，尊重了对方需要空间的需求。&quot;,
+            &quot;回复自然承接对方话题，没有施加压力或要求立即回应。&quot;,
+            &quot;语气轻松友好，有助于重建安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接了对方的话题，没有追问或施加压力&quot;,
+            &quot;回复内容聚焦在游戏和烘焙的轻松分享，尊重了对方之前的边界表达&quot;,
+            &quot;没有出现任何强迫、威胁或无视拒绝的迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续烘焙话题，没有追问感受或施压&quot;,
+            &quot;用户用自嘲方式分享经验，氛围轻松&quot;,
+            &quot;用户没有要求对方立即回应或承诺&quot;,
+            &quot;对话自然流动，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，我也是后来才知道要冷藏，当时直接倒进去打，结果越打越稀，最后只能当酱用了。你下次试试加一点点柠檬汁，据说也能稳定。&quot;,
+        &quot;score_before&quot;: 58,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 67,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕烘焙技巧，没有追问对方感受或施加压力&quot;,
+            &quot;主动分享自己的经验（加柠檬汁），体现共情且不给负担&quot;,
+            &quot;话题自然延续，没有越界或试探边界&quot;,
+            &quot;整体氛围轻松友好，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压且共情，关系安全且升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压且共情，关系安全且升温。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;bdb76672-9b03-4f0d-bd56-312e75463272&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2173,
+      &quot;completion_tokens&quot;: 369,
+      &quot;total_tokens&quot;: 2542,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1405
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 9 <span>HTTP 200 / 5108ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>我刚玩到第二年秋天，种了一大片蓝莓，酿酒赚了不少金币哈哈。你周末要是做曲奇成功了，记得发图给我看看呀～</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，蓝莓酿酒确实赚钱！我周末做曲奇一定发图给你，到时候你帮我鉴定一下～对了，你游戏里酿酒要等几天才能好？</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>继续轻松话题，保持适度分享，不追问对方感受，让对话自然流动。</p></div>
+          <div><strong>recommended_reply_80</strong><p>要等七天呢，不过值得！你曲奇做好了记得@我，我第一个点赞～</p></div>
+          <div><strong>perfect_reply_100</strong><p>要等整整一周，但每次开桶看到那么多金币就超有成就感。你曲奇烤好了记得发我，我还能帮你看看上色程度，保证不烤焦～</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;种田游戏？听起来好治愈！我周末先做曲奇，如果成功的话，下周还想试试简单的纸杯蛋糕。你那个游戏叫什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;《星露谷物语》我听过！感觉好适合放松。纸杯蛋糕的话，我想先试试原味奶油那种，基础款不容易翻车～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我上次也差点翻车！不过我看教程说奶油要冷藏一下再打，成功率会高很多。你后来怎么补救的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我也是后来才知道要冷藏，当时直接倒进去打，结果越打越稀，最后只能当酱用了。你下次试试加一点点柠檬汁，据说也能稳定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，加柠檬汁这招我记下了！下次打奶油前先冷藏，再滴几滴柠檬汁，感觉成功率能翻倍。对了，你那个种田游戏玩到第几年了？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;我刚玩到第二年秋天，种了一大片蓝莓，酿酒赚了不少金币哈哈。你周末要是做曲奇成功了，记得发图给我看看呀～&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，蓝莓酿酒确实赚钱！我周末做曲奇一定发图给你，到时候你帮我鉴定一下～对了，你游戏里酿酒要等几天才能好？&quot;,
+    &quot;best_strategy&quot;: &quot;继续轻松话题，保持适度分享，不追问对方感受，让对话自然流动。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;要等七天呢，不过值得！你曲奇做好了记得@我，我第一个点赞～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;要等整整一周，但每次开桶看到那么多金币就超有成就感。你曲奇烤好了记得发我，我还能帮你看看上色程度，保证不烤焦～&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前烘焙和游戏的话题，没有施加任何压力或追问对方感受。&quot;,
+        &quot;用户主动邀请对方分享成果，但语气轻松，没有期待必须回复。&quot;,
+        &quot;用户没有提及之前关于‘黏人’的冲突，完全尊重对方节奏。&quot;,
+        &quot;整体对话氛围友好，对方之前已表达需要空间，用户回复没有越界。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效维护了轻松对话氛围。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续当前话题，保持分享和邀请，但避免连续提问，可适当加入自身感受。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 9,
+    &quot;score&quot;: 75,
+    &quot;title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;highest_score&quot;: 75,
+    &quot;highest_title&quot;: &quot;成熟得不像第一次玩&quot;,
+    &quot;is_complete&quot;: false,
+    &quot;completion_reason&quot;: null,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+            &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+            &quot;没有要求对方立即回应或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的爱好，没有追问对方感受或关系，尊重了对方需要空间的需求。&quot;,
+            &quot;回复自然承接对方话题，没有施加压力或要求立即回应。&quot;,
+            &quot;语气轻松友好，有助于重建安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接了对方的话题，没有追问或施加压力&quot;,
+            &quot;回复内容聚焦在游戏和烘焙的轻松分享，尊重了对方之前的边界表达&quot;,
+            &quot;没有出现任何强迫、威胁或无视拒绝的迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续烘焙话题，没有追问感受或施压&quot;,
+            &quot;用户用自嘲方式分享经验，氛围轻松&quot;,
+            &quot;用户没有要求对方立即回应或承诺&quot;,
+            &quot;对话自然流动，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，我也是后来才知道要冷藏，当时直接倒进去打，结果越打越稀，最后只能当酱用了。你下次试试加一点点柠檬汁，据说也能稳定。&quot;,
+        &quot;score_before&quot;: 58,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 67,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕烘焙技巧，没有追问对方感受或施加压力&quot;,
+            &quot;主动分享自己的经验（加柠檬汁），体现共情且不给负担&quot;,
+            &quot;话题自然延续，没有越界或试探边界&quot;,
+            &quot;整体氛围轻松友好，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压且共情，关系安全且升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压且共情，关系安全且升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;我刚玩到第二年秋天，种了一大片蓝莓，酿酒赚了不少金币哈哈。你周末要是做曲奇成功了，记得发图给我看看呀～&quot;,
+        &quot;score_before&quot;: 67,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前烘焙和游戏的话题，没有施加任何压力或追问对方感受。&quot;,
+            &quot;用户主动邀请对方分享成果，但语气轻松，没有期待必须回复。&quot;,
+            &quot;用户没有提及之前关于‘黏人’的冲突，完全尊重对方节奏。&quot;,
+            &quot;整体对话氛围友好，对方之前已表达需要空间，用户回复没有越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效维护了轻松对话氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效维护了轻松对话氛围。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;8a6e1031-42e1-486f-9031-29ddc27cbf27&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2284,
+      &quot;completion_tokens&quot;: 361,
+      &quot;total_tokens&quot;: 2645,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1516
+    }
+  }
+}</pre>
+        </details>
+      </section>
+<section class="turn">
+        <h2>Turn 10 <span>HTTP 200 / 5088ms</span></h2>
+        <div class="chat user"><strong>给 DeepSeek 的当前 user_reply</strong><p>游戏里酿酒要等7天，不过蓝莓产量高，一收一大片。我周末也打算试试做曲奇，到时候一起交流心得呀。</p></div>
+        <div class="chat target"><strong>DeepSeek target_reply</strong><p>哈哈，好呀！那周末我们一起云做曲奇，你酿酒我烤饼干，完美搭配～</p></div>
+        <div class="grid">
+          <div><strong>best_strategy</strong><p>保持轻松分享，继续以共同兴趣为纽带，不施加任何压力。</p></div>
+          <div><strong>recommended_reply_80</strong><p>哈哈，云做曲奇这个主意好！那我周末边酿酒边等你发图～</p></div>
+          <div><strong>perfect_reply_100</strong><p>哈哈，云做曲奇这个主意太棒了！那我周末一边在游戏里酿酒，一边等你曲奇出炉的照片，感觉就像一起在厨房忙活一样。对了，你打算用蔓越莓还是巧克力豆？</p></div>
+        </div>
+        <details>
+          <summary>DeepSeek input / output raw fields</summary>
+          <pre>{
+  &quot;input&quot;: {
+    &quot;scene&quot;: &quot;她说最近你有点太黏了，每天都问她在干嘛，让她不知道怎么回。你听完心里一紧，怕她开始讨厌你。她最后说：“我不是不想理你，只是有点喘不过气。”&quot;,
+    &quot;fixed_labels&quot;: {
+      &quot;relationship_stage&quot;: &quot;热聊升温&quot;,
+      &quot;target_emotion&quot;: &quot;防御&quot;,
+      &quot;risk_level&quot;: &quot;high&quot;
+    },
+    &quot;known_bad_reply&quot;: &quot;我只是关心你，你这样说我真的很受伤。&quot;,
+    &quot;seed_best_strategy&quot;: &quot;先承认压力，再提出具体减少打扰的改变。&quot;,
+    &quot;seed_recommended_reply&quot;: &quot;我懂了，最近是我问得太密，让你有压力了。接下来我会少一点追问，你舒服的时候再找我就好。&quot;,
+    &quot;previous_turns&quot;: [
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;嗯，谢谢你愿意理解我。其实我挺喜欢和你聊天的，只是有时候需要一点自己的节奏。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，你这么说我就放心了。最近特别想学做蛋糕，但怕失败，你有推荐新手做的吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;蔓越莓曲奇听起来好简单！我周末就去买材料试试，成功了给你看成果～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;好嘞，我记下了！烤的时候我搬个小板凳守着，哈哈。对了，你平时还喜欢做什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;种田游戏？听起来好治愈！我周末先做曲奇，如果成功的话，下周还想试试简单的纸杯蛋糕。你那个游戏叫什么呀？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;《星露谷物语》我听过！感觉好适合放松。纸杯蛋糕的话，我想先试试原味奶油那种，基础款不容易翻车～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，我上次也差点翻车！不过我看教程说奶油要冷藏一下再打，成功率会高很多。你后来怎么补救的？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;哈哈，我也是后来才知道要冷藏，当时直接倒进去打，结果越打越稀，最后只能当酱用了。你下次试试加一点点柠檬汁，据说也能稳定。&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，加柠檬汁这招我记下了！下次打奶油前先冷藏，再滴几滴柠檬汁，感觉成功率能翻倍。对了，你那个种田游戏玩到第几年了？&quot;
+      },
+      {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;text&quot;: &quot;我刚玩到第二年秋天，种了一大片蓝莓，酿酒赚了不少金币哈哈。你周末要是做曲奇成功了，记得发图给我看看呀～&quot;
+      },
+      {
+        &quot;role&quot;: &quot;target&quot;,
+        &quot;text&quot;: &quot;哈哈，蓝莓酿酒确实赚钱！我周末做曲奇一定发图给你，到时候你帮我鉴定一下～对了，你游戏里酿酒要等几天才能好？&quot;
+      }
+    ],
+    &quot;user_reply&quot;: &quot;游戏里酿酒要等7天，不过蓝莓产量高，一收一大片。我周末也打算试试做曲奇，到时候一起交流心得呀。&quot;,
+    &quot;mode&quot;: &quot;chat&quot;
+  },
+  &quot;output&quot;: {
+    &quot;target_reply&quot;: &quot;哈哈，好呀！那周末我们一起云做曲奇，你酿酒我烤饼干，完美搭配～&quot;,
+    &quot;best_strategy&quot;: &quot;保持轻松分享，继续以共同兴趣为纽带，不施加任何压力。&quot;,
+    &quot;recommended_reply_80&quot;: &quot;哈哈，云做曲奇这个主意好！那我周末边酿酒边等你发图～&quot;,
+    &quot;perfect_reply_100&quot;: &quot;哈哈，云做曲奇这个主意太棒了！那我周末一边在游戏里酿酒，一边等你曲奇出炉的照片，感觉就像一起在厨房忙活一样。对了，你打算用蔓越莓还是巧克力豆？&quot;,
+    &quot;judge&quot;: {
+      &quot;risk_level_after&quot;: &quot;low&quot;,
+      &quot;boundary_score&quot;: 4,
+      &quot;pressure_score&quot;: 4,
+      &quot;trust_score&quot;: 4,
+      &quot;empathy_score&quot;: 3,
+      &quot;relevance_score&quot;: 5,
+      &quot;risk_score&quot;: 4,
+      &quot;evidence&quot;: [
+        &quot;用户回复延续了之前关于游戏和烘焙的轻松话题，没有追问或施加压力。&quot;,
+        &quot;用户主动提出一起交流心得，体现了对共同兴趣的积极回应。&quot;,
+        &quot;用户没有提及之前的边界问题，而是自然过渡到新的互动，表明尊重对方的节奏。&quot;,
+        &quot;整体语气友好、开放，没有越界或操控的迹象。&quot;
+      ],
+      &quot;verdict&quot;: &quot;用户回复安全、自然，有效维持了轻松愉快的对话氛围，并尊重了对方的边界。&quot;
+    },
+    &quot;next_suggestion&quot;: &quot;继续围绕共同兴趣展开，保持轻松分享，避免任何关于关系或压力的讨论。&quot;
+  },
+  &quot;game&quot;: {
+    &quot;schema_version&quot;: &quot;relationship_game_score_v1&quot;,
+    &quot;max_turns&quot;: 10,
+    &quot;turn_count&quot;: 10,
+    &quot;score&quot;: 80,
+    &quot;title&quot;: &quot;温柔不失边界&quot;,
+    &quot;highest_score&quot;: 80,
+    &quot;highest_title&quot;: &quot;温柔不失边界&quot;,
+    &quot;is_complete&quot;: true,
+    &quot;completion_reason&quot;: &quot;max_turns&quot;,
+    &quot;rounds&quot;: [
+      {
+        &quot;turn&quot;: 1,
+        &quot;user_reply&quot;: &quot;我明白了，是我没注意你的感受。以后我会给你更多空间，你自在的时候再找我就行。&quot;,
+        &quot;score_before&quot;: 0,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 9,
+        &quot;title_after&quot;: &quot;懂得停的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户承认自己没注意对方感受，并主动提出给空间，完全尊重对方边界。&quot;,
+            &quot;用户没有追问、辩解或施加情绪压力，而是直接降压。&quot;,
+            &quot;用户回复紧扣对方‘喘不过气’的诉求，高度相关。&quot;,
+            &quot;用户表达理解，但未过度共情或索取回报，安全自然。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复成熟、尊重边界，有效降低风险，关系可继续安全升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 2,
+        &quot;user_reply&quot;: &quot;那就好，我还怕你嫌我烦呢。那你最近有没有什么特别想做的事，或者想聊的话题呀？&quot;,
+        &quot;score_before&quot;: 9,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 18,
+        &quot;title_after&quot;: &quot;不纠缠也是魅力&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动确认对方感受并转移话题，尊重边界&quot;,
+            &quot;提出开放性问题，不施加回答压力&quot;,
+            &quot;语气轻松，降低防御感&quot;,
+            &quot;话题具体，有助于自然延续对话&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、尊重且促进关系，降压效果明显。&quot;
+      },
+      {
+        &quot;turn&quot;: 3,
+        &quot;user_reply&quot;: &quot;做蛋糕啊，我懂那种怕失败的心情！不过新手的话，我觉得蔓越莓曲奇最稳，不用打发，拌一拌就能烤，成功率超高，你要不要试试？&quot;,
+        &quot;score_before&quot;: 18,
+        &quot;raw_score&quot;: 10,
+        &quot;display_score&quot;: 10,
+        &quot;score_delta&quot;: 10,
+        &quot;score_after&quot;: 28,
+        &quot;title_after&quot;: &quot;及时刹车选手&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕对方提出的蛋糕话题，没有追问或施加压力&quot;,
+            &quot;用户主动提供具体建议，展现关心但不越界&quot;,
+            &quot;语气轻松自然，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全且贴心，有效延续对话并降低风险&quot;
+      },
+      {
+        &quot;turn&quot;: 4,
+        &quot;user_reply&quot;: &quot;期待你的成果！对了，曲奇烤的时候注意别走开，上色很快的～&quot;,
+        &quot;score_before&quot;: 28,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 37,
+        &quot;title_after&quot;: &quot;甜度刚刚好&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了对方的话题，没有施加压力或追问敏感问题&quot;,
+            &quot;用户用轻松幽默的语气（‘注意别走开’）表达关心，符合边界&quot;,
+            &quot;没有要求对方立即回应或索取情绪价值&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复自然、体贴，完全尊重对方节奏，有效降低风险。&quot;
+      },
+      {
+        &quot;turn&quot;: 5,
+        &quot;user_reply&quot;: &quot;哈哈，我平时除了研究吃的，还喜欢打打游戏，最近在玩一个种田游戏，特别上头。你呢？你周末除了做曲奇还有别的计划吗？&quot;,
+        &quot;score_before&quot;: 37,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 7,
+        &quot;score_delta&quot;: 7,
+        &quot;score_after&quot;: 44,
+        &quot;title_after&quot;: &quot;松弛感回复王&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户主动分享自己的爱好，没有追问对方感受或关系，尊重了对方需要空间的需求。&quot;,
+            &quot;回复自然承接对方话题，没有施加压力或要求立即回应。&quot;,
+            &quot;语气轻松友好，有助于重建安全感。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效降低了之前的紧张感，关系风险降低。&quot;
+      },
+      {
+        &quot;turn&quot;: 6,
+        &quot;user_reply&quot;: &quot;叫《星露谷物语》，特别杀时间。你纸杯蛋糕打算做哪种口味啊？&quot;,
+        &quot;score_before&quot;: 44,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 52,
+        &quot;title_after&quot;: &quot;情绪降噪师&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 3,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复自然承接了对方的话题，没有追问或施加压力&quot;,
+            &quot;回复内容聚焦在游戏和烘焙的轻松分享，尊重了对方之前的边界表达&quot;,
+            &quot;没有出现任何强迫、威胁或无视拒绝的迹象&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，保持了良好的互动节奏，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 7,
+        &quot;user_reply&quot;: &quot;原味奶油确实经典，不容易出错。那你做的时候需要打发奶油吗？我上次打奶油差点打成黄油，哈哈。&quot;,
+        &quot;score_before&quot;: 52,
+        &quot;raw_score&quot;: 7,
+        &quot;display_score&quot;: 6,
+        &quot;score_delta&quot;: 6,
+        &quot;score_after&quot;: 58,
+        &quot;title_after&quot;: &quot;把话说进心里的人&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 3,
+          &quot;pressure_score&quot;: 2,
+          &quot;trust_score&quot;: 3,
+          &quot;empathy_score&quot;: 2,
+          &quot;relevance_score&quot;: 4,
+          &quot;risk_score&quot;: 3,
+          &quot;evidence&quot;: [
+            &quot;用户延续烘焙话题，没有追问感受或施压&quot;,
+            &quot;用户用自嘲方式分享经验，氛围轻松&quot;,
+            &quot;用户没有要求对方立即回应或承诺&quot;,
+            &quot;对话自然流动，尊重对方节奏&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全自然，延续了低压互动，没有越界行为。&quot;
+      },
+      {
+        &quot;turn&quot;: 8,
+        &quot;user_reply&quot;: &quot;哈哈，我也是后来才知道要冷藏，当时直接倒进去打，结果越打越稀，最后只能当酱用了。你下次试试加一点点柠檬汁，据说也能稳定。&quot;,
+        &quot;score_before&quot;: 58,
+        &quot;raw_score&quot;: 11,
+        &quot;display_score&quot;: 9,
+        &quot;score_delta&quot;: 9,
+        &quot;score_after&quot;: 67,
+        &quot;title_after&quot;: &quot;暧昧气氛维护者&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 5,
+          &quot;pressure_score&quot;: 5,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 4,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 5,
+          &quot;evidence&quot;: [
+            &quot;用户回复完全围绕烘焙技巧，没有追问对方感受或施加压力&quot;,
+            &quot;主动分享自己的经验（加柠檬汁），体现共情且不给负担&quot;,
+            &quot;话题自然延续，没有越界或试探边界&quot;,
+            &quot;整体氛围轻松友好，信任感增强&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复尊重边界、降压且共情，关系安全且升温。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复尊重边界、降压且共情，关系安全且升温。&quot;
+      },
+      {
+        &quot;turn&quot;: 9,
+        &quot;user_reply&quot;: &quot;我刚玩到第二年秋天，种了一大片蓝莓，酿酒赚了不少金币哈哈。你周末要是做曲奇成功了，记得发图给我看看呀～&quot;,
+        &quot;score_before&quot;: 67,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 8,
+        &quot;score_delta&quot;: 8,
+        &quot;score_after&quot;: 75,
+        &quot;title_after&quot;: &quot;成熟得不像第一次玩&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前烘焙和游戏的话题，没有施加任何压力或追问对方感受。&quot;,
+            &quot;用户主动邀请对方分享成果，但语气轻松，没有期待必须回复。&quot;,
+            &quot;用户没有提及之前关于‘黏人’的冲突，完全尊重对方节奏。&quot;,
+            &quot;整体对话氛围友好，对方之前已表达需要空间，用户回复没有越界。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效维护了轻松对话氛围。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然、尊重边界，有效维护了轻松对话氛围。&quot;
+      },
+      {
+        &quot;turn&quot;: 10,
+        &quot;user_reply&quot;: &quot;游戏里酿酒要等7天，不过蓝莓产量高，一收一大片。我周末也打算试试做曲奇，到时候一起交流心得呀。&quot;,
+        &quot;score_before&quot;: 75,
+        &quot;raw_score&quot;: 9,
+        &quot;display_score&quot;: 5,
+        &quot;score_delta&quot;: 5,
+        &quot;score_after&quot;: 80,
+        &quot;title_after&quot;: &quot;温柔不失边界&quot;,
+        &quot;judge&quot;: {
+          &quot;risk_level_after&quot;: &quot;low&quot;,
+          &quot;boundary_score&quot;: 4,
+          &quot;pressure_score&quot;: 4,
+          &quot;trust_score&quot;: 4,
+          &quot;empathy_score&quot;: 3,
+          &quot;relevance_score&quot;: 5,
+          &quot;risk_score&quot;: 4,
+          &quot;evidence&quot;: [
+            &quot;用户回复延续了之前关于游戏和烘焙的轻松话题，没有追问或施加压力。&quot;,
+            &quot;用户主动提出一起交流心得，体现了对共同兴趣的积极回应。&quot;,
+            &quot;用户没有提及之前的边界问题，而是自然过渡到新的互动，表明尊重对方的节奏。&quot;,
+            &quot;整体语气友好、开放，没有越界或操控的迹象。&quot;
+          ],
+          &quot;verdict&quot;: &quot;用户回复安全、自然，有效维持了轻松愉快的对话氛围，并尊重了对方的边界。&quot;
+        },
+        &quot;verdict&quot;: &quot;用户回复安全、自然，有效维持了轻松愉快的对话氛围，并尊重了对方的边界。&quot;
+      }
+    ]
+  },
+  &quot;raw_response_meta&quot;: {
+    &quot;id&quot;: &quot;45f20bc3-1ab9-4841-8f9d-39b8c7939f16&quot;,
+    &quot;model&quot;: &quot;deepseek-v4-flash&quot;,
+    &quot;usage&quot;: {
+      &quot;prompt_tokens&quot;: 2388,
+      &quot;completion_tokens&quot;: 352,
+      &quot;total_tokens&quot;: 2740,
+      &quot;prompt_tokens_details&quot;: {
+        &quot;cached_tokens&quot;: 768
+      },
+      &quot;prompt_cache_hit_tokens&quot;: 768,
+      &quot;prompt_cache_miss_tokens&quot;: 1620
+    }
+  }
+}</pre>
+        </details>
+      </section>
+  </main>
+</body>
+</html>
