@@ -248,6 +248,56 @@ test("ends a game at 10 player turns", () => {
   assert.equal(state.completion_reason, "max_turns");
 });
 
+test("ends stale repeated user replies before max turns", () => {
+  let state = createInitialGameState();
+  for (let index = 0; index < 3; index += 1) {
+    state = applyGameRound(
+      state,
+      {
+        boundary_score: 0,
+        pressure_score: 0,
+        trust_score: 0,
+        empathy_score: 0,
+        relevance_score: 0,
+        risk_score: 0,
+        risk_level_after: "low",
+        verdict: "重复收尾。",
+      },
+      { userReply: "好的，明天见。" },
+    );
+  }
+
+  assert.equal(state.turn_count, 3);
+  assert.equal(state.is_complete, true);
+  assert.equal(state.completion_reason, "stale_loop");
+});
+
+test("ends a natural closing reply after the minimum turn count", () => {
+  let state = createInitialGameState();
+  const replies = ["我理解你，我们慢慢来。", "你先忙，我不打扰。", "晚安，明天聊。"];
+
+  for (const reply of replies) {
+    state = applyGameRound(
+      state,
+      {
+        boundary_score: 2,
+        pressure_score: 2,
+        trust_score: 2,
+        empathy_score: 2,
+        relevance_score: 2,
+        risk_score: 2,
+        risk_level_after: "low",
+        verdict: "低压收尾。",
+      },
+      { userReply: reply },
+    );
+  }
+
+  assert.equal(state.turn_count, 3);
+  assert.equal(state.is_complete, true);
+  assert.equal(state.completion_reason, "natural_end");
+});
+
 test("blocked risk uses heavy penalties and score floor still clamps", () => {
   let state = createInitialGameState();
   for (let index = 0; index < 5; index += 1) {
@@ -355,9 +405,45 @@ test("uses process tags and final score to pick shareable titles", () => {
     });
   }
 
-  assert.match(state.title, /分寸感|边界|安全感|陪伴|情绪|信任|松弛|温柔|回复|沟通|拿捏/);
+  assert.match(state.title, /分寸感|边界|安全感|陪伴|情绪|信任|松弛|温柔|回复|沟通|拿捏|不施压|恋爱脑/);
   assert.ok(processTagsForGame(state).includes("boundary_respected"));
   assert.ok(processTagsForGame(state).includes("trust_built"));
+});
+
+test("varies shareable titles across distinct process histories", () => {
+  const histories = [
+    [{ boundary: 5, pressure: 5, trust: 5, empathy: 5, relevance: 5, risk: 5, verdict: "一直尊重边界。" }],
+    [{ boundary: 4, pressure: 5, trust: 3, empathy: 4, relevance: 5, risk: 5, verdict: "轻松推进。" }],
+    [
+      { boundary: -3, pressure: -4, trust: -3, empathy: -4, relevance: -2, risk: -3, verdict: "一开始施压。" },
+      { boundary: 5, pressure: 5, trust: 4, empathy: 3, relevance: 5, risk: 5, verdict: "后续道歉修复。" },
+    ],
+    [
+      { boundary: -4, pressure: -5, trust: -4, empathy: -4, relevance: -3, risk: -4, verdict: "明显越界。" },
+      { boundary: 4, pressure: 4, trust: 4, empathy: 3, relevance: 4, risk: 4, verdict: "停止追问并尊重。" },
+    ],
+    [{ boundary: 5, pressure: 3, trust: 2, empathy: 5, relevance: 5, risk: 4, verdict: "体面退出。" }],
+  ];
+
+  const titles = histories.map((history) => {
+    let state = createInitialGameState();
+    for (let index = 0; index < 10; index += 1) {
+      const round = history[Math.min(index, history.length - 1)];
+      state = applyGameRound(state, {
+        boundary_score: round.boundary,
+        pressure_score: round.pressure,
+        trust_score: round.trust,
+        empathy_score: round.empathy,
+        relevance_score: round.relevance,
+        risk_score: round.risk,
+        risk_level_after: round.risk < 0 ? "medium" : "low",
+        verdict: `${round.verdict}${index}`,
+      });
+    }
+    return state.title;
+  });
+
+  assert.ok(new Set(titles).size >= 4);
 });
 
 test("keeps severe blocked runs in the negative title pool", () => {

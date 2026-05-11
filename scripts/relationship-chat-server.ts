@@ -480,7 +480,7 @@ const server = createServer(async (request, response) => {
         const payload = normalizeSimulationPayload(result.payload);
         const game =
           (body.mode ?? "chat") === "chat"
-            ? applyGameRound(body.gameState, payload.judge)
+            ? applyGameRound(body.gameState, payload.judge, { userReply: body.userReply })
             : normalizeGameState(body.gameState ?? createInitialGameState());
         result.payload = { ...payload, game };
       }

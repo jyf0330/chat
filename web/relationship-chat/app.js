@@ -287,6 +287,8 @@ function completionReasonText(reason) {
     blocked: "历史 blocked 风险记录",
     score_floor: "分数到达 -100",
     score_ceiling: "分数到达 100",
+    stale_loop: "重复收尾，自动结束",
+    natural_end: "自然收尾完成",
   }[reason] ?? "本局结束";
 }
 

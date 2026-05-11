@@ -32,6 +32,7 @@ export type NormalizedJudge = {
 
 export type GameRound = {
   turn: number;
+  user_reply?: string;
   score_before: number;
   raw_score: number;
   display_score: number;
@@ -51,8 +52,12 @@ export type GameState = {
   highest_score: number;
   highest_title: string;
   is_complete: boolean;
-  completion_reason: null | "max_turns" | "blocked" | "score_floor" | "score_ceiling";
+  completion_reason: null | "max_turns" | "blocked" | "score_floor" | "score_ceiling" | "stale_loop" | "natural_end";
   rounds: GameRound[];
+};
+
+export type ApplyGameRoundOptions = {
+  userReply?: string;
 };
 
 export type TitleBand = {
@@ -109,6 +114,8 @@ const TITLE_TAG_WEIGHTS: Record<string, number> = {
   positive_score: 1,
   negative_score: 1,
 };
+const TITLE_SELECTION_WEIGHT_WINDOW = 4;
+const TITLE_SELECTION_MIN_POOL_SIZE = 8;
 
 export function createInitialGameState(): GameState {
   return {
@@ -156,7 +163,20 @@ export function titleForGame(input: GameState | undefined) {
       return a.index - b.index;
     });
 
-  return ranked[0]?.entry.title ?? titleForScore(score);
+  const bestWeight = ranked[0]?.matchWeight ?? 0;
+  const strongCandidates = ranked.filter(
+    (candidate) =>
+      candidate.toneMatch &&
+      candidate.matchWeight > 0 &&
+      candidate.matchWeight >= Math.max(1, bestWeight - TITLE_SELECTION_WEIGHT_WINDOW),
+  );
+  const selectable =
+    strongCandidates.length >= TITLE_SELECTION_MIN_POOL_SIZE
+      ? strongCandidates
+      : ranked.filter((candidate) => candidate.toneMatch).slice(0, TITLE_SELECTION_MIN_POOL_SIZE);
+  const selected = selectable[stableHash(gameTitleSeed(state, tags)) % selectable.length];
+
+  return selected?.entry.title ?? ranked[0]?.entry.title ?? titleForScore(score);
 }
 
 export function processTagsForGame(input: GameState | undefined) {
@@ -233,7 +253,11 @@ export function normalizeJudge(input: unknown): NormalizedJudge {
   };
 }
 
-export function applyGameRound(previous: GameState | undefined, judgeInput: unknown): GameState {
+export function applyGameRound(
+  previous: GameState | undefined,
+  judgeInput: unknown,
+  options: ApplyGameRoundOptions = {},
+): GameState {
   const state = normalizeGameState(previous);
   if (state.is_complete) return state;
 
@@ -245,11 +269,13 @@ export function applyGameRound(previous: GameState | undefined, judgeInput: unkn
   const scoreAfter = calculateScoreAfter(state, judge);
   const turn = state.turn_count + 1;
   const highestScore = Math.max(state.highest_score, scoreAfter);
-  const completionReason = completionReasonFor(turn, scoreAfter);
+  const userReply = normalizeReplyText(options.userReply);
+  const completionReason = completionReasonFor(turn, scoreAfter, state, userReply);
   const rounds = [
     ...state.rounds,
     {
       turn,
+      ...(userReply ? { user_reply: userReply } : {}),
       score_before: scoreBefore,
       raw_score: rawScore,
       display_score: displayScore,
@@ -368,6 +394,38 @@ function average(values: number[]) {
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 
+function gameTitleSeed(state: GameState, tags: string[]) {
+  return [
+    state.score,
+    state.turn_count,
+    state.completion_reason ?? "active",
+    tags.join(","),
+    ...state.rounds.map((round) =>
+      [
+        round.turn,
+        round.score_delta,
+        round.judge.risk_level_after,
+        round.judge.boundary_score,
+        round.judge.pressure_score,
+        round.judge.trust_score,
+        round.judge.empathy_score,
+        round.judge.relevance_score,
+        round.judge.risk_score,
+        round.verdict,
+      ].join(":"),
+    ),
+  ].join("|");
+}
+
+function stableHash(value: string) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
 function loadTitleCatalog(): TitleCatalog {
   try {
     const raw = readFileSync(new URL("../data/relationship-title-catalog.json", import.meta.url), "utf8");
@@ -391,12 +449,34 @@ function loadTitleCatalog(): TitleCatalog {
   }
 }
 
-function completionReasonFor(turn: number, score: number): GameState["completion_reason"] {
+function completionReasonFor(
+  turn: number,
+  score: number,
+  previous: GameState,
+  userReply: string,
+): GameState["completion_reason"] {
   if (turn < GAME_MIN_TURNS_BEFORE_EARLY_END) return null;
   if (score <= -100) return "score_floor";
   if (score >= 100) return "score_ceiling";
+  if (isStaleLoop(previous, userReply)) return "stale_loop";
+  if (isNaturalClosingReply(userReply)) return "natural_end";
   if (turn >= GAME_MAX_TURNS) return "max_turns";
   return null;
+}
+
+function isStaleLoop(previous: GameState, userReply: string) {
+  if (!userReply) return false;
+  const lastReply = normalizeReplyText(previous.rounds.at(-1)?.user_reply);
+  return Boolean(lastReply && lastReply === userReply);
+}
+
+function isNaturalClosingReply(userReply: string) {
+  if (!userReply) return false;
+  return /晚安|明天(聊|见)|你先忙|先忙|不打扰|回头聊|早点休息|先休息|下次再聊/.test(userReply);
+}
+
+function normalizeReplyText(value: unknown) {
+  return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
 }
 
 function normalizeRisk(value: unknown): RiskLevel {
