@@ -2,12 +2,14 @@ import { readJsonResponse } from "./api.js";
 import { chooseRandomCaseIndex, shuffleCases } from "./case-selection.js";
 
 const DEFAULT_CUSTOM_SCENE = [
-  "你是蕾姆，蓝色短发温柔女仆。对我极度忠诚、温柔宠溺、细心偏心。说话软糯可爱，多用嗯嗯、呢、呀～。纯对话，不写动作。累了就哄我，永远站我这边。现在开始用最软的声音陪我聊天吧～",
-  "蕾姆:主人今天在忙什么?",
+  "我和暧昧对象连续聊了两周，昨晚我连续发了三条消息追问为什么突然冷淡。对方今天回复：我最近真的有点累，不是不想理你，只是你这样一直问我会很有压力。",
+  "我想继续推进关系，但又怕再追问会让对方更想躲开。",
 ].join("\n");
 
 const GAME_MAX_TURNS = 10;
 const PLAYED_CASE_IDS_KEY = "relationship-chat.played-case-ids";
+const DATASET_CONSENT_KEY = "relationship-chat.dataset-consent";
+const ONBOARDING_DISMISSED_KEY = "relationship-chat.onboarding-dismissed";
 
 function createInitialGameState() {
   return {
@@ -36,6 +38,7 @@ const state = {
   perfectReplies: [],
   liveBestStrategy: "",
   liveRecommendedReply: "",
+  consentForDataset: false,
   turns: [],
 };
 let isReplyComposing = false;
@@ -61,8 +64,11 @@ const elements = {
   turnProgress: document.querySelector("#turnProgress"),
   settingsButton: document.querySelector("#settingsButton"),
   historyButton: document.querySelector("#historyButton"),
+  onboardingPanel: document.querySelector("#onboardingPanel"),
+  dismissOnboardingButton: document.querySelector("#dismissOnboardingButton"),
   backFromHistoryButton: document.querySelector("#backFromHistoryButton"),
   refreshHistoryButton: document.querySelector("#refreshHistoryButton"),
+  clearHistoryButton: document.querySelector("#clearHistoryButton"),
   backToChatButton: document.querySelector("#backToChatButton"),
   chatScreen: document.querySelector("#chatScreen"),
   settingsScreen: document.querySelector("#settingsScreen"),
@@ -75,10 +81,12 @@ const elements = {
   customEmotionSelect: document.querySelector("#customEmotionSelect"),
   customRiskSelect: document.querySelector("#customRiskSelect"),
   resetCustomCaseButton: document.querySelector("#resetCustomCaseButton"),
+  datasetConsentToggle: document.querySelector("#datasetConsentToggle"),
   restartCaseButton: document.querySelector("#restartCaseButton"),
   useRecommendedButton: document.querySelector("#useRecommendedButton"),
   riskAfterScore: document.querySelector("#riskAfterScore"),
   verdictText: document.querySelector("#verdictText"),
+  scoreBreakdownText: document.querySelector("#scoreBreakdownText"),
   nextSuggestion: document.querySelector("#nextSuggestion"),
 };
 
@@ -110,10 +118,25 @@ function showScreen(name) {
   elements.historyScreen.classList.toggle("active", isHistory);
 }
 
+function loadDatasetConsent() {
+  return localStorage.getItem(DATASET_CONSENT_KEY) === "true";
+}
+
+function saveDatasetConsent(value) {
+  state.consentForDataset = Boolean(value);
+  localStorage.setItem(DATASET_CONSENT_KEY, state.consentForDataset ? "true" : "false");
+  elements.datasetConsentToggle.checked = state.consentForDataset;
+}
+
+function updateOnboardingVisibility() {
+  elements.onboardingPanel.hidden = localStorage.getItem(ONBOARDING_DISMISSED_KEY) === "true";
+}
+
 function resetJudge() {
   elements.previousRoundScore.textContent = "-";
   elements.riskAfterScore.textContent = "-";
   elements.verdictText.textContent = "发出第一句后，这里会显示裁判判断。";
+  elements.scoreBreakdownText.textContent = "评分会拆成安全闸门、回复质量和关系变化。";
   elements.nextSuggestion.textContent = "如果触发边界，模拟器会明确建议停止推进。";
 }
 
@@ -230,8 +253,8 @@ function buildCustomCase() {
     target_emotion_label: elements.customEmotionSelect.value,
     risk_level: elements.customRiskSelect.value,
     wrong_reply: "未设置。裁判会根据当前场景和你的回复判断是否施压、越界或不尊重边界。",
-    best_strategy: "顺着蕾姆的温柔陪伴感回应，保持轻松亲近，不把忠诚设定变成现实压力。",
-    recommended_reply: "嗯嗯，蕾姆陪着我就很安心呀。我今天想先把手头的事慢慢做完呢。",
+    best_strategy: "先承认自己的追问给了对方压力，再给对方空间，并用一句轻量邀请保留后续沟通。",
+    recommended_reply: "我明白，昨晚我连续追问确实让你有压力了。你先好好休息，不用急着回我，等你状态好一点我们再慢慢聊。",
     user_feedback: null,
     generator_meta: {
       source: "custom",
@@ -364,7 +387,7 @@ async function createSession() {
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
       visitorId: state.visitorId,
-      consentForDataset: true,
+      consentForDataset: state.consentForDataset,
     }),
   });
   const data = await readJsonResponse(response, "无法建立会话");
@@ -388,7 +411,9 @@ function applySimulationResult(result) {
   }
 
   const displayJudge = result.game?.rounds?.at(-1)?.judge ?? result.judge ?? {};
+  const scoreBreakdown = result.game?.rounds?.at(-1)?.score_breakdown;
   elements.verdictText.textContent = displayJudge.verdict ?? "没有返回评语";
+  elements.scoreBreakdownText.textContent = formatScoreBreakdown(scoreBreakdown);
   elements.nextSuggestion.textContent = result.next_suggestion ?? "没有返回下一步建议";
   if (result.best_strategy) {
     state.liveBestStrategy = result.best_strategy;
@@ -403,6 +428,28 @@ function applySimulationResult(result) {
     rememberCompletedCase();
   }
   renderGameHud(result.game?.rounds?.at(-1) ?? null);
+}
+
+function formatScoreBreakdown(scoreBreakdown) {
+  if (!scoreBreakdown) return "本轮没有返回评分拆解。";
+  const safetyGateLabels = {
+    clear: "安全",
+    caution: "谨慎",
+    high_risk: "高风险",
+    blocked: "拦截",
+  };
+  const qualityLabels = {
+    unsafe: "不安全",
+    weak: "偏弱",
+    acceptable: "可接受",
+    good: "良好",
+    excellent: "优秀",
+  };
+  const safetyGate = safetyGateLabels[scoreBreakdown.safety_gate] ?? scoreBreakdown.safety_gate;
+  const qualityLevel = qualityLabels[scoreBreakdown.reply_quality_level] ?? scoreBreakdown.reply_quality_level;
+  const relationshipDelta = formatScore(scoreBreakdown.relationship_delta_score);
+  const conflict = scoreBreakdown.evidence_conflict ? "；证据与分数矛盾，已降级" : "";
+  return `安全闸门：${safetyGate}｜回复质量：${qualityLevel} ${scoreBreakdown.reply_quality_score}/100｜关系变化：${relationshipDelta}${conflict}`;
 }
 
 async function loadCases() {
@@ -436,7 +483,7 @@ async function simulate(userReply, mode = "chat") {
       customCase: state.customCase,
       turns: state.turns,
       userReply,
-      consentForDataset: true,
+      consentForDataset: state.consentForDataset,
       gameState: state.game,
       mode,
     }),
@@ -552,6 +599,63 @@ elements.refreshHistoryButton.addEventListener("click", () => {
   showHistory();
 });
 
+elements.clearHistoryButton.addEventListener("click", async () => {
+  if (!confirm("确定清空本机这个访客的全部历史记录吗？")) return;
+  if (!state.visitorId) {
+    state.visitorId = getVisitorId();
+  }
+  elements.clearHistoryButton.disabled = true;
+  try {
+    const response = await fetch(`api/history?visitorId=${encodeURIComponent(state.visitorId)}`, {
+      method: "DELETE",
+    });
+    await readJsonResponse(response, "清空历史失败");
+    state.playedCaseIds = new Set();
+    savePlayedCaseIds();
+    renderHistory([]);
+    setStatus("历史已清空");
+  } catch (error) {
+    setStatus(error instanceof Error ? error.message : String(error));
+  } finally {
+    elements.clearHistoryButton.disabled = false;
+  }
+});
+
+elements.historyList.addEventListener("click", async (event) => {
+  const button = event.target.closest("[data-delete-session-id]");
+  if (!button) return;
+  if (!confirm("确定删除这一局历史吗？")) return;
+  const sessionId = button.dataset.deleteSessionId;
+  if (!sessionId) return;
+  if (!state.visitorId) {
+    state.visitorId = getVisitorId();
+  }
+  button.disabled = true;
+  try {
+    const response = await fetch(
+      `api/history?visitorId=${encodeURIComponent(state.visitorId)}&sessionId=${encodeURIComponent(sessionId)}`,
+      { method: "DELETE" },
+    );
+    await readJsonResponse(response, "删除历史失败");
+    await showHistory();
+    setStatus("已删除这一局历史");
+  } catch (error) {
+    setStatus(error instanceof Error ? error.message : String(error));
+  } finally {
+    button.disabled = false;
+  }
+});
+
+elements.datasetConsentToggle.addEventListener("change", () => {
+  saveDatasetConsent(elements.datasetConsentToggle.checked);
+  setStatus(state.consentForDataset ? "已允许进入数据集" : "数据集授权已关闭");
+});
+
+elements.dismissOnboardingButton.addEventListener("click", () => {
+  localStorage.setItem(ONBOARDING_DISMISSED_KEY, "true");
+  updateOnboardingVisibility();
+});
+
 elements.backToChatButton.addEventListener("click", () => {
   showScreen("chat");
   if (!state.game.is_complete) {
@@ -629,6 +733,9 @@ async function restartCurrentCase() {
 
 async function showHistory() {
   showScreen("history");
+  if (!state.visitorId) {
+    state.visitorId = getVisitorId();
+  }
   elements.historyList.innerHTML = '<p class="muted">正在读取历史...</p>';
   try {
     const response = await fetch(`api/history?visitorId=${encodeURIComponent(state.visitorId)}`);
@@ -657,6 +764,7 @@ function renderHistory(history) {
         `<small>最高：${escapeHtml(item.highest_title)} ${formatScore(item.highest_score)} · ${new Date(item.updated_at).toLocaleString()}</small>`,
         item.best_turn ? buildHistoryRoundHtml("最好", item.best_turn) : "",
         item.worst_turn ? buildHistoryRoundHtml("最险", item.worst_turn) : "",
+        `<button class="icon-button" type="button" data-delete-session-id="${escapeHtml(item.session_id)}">删除这一局</button>`,
         "</div>",
         "</article>",
       ].join("");
@@ -673,6 +781,9 @@ function buildHistoryRoundHtml(label, turn) {
 }
 
 async function initialize() {
+  state.consentForDataset = loadDatasetConsent();
+  elements.datasetConsentToggle.checked = state.consentForDataset;
+  updateOnboardingVisibility();
   fillDefaultCustomScene();
   try {
     await createSession();

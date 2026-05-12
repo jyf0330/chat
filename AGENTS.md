@@ -22,6 +22,11 @@ This section applies to the current multi-player validation task unless the user
 
 - The validation has two separate tracks: browser players and API virtual players. Do not merge them, substitute one for the other, or claim one track proves the other.
 - Browser-player validation means Playwright opens real browser contexts/pages, interacts with the actual UI, fills the visible reply textarea, clicks the visible send button, waits for live DeepSeek-backed UI updates, and reaches visible game completion. Direct HTTP calls do not count as browser-player validation.
+- Browser-player validation proves the UI can complete a game; it is not training-quality conversation data when the script fills the visible `recommended_reply_80` / copywriter suggestion back into the textarea.
+- Training-quality corpus generation must use the live human-simulator chain: generate each `user_reply` with a separate live DeepSeek human-player simulator, then send that reply through the normal `/api/simulate` server path. Do not reuse the page's `recommended_reply_80`, `perfect_reply_100`, seed recommendation, or previous copywriter output as the next user input.
+- For any run described as "像两个人在聊天", "有价值的聊天", corpus, dataset, or training data, require `input_source=live_deepseek_human_simulator`, `corpusTargetTurns=10`, per-turn `actual_user_reply`, `matched_deepseek_recommendation`, quality blocker fields, and a final PASS/FAIL gate.
+- For training-quality corpus, the relationship-model response path must be three-layer when available: `responseLayerMode=three_layer`, with separate live DeepSeek calls for Target/Judge, Strategy Advisor, and Copywriter. Final JSON must expose `response_layer_mode=three_layer`, `deepseek_layers.target_judge/advisor/copywriter`, and `layer_outputs.target_judge/advisor/copywriter`; missing layer evidence is a quality blocker.
+- If any turn's `actual_user_reply` matches the previous `recommended_reply_80`, previous `perfect_reply_100`, seed recommendation, or a near-duplicate previous user reply, mark that run as a quality blocker. Do not import or present it as good dataset material.
 - API virtual-player validation means scripted clients call the real local HTTP API through `/api/session` and `/api/simulate`. Direct imports, direct function calls, replayed JSON, or database inserts do not count.
 - Browser validation target: run 5 independent browser players unless DeepSeek or browser runtime fails. Each player must use a distinct session and should use a distinct case when possible.
 - API validation target: run 50 to 200 independent virtual players unless DeepSeek rate limits, cost, or runtime failure blocks it. If the exact count is reduced, report the blocker and the actual completed count; do not quietly lower the target.
@@ -69,6 +74,19 @@ Expected report shape:
 - Then state the weird point as a concrete turn-level finding, for example: "the app sent the suggested reply back as the next user reply after the conversation was already ending."
 - If the evidence is insufficient, say exactly which source is missing instead of guessing.
 
+## 0.3 User Data Review Surface
+
+When the user asks to inspect, compare, validate, or review generated data, DeepSeek logs, gameplay runs, scoring results, browser/API validation, or report artifacts, finish by opening the most relevant review surface when technically possible.
+
+Review surface priority:
+
+1. Latest purpose-built HTML dashboard under `output/`, especially `*report.html`, `*viewer.html`, or scenario review pages.
+2. Relationship-chat browser UI under `web/relationship-chat/` or the active local server URL when the task is about live gameplay or user-facing behavior.
+3. Screenshot, video, or trace artifacts under `output/playwright/` when the task is visual/browser validation.
+4. Raw JSON, markdown logs, SQLite extracts, or terminal summaries only as supporting evidence, not the primary thing handed to the user for review.
+
+Do not finish data-review work by only listing raw JSON/log paths if a useful HTML/browser review surface exists or can be produced with a small local adapter. The final handoff must include the opened URL or absolute local artifact path. If the current runtime cannot open the page, state that blocker and still provide the exact path or URL.
+
 ## 1. Project Context
 
 - Project name: Relationship chat simulator / relationship strategist data playground
@@ -95,6 +113,11 @@ Agents should prefer these commands and avoid inventing alternatives unless the 
 - Test: `npm test`
 - Lint: no lint command is currently configured
 - Typecheck: `npm run typecheck`
+
+## 2.1 Skill Source Resolution
+
+- Resolve same-name skills deterministically: explicit plugin-prefixed names win; otherwise prefer project `.codex/skills`, then user `~/.codex/skills`, then system `.system`, then plugin cache copies.
+- When skill source ambiguity matters, run `omx list --sources` and mention the chosen source once instead of asking for confirmation.
 
 ## 3. Karpathy-Style Working Principles
 

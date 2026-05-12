@@ -17,6 +17,22 @@ function withStore(fn: (store: RelationshipChatStore) => void) {
   }
 }
 
+function recordBasicSimulation(store: RelationshipChatStore, sessionId: string, caseId: string) {
+  store.recordSimulation({
+    sessionId,
+    caseId,
+    mode: "chat",
+    consentForDataset: true,
+    userReply: "好的。",
+    turns: [],
+    result: {
+      target_reply: "嗯。",
+      best_strategy: "继续尊重边界。",
+      recommended_reply: "好的，我会尊重你的节奏。",
+    },
+  });
+}
+
 test("creates anonymous sessions and records a full simulation turn", () => {
   withStore((store) => {
     const session = store.createSession({
@@ -55,6 +71,67 @@ test("creates anonymous sessions and records a full simulation turn", () => {
     assert.equal(stats.simulations, 1);
     assert.equal(stats.messages, 4);
     assert.equal(stats.datasetConsentedSessions, 1);
+  });
+});
+
+test("deletes only a visitor-owned session and cascades its stored records", () => {
+  withStore((store) => {
+    const owned = store.createSession({
+      visitorId: "visitor-delete-owner",
+      consentForDataset: true,
+    });
+    const other = store.createSession({
+      visitorId: "visitor-delete-other",
+      consentForDataset: true,
+    });
+
+    recordBasicSimulation(store, owned.id, "case-owned");
+    recordBasicSimulation(store, other.id, "case-other");
+
+    assert.equal(store.deleteSessionForVisitor("visitor-delete-other", owned.id), false);
+    assert.equal(store.getStats().sessions, 2);
+    assert.equal(store.getStats().simulations, 2);
+    assert.equal(store.getStats().messages, 8);
+
+    assert.equal(store.deleteSessionForVisitor("visitor-delete-owner", owned.id), true);
+
+    const stats = store.getStats();
+    assert.equal(stats.sessions, 1);
+    assert.equal(stats.simulations, 1);
+    assert.equal(stats.messages, 4);
+    assert.equal(store.getHistory("visitor-delete-owner").length, 0);
+    assert.equal(store.getHistory("visitor-delete-other").length, 1);
+  });
+});
+
+test("clears all history for a visitor and returns deleted session count", () => {
+  withStore((store) => {
+    const first = store.createSession({
+      visitorId: "visitor-clear-owner",
+      consentForDataset: true,
+    });
+    const second = store.createSession({
+      visitorId: "visitor-clear-owner",
+      consentForDataset: true,
+    });
+    const other = store.createSession({
+      visitorId: "visitor-clear-other",
+      consentForDataset: true,
+    });
+
+    recordBasicSimulation(store, first.id, "case-first");
+    recordBasicSimulation(store, second.id, "case-second");
+    recordBasicSimulation(store, other.id, "case-other");
+
+    assert.equal(store.clearHistoryForVisitor("visitor-clear-owner"), 2);
+
+    const stats = store.getStats();
+    assert.equal(stats.sessions, 1);
+    assert.equal(stats.simulations, 1);
+    assert.equal(stats.messages, 4);
+    assert.equal(store.getHistory("visitor-clear-owner").length, 0);
+    assert.equal(store.getHistory("visitor-clear-other").length, 1);
+    assert.equal(store.clearHistoryForVisitor("visitor-clear-owner"), 0);
   });
 });
 

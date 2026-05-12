@@ -31,6 +31,18 @@
             <span id="emotionTag">情绪</span>
           </div>
 
+          <div id="onboardingPanel" class="judge-strip" role="note">
+            <div>
+              <span>玩法</span>
+              <strong>只模拟关系对话</strong>
+            </div>
+            <div>
+              <span>数据集</span>
+              <strong>默认不保存授权</strong>
+            </div>
+            <button id="dismissOnboardingButton" class="icon-button" type="button">知道了</button>
+          </div>
+
           <div class="judge-strip">
             <div>
               <span>上一轮</span>
@@ -134,6 +146,17 @@
               </div>
             </section>
 
+            <section class="panel compact">
+              <div class="panel-title">
+                <span>数据使用</span>
+              </div>
+              <label>
+                <input id="datasetConsentToggle" type="checkbox" />
+                同意把本机匿名对话保存为后续回复训练原始材料
+              </label>
+              <p class="muted">默认关闭；关闭时仍可游玩和查看本机历史。</p>
+            </section>
+
             <section class="panel">
               <div class="panel-title">
                 <span>当前场景</span>
@@ -166,6 +189,7 @@
             <section class="panel compact">
               <h2>裁判评语</h2>
               <p id="verdictText" class="muted">发出第一句后，这里会显示裁判判断。</p>
+              <p id="scoreBreakdownText" class="muted">评分会拆成安全闸门、回复质量和关系变化。</p>
             </section>
 
             <section class="panel compact">
@@ -182,7 +206,10 @@
               <strong>历史记录</strong>
               <span>每局 10 次对话后的分数和称号</span>
             </div>
-            <button id="refreshHistoryButton" class="icon-button" type="button">刷新</button>
+            <div class="panel-actions" aria-label="历史操作">
+              <button id="refreshHistoryButton" class="icon-button" type="button">刷新</button>
+              <button id="clearHistoryButton" class="icon-button" type="button">清空</button>
+            </div>
           </header>
 
           <div id="historyList" class="history-list">

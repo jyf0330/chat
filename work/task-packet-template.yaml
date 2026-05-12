@@ -1,0 +1,83 @@
+version: "1.0"
+name: "relationship_chat_task_packet"
+description: "Relationship-chat 项目的轻量任务包模板。用于开工前固定边界、验收和验证模式。"
+
+task:
+  task_id: "TASK-001"
+  title: ""
+  owner: "codex"
+  priority: "P0 | P1 | P2"
+  status: "todo | in_progress | review | test | done | blocked"
+
+  background: |
+    为什么要做这个任务。只写和本轮目标有关的背景。
+
+  goal: |
+    本轮要达成的可验证结果。
+
+  scope:
+    include:
+      - ""
+    exclude:
+      - "不做范围外重构"
+      - "不改无关数据和日志"
+      - "不引入新依赖，除非任务明确要求"
+
+  allowed_files:
+    - "scripts/**"
+    - "web/relationship-chat/**"
+    - "data/**"
+    - "docs/**"
+    - "output/**"
+
+  forbidden_files:
+    - ".env"
+    - "secrets"
+    - "deployment credentials"
+    - "unrelated modules"
+
+  file_ownership:
+    notes:
+      - "多人并行时，同一个核心文件只能一个任务负责。"
+      - "共享接口或评分契约变更必须先明确验收标准。"
+    locked_files: []
+
+  acceptance_criteria:
+    - ""
+
+  verification:
+    mode: "unit_fixture | local_api_smoke | browser_ui | live_external_service"
+    commands:
+      typecheck: "npm run typecheck"
+      test: "npm test"
+      dev: "npm run dev:web"
+    evidence_required:
+      - "命令和结果摘要"
+      - "输出 artifact 路径"
+      - "如果是浏览器验证，提供截图、视频或 trace 路径"
+      - "如果是 live DeepSeek，提供 raw log 或 per-game log 路径"
+
+  live_deepseek_rules:
+    required_when:
+      - "用户可见 gameplay"
+      - "跑真实数据"
+      - "评分验证"
+      - "浏览器录屏"
+      - "并发玩家验证"
+    must_not:
+      - "设置 RELATIONSHIP_CHAT_TEST_SCORING_SEQUENCE"
+      - "用 mock 或 fixture 冒充 live"
+      - "用 route intercept 冒充真实 /api/simulate"
+      - "把 direct function call 当 API 玩家"
+
+  rollback_plan:
+    - "说明撤回本任务时要恢复哪些文件。"
+    - "说明是否涉及生成数据、SQLite、输出目录或外部副作用。"
+
+  final_report_required:
+    - "修改文件列表"
+    - "核心实现说明"
+    - "验证模式"
+    - "验证命令和结果"
+    - "证据路径"
+    - "剩余风险或 blocker"

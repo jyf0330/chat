@@ -185,6 +185,18 @@ export class RelationshipChatStore {
     };
   }
 
+  deleteSessionForVisitor(visitorId: string, sessionId: string): boolean {
+    const result = this.db
+      .prepare("DELETE FROM sessions WHERE visitor_id = ? AND id = ?")
+      .run(visitorId, sessionId);
+    return Number(result.changes) > 0;
+  }
+
+  clearHistoryForVisitor(visitorId: string): number {
+    const result = this.db.prepare("DELETE FROM sessions WHERE visitor_id = ?").run(visitorId);
+    return typeof result.changes === "bigint" ? Number(result.changes) : result.changes;
+  }
+
   getHistory(visitorId: string, limit = 30) {
     const rows = this.db
       .prepare(
