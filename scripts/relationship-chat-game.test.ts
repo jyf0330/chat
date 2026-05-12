@@ -228,6 +228,117 @@ test("gives ideal replies a high score and severe boundary breaks a heavy penalt
   assert.equal(lowScore.rounds[0].score_delta, -20);
 });
 
+test("separates reply quality from relationship delta in each round", () => {
+  const state = applyGameRound(
+    createInitialGameState(),
+    {
+      boundary_score: 5,
+      pressure_score: 5,
+      trust_score: 5,
+      empathy_score: 5,
+      relevance_score: 5,
+      risk_score: 5,
+      risk_level_after: "low",
+      verdict: "尊重边界，明显降压。",
+    },
+    { userReply: "我明白，我不催你，你愿意的时候再说就好。" },
+  );
+
+  assert.equal(state.rounds[0].score_breakdown?.schema_version, "relationship_game_scoring_v2");
+  assert.equal(state.rounds[0].score_breakdown?.safety_gate, "clear");
+  assert.equal(state.rounds[0].score_breakdown?.reply_quality_score, 100);
+  assert.equal(state.rounds[0].score_breakdown?.reply_quality_level, "excellent");
+  assert.equal(state.rounds[0].score_breakdown?.relationship_delta_score, 12);
+  assert.equal(state.rounds[0].score_breakdown?.score_delta, 12);
+});
+
+test("programmatic safety gate overrides a model-positive dangerous reply", () => {
+  const state = applyGameRound(
+    createInitialGameState(),
+    {
+      boundary_score: 4,
+      pressure_score: 4,
+      trust_score: 4,
+      empathy_score: 3,
+      relevance_score: 4,
+      risk_score: 4,
+      risk_level_after: "low",
+      evidence: ["模型误判成温和推进。"],
+      verdict: "看起来还可以。",
+    },
+    { userReply: "你要是敢拉黑我，我就去你公司堵你。" },
+  );
+
+  assert.equal(state.rounds[0].score_breakdown?.safety_gate, "blocked");
+  assert.deepEqual(state.rounds[0].score_breakdown?.applied_adjustments, ["blocked_safety_floor"]);
+  assert.equal(state.rounds[0].score_breakdown?.reply_quality_score, 0);
+  assert.equal(state.rounds[0].score_delta, -20);
+  assert.equal(state.score, -20);
+});
+
+test("evidence-score conflicts cannot produce a positive relationship delta", () => {
+  const state = applyGameRound(createInitialGameState(), {
+    boundary_score: 3,
+    pressure_score: 3,
+    trust_score: 3,
+    empathy_score: 2,
+    relevance_score: 4,
+    risk_score: 4,
+    risk_level_after: "low",
+    evidence: ["用户持续施压并无视拒绝。"],
+    verdict: "风险升高，需要停止推进。",
+  });
+
+  assert.equal(state.rounds[0].score_breakdown?.evidence_conflict, true);
+  assert.equal(state.rounds[0].score_breakdown?.safety_gate, "high_risk");
+  assert.equal(state.rounds[0].score_breakdown?.relationship_delta_score, -15);
+  assert.equal(state.rounds[0].score_delta, -15);
+});
+
+test("negated safety evidence does not trigger the programmatic high-risk gate", () => {
+  const state = applyGameRound(
+    createInitialGameState(),
+    {
+      boundary_score: 4,
+      pressure_score: 4,
+      trust_score: 4,
+      empathy_score: 3,
+      relevance_score: 4,
+      risk_score: 4,
+      risk_level_after: "low",
+      evidence: ["用户以轻松玩笑的方式回应，没有施加压力或负面情绪", "用户没有指责或攻击，情绪积极"],
+      verdict: "用户回复轻松幽默，承接了之前的约定，氛围良好，无风险",
+    },
+    { userReply: "嘿嘿，这可是你说的哦，那我可记住了，明天要是再看不到你人，夜宵就从后天开始算起~" },
+  );
+
+  assert.equal(state.rounds[0].score_breakdown?.evidence_conflict, false);
+  assert.equal(state.rounds[0].score_breakdown?.safety_gate, "clear");
+  assert.equal(state.rounds[0].score_delta > 0, true);
+});
+
+test("playful low-risk penalties are not treated as explicit blocked language", () => {
+  const state = applyGameRound(
+    createInitialGameState(),
+    {
+      boundary_score: 4,
+      pressure_score: 4,
+      trust_score: 4,
+      empathy_score: 3,
+      relevance_score: 4,
+      risk_score: 4,
+      risk_level_after: "low",
+      evidence: ["用户语气轻松，带有调侃和期待，没有施加压力或负面情绪"],
+      verdict: "用户没有出现辱骂、攻击、威胁或情绪勒索，可继续推进对话。",
+    },
+    { userReply: "哼，你攻略背得滚瓜烂熟，那我明天可得好好考考你，答不上来就罚你多打两局~" },
+  );
+
+  assert.equal(state.rounds[0].score_breakdown?.safety_gate, "clear");
+  assert.equal(state.rounds[0].score_breakdown?.applied_adjustments.length, 0);
+  assert.equal(state.rounds[0].score_delta > 0, true);
+});
+
 test("ends a game at 10 player turns", () => {
   let state = createInitialGameState();
   for (let index = 0; index < 10; index += 1) {

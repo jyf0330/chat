@@ -30,6 +30,30 @@ export type NormalizedJudge = {
   verdict: string;
 };
 
+export type SafetyGateLevel = "clear" | "caution" | "high_risk" | "blocked";
+export type ReplyQualityLevel = "unsafe" | "weak" | "acceptable" | "good" | "excellent";
+
+export type ScoreBreakdown = {
+  schema_version: "relationship_game_scoring_v2";
+  safety_gate: SafetyGateLevel;
+  safety_reasons: string[];
+  reply_quality_score: number;
+  reply_quality_level: ReplyQualityLevel;
+  relationship_delta_score: number;
+  raw_score: number;
+  score_delta: number;
+  evidence_conflict: boolean;
+  applied_adjustments: string[];
+  dimension_weights: {
+    boundary: number;
+    risk: number;
+    pressure: number;
+    trust: number;
+    empathy: number;
+    relevance: number;
+  };
+};
+
 export type GameRound = {
   turn: number;
   user_reply?: string;
@@ -40,6 +64,7 @@ export type GameRound = {
   score_after: number;
   title_after: string;
   judge: NormalizedJudge;
+  score_breakdown?: ScoreBreakdown;
   verdict: string;
 };
 
@@ -266,15 +291,16 @@ export function applyGameRound(
   if (state.is_complete) return state;
 
   const judge = normalizeJudge(judgeInput);
-  const scoreBefore = state.score;
-  const rawScore = calculateRawScore(judge);
-  const scoreDelta = calculateScoreDelta(state, judge);
-  const displayScore = scoreDelta;
-  const scoreAfter = calculateScoreAfter(state, judge);
-  const turn = state.turn_count + 1;
-  const highestScore = Math.max(state.highest_score, scoreAfter);
   const userReply = normalizeReplyText(options.userReply);
   const nextSuggestion = normalizeReplyText(options.nextSuggestion);
+  const scoreBefore = state.score;
+  const scoreBreakdown = buildScoreBreakdown(state, judge, userReply);
+  const rawScore = scoreBreakdown.raw_score;
+  const scoreDelta = scoreBreakdown.score_delta;
+  const displayScore = scoreDelta;
+  const scoreAfter = clampScore(state.score + scoreDelta);
+  const turn = state.turn_count + 1;
+  const highestScore = Math.max(state.highest_score, scoreAfter);
   const completionReason = completionReasonFor(turn, scoreAfter, state, userReply, nextSuggestion);
   const rounds = [
     ...state.rounds,
@@ -288,6 +314,7 @@ export function applyGameRound(
       score_after: scoreAfter,
       title_after: titleForScore(scoreAfter),
       judge,
+      score_breakdown: scoreBreakdown,
       verdict: judge.verdict,
     },
   ];
@@ -322,6 +349,48 @@ export function calculateScoreAfter(state: GameState, judge: NormalizedJudge) {
   return clampScore(state.score + calculateScoreDelta(state, judge));
 }
 
+export function buildScoreBreakdown(state: GameState, judge: NormalizedJudge, userReply = ""): ScoreBreakdown {
+  const baseRawScore = calculateRawScore(judge);
+  const safetyGate = classifySafetyGate(judge, userReply);
+  const appliedAdjustments: string[] = [];
+  let relationshipDeltaScore = baseRawScore;
+
+  if (safetyGate.level === "blocked" && relationshipDeltaScore > -20) {
+    relationshipDeltaScore = -20;
+    appliedAdjustments.push("blocked_safety_floor");
+  } else if (safetyGate.level === "high_risk" && relationshipDeltaScore > -15) {
+    relationshipDeltaScore = -15;
+    appliedAdjustments.push("high_risk_safety_floor");
+  } else if (safetyGate.level === "caution" && relationshipDeltaScore > 2) {
+    relationshipDeltaScore = 2;
+    appliedAdjustments.push("caution_positive_cap");
+  }
+
+  const scoreDelta =
+    relationshipDeltaScore <= 0 ? relationshipDeltaScore : Math.max(1, Math.round(relationshipDeltaScore * positiveScoreMultiplier(state.score)));
+
+  return {
+    schema_version: "relationship_game_scoring_v2",
+    safety_gate: safetyGate.level,
+    safety_reasons: safetyGate.reasons,
+    reply_quality_score: calculateReplyQualityScore(judge, safetyGate.level),
+    reply_quality_level: qualityLevelForJudge(judge, safetyGate.level),
+    relationship_delta_score: relationshipDeltaScore,
+    raw_score: relationshipDeltaScore,
+    score_delta: scoreDelta,
+    evidence_conflict: hasEvidenceConflict(judge, userReply),
+    applied_adjustments: appliedAdjustments,
+    dimension_weights: {
+      boundary: 0.3,
+      risk: 0.2,
+      pressure: 0.15,
+      trust: 0.15,
+      empathy: 0.15,
+      relevance: 0.05,
+    },
+  };
+}
+
 export function calculateRawScore(judge: NormalizedJudge) {
   const weightedScore =
     judge.boundary_score * 0.3 +
@@ -354,6 +423,82 @@ function positiveScoreMultiplier(scoreBefore: number) {
   if (scoreBefore < 70) return 0.85;
   if (scoreBefore < 90) return 0.6;
   return 0.35;
+}
+
+function calculateReplyQualityScore(judge: NormalizedJudge, safetyGate: SafetyGateLevel) {
+  if (safetyGate === "blocked") return 0;
+  if (safetyGate === "high_risk") return Math.min(20, scaledQualityScore(judge));
+  if (safetyGate === "caution") return Math.min(55, scaledQualityScore(judge));
+  return scaledQualityScore(judge);
+}
+
+function scaledQualityScore(judge: NormalizedJudge) {
+  const weighted =
+    judge.boundary_score * 0.25 +
+    judge.risk_score * 0.2 +
+    judge.pressure_score * 0.15 +
+    judge.trust_score * 0.15 +
+    judge.empathy_score * 0.15 +
+    judge.relevance_score * 0.1;
+  return clampNumber(Math.round(((weighted + 5) / 10) * 100), 0, 100);
+}
+
+function qualityLevelForJudge(judge: NormalizedJudge, safetyGate: SafetyGateLevel): ReplyQualityLevel {
+  const score = calculateReplyQualityScore(judge, safetyGate);
+  if (safetyGate === "blocked" || safetyGate === "high_risk") return "unsafe";
+  if (score < 40) return "weak";
+  if (score < 65) return "acceptable";
+  if (score < 85) return "good";
+  return "excellent";
+}
+
+function classifySafetyGate(judge: NormalizedJudge, userReply: string) {
+  const reasons: string[] = [];
+  const text = `${userReply}\n${stripNegatedSafetyEvidence(`${judge.evidence.join("\n")}\n${judge.verdict}`)}`;
+  const explicitBlockedPattern = /威胁|恐吓|骚扰|跟踪|堵你|堵门|开盒|查你|人肉|绕过拉黑|换号联系|死给你看|自杀|自残|弄死|杀了|不让你走|必须见我|一直问到|一直缠|辱骂|攻击/;
+
+  if (judge.risk_level_after === "blocked") reasons.push("judge_blocked");
+  if (explicitBlockedPattern.test(text)) reasons.push("explicit_high_risk_language");
+  if (judge.boundary_score <= -4) reasons.push("boundary_score_severe");
+  if (judge.risk_score <= -4) reasons.push("risk_score_severe");
+
+  if (reasons.length) {
+    return {
+      level: judge.risk_level_after === "blocked" || reasons.includes("explicit_high_risk_language") ? "blocked" as const : "high_risk" as const,
+      reasons,
+    };
+  }
+
+  if (judge.risk_level_after === "high") reasons.push("judge_high_risk");
+  if (hasEvidenceConflict(judge, userReply)) reasons.push("evidence_score_conflict");
+  if (reasons.length) return { level: "high_risk" as const, reasons };
+
+  if (judge.boundary_score < 0 || judge.risk_score < 0 || judge.pressure_score < 0) {
+    return { level: "caution" as const, reasons: ["negative_boundary_risk_or_pressure"] };
+  }
+
+  return { level: "clear" as const, reasons: [] };
+}
+
+function hasEvidenceConflict(judge: NormalizedJudge, userReply: string) {
+  const text = `${userReply}\n${stripNegatedSafetyEvidence(`${judge.evidence.join("\n")}\n${judge.verdict}`)}`;
+  const negativeEvidencePattern = /越界|辱骂|攻击|施压|压力|纠缠|威胁|骚扰|无视拒绝|风险升高|需道歉|停止推进|不要继续|高风险|危险/;
+  if (!negativeEvidencePattern.test(text)) return false;
+  const rawSum =
+    judge.boundary_score +
+    judge.pressure_score +
+    judge.trust_score +
+    judge.empathy_score +
+    judge.relevance_score +
+    judge.risk_score;
+  return rawSum >= 0 || judge.boundary_score > 0 || judge.risk_score > 0 || judge.trust_score > 0;
+}
+
+function stripNegatedSafetyEvidence(text: string) {
+  const safetyTerms = "越界|辱骂|攻击|威胁|纠缠|风险升高|停止推进|需道歉|无视拒绝|情绪勒索|强迫|强行|施压|施加压力|压力|持续追问|高风险|危险";
+  return text
+    .replace(new RegExp(`(?:没有出现|没有|未出现|未|并非|不是|不含|不包含|无(?!视))[^。；\\n]*(?:${safetyTerms})[^。；\\n]*`, "g"), "")
+    .replace(/无风险|低风险|风险低|没有风险/g, "");
 }
 
 export function normalizeGameState(input: GameState | undefined): GameState {

@@ -144,6 +144,16 @@
         gap: 8px;
       }
 
+      .auth-row {
+        display: grid;
+        gap: 6px;
+      }
+
+      .auth-row label {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
       .source-actions {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -451,14 +461,18 @@
       <aside>
         <section class="head">
           <h1>数据管理员</h1>
-          <p class="muted">加载任意原始 JSON，自动生成左侧 1-N 数据面板。</p>
+          <p class="muted">通过管理员接口加载 review JSON，自动生成左侧 1-N 数据面板。</p>
           <div id="summaryGrid" class="summary-grid"></div>
         </section>
 
         <section class="source-box">
           <div class="source-row">
-            <input id="sourceInput" value="deepseek-50x10-live.json" aria-label="JSON 路径" />
+            <input id="sourceInput" value="output/deepseek-three-layer-live/deepseek-three-layer-latest.json" aria-label="JSON 路径" />
             <button id="loadButton" type="button">加载</button>
+          </div>
+          <div class="auth-row">
+            <label for="tokenInput">管理员 token</label>
+            <input id="tokenInput" type="password" autocomplete="off" placeholder="Bearer token" aria-label="管理员 token" />
           </div>
           <div class="source-actions">
             <label class="file-button">
@@ -497,7 +511,7 @@
         <section id="content" class="content">
           <div class="empty">
             <h2>加载原始 JSON</h2>
-            <p class="muted">默认会读取同目录的 deepseek-50x10-live.json。以后新的原始数据可以直接上传，或把 JSON 放到同目录后填文件名加载。</p>
+            <p class="muted">同目录 JSON 可直接读取；output 下的服务器 artifact 需要管理员 token，也可以上传本地 JSON 做临时查看。</p>
           </div>
         </section>
       </main>
@@ -512,6 +526,7 @@
       };
 
       const sourceInput = document.getElementById("sourceInput");
+      const tokenInput = document.getElementById("tokenInput");
       const loadButton = document.getElementById("loadButton");
       const resetButton = document.getElementById("resetButton");
       const fileInput = document.getElementById("fileInput");
@@ -527,7 +542,7 @@
 
       loadButton.addEventListener("click", () => loadFromPath(sourceInput.value.trim()));
       resetButton.addEventListener("click", () => {
-        sourceInput.value = "deepseek-50x10-live.json";
+        sourceInput.value = "output/deepseek-three-layer-live/deepseek-three-layer-latest.json";
         loadFromPath(sourceInput.value);
       });
       fileInput.addEventListener("change", loadFromFile);
@@ -538,6 +553,11 @@
         document.querySelectorAll("details.raw-fields[open]").forEach((node) => node.removeAttribute("open"));
       });
 
+      const urlSource = new URLSearchParams(window.location.search).get("source");
+      if (urlSource) {
+        sourceInput.value = urlSource;
+      }
+
       if (window.__DEEPSEEK_ADMIN_DATA__) {
         loadPayload(window.__DEEPSEEK_ADMIN_DATA__, window.__DEEPSEEK_ADMIN_SOURCE__ || "embedded JSON");
       } else {
@@ -546,6 +566,42 @@
 
       async function loadFromPath(path) {
         if (!path) return;
+        if (canLoadDirectJson(path)) {
+          await loadStaticJsonPath(path);
+          return;
+        }
+        const token = tokenInput.value.trim();
+        if (!token) {
+          setStatus("请输入管理员 token 后再加载服务器 artifact。", true);
+          return;
+        }
+        try {
+          setStatus("正在加载 " + path);
+          const artifactUrl = "/api/admin-artifact?path=" + encodeURIComponent(path);
+          const response = await fetch(artifactUrl, {
+            cache: "no-store",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          const payload = await response.json();
+          loadPayload(payload, path);
+        } catch (error) {
+          setStatus("加载失败：" + error.message + "。确认 token、path 和 /api/admin-artifact 可用，或改用上传 JSON。", true);
+        }
+      }
+
+      function canLoadDirectJson(path) {
+        try {
+          const url = new URL(path, window.location.href);
+          return url.origin === window.location.origin && url.pathname.endsWith(".json") && !path.startsWith("output/");
+        } catch {
+          return false;
+        }
+      }
+
+      async function loadStaticJsonPath(path) {
         try {
           setStatus("正在加载 " + path);
           const response = await fetch(path, { cache: "no-store" });
@@ -553,7 +609,7 @@
           const payload = await response.json();
           loadPayload(payload, path);
         } catch (error) {
-          setStatus("加载失败：" + error.message + "。可以改用上传 JSON。", true);
+          setStatus("加载失败：" + error.message + "。确认 JSON 文件在当前网页目录，或改用上传 JSON / 管理员 token。", true);
         }
       }
 
@@ -619,11 +675,16 @@
         ].join("");
         pageTitle.textContent = "原始数据查看";
         pageSubTitle.textContent = state.sourceName;
+        const gateLabel = state.payload?.summary?.pass === undefined ? "READY" : state.payload.summary.pass ? "PASS" : "FAIL";
+        const gateType = state.payload?.summary?.pass === undefined ? "" : state.payload.summary.pass ? "good" : "bad";
         kpis.innerHTML = [
           pill("数据 " + state.scenarios.length),
           pill("turns " + totalTurns()),
           pill("source " + state.sourceName),
-          pill(state.payload?.summary?.pass ? "PASS" : "READY", state.payload?.summary?.pass ? "good" : ""),
+          state.payload?.summary?.response_layer_mode ? pill("layer " + state.payload.summary.response_layer_mode, state.payload.summary.response_layer_mode === "three_layer" ? "good" : "bad") : "",
+          state.payload?.summary?.non_live_input_count !== undefined ? pill("non-live " + state.payload.summary.non_live_input_count, state.payload.summary.non_live_input_count ? "bad" : "good") : "",
+          state.payload?.summary?.missing_three_layer_count !== undefined ? pill("missing-layer " + state.payload.summary.missing_three_layer_count, state.payload.summary.missing_three_layer_count ? "bad" : "good") : "",
+          pill(gateLabel, gateType),
         ].join("");
       }
 
@@ -680,6 +741,9 @@
         const input = turn.deepseek_input || turn.input || {};
         const userReply = turn.actual_user_reply || input.user_reply || turn.user_reply || turn.text || "";
         const targetReply = output.target_reply || turn.target_reply || "";
+        const responseLayerMode = output.response_layer_mode || turn.response_layer_mode || "";
+        const inputSource = turn.input_source || "";
+        const layerSummary = summarizeLayers(output.deepseek_layers || turn.deepseek_layers);
         const qualityIssues = Object.entries(turn.quality || {})
           .filter(([, value]) => value)
           .map(([key]) => key);
@@ -689,6 +753,9 @@
           "</strong>" +
           pill("HTTP " + escapeHtml(turn.http_status ?? "-")) +
           pill(escapeHtml(turn.elapsed_ms ?? "-") + "ms") +
+          (inputSource ? pill("input " + inputSource, inputSource === "live_deepseek_human_simulator" ? "good" : "bad") : "") +
+          (responseLayerMode ? pill("layer " + responseLayerMode, responseLayerMode === "three_layer" ? "good" : "bad") : "") +
+          (turn.matched_deepseek_recommendation !== undefined ? pill("match-rec " + turn.matched_deepseek_recommendation, turn.matched_deepseek_recommendation ? "bad" : "good") : "") +
           pill(qualityIssues.length ? qualityIssues.join(", ") : "quality OK", qualityIssues.length ? "bad" : "good") +
           '</summary><div class="io">' +
           box("真人输入 user_reply", userReply, "user") +
@@ -697,10 +764,29 @@
           box("recommended_reply_80", output.recommended_reply_80 || output.recommended_reply || "") +
           box("perfect_reply_100", output.perfect_reply_100 || "") +
           box("next_suggestion", output.next_suggestion || "") +
+          (layerSummary ? box("三层请求 trace", layerSummary) : "") +
           '</div><div class="raw"><details class="raw-fields"><summary>DeepSeek input / output raw fields</summary><pre>' +
-          escapeHtml(JSON.stringify({ input, output, game: turn.game, quality: turn.quality, request_contract: turn.request_contract, raw_response_meta: turn.raw_response_meta }, null, 2)) +
+          escapeHtml(JSON.stringify({ input, output, game: turn.game, quality: turn.quality, request_contract: turn.request_contract, raw_response_meta: turn.raw_response_meta, deepseek_layers: output.deepseek_layers || turn.deepseek_layers, layer_outputs: output.layer_outputs || turn.layer_outputs }, null, 2)) +
           "</pre></details></div></details>"
         );
+      }
+
+      function summarizeLayers(layers) {
+        if (!layers || typeof layers !== "object") return "";
+        return ["target_judge", "advisor", "copywriter"]
+          .map((name) => {
+            const item = layers[name] || {};
+            const contract = item.request_contract || {};
+            const meta = item.raw_response_meta || {};
+            const usage = meta.usage || {};
+            return [
+              name,
+              contract.model || "-",
+              "temp " + (contract.temperature ?? "-"),
+              "tokens " + (usage.total_tokens ?? "-"),
+            ].join(" · ");
+          })
+          .join("\n");
       }
 
       function renderRawPayload() {
